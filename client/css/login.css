@@ -1,0 +1,135 @@
+@charset "UTF-8";
+#app {
+    background-color: #ffffff;
+    padding: .53rem;
+}
+
+.title {
+    font-size: .4rem;
+    color: #425883;
+    text-align: center;
+    letter-spacing: .52rem;
+    text-indent: .52rem;
+    margin-bottom: .18rem;
+    font-weight: 600;
+}
+
+.login h4 {
+    font-size: .28rem;
+    color: #606065;
+    height: .7rem;
+    line-height: .7rem;
+    display: block;
+}
+
+.login .login-btn {
+    border: 1px solid #ff9fc0;
+    background-color: #fff;
+    border-radius: .1rem;
+    width: 2.48rem;
+    height: .73rem;
+    outline: none;
+    color: #93939c;
+    font-size: .24rem;
+}
+
+.login .login-btn.sel {
+    color: #ff4081;
+}
+
+.login .login-input {
+    border: 1px solid #ff9fc0;
+    background-color: #fff;
+    border-radius: .1rem;
+    height: .73rem;
+    line-height: .73rem;
+    font-size: .24rem;
+    padding: 0 .35rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.login .login-phone-num {
+    width: 100%;
+}
+
+.login .login-phone-code-num {
+    width: 3.13rem;
+}
+
+.login .login-phone-code-btn {
+    width: 2.03rem;
+    border: 1px solid #ff4081;
+}
+
+.login .login-code-img {
+    /*background: url("../images/login-code.png") no-repeat center;*/
+    /*-webkit-background-size: cover;*/
+    /*background-size: cover;*/
+    overflow: hidden;
+}
+
+.login .login-code-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.login-other-way {
+    margin-bottom: .38rem;
+}
+
+.login.login-other-way h4 {
+    line-height: .92rem;
+    text-align: center;
+    height: .92rem;
+    display: block;
+}
+
+.login-other-way .login-wechat, .login-other-way .login-qq {
+    width: 50%;
+    text-align: center;
+    font-size: .2rem;
+    color: #435c72;
+}
+
+.login-other-way .login-wechat img, .login-other-way .login-qq img {
+    width: .8rem;
+    height: .8rem;
+    margin-bottom: .2rem;
+}
+.login-submit{
+    margin-top: .2rem;
+}
+.login-submit input {
+    height: .74rem;
+    width: 100%;
+    border-radius: .15rem;
+    background-color: #ff4081;
+    color: #ffffff;
+    border: 1px solid #db1d5e;
+    outline: none;
+    font-size: .24rem;
+    text-indent: .58rem;
+    letter-spacing: .58rem;
+}
+
+.register {
+    text-align: right;
+    height: .45rem;
+    color: #93939c;
+    font-size: .2rem;
+    margin-top: .26rem;
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+
+

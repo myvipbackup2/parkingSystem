@@ -1,0 +1,1120 @@
+@charset "UTF-8";
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    overflow: hidden;
+    _zoom: 1;
+}
+
+html {
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+    font-size: 11px;
+    color: #000;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #f7f9fb
+}
+
+body {
+    font: 400 14px/1.5 Arial, "Lucida Grande", Verdana, "Microsoft YaHei", hei;
+}
+
+.house_detail {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+/*焦点图*/
+.swipe {
+    width: 6.4rem;
+    height: 3.6rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.swipe img {
+    width: 100%;
+    height: 100%;
+}
+
+/*喜欢*/
+.favorite {
+    position: absolute;
+    width: 27px;
+    height: 25px;
+    background: url("../images/house_detail/favorite.svg") no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    right: 17px;
+    top: 17px;
+    z-index: 999;
+}
+
+.favorite.sel {
+    background: url("../images/house_detail/favorite-sel.svg") no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+/*标题*/
+.house-title {
+    /*height: 40px;*/
+    /*padding: .1rem;*/
+    line-height: 60px;
+}
+
+.base-info {
+    position: relative;
+}
+
+.base-info h2 {
+    margin-right: 75px;
+    margin-left: 15px;
+    font-size: 17px;
+    font-weight: 500;
+    height: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.base-info .price {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+.base-info .price em {
+    font-size: 22px;
+    color: #ff4081;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.base-info .price sub {
+    font-size: 15px;
+    line-height: 1;
+    margin-right: 2px;
+    vertical-align: 1px;
+}
+
+.base-info .price em i {
+    font-size: 14px;
+    color: #888;
+}
+
+.mod-support {
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.mod-support .title {
+    font-size: 16px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.mod-support ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.mod-support ul > li {
+    display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    white-space: nowrap;
+    font-size: 12px;
+    position: relative;
+    padding-top: 25px;
+}
+
+.mod-support ul > li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/house_detail/management_support.png');
+    background-repeat: no-repeat;
+    background-size: auto 20px;
+}
+
+.mod-support ul > li [class^="iconfont"] {
+    vertical-align: -1px;
+}
+
+.s-wl:before {
+    background-position: 0 0;
+}
+
+.s-xc:before {
+    background-position: -21px 0;
+}
+
+.s-hx:before {
+    background-position: -42px 0;
+}
+
+.s-mj:before {
+    background-position: -63px 0;
+}
+
+.s-xr:before {
+    background-position: -84px 0;
+}
+
+.s-zf:before {
+    background-position: -105px 0;
+}
+
+.mod-management {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.mod-management .icon {
+    margin: 15px 0 0;
+}
+
+.mod-management .icon img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.mod-management .icon span {
+    display: block;
+    font-size: 12px;
+    color: #999;
+}
+
+.mod-management .title {
+    margin: 10px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.mod-management .link {
+    margin: 10px 0;
+    position: relative;
+}
+
+.mod-management .link.tel-im:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    bottom: 10px;
+    width: 1px;
+    background: #e9e9e9;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(.5);
+}
+
+.mod-management .link a, .mod-management .link span {
+    display: inline-block;
+    position: relative;
+    padding-top: 45px;
+    width: 45%;
+    font-size: 12px;
+    color: #ff4081;
+    outline: none;
+}
+
+.mod-management .link a:before, .mod-management .link span:before {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 50%;
+    margin-left: -20px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #e9e9e9;
+    border-radius: 40px;
+}
+
+.mod-management .link a:after, .mod-management .link span:after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    margin-left: -7px;
+    width: 15px;
+    height: 15px;
+    background: url('../images/house_detail/tel.png');
+    background-size: auto 15px;
+}
+
+.mod-management .link a:after {
+    background-position: -16px 0;
+}
+
+.fd {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.hotline {
+    line-height: 20px;
+}
+
+/*点评*/
+.mod-comments .no-item {
+    text-align: left;
+    line-height: 40px;
+}
+
+.mod-comments .bd {
+    padding: 0 15px;
+    font-size: 12px;
+}
+
+.mod-comments .score {
+    margin: 30px 0 20px;
+    text-align: center;
+    line-height: 1;
+    color: #888;
+}
+
+.mod-comments .score > li {
+    display: inline-block;
+    padding: 0 15px;
+    border-left: 1px solid #cbcaca;
+}
+
+.mod-comments .score > li:first-child {
+    border-left: 0
+}
+
+.mod-comments .score em {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Helvetica_Neue_Thin, Arial, "Lucida Grande", Verdana, "Microsoft YaHei", hei;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #000;
+}
+
+.mod-comments .quote {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mod-comments .quote-content {
+    display: inline-block;
+    padding: 0 18px;
+    position: relative;
+    vertical-align: top;
+}
+
+.mod-comments .quote-content:before, .mod-comments .quote-content:after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 11px;
+    background: url('../images/house_detail/icon_quote.png') no-repeat 0 0;
+    background-size: auto 22px;
+}
+
+.mod-comments .quote-content:before {
+    left: 0;
+    top: 0;
+}
+
+.mod-comments .quote-content:after {
+    right: 0;
+    bottom: 0;
+    background-position: 0 100%;
+}
+
+.mod-comments .quote p {
+    color: #000;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 54px;
+    word-break: break-all;
+}
+
+.mod-comments .button, .mod-garden .button {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button-orange-l {
+    margin: 20px 0 30px;
+    text-align: center;
+}
+
+.button-orange-l span, .button-orange-l a {
+    display: inline-block;
+    width: 115px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #333;
+    border: 1px solid #888;
+}
+
+/*入住退房*/
+.mod-house.DatePicker {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.mod-garden .button {
+    margin: 15px 0;
+}
+
+.mod-house {
+    border-bottom: 0;
+}
+
+.mod-house .date {
+    padding: 0 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.mod-house .date .edi {
+    margin: 30px 0 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.mod-house .date .edi span:first-child {
+    margin-right: 20px;
+}
+
+.mod-house .product-list > .panel {
+    position: relative;
+    padding: 0 15px;
+    border-bottom: 1px solid #cbcaca;
+}
+
+#test {
+    width: 100px;
+    height: 50px;
+}
+
+/*订购选项*/
+.product-list {
+    background-color: #fff;
+    border-top: 1px solid transparent;
+}
+
+.product-list > .panel {
+    position: relative;
+    padding: 0 15px;
+    border-bottom: 1px solid #cbcaca;
+}
+
+.product-list .panel-hd {
+    margin: 15px 0;
+    background-color: #fff;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.product-list .info {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+}
+
+.product-list .service {
+    margin-top: 3px;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 32px;
+}
+
+.product-list .service span {
+    margin-right: 6px;
+    white-space: nowrap;
+}
+
+.product-list .info .i-arrow-b {
+    display: inline-block;
+    margin-top: 5px;
+    padding-right: 32px;
+    line-height: 1;
+    color: #888;
+}
+
+.product-list h3 {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-list h3 span {
+    float: right;
+    color: #888;
+}
+
+.product-list h3 strong {
+    font-weight: 400;
+}
+
+.product-list h3 em {
+    color: #ff4081;
+}
+
+.product-list h3 i {
+    margin-right: 5px;
+    font-size: 12px;
+    color: #f90;
+}
+
+.product-list h3 .home-full {
+    color: #999;
+}
+
+.product-list h3 .home-full b {
+    font-weight: normal;
+    color: #333;
+}
+
+.folder-title-unfold .i-arrow-b:after {
+    margin-top: -2px;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+.product-list .price {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    text-align: right;
+    font-size: 12px;
+    /*line-height: 1.6rem;*/
+    color: #888;
+    white-space: nowrap;
+}
+
+.product-list .price em {
+    font-size: 20px;
+    font-weight: 400;
+    color: #ff4081;
+}
+
+.product-list .price span {
+    margin-left: 3px;
+}
+
+.product-list .price-member span {
+    color: #ff4081;
+}
+
+.product-list .value i {
+    font-size: 12px;
+    color: #f90;
+}
+
+.product-list .price-promotion {
+    margin-right: 3px;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 14px;
+    vertical-align: 2px;
+    color: #f90
+}
+
+.product-list .price-bestsale {
+    padding: 0 7px;
+    color: #fff;
+    background: #f90;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    vertical-align: 4px
+}
+
+.product-list .book {
+    margin-top: 6px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    width: 100px;
+    float: right;
+}
+
+.product-list .time-spike {
+    font-size: 11px;
+    text-overflow: clip;
+}
+
+.product-list .book.button-gray {
+    color: #0079FF;
+    line-height: 28px;
+    height: 28px;
+    border: 1px solid #0079FF;
+    background-color: #fff;
+}
+
+.product-list .button-gray.needDownApp, .product-list .button-gray.needLogin {
+    color: #fff;
+    background: #4bb9fd;
+    border: 1px solid #4bb9fd;
+}
+
+.product-list .button .active {
+    padding-right: 28px;
+    color: #999;
+    line-height: 20px;
+    height: 20px;
+    background: #fff;
+    border: none;
+    position: relative;
+    top: 10px;
+}
+
+.product-list .button .active.h-light {
+    color: #0079ff;
+}
+
+.product-list .button .book:active {
+    opacity: .8;
+}
+
+.product-list .button .active:after {
+    border-color: #999;
+}
+
+.product-list .button .active.h-light:after {
+    border-color: #0079ff;
+}
+
+.product-list .price .login {
+    font-size: 15px;
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+.product-list .panel-bd {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #888;
+    line-height: 1.4;
+    border-top: 1px dashed #ccc;
+}
+
+.product-list .panel-bd p {
+    margin-top: 3px;
+}
+
+.product-list .panel-bd dl {
+    padding: 3px 0;
+    overflow: hidden;
+}
+
+.product-list .panel-bd dt {
+    float: left;
+    color: #ff4081;
+    min-width: 5em;
+    margin-right: 5px;
+    text-align: right;
+}
+
+.product-list .panel-bd dd {
+    overflow: hidden;
+}
+
+.product-list .no-price {
+    padding: 15px;
+}
+
+.button-orange {
+    color: #fff;
+    background: #ff4081;
+    border: none;
+    outline: none;
+}
+
+/*地图*/
+.title {
+    padding: 12px 15px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+#bMap {
+    height: 3rem;
+    margin-bottom: 12px;
+}
+
+/*房源信息*/
+.mod-house-info {
+    background: #fff;
+    border-top: 1px solid transparent;
+    padding-bottom: 1px;
+}
+
+.mod-house-info h3 {
+    margin: 30px 0 20px;
+    padding: 0 15px;
+    line-height: 1;
+    font-size: 16px;
+    text-align: center;
+}
+
+.mod-house-info .info {
+    max-height: 54px;
+    padding: 0 15px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.mod-facality h3 {
+    margin: 30px 0 20px;
+    line-height: 1;
+    font-size: 16px;
+    text-align: center;
+}
+
+.mod-house-info .mint-popup {
+    width: 80%;
+    height: 60%;
+    overflow: scroll;
+    border-radius: 10px;
+}
+
+/*房屋设施*/
+.mod-facality {
+    padding-bottom: 20px;
+}
+
+.mod-facality h3 {
+    margin: 30px 0 20px;
+    line-height: 1;
+    font-size: 16px;
+    text-align: center;
+}
+
+.service-icons {
+    margin-top: -15px;
+    overflow: hidden;
+}
+
+.icon-facility {
+    float: left;
+    margin-top: 18px;
+    width: 25%;
+    padding-top: 32px;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+
+[class*="icon-facility-"].is-none {
+    color: #c1c1c1;
+    text-decoration: line-through;
+}
+
+[class*="icon-facility-"].is-none:after {
+    opacity: .4;
+}
+
+.icon-facility img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+}
+
+/*
+.icon-facility-none:after {
+    background-image: url(../images/house_detail/no_icon.png);
+    background-size: 100%;
+}
+
+.icon-facility-wifi:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: 0 0;
+}
+
+.icon-facility-hotwater:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -26px 0;
+}
+
+.icon-facility-tv:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -52px 0;
+}
+
+.icon-facility-airconditioner:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -78px 0;
+}
+
+.icon-facility-icebox:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -104px 0;
+}
+
+.icon-facility-washingmachine:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -130px 0;
+}
+
+.icon-facility-heating:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -156px 0;
+}
+
+.icon-facility-kettle:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -182px 0;
+}
+
+.icon-facility-towel:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -208px 0;
+}
+
+.icon-facility-bathtowel:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -234px 0;
+}
+
+.icon-facility-toothbrush:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -260px 0;
+}
+
+.icon-facility-hairandbodylotion:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -286px 0;
+}
+
+.icon-facility-slipper:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -312px 0;
+}
+
+.icon-facility-tissues:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -338px 0;
+}
+
+.icon-facility-independentbathroom:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -364px 0;
+}
+
+.icon-facility-periodhotwater:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -390px 0;
+}
+
+.icon-facility-bathtub:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -416px 0;
+}
+
+.icon-facility-aircleaner:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -442px 0;
+}
+
+.icon-facility-humidifier:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -468px 0;
+}
+
+.icon-facility-electriciron:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -494px 0;
+}
+
+.icon-facility-gasstove:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -520px 0;
+}
+
+.icon-facility-inductioncooking:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -546px 0;
+}
+
+.icon-facility-ricecooker:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -572px 0;
+}
+
+.icon-facility-microwaveoven:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -598px 0;
+}
+
+.icon-facility-cookingpots:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -624px 0;
+}
+
+.icon-facility-tableware:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -650px 0;
+}
+
+.icon-facility-cuttingtool:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -676px 0;
+}
+
+.icon-facility-seasoning:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -702px 0;
+}
+
+.icon-facility-washer:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -728px 0;
+}
+
+.icon-facility-grill:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -754px 0;
+}
+
+.icon-facility-broadband:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -780px 0;
+}
+
+.icon-facility-detergent:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -806px 0;
+}
+
+.icon-facility-soap:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -832px 0;
+}
+
+.icon-facility-karaoke:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -858px 0;
+}
+
+.icon-facility-projector:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -884px 0;
+}
+
+.icon-facility-gameconsole:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -910px 0;
+}
+
+.icon-facility-mahjongmachine:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -936px 0;
+}
+
+.icon-facility-tablesoccer:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -962px 0;
+}
+
+.icon-facility-cleantool:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -988px 0;
+}
+
+.icon-facility-dryingrack:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1014px 0;
+}
+
+.icon-facility-fireextinguisher:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1040px 0;
+}
+
+.icon-facility-firealarm:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1066px 0;
+}
+
+.icon-facility-smartdoorlock:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1092px 0;
+}
+
+.icon-facility-window:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1118px 0;
+}
+
+.icon-facility-hairdryer:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1144px 0;
+}
+
+.icon-facility-accesscontrol:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1170px 0;
+}
+
+.icon-facility-elevator:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1196px 0;
+}
+
+.icon-facility-kitchen:after {
+    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-size: 2494px 24px;
+    background-position: -1222px 0;
+}
+*/
+.mod-service h3 {
+    margin: 20px 0 20px;
+    line-height: 1;
+    font-size: 16px;
+    text-align: center;
+}
+
+.mod-service .list-text + .able-list {
+    margin-top: 10px;
+}
+
+/*提供服务*/
+.list {
+    background-color: #fff;
+    border-top: 1px solid transparent;
+    padding-bottom: 16px;
+}
+
+.support h3 {
+    margin: 20px 0 20px;
+    line-height: 1;
+    font-size: 16px;
+    text-align: center;
+}
+
+.able-list {
+    text-align: center;
+    overflow: hidden;
+}
+
+.able-list > span {
+    margin-left: 35px;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.sale_price {
+    color: #ff4081;
+}
+
+.mint-msgbox-content {
+    text-align: center;
+}
+
+.mint-msgbox-content > span {
+    display: inline-block;
+    width: 38px;
+}
+
+.mint-msgbox {
+    max-height: 80%;
+    overflow: auto;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="悦居租房"/>
+    <meta name="description" content="悦居租房"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/rem.js"></script>
+</head>
+<body>
+<h2 class="title">登录</h2>
+<div class="form">
+    <form action="">
+        <div class="login login-way">
+            <h4>登录方式</h4>
+            <div class="login-box clearfix">
+                <input class="login-btn tab0 fl sel" type="button" value="短信登录">
+                <input class="login-btn tab1 fr" type="button" value="帐号登录">
+            </div>
+        </div>
+        <div class="tab">
+            <div class="tab0">
+                <div class="login login-phone clearfix">
+                    <h4>手机号码:</h4>
+                    <input class="login-input login-phone-num fl" type="number" placeholder="请输入手机号码...">
+                </div>
+                <div class="login login-phone-code">
+                    <h4>手机验证码:</h4>
+                    <div class="login-box clearfix">
+                        <input class="login-input login-phone-code-num fl" type="text" placeholder="请输入手机验证码...">
+                        <input class="login-btn login-phone-code-btn fr" type="button" value="发送验证码">
+                    </div>
+                </div>
+                <div class="login login-code">
+                    <h4>验证码:</h4>
+                    <div class="login-box clearfix">
+                        <input class="login-input login-phone-code-num fl" type="text" placeholder="请输入验证码...">
+                        <input class="login-btn login-phone-code-btn login-code-img fr" type="button">
+                    </div>
+                </div>
+            </div>
+            <div class="tab1 hide">
+                <div class="login login-phone clearfix">
+                    <h4>帐号:</h4>
+                    <input class="login-input login-phone-num fl" type="text" placeholder="请输入帐号...">
+                </div>
+                <div class="login login-phone-code">
+                    <h4>密码:</h4>
+                    <div class="login-box clearfix">
+                        <input class="login-input login-phone-num fl" type="password" placeholder="请输入登录密码...">
+                    </div>
+                </div>
+                <div class="login login-code">
+                    <h4>验证码:</h4>
+                    <div class="login-box clearfix">
+                        <input class="login-input login-phone-code-num fl" type="text" placeholder="请输入验证码...">
+                        <input class="login-btn login-phone-code-btn login-code-img fr" type="button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login login-other-way">
+            <h4>第三方登录</h4>
+            <div class="clearfix">
+                <div class="login-wechat fl">
+                    <a href="#">
+                        <div class="img">
+                            <img src="images/login-wechat.png" alt="">
+                        </div>
+                        <span>微信登录</span>
+                    </a>
+                </div>
+                <div class="login-qq fl">
+                    <div class="img">
+                        <img src="images/login-qq.png" alt="">
+                    </div>
+                    <span>QQ登录</span>
+                </div>
+            </div>
+        </div>
+        <div class="login-submit">
+            <input type="submit" value="登录">
+        </div>
+    </form>
+</div>
+<a class="register" href="#">没有帐号？马上注册!</a>
+<script src="js/zepto.js"></script>
+<script>
+    $(function () {
+        $('.login-box .login-btn.tab0').on('tap',function () {
+            $(this).addClass('sel').siblings().removeClass('sel');
+            $('.tab .tab0').removeClass('hide').siblings().addClass('hide');
+        });
+        $('.login-box .login-btn.tab1').on('tap',function () {
+            $(this).addClass('sel').siblings().removeClass('sel');
+            $('.tab .tab1').removeClass('hide').siblings().addClass('hide');
+        });
+
+    });
+</script>
+</body>
+</html>

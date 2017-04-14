@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 12px "微软雅黑", Arial;
+    background: #efeff4;
+    min-width: 320px;
+    max-width: 640px;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
+}
+
+a, img, button {
+    border: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+ul, li {
+    list-style: none;
+}
+
+em, i {
+    font-style: normal;
+}
+
+.header {
+    background: #393a3e;
+    color: #f5f7f6;
+    height: auto;
+    overflow: hidden;
+}
+
+.gofh {
+    float: left;
+    height: 45px;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+.gofh a {
+    padding-right: 10px;
+    border-right: 1px solid #2e2f33;
+}
+
+.ttwenz h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.ttwenz h5 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6c7071;
+}
+
+.wenx_xx {
+    text-align: center;
+    font-size: 20px;
+    padding: 18px 0;
+}
+
+.wenx_xx .wxzf_price {
+    font-size: 45px;
+}
+
+.skf_xinf {
+    height: 43px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    line-height: 43px;
+    background: #FFF;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.all_w {
+    width: 91.3%;
+    margin: 0 auto;
+}
+
+.skf_xinf .bt {
+    color: #767676;
+    float: left;
+    font-size: 20px;
+}
+
+.fr {
+    float: right;
+    font-size: 20px;
+
+}
+
+.all_w {
+    width: 91.3%;
+    margin: 0 auto;
+}
+
+.ljzf_but {
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    background: #44bf16;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 14px;
+    color: #fff;
+}

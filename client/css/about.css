@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.header img{
+    width: 100%;
+    height: 3.4rem;
+}
+.about-content{
+    padding:0 0.52rem 0 0.5rem ;
+}
+.about-name{
+    font-size:0.32rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-top:0.22rem;
+    text-align: center;
+    font-weight: 600;
+}
+.about-introduce{
+    color:#807f7e;
+    font-size:0.16rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    text-align: center;
+    margin-bottom: 0.15rem;
+}
+.about-info{
+    font-size:0.18rem;
+    color:#213433;
+    line-height: 0.26rem;
+    text-indent: 0.38rem;
+}

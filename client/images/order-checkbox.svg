@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>order-checkbox</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="order-checkbox-sel">
+            <path d="M952,0 L72,0 C32.236,0 0,32.236 0,72 L0,952 C0,991.764 32.236,1024 72,1024 L952,1024 C991.764,1024 1024,991.764 1024,952 L1024,72 C1024,32.236 991.764,0 952,0 Z M960,928 C960,945.673112 945.673112,960 928,960 L96,960 C78.326888,960 64,945.673112 64,928 L64,96 C64,78.326888 78.326888,64 96,64 L928,64 C945.673112,64 960,78.326888 960,96 L960,928 Z" id="Shape" fill="#FF4081"></path>
+            <path d="M330.584,482.232 L444.54,703.44 C444.54,703.44 629.736,253.864 921.748,104.004 C914.644,211.036 886.156,303.828 936,418.008 C807.784,446.528 544.26,767.668 458.796,924.668 C337.712,774.812 195.268,660.64 95.544,624.928 L330.584,482.232 L330.584,482.232 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.message-con{
+    background: #f2f2f2;
+    overflow: hidden;
+}
+.message-item{
+    height: 2.09rem;
+    border-top:1px solid #e1e1e1;
+    border-bottom:1px solid #e1e1e1;
+    margin-bottom: 0.13rem;
+    background: #fff;
+
+}
+.msg-logo{
+    width: 1.4rem;
+    height: 2.09rem;
+
+}
+.msg-logo img{
+    width: 0.75rem;
+    height: 0.75rem;
+    margin:0.31rem 0.3rem 0 0.35rem;
+}
+.msg-detail{
+    width: 4.62rem;
+    padding: 0.25rem 0;
+}
+.msg-title{
+    font-size: 0.26rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+.msg-title h2{
+    float:left;
+    width: 2.7rem;
+}
+.msg-title .msg-date{
+    color:#767171;
+    font-size:0.22rem;
+}
+.msg-info{
+    color:#767171;
+    font-size:0.22rem;
+    line-height: 0.31rem;
+    height: 1.24rem;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 4; /** 显示的行数 **/
+    overflow: hidden;  /** 隐藏超出的内容 **/
+}
+.no-message{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: center;
+    background: #ffffff;
+
+}

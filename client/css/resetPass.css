@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+#app {
+    background-color: #ffffff;
+    padding: 0 .53rem;
+}
+
+
+.title {
+    font-size: .4rem;
+    color: #425883;
+    text-align: center;
+    margin-bottom: .18rem;
+    /*font-weight: 600;*/
+}
+
+.check {
+    margin: .4rem 0 .28rem 0;
+}
+
+.check .title {
+    color: #606065;
+    font-size: .28rem;
+    display: block;
+    text-align: left;
+    margin-bottom: .42rem;
+}
+
+.check .phone {
+    color: #4b4a5a;
+    font-size: .26rem;
+    text-align: center;
+    display: block;
+}
+
+.reset h4 {
+    font-size: .28rem;
+    color: #606065;
+    height: .7rem;
+    line-height: .7rem;
+    display: block;
+}
+
+.reset .reset-btn {
+    border: 1px solid #ff9fc0;
+    background-color: #fff;
+    border-radius: .1rem;
+    width: 2.48rem;
+    height: .73rem;
+    outline: none;
+    color: #93939c;
+    font-size: .24rem;
+}
+
+.reset .reset-input {
+    border: 1px solid #ff9fc0;
+    background-color: #fff;
+    border-radius: .1rem;
+    height: .73rem;
+    line-height: .73rem;
+    font-size: .24rem;
+    padding: 0 .35rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.reset .reset-phone-num {
+    width: 100%;
+}
+
+.reset .reset-phone-code-num {
+    width: 3.13rem;
+}
+
+.reset .reset-phone-code-btn {
+    width: 2.03rem;
+    border: 1px solid #ff4081;
+}
+
+.reset .reset-code-img {
+    background: url("../images/login-code.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.reset-submit{
+    margin-top: 1.26rem;
+}
+
+.reset-submit input {
+    height: .74rem;
+    width: 100%;
+    border-radius: .15rem;
+    background-color: #ff4081;
+    color: #ffffff;
+    border: 1px solid #db1d5e;
+    outline: none;
+    font-size: .24rem;
+    text-indent: .58rem;
+    letter-spacing: .58rem;
+}

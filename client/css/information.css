@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.c-information {
+    padding: 0 0.49rem;
+    background: #fff;
+}
+
+.c-information span {
+    color: #081424;
+
+}
+
+.infor-photo {
+    padding: 0.2rem 0 0.15rem;
+    border-bottom: 0.02rem solid #dddde0;
+
+}
+
+.infor-photo span {
+    float: left;
+    margin-top: 0.45rem;
+    font-size: 0.26rem;
+}
+
+.infor-photo img {
+    width: 0.85rem;
+    height: 0.85rem;
+    float: right;
+
+}
+
+.infor-msg {
+    font-size: 0.26rem;
+    padding: 0.34rem 0;
+    border-bottom: 0.02rem solid #dddde0;
+}
+
+.infor-msg input {
+    outline: none;
+    border: none;
+    text-align: right;
+    width: 4rem;
+    height: 0.26rem;
+    float: right;
+    font-size: 0.26rem;
+    color: #617083;
+
+}
+
+.infor-title {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    background: #f2f2f2;
+    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+    text-indent: 0.5rem;
+    font-size: 0.22rem;
+    color: #4a4a53;
+}
+
+.infor-btn {
+    width: 5.4rem;
+    height: 0.75rem;
+    border: 1px solid #34c486;
+    background: #5be0a7;
+    color: #ffffff;
+    font-size: 0.24rem;
+    letter-spacing: 0.34rem;
+    outline: none;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    -ms-border-radius: 0.1rem;
+    -o-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+    margin: 0.34rem 0 0.43rem;
+
+}
+
+.info-pwd {
+    position: relative;
+}
+
+.infor-msg .change-pwd {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 0.8rem;
+    text-align: right;
+}
+
+.mint-msgbox-message > span {
+    display: inline-block;
+    width: 38px;
+}
+
+.mint-msgbox {
+    max-height: 80%;
+    overflow: auto;
+}

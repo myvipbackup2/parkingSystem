@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+.container {
+    background-color: #fff;
+    padding: .15rem 0.53rem;
+    /*margin-top: .14rem;*/
+    /*border-top: .01rem solid #e1e1e1;*/
+}
+
+.order-title {
+    color: #3b4654;
+    text-align: center;
+    font-size: .26rem;
+    display: block;
+    height: .8rem;
+    line-height: .8rem;
+    font-weight: 600;
+}
+
+.line {
+    height: .58rem;
+    line-height: .58rem;
+}
+
+.hr {
+    height: 1px;
+    background-color: #dddde0;
+    /*margin-bottom: .1rem;*/
+}
+
+.bold {
+    font-weight: 600;
+    height: .4rem;
+    line-height: .4rem;
+}
+
+.bold span {
+    color: #3b4654;
+}
+
+.info-content {
+    color: #617083;
+    font-size: .26rem;
+}
+
+.info-title {
+    color: #081424;
+    font-size: .26rem;
+}
+
+.money {
+    color: #ff4081;
+    font-size: .32rem;
+}
+
+.p {
+    height: 1.74rem;
+}
+
+.checkbox {
+    height: .68rem;
+    line-height: .68rem;
+}
+
+.checkbox a {
+    margin-left: .26rem;
+    color: #c4cfd7;
+    font-size: .2rem;
+}
+
+.cbox {
+    width: .2rem;
+    height: .2rem;
+    background: url("../images/order-checkbox.svg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-left: 1.4rem;
+    margin-top: .23rem;
+    transition: all .2s ease;
+}
+
+.cbox.checked {
+    width: .2rem;
+    height: .2rem;
+    background: url("../images/order-checkbox-sel.svg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    transition: all .2s ease;
+}
+
+.submit {
+    display: block;
+    background-color: #ff4081;
+    color: #ffffff;
+    width: 100%;
+    height: .77rem;
+    line-height: .77rem;
+    border-radius: .15rem;
+    font-size: .24rem;
+    text-align: center;
+    text-indent: .04rem;
+    letter-spacing: .04rem;
+    box-shadow: 1px 1px 0 #ef2066;
+}
+
+.container .back {
+    color: #93939c;
+    font-size: .22rem;
+    letter-spacing: .28rem;
+    margin-top: .25rem;
+}
+
+.order-success .order-title {
+    height: .7rem;
+    line-height: .7rem;
+}
+
+.order-info {
+    color: #36395c;
+    font-size: .24rem;
+    height: .76rem;
+    line-height: .76rem;
+}
+
+.check-in-info .info-content {
+    color: #363b3b;
+}
+
+.pay {
+    margin-bottom: .26rem;
+}
+
+.pay-way button {
+    width: 100%;
+    height: .73rem;
+    background-color: #fff;
+    border: 1px solid #a4aaa7;
+    color: #93939c;
+    font-size: .24rem;
+    border-radius: .08rem;
+    outline: none;
+}
+
+.pay-way button.sel {
+    border: 1px solid #ff9fc0;
+    color: #ff4081;
+}
+
+.user-center {
+    color: #36395c;
+    font-size: .24rem;
+    background-color: #fff;
+    border: 1px solid #ff4081;
+    display: block;
+    width: 3.19rem;
+    height: .56rem;
+    line-height: .56rem;
+    border-radius: .28rem;
+    text-align: center;
+    margin: 0 auto .28rem;
+}
+
+.mint-msgbox-message > span {
+    display: inline-block;
+    width: 38px;
+}
+
+.mint-msgbox {
+    max-height: 80%;
+    overflow: auto;
+}
+
+.mint-header {
+    background-color: #ff4081;
+    color: #fff;
+}

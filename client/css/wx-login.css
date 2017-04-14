@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.wx-login-txt{
+    font-size: 0.4rem;
+    margin:0.54rem 0 0.68rem 0;
+    color:#193b71;
+    text-align: center;
+    letter-spacing:0.4rem;
+    text-indent: 0.4rem;
+}
+.wx-code{
+    text-align: center;
+}
+.wx-code img{
+    width: 3.82rem;
+    height: 3.82rem;
+}
+.wx-intro{
+    font-size: 0.35rem;
+    color:#44525e;
+    line-height: 0.61rem;
+    margin:0.77rem 0 0.8rem;
+    text-align: center;
+}
+.wx-back{
+    width: 1.9rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: center;
+    color:#44525e;
+    font-size:0.35rem;
+    margin:0 auto;
+    display: block;
+    letter-spacing: 0.26rem ;
+    text-indent: 0.26rem;
+}
