@@ -1,0 +1,68 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">负责人</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{manager.real_name}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">负责人电话</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{manager.tel}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">订单编号</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{order_id}}</p>
+                            </div>
+                        </div>
+                        {{each checkins as checkin}}
+                            <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">入住人</label>
+                                <div class="col-lg-8">
+                                    <p class="form-control-static">{{checkin.name}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">身份证</label>
+                                <div class="col-lg-8">
+                                    <p class="form-control-static">{{checkin.id_card}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">电话</label>
+                                <div class="col-lg-8">
+                                    <p class="form-control-static">{{checkin.tel}}</p>
+                                </div>
+                            </div>
+                        {{/each}}
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">起始日期</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{start_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">结束日期</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{end_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">订单金额</label>
+                            <div class="col-lg-8">
+                                <p class="form-control-static">{{price}}</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

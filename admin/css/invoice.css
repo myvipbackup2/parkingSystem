@@ -1,0 +1,79 @@
+/*search---start*/
+.search{
+	font-size: 2rem;
+	margin: 15px 0px 15px 15px;
+	float: right;
+	border: 1px solid;
+}
+.search input{
+	border: 1px solid #ddd;
+	border: 0px;
+	width: 211px;
+	height: 27px;
+	font-size: 16px;
+	text-indent: 4px;
+
+}
+.search_btn{
+	background: #ccc;
+	color: black;
+	width: 60px;
+	height: 27px;
+	border: 0px;
+	float: right;
+}
+/*search---end*/
+
+/*number of pages---start*/
+.page_rec{
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+}
+/*number of pages---end*/
+
+/*style of page's number---start*/
+.comment_selected{
+    background-color: #65CEA7;
+    color: #000000;
+}
+.cancel_page{
+	float: right;
+}
+.cancel_page ul{
+    list-style: none;
+    float: right;
+}
+.cancel_page li{
+	list-style: none;
+    float: left;
+    width: 50px;
+    height: 35px;
+    border: 1px solid #ccc;
+    color: #65CEA7;
+    line-height: 35px;
+    text-align: center;
+    margin-right: 3px;
+}
+.cancel_page li a{
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 50px;
+    height: 35px;
+}
+.cancel_page li:hover{
+    background: #65CEA7;
+    color: #000;
+}
+.cancel_page li a:hover{
+    color: #000;
+}
+/*style of page's number---end*/
+
+/*the state of post---start*/
+.post_state{
+	font-size: 1.5rem;
+	float: left;
+}
+/*the state of post---end*/

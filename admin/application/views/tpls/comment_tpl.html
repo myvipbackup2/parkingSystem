@@ -1,0 +1,59 @@
+<div class="wrapper house-detail-box">
+    <a href="JavaScript:;" class="btn btn-primary btn-sm house-to-edit" type="button">评论详情</a>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论ID</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{comm_id}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论时间</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{comm_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论内容</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{content}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论人</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论房源</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{street}}{{title}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">评论图片</label>
+                            <div class="col-lg-9 house-upload-box">
+                                <ul class="ul_pics clearfix">
+                                    {{each imgs as img}}
+                                    <li>
+                                        <div class="img">
+                                            <img src="{{img.img_thumb_src}}">
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>

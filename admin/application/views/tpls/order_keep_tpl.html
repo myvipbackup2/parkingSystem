@@ -1,0 +1,86 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <input type="hidden" value={{order_id}} name="order_id">
+                        <input type="hidden" value={{house_id}} name="house_id">
+                        <input type="hidden" name="datearr" value={{datearr}}>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">房源名称</label>
+                            <div class="col-lg-9">
+                                <p class="form-control-static">{{title}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">订单用户</label>
+                            <div class="col-lg-9">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">用户电话</label>
+                            <div class="col-lg-9">
+                                <p class="form-control-static">{{tel}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">紧急联系人</label>
+                            <div class="col-lg-9">
+                                <p class="form-control-static">{{urgency_concat}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">紧急联系人电话</label>
+                            <div class="col-lg-9">
+                                <p class="form-control-static">{{urgency_contact_tel}}</p>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">押金</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{cash_pledge}}</p>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">订单金额</label>
+                            <div class="col-lg-9">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value={{price}} name="new-price"  id="new-price" placeholder="请输入金额"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">支付方式</label>
+                            <div class="col-lg-9" id="way">
+                                <input type="radio" name="return_way" value="现金">现金
+                                <input type="radio" name="return_way" value="支付宝">支付宝
+                                <input type="radio" name="return_way" value="微信">微信
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">起始日期</label>
+                            <div class="col-lg-9">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="" name="dpd1" id="dpd1" placeholder="请选择起始日期"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">结束日期</label>
+                            <div class="col-lg-9">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="" name="dpd2" id="dpd2" placeholder="请选择结束日期"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label"></label>
+                            <div class="col-lg-9">
+                                <div id="keep-order" class="btn btn-primary">添加</div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

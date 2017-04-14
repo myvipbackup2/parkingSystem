@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" >
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">用户</label>
+                            <div class="col-lg-10">
+                                <p class="form-control user-choose-end"></p>
+                                <a href="#myModal-plot" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择用户</a>
+                                <a href="#myModal-plot1" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button">创建新用户</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">房源</label>
+                            <div class="col-lg-10">
+                                <p class="form-control house-choose-end"></p>
+                                <a href="#myModal-plot2" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择房源</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="status" class="col-lg-2 col-sm-2 control-label">订单状态</label>
+                            <div class="col-lg-10">
+                                <select name="status" id="status">
+                                    <option value="未支付" >未支付</option>
+                                    <option value="已支付" >已支付</option>
+                                    <option value="入住中" >入住中</option>
+                                    <option value="已完成" >已完成</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">价格</label>
+                            <div class="input-group col-lg-4 col-sm-4 add-pl">
+                                <span class="input-group-addon">￥</span>
+                                <input type="text" class="form-control" id="new-price" name="new-price" required>
+                                <span class="input-group-addon ">.00</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">预付方式</label>
+                            <div class="col-lg-10" style="padding-top: 5px">
+                                <label for="cash"><input name="pay" type="radio" id="cash" value="现金">现金</label>
+                                <label for="Alipay"><input name="pay" type="radio" id="Alipay" value="支付宝" >支付宝</label>
+                                <label for="Wechat"><input name="pay" type="radio" id="Wechat" value="微信">微信</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">起始日期</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="" name="dpd1" id="dpd1" placeholder="请选择起始日期"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">结束日期</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-inline input-medium" size="16" type="text" value="" name="dpd2" id="dpd2" placeholder="请选择结束日期"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label"></label>
+                            <div class="col-lg-10">
+                                <div id="add-order" class="btn btn-primary">添加</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>

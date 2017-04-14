@@ -1,0 +1,21 @@
+{{each houses as house}}
+<tr>
+    <td>
+        <div class="minimal-red">
+            <div class="checkbox ">
+                <input type="checkbox" value="{{house.house_id}}">
+                <label>全选 </label>
+            </div>
+        </div>
+    </td>
+    <td><img src="#"></td>
+    <td>{{house.title}}</td>
+    <td><?php echo $category->rel_name;?></td>
+    <td><?php echo $category->tel;?></td>
+    <td>
+        <a class="edit" id="edit" href="user/user_update/<?php echo $category->user_id;?>">修改</a>
+        |
+        <a class="delete" href="user/user_del/<?php echo $category->user_id?>">删除</a>
+    </td>
+</tr>
+{{/each}}

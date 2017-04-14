@@ -1,0 +1,78 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单编号</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{order_no}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单用户</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">用户电话</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{tel}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">下单时间</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{add_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">起始日期</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{start_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">结束日期</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{end_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单金额</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{price}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">支付方式</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{cash_pledge_pay_way}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">退还金额</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="pledge" class="form-control pledge">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-lg-2 col-sm-2 control-label">取消备注</label>
+                            <div class="col-lg-10">
+                                <textarea  style="resize:none" cols="40" rows="6"  class="form-control mask" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label"></label>
+                            <div class="col-lg-10">
+                                <input type="button" name="confirm_cancel" class="btn btn-primary confirm" value="取消订单">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

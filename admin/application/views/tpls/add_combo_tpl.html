@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class=" form">
+                        <form class="cmxform form-horizontal adminex-form" id="editForm" method="post" action="combo/add_combo">
+                            <input type="hidden" name="house_id" value="{{house_id}}">
+                            <div class="form-group">
+                                <label for="title" class="col-lg-2 col-sm-2 control-label">套餐名称</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="title" name="title" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="start-time" class="control-label col-lg-2 col-sm-2">开始时间</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control form-control-inline input-medium combo-time" size="16" type="text" name="start_time" id="start-time"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-time" class="control-label col-lg-2 col-sm-2">结束时间</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control form-control-inline input-medium combo-time" size="16" type="text" name="end_time" id="end-time"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="house-price" class="col-lg-2 col-sm-2 control-label">价格</label>
+                                <div class="input-group col-lg-3 col-sm-3 add-pl">
+                                    <span class="input-group-addon">￥</span>
+                                    <input type="text" class="form-control" id="house-price" name="price">
+                                    <span class="input-group-addon ">.00</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="days" class="col-lg-2 col-sm-2 control-label">起订天数</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="days" name="days" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="link" class="col-lg-2 col-sm-2 control-label">链接</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="link" name="link" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-lg-2 col-sm-2 control-label">套餐类型</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="name" name="combo_type_id">
+                                        {{each types as type_data}}
+                                        <option value="{{type_data.type_id}}">{{type_data.type_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>

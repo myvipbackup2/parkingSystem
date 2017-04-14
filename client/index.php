@@ -310,7 +310,7 @@ switch (ENVIRONMENT)
  * 定义后台管理模板访问绝对路径
  * --------------------------------------------------------------------
  */
-    define('ADMINPATH', 'http://www.hrbyueju.com/yuejums/');
+    define('ADMINPATH', 'http://127.0.0.1/parkingSystem/admin');
 
 /*
  * --------------------------------------------------------------------

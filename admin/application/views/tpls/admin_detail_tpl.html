@@ -1,0 +1,122 @@
+<!--lidongze-->
+<div class="wrapper-detail">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div style="margin:10% 0 5% 240px">
+                        <img src={{img_src}} alt="" class="img_src" style="width: 120px;height: 120px;">
+                    </div>
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <form  action="manage/change_admin" class="form-horizontal" role="form"  method="post" >
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">ID</p>
+                                        <div class="col-lg-8">
+                                            <input type="text" name="id" value={{admin_id}} style="display: none;"  />
+                                            <p class="form-control admin_id" style="border:none;" >{{admin_id}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">创建时间</p>
+                                        <div class="col-lg-8">
+                                            <p class="form-control add_time" style="border:none;" >{{add_time}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">权限等级</p>
+                                        <div class="col-lg-8">
+                                            <p class="form-control add_time" style="border:none;" >{{lev}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">用户名</p>
+                                        <div  class="col-lg-8">
+                                            <p class="form-control name" style="border: none;">{{name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">密码</p>
+                                        <div class="col-lg-8">
+                                            <p class="form-control name" style="border: none;">{{password}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-4 col-lg-8">
+                                            <div class="btn btn-primary change-admin">编辑</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="wrapper-change">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div style="margin:10% 0 5% 240px">
+                        <img src={{img_src}}  class="img_src" style="width: 120px;height: 120px;">
+                    </div>
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <form  action="manage/change_admin" class="form-horizontal" role="form"  method="post" >
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">ID</p>
+                                        <div class="col-lg-8">
+                                            <input type="text" name="id" value={{admin_id}} style="display: none;"  />
+                                            <p class="form-control admin_id" style="border:none;" >{{admin_id}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">创建时间</p>
+                                        <div class="col-lg-8">
+                                            <p class="form-control add_time" style="border:none;" >{{add_time}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">权限等级</p>
+                                        <div class="col-lg-8">
+                                            <select class="form-control" name="lev"  >
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">用户名</p>
+                                        <div  class="col-lg-8">
+                                            <p class="form-control name" style="border: none;">{{name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="col-lg-4 col-sm-4 control-label">密码</p>
+                                        <div class="col-lg-8">
+                                            <input class="form-control password" name="pwd" value={{password}} />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-4 col-lg-8">
+                                            <input type="submit" class="btn btn-primary" value="确定修改" />
+                                            <div  class="btn btn-primary change-esc" >取消修改</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

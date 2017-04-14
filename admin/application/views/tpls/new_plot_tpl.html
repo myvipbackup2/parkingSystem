@@ -1,0 +1,46 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add_form" class="form-horizontal" role="form" action="plot/add_plot" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" placeholder="输入小区名称" name="add_plot_name">
+                </div>
+
+            </div>
+            <div class="form-group clearfix">
+                <label class="col-lg-2 col-sm-2 control-label">小区介绍</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <div id="plot-description" name="plotDescription"></div>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label class="col-lg-2 col-sm-2 control-label">视频链接</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <input type="text" id="plot-video" name="video" class="form-control" placeholder="请输入视频链接">
+                </div>
+            </div>
+            <div class="form-group" id="plot-select">
+                <label for="name" class="col-lg-2 col-sm-2 control-label">开发商</label>
+                <div class="col-lg-8">
+                    <select class="form-control m-bot15" id="name" name="deve">
+                        {{each data as datas}}
+                        <option value="{{datas.developer_id}}">{{datas.developer_name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="添加小区" class="btn btn-primary">
+                </div>
+            </div>
+
+    </div>
+    </form>
+
+    </div>
+</section>

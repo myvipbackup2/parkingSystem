@@ -1,0 +1,193 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class=" form">
+                        <form class="cmxform form-horizontal adminex-form" id="editForm" method="post" action="house/house_edit">
+                            <input type="hidden" name="house_id" value="{{house_id}}">
+                            <div class="form-group">
+                                <label for="is-sale" class="col-lg-2 col-sm-2 control-label">是否可售</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="is-sale[]" id="is-sale" {{is_sale==1?'checked':''}} value="1">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="sale-price" class="col-lg-2 col-sm-2 control-label">售价</label>
+                                <div class="input-group col-lg-4 col-sm-4 add-pl">
+                                    <span class="input-group-addon">￥</span>
+                                    <input type="text" class="form-control" id="sale-price" name="sale-price" value="{{sale_price}}">
+                                    <span class="input-group-addon ">.00</span>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="floor" class="col-lg-2 col-sm-2 control-label">楼层</label>
+                                <div class="col-lg-10">
+                                    <div class="col-lg-3 floor-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa lf">第</i>
+                                            <i class="fa">层</i>
+                                            <input type="text" id="floor" name="floor" class="form-control" value="{{floor}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 floor-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa lf">共</i>
+                                            <i class="fa">层</i>
+                                            <input type="text" id="total-floors" name="total-floors" class="form-control" value="{{total_floors}}">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="developer_id" class="col-lg-2 col-sm-2 control-label">开发商</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="developer_id" name="developer_id">
+                                        {{each developers_data as developer}}
+                                        <option value="{{developer.developer_id}}" {{developer.selected}}>{{developer.developer_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="video" class="col-lg-2 col-sm-2 control-label">视频</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="video" name="video" class="form-control" placeholder="上传视频" value="{{video}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title" class="col-lg-2 col-sm-2 control-label">标题</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="title" name="title" value="{{title}}" class="form-control" placeholder="吸引人的标题可让更多的人看您的信息哦" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="name" name="plot">
+                                        {{each plots_data as plot}}
+                                        <option value="{{plot.plot_id}}" {{plot.selected}}>{{plot.plot_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="infolist form-group">
+                                <lable class="col-lg-2 col-sm-2 control-label">详细地址</lable>
+                                <div class="col-lg-8 address-msg">
+                                    <select id="hometown" name="hometown" class="form-control m-bot15" required ></select>省
+                                    <select id="city" name="city" class="form-control m-bot15" required ></select>市
+                                    <select id="position" name="position" class="form-control m-bot15" required ></select>区
+                                    <input type="hidden" name="hometown_hidden" value={{province}}>
+                                    <input type="hidden" name="city_hidden" value={{city}}>
+                                    <input type="hidden" name="position_hidden" value={{region}}>
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="输入详细地址" value="{{street}}"required >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bedroom" class="col-lg-2 col-sm-2 control-label">房屋户型</label>
+                                <div class="col-lg-10">
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">室</i>
+                                            <input type="text" id="bedroom" name="bedroom" value="{{bedroom}}" class="form-control" required >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">厅</i>
+                                            <input type="text" id="livingroom" name="livingroom" value="{{livingroom}}" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">卫</i>
+                                            <input type="text" id="toilet" name="toilet" value="{{lavatory}}" class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="house-price" class="col-lg-2 col-sm-2 control-label">价格</label>
+                                <div class="input-group col-lg-3 col-sm-3 add-pl">
+                                    <span class="input-group-addon">￥</span>
+                                    <input type="text" class="form-control" id="house-price" name="price" value="{{price}}" required>
+                                    <span class="input-group-addon ">.00</span>
+                                </div>
+                            </div>
+                            <div class="form-group icheck">
+                                <label class="col-lg-2 col-sm-2 control-label">房屋配置</label>
+                                <div class="col-lg-10">
+                                    {{each facilitys_data as facility_data}}
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="facility[]" value="{{facility_data.type_id}}" {{facility_data.checked}}>{{facility_data.name}}
+                                        </label>
+                                    </div>
+                                    {{/each}}
+                                    <a href="#myModal" data-toggle="modal" class="btn btn-success btn-xs  house-add-fac" type="button">添加</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">详细信息</label>
+                                <div class="col-sm-8">
+
+                                    <!-- 加载编辑器的容器 -->
+                                    <div id="container" name="content"></div>
+                                    <input type="hidden" id='house-msg' name="house-msg" value="{{description}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">入注须知</label>
+                                <div class="col-sm-8">
+                                    <textarea id='notice' name="notice">{{notice}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">交通情况</label>
+                                <div class="col-sm-8">
+                                    <textarea id='traffic' name="traffic">{{traffic}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">房屋照片</label>
+                                <div class="col-lg-9">
+                                    <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
+                                        <ul id="ul_pics_edit" class="ul_pics clearfix">
+                                            {{each imgs as img}}
+                                            <li>
+                                                <div class="img">
+                                                    <img src="{{img.img_src}}">
+                                                    <a class="init-del-img upload-del-btn" img_id="{{img.img_id}}"></a>
+                                                </div>
+                                            </li>
+                                            {{/each}}
+                                            <li class="house-upload-btn">
+                                                <div class="fileupload-new thumbnail house-upload">
+                                                    <img src="images/photo-upload.jpg" alt="" id="edit_house_img_btn">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>

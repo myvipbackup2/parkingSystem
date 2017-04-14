@@ -1,0 +1,415 @@
+<div class="wrapper house-detail-box">
+    <a href="JavaScript:;" class="btn btn-primary btn-sm house-to-edit" type="button">编辑房源</a>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">是否可售</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static" id="is_sale" name="{{is_sale}}">{{is_sale==1?'可售':'不可售'}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group sale-house">
+                            <label class="col-lg-2 col-sm-2 control-label">售价</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{sale_price}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group sale-house">
+                            <label  class="col-lg-2 col-sm-2 control-label">楼层</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">第{{floor}}层&nbsp;&nbsp;共{{total_floors}}层</p>
+                            </div>
+                        </div>
+                        <div class="form-group sale-house">
+                            <label class="col-lg-2 col-sm-2 control-label">开发商</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{developer_name}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group sale-house">
+                            <label class="col-lg-2 col-sm-2 control-label">视频</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{video}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">标题</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{title}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{plot_name}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">详细地址</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{province}}省{{city}}{{region}}{{street}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">户型</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{bedroom}}室{{livingroom}}厅{{lavatory}}卫</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">价格</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{price}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">房屋配置</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    {{each facilitys as facility}}
+                                            {{facility.name}}
+                                    {{/each}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">详细信息</label>
+                            <div class="col-lg-10">
+                                <label class="control-label">{{#description}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">入住须知</label>
+                            <div class="col-lg-10">
+                                <label class="control-label">{{#notice}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">交通情况</label>
+                            <div class="col-lg-10">
+                                <label class="control-label">{{#traffic}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">房屋照片</label>
+                            <div class="col-lg-9 house-upload-box">
+                                <ul class="ul_pics clearfix">
+                                    {{each imgs as img}}
+                                    <li>
+                                        <div class="img">
+                                            <img src="{{img.img_src}}">
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading custom-tab ">
+                    <ul id="myTabs" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#order" data-toggle="tab" class="order">该房源的订单</a>
+                        </li>
+                        <li class="">
+                            <a href="#comment" data-toggle="tab" class="comment">该房源的评论</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="order">
+                            <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>订单编号</th>
+                                    <th>入住时间</th>
+                                    <th>离开时间</th>
+                                    <th>价格</th>
+                                    <th>订单状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="comment">
+                            <ul class="activity-list house-comment">
+                                <li>
+                                    <div class="avatar">
+                                        <img src="images/photos/user1.png" alt="">
+                                    </div>
+                                    <div class="activity-desk">
+                                        <h5><a href="#">Jonathan Smith</a> <span>2016/01/02</span></h5>
+                                        <p class="text-muted">哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                                        <div class="album">
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image1.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image2.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image3.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="avatar">
+                                        <img src="images/photos/user1.png" alt="">
+                                    </div>
+                                    <div class="activity-desk">
+                                        <h5><a href="#">Jonathan Smith</a> <span>2016/01/02</span></h5>
+                                        <p class="text-muted">哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                                        <div class="album">
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image1.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image2.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="images/gallery/image3.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!--<table id="comment-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>评论人</th>
+                                    <th>评论内容</th>
+                                    <th>评论时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {{each comments as comment}}
+                                <tr data-id="{{comment.comment_id}}">
+                                    <td>{{comment.rel_name}}</td>
+                                    <td>{{comment.content.substr(0, 20)}}</td>
+                                    <td>{{comment.content_date}}</td>
+                                </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="wrapper house-edit-box">
+    <a href="JavaScript:;" class="btn btn-primary btn-sm house-to-detail" type="button">返回详情</a>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class=" form">
+                        <form class="cmxform form-horizontal adminex-form" id="editForm" method="post" action="house/house_edit">
+                            <input type="hidden" name="house_id" value="{{house_id}}">
+                            <div class="form-group">
+                                <label for="is-sale" class="col-lg-2 col-sm-2 control-label">是否可售</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="is-sale[]" id="is-sale" {{is_sale==1?'checked':''}} value="1">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="sale-price" class="col-lg-2 col-sm-2 control-label">售价</label>
+                                <div class="input-group col-lg-4 col-sm-4 add-pl">
+                                    <span class="input-group-addon">￥</span>
+                                    <input type="text" class="form-control" id="sale-price" name="sale-price" value="{{sale_price}}">
+                                    <span class="input-group-addon ">.00</span>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="floor" class="col-lg-2 col-sm-2 control-label">楼层</label>
+                                <div class="col-lg-10">
+                                    <div class="col-lg-3 floor-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa lf">第</i>
+                                            <i class="fa">层</i>
+                                            <input type="text" id="floor" name="floor" class="form-control" value="{{floor}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 floor-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa lf">共</i>
+                                            <i class="fa">层</i>
+                                            <input type="text" id="total-floors" name="total-floors" class="form-control" value="{{total_floors}}">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="developer_id" class="col-lg-2 col-sm-2 control-label">开发商</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="developer_id" name="developer_id">
+                                        {{each developers_data as developer}}
+                                        <option value="{{developer.developer_id}}" {{developer.selected}}>{{developer.developer_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group sale-house">
+                                <label for="video" class="col-lg-2 col-sm-2 control-label">视频</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="video" name="video" class="form-control" placeholder="上传视频" value="{{video}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title" class="col-lg-2 col-sm-2 control-label">标题</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="title" name="title" value="{{title}}" class="form-control" placeholder="吸引人的标题可让更多的人看您的信息哦" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="name" name="plot">
+                                        {{each plots_data as plot}}
+                                        <option value="{{plot.plot_id}}" {{plot.selected}}>{{plot.plot_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="infolist form-group">
+                                <lable class="col-lg-2 col-sm-2 control-label">详细地址</lable>
+                                <div class="col-lg-8 address-msg">
+                                    <select id="hometown" name="hometown" class="form-control m-bot15" required ></select>省
+                                    <select id="city" name="city" class="form-control m-bot15" required ></select>市
+                                    <select id="position" name="position" class="form-control m-bot15" required ></select>区
+                                    <input type="hidden" name="hometown_hidden" value={{province}}>
+                                    <input type="hidden" name="city_hidden" value={{city}}>
+                                    <input type="hidden" name="position_hidden" value={{region}}>
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="输入详细地址" value="{{street}}"required >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bedroom" class="col-lg-2 col-sm-2 control-label">房屋户型</label>
+                                <div class="col-lg-10">
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">室</i>
+                                            <input type="text" id="bedroom" name="bedroom" value="{{bedroom}}" class="form-control" required >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">厅</i>
+                                            <input type="text" id="livingroom" name="livingroom" value="{{livingroom}}" class="form-control" >
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 house-type">
+                                        <div class="iconic-input right">
+                                            <i class="fa">卫</i>
+                                            <input type="text" id="toilet" name="toilet" value="{{lavatory}}" class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="house-price" class="col-lg-2 col-sm-2 control-label">价格</label>
+                                <div class="input-group col-lg-3 col-sm-3 add-pl">
+                                    <span class="input-group-addon">￥</span>
+                                    <input type="text" class="form-control" id="house-price" name="price" value="{{price}}" required>
+                                    <span class="input-group-addon ">.00</span>
+                                </div>
+                            </div>
+                            <div class="form-group icheck">
+                                <label class="col-lg-2 col-sm-2 control-label">房屋配置</label>
+                                <div class="col-lg-9">
+                                    {{each facilitys_data as facility_data}}
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="facility[]" value="{{facility_data.type_id}}" {{facility_data.checked}}>{{facility_data.name}}
+                                        </label>
+                                    </div>
+                                    {{/each}}
+                                    <a href="#myModal" data-toggle="modal" class="btn btn-success btn-xs  house-add-fac" type="button">添加</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">详细信息</label>
+                                <div class="col-sm-8">
+
+                                    <!-- 加载编辑器的容器 -->
+                                    <div id="edit-container" name="content"></div>
+                                    <input type="hidden" id='house-msg' name="house-msg" value="{{description}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">入注须知</label>
+                                <div class="col-sm-8">
+
+                                    <!-- 加载编辑器的容器 -->
+                                    <div id="notice-container" name="content"></div>
+                                    <input type="hidden" id='notice' name="notice" value="{{notice}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">交通情况</label>
+                                <div class="col-sm-8">
+
+                                    <!-- 加载编辑器的容器 -->
+                                    <div id="traffic-container" name="content"></div>
+                                    <input type="hidden" id='traffic' name="traffic" value="{{traffic}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">房屋照片</label>
+                                <div class="col-lg-9">
+                                    <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
+                                        <ul id="ul_pics_edit" class="ul_pics clearfix">
+                                            {{each imgs as img}}
+                                            <li>
+                                                <div class="img">
+                                                    <img src="{{img.img_src}}">
+                                                    <a class="init-del-img upload-del-btn" img_id="{{img.img_id}}"></a>
+                                                </div>
+                                            </li>
+                                            {{/each}}
+                                            <li class="house-upload-btn">
+                                                <div class="fileupload-new thumbnail house-upload">
+                                                    <img src="images/photo-upload.jpg" alt="" id="edit_house_img_btn">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>

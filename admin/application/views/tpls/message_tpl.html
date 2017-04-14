@@ -1,0 +1,42 @@
+<style>
+    #confirm_a{
+        margin-left: 19%;
+    }
+</style>
+<section class="panel">
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" action="Message/answer" method="POST">
+            <div class="form-group">
+                <label  class="col-lg-2 col-sm-2 control-label">留言人</label>
+                <div class="col-lg-10 ">
+                    <p class="form-control-static">{{username}}</p>
+                    <input type="hidden" name="message_id" value={{message_id}}>
+                    <input type="hidden" name="receiver" value={{receiver}}>
+                    <input type="hidden" name="sender" value={{sender}}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  id="message-detail" class="col-lg-2 col-sm-2 control-label">留言详情</label>
+                <div class="col-lg-10 ">
+                    <p class="form-control-static">{{content}}</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label  class="col-lg-2 col-sm-2 control-label">回复内容</label>
+                <div class="col-lg-10">
+                    <!--<input type="text"  name="answer" id="answer-detail" style="height: 134px ;" placeholder="请输入回复内容" class="form-control">-->
+                    <textarea  style="resize:none" cols="40" rows="6" id="answer-detail" class="form-control" >{{reply_content}}</textarea>
+                    <p class="form-control-static answer-detail">{{reply_content}}</p>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div id="confirm_a">
+                    <input type="button" name="answer_message" class="btn btn-success confirm_answer" value="确认回复内容">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+

@@ -1,0 +1,29 @@
+.input{
+    width: 400px;
+}
+.image{
+    width: 129px;
+    height: 114px;
+    margin-bottom: 30px;
+    display: inline-block;
+
+}
+#image{
+    margin-left: 43px;
+}
+.second{
+    display: none;
+}
+
+.image img{
+    width: 103px;
+    height: 103px;
+}
+.form{
+height: 34px;
+}
+.font{
+    line-height: 34px;
+    height: 34px
+}
+

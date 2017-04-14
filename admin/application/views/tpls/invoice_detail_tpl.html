@@ -1,0 +1,83 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单编号</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{order_id}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单金额</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{price}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单时间</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{add_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">起始日期</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{start_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">结束日期</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{end_time}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{status}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">订单用户</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">用户电话</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{tel}}</p>
+                            </div>
+                        </div>
+
+                        {{if invoice_posted==1}}
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">已邮寄</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{if invoice_posted==0}}
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票状态</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">未邮寄</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="invoice_post" title="{{order_id}}">邮寄发票</button>
+                            </div>
+                        </div>
+                        {{/if}}
+
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

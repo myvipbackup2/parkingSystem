@@ -1,0 +1,106 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">用户名</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{username}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">真实姓名</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{rel_name}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">性别</label>
+                            <div class="col-lg-10">
+                                <input type="hidden" value={{sex}} id="sex_hidden">
+                                <p class="form-control-static"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">出生日期</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{birthday}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">邮箱</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{email}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">电话</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{tel}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">头像</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">
+                                    <img src="{{portrait}}" alt="" style="width: 100px;">
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading custom-tab ">
+                    <ul id="myTabs" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#order" data-toggle="tab" class="order">他的订单</a>
+                        </li>
+                        <li class="">
+                            <a href="#message" data-toggle="tab" class="message">他的消息</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="order">
+                            <table id="order-table" class="display table table-bordered table-striped" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>订单编号</th>
+                                    <th>房源</th>
+                                    <th>入住时间</th>
+                                    <th>离开时间</th>
+                                    <th>价格</th>
+                                    <th>订单状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="message">
+                            <table id="message-table" class="display table table-bordered table-striped" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>发送给</th>
+                                    <th>发送时间</th>
+                                    <th>内容</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

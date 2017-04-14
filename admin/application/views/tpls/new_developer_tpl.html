@@ -1,0 +1,69 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add-developer-form" class="form-horizontal" role="form" enctype="multipart/form-data" action="developer/developer_add" method="post">
+            <div class="form-group">
+                <label for="developer-name" class="col-lg-3 col-sm-3 control-label">开发商名称</label>
+                <div class="col-lg-8">
+                    <input id="developer-name" type="text" class="form-control" placeholder="请输入开发商名称" name="developer_name">
+                    <span class="label label-danger" style="display: none;" id="user-tip">开发商名称已存在</span>
+                    <!--                    <p class="help-block">Example block-level help text here.</p>-->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="founding-time" class="control-label col-lg-3 col-sm-3">成立时间</label>
+                <div class="col-lg-8">
+                    <input class="form-control form-control-inline input-medium founding-time" size="16" type="text" value="" name="founding_time" id="founding-time" placeholder="请选择成立时间"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telephone" class="col-lg-3 col-sm-3 control-label">联系电话</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="telephone" placeholder="请输入联系电话" name="telephone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-lg-3 col-sm-3 control-label">地址</label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="address" placeholder="请输入地址" name="address">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 col-sm-3 control-label">公司LOGO</label>
+                <div class="col-lg-8">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
+                            <img src="images/head-default.png" alt="" >
+                        </div>
+                        <div class="fileupload-preview fileupload-exists thumbnail"
+                             style="width: 150px; height: 150px; line-height: 20px;"></div>
+                        <div>
+                           <span class="btn btn-default btn-file">
+                           <span class="fileupload-new"><i class="fa fa-paper-clip"></i>选择图片</span>
+                           <span class="fileupload-exists"><i class="fa fa-undo"></i>修改</span>
+                           <input type="file" class="default" multiple name="logo">
+                           </span>
+                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i
+                                    class="fa fa-trash"></i>移除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-lg-3 col-sm-3 control-label">公司介绍</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <div id="new-container" name="content"></div>
+                    <input type="hidden" id='description' name="description" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

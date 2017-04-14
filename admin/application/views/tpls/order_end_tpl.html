@@ -1,0 +1,98 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" action="javascript:;">
+                        <input type="hidden" id="order_end_id" value="{{order_id}}">
+                        <div class="form-group ">
+                            <label class="col-lg-2 control-label">负责人</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" name="checkout_charge" id="name" style="width:120px;">
+                                    {{each admin_user as admin}}
+                                    <option value="{{admin.admin_id}}" {{checkout_charge.admin==admin.admin_id?'selected':''}}>{{admin.real_name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label" style="padding-top: 0;">房屋检查:</label>
+                            <div class="col-lg-10" id="question" >
+                                <input type="radio" name="house_exam" value="无问题" checked="checked" class="without">无问题
+                                <input type="radio" name="house_exam" value="有问题" class="have">有问题
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">退还定金:</label>
+                            <div class="col-lg-10" id="money">
+                                <input type="text" name="return_deposit" class="form-control money" value="{{cash_pledge}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label" style="padding-top: 0;">退还方式:</label>
+                            <div class="col-lg-10" id="way">
+                                <input type="radio" name="return_way" disabled="disabled" value="{{cash_pledge_pay_way}}" checked="checked">{{cash_pledge_pay_way}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label" style="padding-top: 0;">备注内容:</label>
+                            <div class="col-lg-10" id="content">
+                                <textarea name="reference"  cols="30"  class="form-control checkout_mark" rows="10" maxlength="200" ></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">发票</label>
+                            <div class="col-lg-10">
+                                <label class="control-label">
+                                    <input type="checkbox" name="is-invoice" id="is-invoice" value="1">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group show-invoice">
+                            <label class="col-lg-2 col-sm-2 control-label">票头</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="输入票头" id="invoice_title">
+                            </div>
+                        </div>
+                        <!--<div class="form-group show-invoice">-->
+                            <!--<label class="col-lg-2 col-sm-2 control-label">发票号</label>-->
+                            <!--<div class="col-lg-10">-->
+                                <!--<input type="text" class="form-control" placeholder="输入发票号" id="invoice_no">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group show-invoice">
+                            <label class="col-lg-2 col-sm-2 control-label">邮寄地址</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="输入邮寄地址" id="invoice_address">
+                            </div>
+                        </div>
+                        <div class="form-group show-invoice">
+                            <label class="col-lg-2 col-sm-2 control-label">联系方式</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="输入手机号" id="invoice_tel">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <input type="button" value="确定" id="confirm" class="confirm btn btn-primary btn-lg active btn-end-confirm" style="margin-left: 55%;margin-top: 40px;width: 100px">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+//        $('.have').on('click',function(){
+//            $('.have').attr("checked",true);
+//            $('#problem').css('display','block');
+//            $('.without').removeAttr("checked") .on('click',function(){
+//                $('#problem').css('display','none');
+//            })
+//        });
+
+
+    })
+</script>

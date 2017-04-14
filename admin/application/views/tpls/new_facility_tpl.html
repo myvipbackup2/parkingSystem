@@ -1,0 +1,50 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add_form" class="form-horizontal" role="form" action="facility/add_facility" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" class="col-lg-2 col-sm-2 control-label">设备名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" placeholder="输入设备名称" name="add_facility_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="is-free" class="col-lg-2 col-sm-2 control-label">是否付费</label>
+                <div class="col-lg-9">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="free[]" id="is-free" value="1">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">备注</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <div id="new-container"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">设备照片</label>
+                <div class="col-sm-10">
+                    <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
+                        <div class="fileupload-new thumbnail house-upload">
+                            <img src="images/photo-upload.jpg" alt="" id="btn">
+                        </div>
+                        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="添加设施" class="btn btn-primary">
+                </div>
+            </div>
+    </form>
+
+    </div>
+</section>

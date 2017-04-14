@@ -1,0 +1,134 @@
+<!--lidongze-->
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form role="form" class="form-horizontal adminex-form" action="manage/add_admin" method="post"
+                          enctype="multipart/form-data">
+                        <div style="margin: 10% 0 10% 240px;border-color: blue">
+                            <div>
+                                <input type="file" class="file_upload" style="display: none" name="img">
+                                <img src="images/add_img.png" class="img_src img-admin"
+                                     style="width: 120px;height: 120px;border: 2px solid #00ffff;" id="preview">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">权限等级</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" name="lev">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">用户名</label>
+                            <div class="col-lg-10">
+                                <input type="text" placeholder="6到14字符" id="admin-name" class="form-control"
+                                       name="username">
+                                <p class="help-block name-help"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">密码</label>
+                            <div class="col-lg-10">
+                                <input type="password" placeholder="不少于4位" id="admin-pwd" class="form-control"
+                                       name="password">
+                                <p class="help-block pwd-help"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">确认密码</label>
+                            <div class="col-lg-10">
+                                <input type="password" placeholder="不少于4位" id="re-admin-pwd" class="form-control"
+                                       name="re-password">
+                                <p class="help-block pwd-help"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">真实姓名</label>
+                            <div class="col-lg-10">
+                                <input type="text" placeholder="真实姓名" id="real-name" class="form-control"
+                                       name="real_name">
+                                <p class="help-block pwd-help"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">联系电话</label>
+                            <div class="col-lg-10">
+                                <input type="text" placeholder="联系电话" id="tel" class="form-control"
+                                       name="tel">
+                                <p class="help-block pwd-help"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <input type="submit" class="btn btn-primary submit" id="admin-submit" value="确认添加">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $(".img-admin").on('click', function () {
+            $('.file_upload').click();
+        });
+
+        $(".file_upload").change(function () {
+
+            var $file = $(this);
+            var fileObj = $file[0];
+            var windowURL = window.URL || window.webkitURL;
+            var dataURL;
+            var $img = $("#preview");
+
+            if (fileObj && fileObj.files && fileObj.files[0]) {
+                dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                console.log(dataURL);
+                $img.attr('src', dataURL);
+            } else {
+                dataURL = $file.val();
+                var imgObj = document.getElementById("preview");
+                imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+
+            }
+        });
+        var $submit = $("#admin-submit"),
+            $name_help = $(".name-help"),
+            $pwd_help = $(".pwd-help");
+        var $bflag = false;
+        $submit.attr('disabled', true);
+
+        $("#admin-name").blur(function () {
+            var $name = $(this).val();
+            $.get("manage/check_admin_name", {name: $name}, function (data) {
+                if (data == "file") {
+                    $submit.attr('disabled', true);
+                    $name_help.text("用户名已存在!");
+                } else {
+                    $("#admin-pwd").blur(function () {
+                        if ($(this).val().length < 4) {
+                            $submit.attr('disabled', true);
+                            $pwd_help.text("密码长度小于四位！")
+                        } else {
+                            $submit.removeAttr('disabled');
+                            $pwd_help.text("");
+                        }
+                    });
+                    $name_help.text("");
+                }
+            }, "text");
+        });
+    });
+
+</script>

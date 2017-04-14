@@ -1,0 +1,32 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add_form" class="form-horizontal" role="form" action="plot/plot_detail" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                <div class="col-sm-10">
+                    <input type="hidden" value="{{data.plot_id}}" name="plot_id">
+                    <input type="text" class="form-control" id="title" value="{{data.plot_name}}" name="edit_plot_name">
+                </div>
+
+            </div>
+            <div class="form-group" id="plot-select">
+                <label for="name" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                <div class="col-lg-8">
+                    <select class="form-control m-bot15" id="name" name="deve">
+                        {{each deve as deve}}
+                        <option value="{{deve.developer_id}}">{{deve.developer_name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="更改小区" class="btn btn-primary">
+                </div>
+            </div>
+    </div>
+    </form>
+
+    </div>
+</section>

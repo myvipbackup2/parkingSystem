@@ -482,13 +482,6 @@ class Welcome extends CI_Controller
 
     }
 
-    //留言弹出层
-    public function postMessage()
-    {
-        $this->load->view('postMessage');
-    }
-    //分享弹出层
-
     //评论时弹出层里load的界面
     public function commentDialog()
     {
