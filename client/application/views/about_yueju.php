@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="悦居租房"/>
-    <meta name="description" content="悦居租房"/>
+    <meta name="keywords" content="孟昊阳20134200"/>
+    <meta name="description" content="孟昊阳20134200"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,7 +11,7 @@
     <meta name="format-detection" content="address=no">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>悦居租房</title>
+    <title>孟昊阳20134200</title>
     <base href="<?php echo site_url(); ?>">
     <link rel="apple-touch-icon-precomposed" href="">
     <link rel="Shortcut Icon" type="image/x-icon" href="">
@@ -23,7 +23,7 @@
 <body>
 
 <div id="app" class="page-welcome">
-    <mt-header title="关于悦居租房">
+    <mt-header title="关于小区停车场管理系统">
         <mt-button @click="javascript:window.history.go(-1);" icon="back" slot="left">返回</mt-button>
     </mt-header>
     <div style="height: 150px;">
