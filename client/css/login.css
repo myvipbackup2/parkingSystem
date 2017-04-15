@@ -65,9 +65,9 @@
 }
 
 .login .login-code-img {
-    /*background: url("../images/login-code.png") no-repeat center;*/
-    /*-webkit-background-size: cover;*/
-    /*background-size: cover;*/
+    background: url("../images/login-code.png") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
     overflow: hidden;
 }
 
