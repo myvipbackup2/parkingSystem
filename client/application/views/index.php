@@ -12,9 +12,9 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
-        首页
+        小区停车场管理系统
     </div>
     <a href="javascript:;" class="menu-btn">
     </a>
@@ -22,14 +22,14 @@
         <ul>
             <li class="menu-home">
                 <i class="iconfont icon-home"></i>
-                <a href="welcome/index" data-stat-label="首页">
-                    首页
+                <a href="welcome/index" data-stat-label="随心停">
+                    随心停
                 </a>
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -43,7 +43,7 @@
                 <i class="iconfont icon-collect"></i><a href="welcome/collection_manage" data-stat-label="收藏">收藏</a>
             </li>
             <li class="menu-msg">
-                <i class="iconfont icon-message"></i><a href="Welcome/message" data-stat-label="消息">消息</a>
+                <i class="iconfont icon-message"></i><a href="Welcome/message" data-stat-label="消息">关于</a>
                 <span class="msg">&nbsp;</span>
             </li>
         </ul>
@@ -58,7 +58,7 @@
     <div class="search">
         <div class="fl search-box">
             <form action="house/index_search" method="post">
-                <input class="fl search-box-ipt" placeholder="搜索房源..." type="text" name="content" />
+                <input class="fl search-box-ipt" placeholder="搜索停车场..." type="text" name="content" />
                 <input class="fl search-box-btn" type="submit" value=""/>
             </form>
 
@@ -66,8 +66,8 @@
     </div>
     <div class="content">
         <div class="c-title">
-            <h2>推荐房源</h2>
-            <p>选择一个您合适的短租生活</p>
+            <h2>推荐小区停车场</h2>
+            <p>选择一个您合适的停车位</p>
         </div>
         <div class="c-item-box">
             <?php
@@ -94,8 +94,8 @@
     </div>
     <div class="footer">
         <div class="c-title">
-            <h2>悦居便利你的生活</h2>
-            <p>选择一个您合适的短租生活</p>
+            <h2>随心停便利你的生活</h2>
+            <p>选择一个您合适的停车位</p>
         </div>
         <ul class="f-icons clearfix">
             <li>
@@ -108,15 +108,15 @@
             </li>
             <li>
                 <img src="images/footer-3.png" alt=""/>
-                <div>其他认证</div>
+                <div>软件工程</div>
             </li>
             <li>
                 <img src="images/footer-4.png" alt=""/>
-                <div>生活便捷</div>
+                <div>便捷省事</div>
             </li>
             <li>
                 <img src="images/footer-5.png" alt=""/>
-                <div>其他什么</div>
+                <div>省心省钱</div>
             </li>
         </ul>
     </div>

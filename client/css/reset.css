@@ -83,7 +83,7 @@ a {
     position: absolute;
     top: 0;
     left: 5px;
-    width: 55px;
+    /*width: 55px;*/
     height: 44px;
     line-height: 44px;
     color: #ff4081;
