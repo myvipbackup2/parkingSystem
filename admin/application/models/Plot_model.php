@@ -47,7 +47,7 @@ class Plot_model extends CI_Model{
         return $this->db->query($sql)->num_rows();
     }
     public function get_paginated_plot($limit, $offset, $search){
-        $sql = "SELECT * FROM t_plot,t_developer WHERE T_plot.plot_delete=0 and t_plot.developer_id=t_developer.developer_id";
+        $sql = "SELECT * FROM t_plot,t_developer WHERE t_plot.plot_delete=0 and t_plot.developer_id=t_developer.developer_id";
         if (strlen($search) > 0) {
             $sql .= " and (plot_name LIKE '%" . $search . "%')";
         }
@@ -59,12 +59,13 @@ class Plot_model extends CI_Model{
         $this->db->from('t_plot');
         return $this->db->get()->result();
     }
-    public function insert_plot_name($plot_name,$deve,$plot_description,$plot_video){
+    public function insert_plot_name($plot_name,$deve,$plot_description,$plot_video,$plot_pos){
         $arr=array(
             'plot_name'=>$plot_name,
             'developer_id'=>$deve,
             'description'=>$plot_description,
             'video'=>$plot_video,
+            'plot_pos'=>$plot_pos,
             'plot_delete'=>0
         );
         $query=$this->db->insert('t_plot',$arr);

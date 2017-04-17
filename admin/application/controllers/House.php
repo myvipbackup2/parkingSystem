@@ -101,8 +101,8 @@ class House extends CI_Controller
         $toilet = htmlspecialchars($this->input->post('toilet'));
         $price = htmlspecialchars($this->input->post('price'));
         $house_msg = $this->input->post('house-msg');
-        $notice = $this->input->post('notice');
-        $traffic = $this->input->post('traffic');
+        $notice = htmlspecialchars($this->input->post('notice'));
+        $traffic = htmlspecialchars($this->input->post('traffic'));
         $isSale = htmlspecialchars($this->input->post('is-sale'));
         $salePrice = htmlspecialchars($this->input->post('sale-price'));
         $floor = htmlspecialchars($this->input->post('floor'));
@@ -110,6 +110,7 @@ class House extends CI_Controller
         $developer_id = htmlspecialchars($this->input->post('developer_id'));
         $video = htmlspecialchars($this->input->post('video'));
         $manager = htmlspecialchars($this->input->post('manager'));
+        $area = htmlspecialchars($this->input->post('area'));
 
         //中间需要处理房间设备的表
         $facilitys = $this->input->post('facility');
@@ -135,7 +136,8 @@ class House extends CI_Controller
             "total_floors"=>$totalFloors,
             "developer_id"=>$developer_id,
             "video"=>$video,
-            "manager_id"=>$manager
+            "manager_id"=>$manager,
+            'area'=>$area
         ));
 
         if($id){
@@ -177,7 +179,7 @@ class House extends CI_Controller
         $livingroom = htmlspecialchars($this->input->post('livingroom'));
         $toilet = htmlspecialchars($this->input->post('toilet'));
         $price = htmlspecialchars($this->input->post('price'));
-        $house_msg = htmlspecialchars($this->input->post('house-msg'));
+        $house_msg = $this->input->post('house-msg');
         $notice = htmlspecialchars($this->input->post('notice'));
         $traffic = htmlspecialchars($this->input->post('traffic'));
         $isSale = $this->input->post('is-sale');
@@ -426,9 +428,23 @@ class House extends CI_Controller
 
     public function house_list()
     {
-        $this->load->view('house_grids');
-    }
+        $ordered = $this->house_model->get_ordered_house();
+        $unorder = $this->house_model->get_unorder_house();
+        $all_plot = $this->house_model->get_plot_by_house();
+        $arr['all_plot'] = $all_plot;
+        $arr['ordered'] = $ordered;
+        $arr['unorder'] = $unorder;
 
+        $this->load->view('house_grids',$arr);
+    }
+    public function house_list_plot(){
+        $plot = $this->input->get('plot');
+        $ordered = $this->house_model->get_ordered_house_by_plot($plot);
+        $unorder = $this->house_model->get_unorder_house_plot($plot);
+        $arr['ordered'] = $ordered;
+        $arr['unorder'] = $unorder;
+        echo json_encode($arr);
+    }
     //订单管理 房源选择
     public function order_search_house()
     {

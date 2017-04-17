@@ -230,4 +230,29 @@ class House_model extends CI_Model
             'is_delete' => 1
         ));
     }
+    public function get_ordered_house(){
+        return $this->db->select('*')->from('t_order')->join('t_user','t_order.user_id=t_user.user_id')
+            ->join('t_house','t_order.house_id=t_house.house_id')
+            ->join('t_house_img','t_house_img.house_id = t_house.house_id')
+            ->where('is_main','1')
+            ->get()->result();
+    }
+    public function get_unorder_house(){
+        return $this->db->query('select * from t_house,t_house_img where t_house.house_id = t_house_img.house_id and is_main = "1" and t_house.house_id not in(
+	select house_id from t_order 
+)')->result();
+    }
+    public function get_ordered_house_by_plot($plot){
+        return $this->db->select('*')->from('t_order')->join('t_user','t_order.user_id=t_user.user_id')
+            ->join('t_house','t_order.house_id=t_house.house_id')
+            ->join('t_house_img','t_house_img.house_id = t_house.house_id')
+            ->where('is_main','1')
+            ->where('plot_id',$plot)
+            ->get()->result();
+    }
+    public function get_unorder_house_plot($plot){
+        return $this->db->query("select * from t_house,t_house_img where t_house.house_id = t_house_img.house_id and is_main = '1' and plot_id = '$plot' and t_house.house_id not in(
+	select house_id from t_order 
+)")->result();
+    }
 }

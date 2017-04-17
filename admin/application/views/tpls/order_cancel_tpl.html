@@ -4,6 +4,7 @@
             <section class="panel">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form">
+                        <input type="hidden" value={{order_id}} name="order_id">
                         <div class="form-group">
                             <label class="col-lg-2 col-sm-2 control-label">订单编号</label>
                             <div class="col-lg-10">
@@ -61,7 +62,7 @@
                         <div class="form-group">
                             <label  class="col-lg-2 col-sm-2 control-label">取消备注</label>
                             <div class="col-lg-10">
-                                <textarea  style="resize:none" cols="40" rows="6"  class="form-control mask" ></textarea>
+                                <textarea  name="cancel_memo" style="resize:none" cols="40" rows="6"  class="form-control mask" ></textarea>
                             </div>
                         </div>
                         <div class="form-group">

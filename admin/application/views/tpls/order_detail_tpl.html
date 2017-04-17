@@ -90,14 +90,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="order_status" class="col-lg-2 col-sm-2 control-label">订单状态</label>
+                            <label class="col-lg-2 col-sm-2 control-label">订单状态</label>
                             <div class="col-lg-10">
-                                <select name="order_status" id="order_status">
-                                    <option value="未处理" {{status=='未处理'?'selected':''}}>未处理</option>
-                                    <option value="已完成" {{status=='已完成'?'selected':''}}>已完成</option>
-                                    <option value="进行中" {{status=='进行中'?'selected':''}}>进行中</option>
-                                    <option value="已取消" {{status=='已取消'?'selected':''}}>已取消</option>
-                                </select>
+                                <p class="form-control-static">{{status}}</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -122,6 +117,12 @@
                             <label class="col-lg-2 col-sm-2 control-label">退房备注</label>
                             <div class="col-lg-10">
                                 <p class="form-control-static">{{checkout_mark}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">取消备注</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static">{{cancel_memo}}</p>
                             </div>
                         </div>
                         <div class="form-group">

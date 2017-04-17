@@ -197,13 +197,13 @@
     /**********  定义全局的配置变量 ************/
     window.YUEJU = {
         pc: {
-            host: 'http://127.0.0.1/yueju2/'
+            host: 'http://www.hrbyueju.com/'
         },
         wechat: {
 
         },
         admin: {
-            host: 'http://127.0.0.1/yuejums3/'
+            host: 'http://www.hrbyueju.com/yuejums/'
         }
     };
 

@@ -10,7 +10,7 @@ class Order_model extends CI_Model
         $this->db->from('t_order');
         $this->db->where('is_delete', 0);
         $times = explode(",",$date_search);
-        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
+//        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
         return $this->db->count_all_results();
     }
 
@@ -68,7 +68,7 @@ class Order_model extends CI_Model
             $this->db->or_like('t_order.order_id', $search);
         }
         $times = explode(",",$date_search);
-        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
+//        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
         return $this->db->count_all_results();
 
     }
@@ -108,7 +108,7 @@ class Order_model extends CI_Model
         }
 
         $times = explode(",",$date_search);
-        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
+//        $this->db->where("add_time between '$times[0]' and '$times[1]' ");
 
         $this->db->limit($limit, $offset);
         $this->db->order_by($order_col, $order_col_dir);
@@ -175,8 +175,9 @@ class Order_model extends CI_Model
     }
     //入住操作end
     //添加订单
-    public function add_order($price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay){
+    public function add_order($order_no, $price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay){
         $arr = array(
+            'order_no'=>$order_no,
             'house_id'=>$house_id,
             'user_id'=>$user_id,
             'start_time'=>$dpd1,
@@ -228,7 +229,7 @@ class Order_model extends CI_Model
             'invoice_no'=> $order->invoice_no,
             'invoice_address'=>$order->invoice_address,
             'invoice_person_tel'=>$order->tel,
-            'status'=>"已支付",
+            'status'=>"入住中",
             'price'=>$order->price,
             'order_type'=>$order->order_type
         );
@@ -255,5 +256,29 @@ class Order_model extends CI_Model
         $sql = "select * from t_checkin where checkin_time = (select checkin_time from t_checkin where order_id=$orderId order by checkin_time desc limit 0,1)";
         $order->checkins = $this->db->query($sql)->result();
         return $order;
+    }
+
+    public function cancel_order($order_id, $pledge, $cancelMemo){
+        $arr = array(
+            'return_cash_pledge'=>$pledge,
+            'cancel_memo'=>$cancelMemo,
+            'status'=>"用户取消"
+        );
+        $this->db->where('order_id',$order_id);
+        $this->db->update('t_order',$arr);
+        return $this->db->affected_rows();
+    }
+
+    public function get_order_by_no($orderno){
+        return $this->db->get_where('t_order',array("order_no"=>$orderno))->row();
+    }
+
+    public function update_order_status($id){
+        $arr = array(
+            'status'=>"退款成功"
+        );
+        $this->db->where('order_no',$id);
+        $this->db->update('t_order',$arr);
+        return $this->db->affected_rows();
     }
 }

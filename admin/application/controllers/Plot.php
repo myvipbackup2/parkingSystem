@@ -59,10 +59,11 @@ class Plot extends CI_Controller{
 //        admin_log('小区管理添加小区');
         $plot_name=htmlspecialchars($this->input->post('add_plot_name'));
         $deve=htmlspecialchars($this->input->post('deve'));
-        $plot_description = htmlspecialchars($this->input->post('plotDescription'));
+        $plot_description = $this->input->post('plotDescription');
         $plot_video = htmlspecialchars($this->input->post('video'));
+        $plot_pos = $this->input->post('pos');
         $this->load->model('plot_model');
-        $query=$this->plot_model->insert_plot_name($plot_name,$deve,$plot_description,$plot_video);
+        $query=$this->plot_model->insert_plot_name($plot_name,$deve,$plot_description,$plot_video,$plot_pos);
         if($query){
             redirect('plot');
         }
