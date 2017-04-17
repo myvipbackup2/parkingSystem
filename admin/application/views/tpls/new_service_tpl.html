@@ -1,0 +1,50 @@
+<section class="panel">
+    <div class="panel-body">
+        <form id="add_form" class="form-horizontal" role="form" action="service/add_service" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="plot_name" class="col-lg-2 col-sm-2 control-label">小区名称</label>
+                <div class="col-sm-10">
+                    <p class="form-control plot-choose-end" id="plot_name" ></p>
+                    <input type="hidden" name="plot_name" id="plot_name_input">
+                    <a href="#myModal-plot1" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择小区</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="house_name" class="col-lg-2 col-sm-2 control-label">房源名称</label>
+                <div class="col-sm-10">
+                    <p class="form-control house-choose-end" id="house_name" ></p>
+                    <input type="hidden" name="house_name" id="house_name_input">
+                    <a href="#myModal-plot2" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择房源</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="facility_name" class="col-lg-2 col-sm-2 control-label">设备名称</label>
+                <div class="col-sm-10">
+                    <p class="form-control facility-choose-end" id="facility_name" ></p>
+                    <input type="hidden" name="facility_name" id="facility_name_input">
+                    <a href="#myModal-plot3" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button" >选择设备</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">问题描述</label>
+                <div class="col-sm-8">
+                    <!-- 加载编辑器的容器 -->
+                    <div id="new-container"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">维修时间</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="service_time" name="service_time" placeholder="输入格式：2017-03-19" name="add_facility_name">
+                </div>
+            </div>
+            <br/>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="提交记录" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
