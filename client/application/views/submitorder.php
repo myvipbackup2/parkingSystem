@@ -57,15 +57,15 @@
         <div class="cost-info">
             <h2 class="order-title">订单费用信息</h2>
             <div class="line clearfix  bold">
-                <span class="info-title fl">车位租金</span>
+                <span class="info-title fl">车位费用</span>
             </div>
             <div class="line clearfix">
-                <span class="info-title fl">日均价</span>
+                <span class="info-title fl">每小时均价</span>
                 <span class="info-content fr"><?php echo $price; ?></span>
             </div>
             <div class="line clearfix">
-                <span class="info-title fl">天数</span>
-                <span class="info-content fr"><?php echo $days; ?>天</span>
+                <span class="info-title fl">时间</span>
+                <span class="info-content fr"><?php echo $days; ?>小时</span>
             </div>
         </div>
 
@@ -136,7 +136,7 @@
             errMsg: '请勾选网站协议!',
             name: '',
             tel: '',
-            rule: '退订规则规则退订规则规则退订规则规则退订规则规则退订规则规则退订规则规则退订规则规则'
+            rule: '孟昊阳20134200小区停车管理系统毕业设计，孟昊阳20134200小区停车管理系统毕业设计，孟昊阳20134200小区停车管理系统毕业设计'
         },
         methods: {
             check: function () {
@@ -191,7 +191,7 @@
             },
             showProtocol: function () {  //显示网站协议，并且自动打勾
                 this.errTitle = '协议内容';
-                this.errMsg = '网站协议网站协议网站协议网站协议网站协议网站协议网站协议网站协议网站协议网站协议网站协议网站协议';
+                this.errMsg = '孟昊阳20134200小区停车管理系统毕业设计';
                 this.msgShow = true;
                 this.modalShow = true;
                 this.btnShow = true;

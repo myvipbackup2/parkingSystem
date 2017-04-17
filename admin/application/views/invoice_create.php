@@ -111,7 +111,7 @@
 
 <!-- templates -->
 <script id="order_detail-tpl" type="text/html">
-    <?php include 'tpls/order_detail_tpl.html';?>
+    <?php include 'tpls/order_detail_tpl.html'; ?>
 </script>
 
 

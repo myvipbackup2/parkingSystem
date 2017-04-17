@@ -88,7 +88,7 @@
                                     <a href="#untreated" data-toggle="tab">已支付</a>
                                 </li>
                                 <li order-status="2">
-                                    <a href="#ongoing" data-toggle="tab">入住中</a>
+                                    <a href="#ongoing" data-toggle="tab">停车中</a>
                                 </li>
                                 <li order-status="3">
                                     <a href="#completed" data-toggle="tab">已完成</a>
@@ -111,8 +111,6 @@
                                         <div style="margin: 9px 0 5px;" class="btn-group">
                                             <button id="btn-add" class="btn btn-primary" type="button">添加 <i
                                                         class="fa fa-plus"></i></button>
-                                            <!--<button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                    class="fa fa-minus"></i></button>-->
                                         </div>
                                         <div class="adv-table">
                                             <table id="example" class="table table-striped table-bordered"
@@ -123,10 +121,10 @@
                                                     <th><input type="checkbox" class="check-all"/></th>
                                                     <th>编号</th>
                                                     <th>预订方式</th>
-                                                    <th>房源名称</th>
+                                                    <th>停车场名称</th>
                                                     <th>用户</th>
                                                     <th>手机号</th>
-                                                    <th>入住时间</th>
+                                                    <th>停车时间</th>
                                                     <th>离开时间</th>
                                                     <th>价格</th>
                                                     <th>订单状态</th>
@@ -140,10 +138,6 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="untreated">
-                                    <!--<div style="margin: 9px 0 5px;" class="btn-group">
-                                        <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                class="fa fa-minus"></i></button>
-                                    </div>-->
                                     <table id="untreated-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -152,10 +146,10 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -167,10 +161,6 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane" id="ongoing">
-                                    <!--<div style="margin: 9px 0 5px;" class="btn-group">
-                                        <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                class="fa fa-minus"></i></button>
-                                    </div>-->
                                     <table id="ongoing-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -182,7 +172,7 @@
                                             <th>房源名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -194,10 +184,6 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane" id="completed">
-                                    <!--<div style="margin: 9px 0 5px;" class="btn-group">
-                                        <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                class="fa fa-minus"></i></button>
-                                    </div>-->
                                     <table id="completed-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -209,7 +195,7 @@
                                             <th>房源名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -221,10 +207,7 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane" id="cancelled">
-                                    <!--<div style="margin: 9px 0 5px;" class="btn-group">
-                                        <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                class="fa fa-minus"></i></button>
-                                    </div>-->
+
                                     <table id="cancelled-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -236,7 +219,7 @@
                                             <th>房源名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -248,10 +231,7 @@
                                     </table>
                                 </div>
                                 <div class="tab-pane" id="recycle">
-                                    <!-- <div style="margin: 9px 0 5px;" class="btn-group">
-                                         <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                 class="fa fa-minus"></i></button>
-                                     </div>-->
+
                                     <table id="recycle-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -263,7 +243,7 @@
                                             <th>房源名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -276,10 +256,7 @@
                                 </div>
 
                                 <div class="tab-pane" id="refund">
-                                    <!-- <div style="margin: 9px 0 5px;" class="btn-group">
-                                         <button id="" class="btn-del btn btn-primary" type="button">删除 <i
-                                                 class="fa fa-minus"></i></button>
-                                     </div>-->
+
                                     <table id="refund-table" class="table table-striped table-bordered"
                                            cellspacing="0"
                                            width="100%">
@@ -291,7 +268,7 @@
                                             <th>房源名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
-                                            <th>入住时间</th>
+                                            <th>停车时间</th>
                                             <th>离开时间</th>
                                             <th>价格</th>
                                             <th>订单状态</th>
@@ -433,7 +410,7 @@
 <script id="order-end-tpl" type="text/html">
     <?php include 'tpls/order_end_tpl.html'; ?>
 </script>
-<!--入住-->
+<!--停车-->
 <script id="order-check-in-tpl" type="text/html">
     <?php include 'tpls/order_check_in_tpl.html'; ?>
 </script>
@@ -520,26 +497,26 @@
                     {"data": "status"},
                     {
                         "data": null,
-                        "width":'80px',
+                        "width": '80px',
                         "render": function (data, type, row) {
-                            if (orderStatus == '入住中') {
+                            if (orderStatus == '停车中') {
                                 underway = '<a href="javascript:;" class="btn-keep" data-id="' + row.order_id + '">续租</a> | <a href="javascript:;" class="btn-end" data-id="' + row.order_id + '">退房</a> ';
                             }
                             if (orderStatus == '已完成') {
                                 done = '<a href="javascript:;" class="btn-keep" data-id="' + row.order_id + '">续租</a>';
                             }
                             if (orderStatus == '已支付') {
-                                orderCancel = '<a href="javascript:;" class="btn-start" data-id="' + row.order_id + '">入住</a> | <a href="javascript:;" class="btn-cancel" data-id="' + row.order_id + '">取消订单</a>';
+                                orderCancel = '<a href="javascript:;" class="btn-start" data-id="' + row.order_id + '">停车</a> | <a href="javascript:;" class="btn-cancel" data-id="' + row.order_id + '">取消订单</a>';
                             }
-                            if(orderStatus == '申请退款'){
-                                if(row.cash_pledge_pay_way =='支付宝'){
-                                    refund = '<a href="alipay/index?id='+row.order_no+'" class="btn-start" data-id="' + row.order_no + '">退款</a>'
-                                }else if(row.cash_pledge_pay_way == '微信'){
+                            if (orderStatus == '申请退款') {
+                                if (row.cash_pledge_pay_way == '支付宝') {
+                                    refund = '<a href="alipay/index?id=' + row.order_no + '" class="btn-start" data-id="' + row.order_no + '">退款</a>'
+                                } else if (row.cash_pledge_pay_way == '微信') {
 //                                    refund = '<a href="wechat/refund?id='+row.order_no+'" data-id="' + row.cash_pledge_pay_way + '">退款</a>'//控制器待定
                                     refund = '<a href="javascript:;" class="return_pay" data-id="' + row.order_no + '">退款</a>'
                                 }
                             }
-                            return untreated + underway + done + recover + orderCancel+refund;
+                            return untreated + underway + done + recover + orderCancel + refund;
                         }
                     }
                 ],
@@ -583,22 +560,22 @@
             $(this.hash + '-table' + ' tbody').on('click', '.return_pay', function () {
                 var orderno = $(this).data('id');
                 var self = $(this);
-                $.get('wechat/refund',{
-                    id:orderno,
-                },function(data){
+                $.get('wechat/refund', {
+                    id: orderno,
+                }, function (data) {
                     if (data == 'success') {
                         $.gritter.add({
                             title: '信息提示!',
                             text: '退款成功!'
                         });
                         self.parent().html('退款成功');
-                    }else{
+                    } else {
                         $.gritter.add({
                             title: '信息提示!',
                             text: '退款失败!'
                         });
                     }
-                },'text');
+                }, 'text');
 
 
             });
@@ -615,17 +592,17 @@
                     },
                     callback: function () {
                         //处理发票多选框
-                        $('#is-invoice').on('change',function(){
+                        $('#is-invoice').on('change', function () {
                             var $checked = $(this).prop('checked');
                             var $formGroup = $(this).parents('div.form-group').nextAll('div.show-invoice');
-                            if($checked){
+                            if ($checked) {
                                 $formGroup.show();
-                            }else{
+                            } else {
                                 $formGroup.hide();
                             }
                         });
 
-                        $('.btn-end-confirm').on('click',function(){
+                        $('.btn-end-confirm').on('click', function () {
                             var order_end_id = $('#order_end_id').val();
                             var name = $('#name').val();
                             var park_exam = $('input[name=park_exam]:checked').val();
@@ -637,31 +614,31 @@
 //                            var invoice_no = $('#invoice_no').val();
                             var invoice_address = $('#invoice_address').val();
                             var invoice_tel = $('#invoice_tel').val();
-                            $.get('order/order_end_info',{
-                                orderId:order_end_id,
-                                name:name,
-                                park_exam:park_exam,
-                                money:money,
-                                return_way:return_way,
-                                checkout_mark:checkout_mark,
-                                is_invoice:is_invoice,
-                                invoice_title:invoice_title,
-                                invoice_address:invoice_address,
-                                invoice_tel:invoice_tel
-                            },function(data){
+                            $.get('order/order_end_info', {
+                                orderId: order_end_id,
+                                name: name,
+                                park_exam: park_exam,
+                                money: money,
+                                return_way: return_way,
+                                checkout_mark: checkout_mark,
+                                is_invoice: is_invoice,
+                                invoice_title: invoice_title,
+                                invoice_address: invoice_address,
+                                invoice_tel: invoice_tel
+                            }, function (data) {
                                 if (data == 'success') {
                                     $.gritter.add({
                                         title: '信息提示!',
                                         text: '退房成功!'
                                     });
                                     $('.panel-close').trigger('click');
-                                }else{
+                                } else {
                                     $.gritter.add({
                                         title: '信息提示!',
                                         text: '退房失败!'
                                     });
                                 }
-                            },'text');
+                            }, 'text');
                         });
 
                     }
@@ -670,25 +647,25 @@
                 return false;
             });
 
-            //入住
+            //停车
             $(this.hash + '-table' + ' tbody').on('click', '.btn-start', function () {
                 var orderId = $(this).data('id');
                 $.sidepanel({
                     width: 700,
-                    title: '入住',
+                    title: '停车',
                     tpl: 'order-check-in-tpl',
                     dataSource: "order/enter_manage",
                     data: {
                         orderId: orderId
                     },
                     callback: function () {
-                        //dom操作页面多次添加入住人
+                        //dom操作页面多次添加停车人
                         var $add = $(".need-add");
                         var creatAdd = function () {
                             var $body = $('<div class="checkIn-container">' +
                                 '<legend></legend>' +
                                 '<div class="form-group">' +
-                                '<label class="col-lg-2 col-sm-2 control-label">入住用户</label>' +
+                                '<label class="col-lg-2 col-sm-2 control-label">停车用户</label>' +
                                 '<div class="col-lg-10">' +
                                 '<input type="text" name="name" class="form-control name" placeholder="姓名">' +
                                 '</div>' +
@@ -751,7 +728,7 @@
 //                            for(var i=0;i<arrayName.length;i++){
 //                                order_Id.push(id);
 //                            }
-//                            //利用for循环取出三个数组中对应索引的值，组成一个新的数组，与入住页面的列表对应
+//                            //利用for循环取出三个数组中对应索引的值，组成一个新的数组，与停车页面的列表对应
 //                            for(var j=0;j<arrayName.length;j++){
 //                                arr=[ order_Id[j],arrayName[j],arrayPhone[j],arrayCard[j]];
 //                                arrayData.push(arr)
@@ -759,7 +736,7 @@
 //                            console.log(arrayData);
 
                             $("input[name=pay]").each(function () {
-                                if(this.checked == true){
+                                if (this.checked == true) {
                                     pay = $(this).val();
                                 }
                             });
@@ -774,7 +751,7 @@
                                 if (data == 'success') {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '入住信息添加成功!'
+                                        text: '停车信息添加成功!'
                                     });
                                     $("input[name=confirm_enter]").hide();
                                 }
@@ -791,7 +768,7 @@
                                 if (data == 'success') {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '办理入住成功!'
+                                        text: '办理停车成功!'
                                     });
                                     $("input[name=confirm_enter]").hide();
                                 }
@@ -914,7 +891,7 @@
                             $.get('order/order_cancel', {
                                 orderId: orderId,
                                 pledge: pledge,
-                                mask:enter_mask
+                                mask: enter_mask
                             }, function (data) {
                                 if (data == 'success') {
                                     table.ajax.reload(null, true);//重新加载数据
@@ -923,14 +900,13 @@
                                         text: '取消订单成功!'
                                     });
                                     $('.panel-close').trigger('click');
-                                }else{
+                                } else {
                                     $.gritter.add({
                                         title: '信息提示!',
                                         text: '取消订单成功!'
                                     });
                                 }
                             }, 'text');
-
 
 
                         });
@@ -1303,14 +1279,14 @@
                         $.get('user/tel_search', {
                             'tel': tel
                         }, function (data) {
-                            if(data.length >0){
+                            if (data.length > 0) {
                                 var user = "<tr><td>用户名：" + data[0].username + " &nbsp;</td><td>真实姓名：" + data[0].rel_name + " &nbsp;</td><td>手机号：" + data[0].tel + " &nbsp;</td><td><button type='button' class='btn btn-default choose-user' style='margin-left: 10px' data-id=" + data[0].user_id + " data-detail=" + data[0].username + ">选择</button></td></tr>";
                                 $('.user-table').html("").append(user);
                                 $(".choose-user").on("click", function () {
                                     $(".user-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
                                 });
-                            }else{
+                            } else {
                                 var user = $('<p>未查到用户</p>');
                                 $('.user-table').html("").append(user);
                             }
@@ -1359,7 +1335,7 @@
                         $(".park-table tr").remove();
                         var street = $(".park-street").val();
                         $.get("park/order_search_park", {street: street}, function (data) {
-                            if (data.length >0) {
+                            if (data.length > 0) {
                                 var str = "";
                                 for (var i = 0; i < data.length; i++) {
                                     str += "<tr><td>" + data[i].title + "</td><td>" + data[i].street + "." + data[i].region + "</td><td>" + data[i].price + "</td><td><button class='btn btn-default choose-park' style='margin-left: 10px' data-id=" + data[i].park_id + " data-detail=" + data[i].title + "--" + data[i].street + '.' + data[i].region + '--' + data[i].price + ">选择</button></td></tr>"
@@ -1370,7 +1346,7 @@
                                     $(".park-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
                                 });
-                            }else{
+                            } else {
                                 var park_table = $('<p>未查到房源</p>');
                                 $(".park-table").html("").append(park_table);
                             }
@@ -1390,8 +1366,8 @@
                             'dpd1': dpd1,
                             'dpd2': dpd2,
                             'status': status,
-                            'price':price,
-                            'pay':pay
+                            'price': price,
+                            'pay': pay
                         }, function (data) {
                             if (data == 'success') {
                                 table.ajax.reload(null, true);//重新加载数据
@@ -1404,7 +1380,6 @@
                         $('.fa-times').trigger('click');
 
                     });
-
 
 
                 }

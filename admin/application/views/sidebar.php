@@ -1,14 +1,14 @@
 <div class="left-side sticky-left-side">
 
     <div class="logo">
-        <a href="index.html">
+        <a href="admin">
             <img src="images/logo.png" alt="" width="50">
             <span>随心停管理系统</span>
         </a>
     </div>
 
     <div class="logo-icon text-center">
-        <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        <a href="admin"><img src="images/logo_icon.png" alt=""></a>
     </div>
 
 

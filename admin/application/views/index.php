@@ -69,40 +69,40 @@
                 <div class="col-md-6">
                     <!--statistics start-->
                     <div class="row state-overview">
-                        <?php $arr=["green","blue","red","purple"];
-                        foreach ($plot as $key=>$value){
-                            $color=$arr[rand(0,3)];
+                        <?php $arr = ["green", "blue", "red", "purple"];
+                        foreach ($plot as $key => $value) {
+                            $color = $arr[rand(0, 3)];
                             ?>
                             <div class="col-md-6 col-xs-12 col-sm-6">
-                                <div class="panel <?php echo $color?>">
+                                <div class="panel <?php echo $color ?>">
                                     <div class="state-value">
-                                        <div class="value"><?php echo $value->num?>个车位</div>
-                                        <div class="title"><a href="park/park_list" style="color: #fff;"><?php echo $value->plot_name?></a></div>
+                                        <div class="value"><?php echo $value->num ?>个车位</div>
+                                        <div class="title"><a href="park/park_list"
+                                                              style="color: #fff;"><?php echo $value->plot_name ?></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php }?>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    more statistics box start
-                                        <div class="panel deep-purple-box">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-7 col-sm-7 col-xs-7">
-                                                        <div id="graph-donut" class="revenue-graph"></div>
-                                                    </div>
-                                                    <div class="col-md-5 col-sm-5 col-xs-5">
-                                                        <ul class="bar-legend">
-                                                            <li><span class="blue"></span> 去哪网预付</li>
-                                                            <li><span class="green"></span> 携程预付</li>
-                                                            <li><span class="purple"></span> 网站自营</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                    more statistics box end
+                    <div class="panel deep-purple-box">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-7 col-sm-7 col-xs-7">
+                                    <div id="graph-donut" class="revenue-graph"></div>
+                                </div>
+                                <div class="col-md-5 col-sm-5 col-xs-5">
+                                    <ul class="bar-legend">
+                                        <li><span class="blue"></span> 去哪网预付</li>
+                                        <li><span class="green"></span> 携程预付</li>
+                                        <li><span class="purple"></span> 网站自营</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -166,21 +166,21 @@
                         </header>
                         <div class="panel-body">
                             <ul class="goal-progress">
-                                <?php foreach ($message as $key=>$value){?>
+                                <?php foreach ($message as $key => $value) { ?>
                                     <li>
                                         <div class="prog-avatar">
-                                            <img src="<?php echo $value->portrait?>" alt=""/>
+                                            <img src="<?php echo $value->portrait ?>" alt=""/>
                                         </div>
                                         <div class="details">
                                             <div class="title">
-                                                <a href="#"><?php echo $value->username?></a>
+                                                <a href="#"><?php echo $value->username ?></a>
                                             </div>
                                             <div>
-                                                <?php echo $value->content?>
+                                                <?php echo $value->content ?>
                                             </div>
                                         </div>
                                     </li>
-                                <?php }?>
+                                <?php } ?>
                             </ul>
                             <div class="text-center"><a href="message">查看所有留言</a></div>
                         </div>
@@ -188,8 +188,7 @@
                 </div>
             </div>
 
-
-            、        </div>
+        </div>
         <!--body wrapper end-->
 
         <!--footer section start-->

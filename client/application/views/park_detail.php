@@ -43,19 +43,18 @@
         <ul class="park-title">
             <li class="base-info">
                 <h2><?php echo $park->title ?></h2>
-                <div class="price"><em id="spnDisplayPrice"><sub>¥</sub><?php echo $park->price ?></em></div>
+                <div class="price"><em id="spnDisplayPrice"><sub>¥</sub><?php echo $park->price ?>/小时</em></div>
             </li>
         </ul>
         <div class="fd mod-support">
             <h3 class="title">
-                <?php echo $park->plot_name ?>
+                <?php echo $park->plot_name ?>停车场
             </h3>
             <ul>
-                <li class="s-hx">
-<!--                    --><?php //echo $park->bedroom ?><!--室--><?php //echo $park->livingroom ?>
-<!--                    厅--><?php //echo $park->lavatory ?><!--卫-->
-                    一字型停车位
-                </li>
+<!--                <li class="s-hx">-->
+<!--                    --><?php //echo $park->bedroom ?><!--m宽--><?php //echo $park->livingroom ?>
+<!--                    m长--><?php //echo $park->lavatory ?><!--个车锁-->
+<!--                </li>-->
 
                 <li class="s-mj"><?php echo $park->area ?>㎡</li>
             </ul>
@@ -63,14 +62,14 @@
 
         <div class="fd mod-management">
             <div class="icon" data-name="hotel_avatar" data-url="/hotel/index/3054/">
-                <img src="<?php echo ADMINPATH . $park->logo ?>">
+                <img src="<?php echo ADMINPATH . $park->logo ?>uploads/developer/header.png">
                 <span><?php echo $park->developer_name ?></span>
             </div>
 
             <h2 class="title">车位可售<span class="sale_price"><?php echo $park->sale_price ?></span>万</h2>
 
             <div class="hotline">
-                <em>400-606-1230</em><i>转</i><em>123456</em>
+                <em>4008-123-123</em><i>转</i><em>20134200</em>
             </div>
             <div class="link">
                 <a href="tel:4008123123">电话咨询</a>
@@ -95,9 +94,9 @@
             </div>
         </div>
     </div>
-    <!--入住退房时间-->
+    <!--停车离开时间-->
     <div class="sec-content mod-park DatePicker">
-        <!-- 修改入住时间 -->
+        <!-- 修改停车时间 -->
         <div class="hd date">
             <div class="edi"><span>停车时间：</span><span>{{formatStart}}</span></div>
             <div class="button-orange-l" @click="openStartPicker"><span>修改</span></div>
@@ -109,7 +108,7 @@
                 </mt-datetime-picker>
             </template>
         </div>
-        <!-- 修改退房时间 -->
+        <!-- 修改离开时间 -->
         <div class="hd date">
             <div class="edi"><span>离开时间：</span><span>{{formatEnd}}</span></div>
             <div class="button-orange-l" @click="openEndPicker"><span>修改</span></div>
@@ -128,11 +127,11 @@
             <div class="panel-hd folder-title folder-title-fold">
                 <div class="info">
                     <h3>
-                        限量抢购
+                        按小时收费
                     </h3>
                     <p class="service">
                         <span>预付全额</span>
-                        <span>不可退</span>
+                        <span>可退</span>
                     </p>
                 </div>
                 <div class="price">
@@ -178,7 +177,7 @@
     </section>
     <!--房屋设施-->
     <section class="mod-facality">
-        <h3>车位设施</h3>
+        <h3>车位设施与服务</h3>
         <div class="service-icons">
             <?php
             foreach ($park->free_facilities as $facility) {
@@ -190,14 +189,14 @@
     <!--提供服务-->
     <ul class="list">
         <li class="support">
-            <h3>可付费设备</h3>
+            <h3>可付费服务</h3>
             <div class="able-list">
                 <?php
                 foreach ($park->pay_facilities as $facility) {
                     echo '<span>' . $facility->name . '</span>';
                 }
                 ?>
-                <span v-if="!<?php echo count($park->pay_facilities) ?>">暂时没有付费设施...</span>
+                <span v-if="!<?php echo count($park->pay_facilities) ?>">暂时没有付费服务...</span>
             </div>
         </li>
 
