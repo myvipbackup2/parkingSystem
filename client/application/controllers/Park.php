@@ -1,58 +1,53 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lenovo
- * Date: 2017/2/16
- * Time: 9:38
- */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class House extends CI_Controller
+class Park extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('house_model');
+        $this->load->model('park_model');
     }
 
     public function index()
     {
-        $rs = $this->house_model->get_plot();
+        $rs = $this->park_model->get_plot();
         $image = $this->captcha();
-        $this->load->view('house_center', array('plots' => $rs, 'image' => $image));
+        $this->load->view('park_center', array('plots' => $rs, 'image' => $image));
     }
 
-    public function get_all_house($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale)
+    public function get_all_park($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale)
     {
         header('Access-Control-Allow-Origin:* ');
         header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
-        $house = $this->house_model->get_all_house($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale);
+        $park = $this->park_model->get_all_park($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale);
         $image = $this->captcha();
 
         echo json_encode(array(
-            'data' => $house,
+            'data' => $park,
             'image' => $image
         ));
     }
 
-    public function get_hot_house()
+    public function get_hot_park()
     {
         header('Access-Control-Allow-Origin:* ');
         header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
 
-        $hot_house = $this->house_model->get_recommend_house();
+        $hot_park = $this->park_model->get_recommend_park();
         $image = $this->captcha();
 
         echo json_encode(array(
-            'data' => $hot_house,
+            'data' => $hot_park,
             'image' => $image
         ));
 
     }
 
-    public function get_houses()
+    public function get_parks()
     {
         $region = $this->input->get('region');
         $plot_id = $this->input->get('plotId');
@@ -63,24 +58,24 @@ class House extends CI_Controller
         $is_sale = $this->input->get('isSale');
         $is_hot = $this->input->get('isHot');
         if ($is_hot == 'all') {
-            $this->get_all_house($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale);
+            $this->get_all_park($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale);
         } else {
-            $this->get_hot_house();
+            $this->get_hot_park();
         }
     }
 
-//    public function get_search_house($page,$page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$house_style,$is_sale){
+//    public function get_search_park($page,$page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale){
 //        header('Access-Control-Allow-Origin:* ');
 //        header('Access-Control-Allow-Headers: X-Requested-With');
 //
-//        $total = $this->house_model->count_search_house($region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$house_style,$is_sale);
+//        $total = $this->park_model->count_search_park($region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale);
 //
-//        $hot_house =$this -> house_model -> get_search_house(($page-1)*$page_size, $page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$house_style,$is_sale);
+//        $hot_park =$this -> park_model -> get_search_park(($page-1)*$page_size, $page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale);
 //        $image = $this->captcha();
 //
 //        echo json_encode(array(
 //            'total' => $total,
-//            'data' => $hot_house,
+//            'data' => $hot_park,
 //            'region'=>$region,
 //            'image' => $image
 //        ));
@@ -94,36 +89,36 @@ class House extends CI_Controller
         if ($content) {
             $this->session->content = $content;
         }
-        $plots = $this->house_model->get_plot();
+        $plots = $this->park_model->get_plot();
 
-        $rs = $this->house_model->get_index_search($content);
+        $rs = $this->park_model->get_index_search($content);
         $image = $this->captcha();
 
-        $this->load->view('house_center', array('data' => json_encode($rs), 'image' => $image, 'plots' => json_encode($plots), 'content' => $content));
+        $this->load->view('park_center', array('data' => json_encode($rs), 'image' => $image, 'plots' => json_encode($plots), 'content' => $content));
 
     }
 
-    public function detail($house_id)
+    public function detail($park_id)
     {
-        $house_info = $this->house_model->get_house_by_id($house_id);
+        $park_info = $this->park_model->get_park_by_id($park_id);
         $is_collect = false;
         $userinfo = $this->session->userdata('userinfo');
         //$this->session->unset_userdata('userinfo');清空session
         if (isset($userinfo)) {
-            $row = $this->house_model->is_collect($userinfo->user_id, $house_id);
+            $row = $this->park_model->is_collect($userinfo->user_id, $park_id);
             if ($row != null) {
                 $is_collect = true;
             }
         }
-        if ($house_info) {
-            $house_info->house_imgs = $this->house_model->get_imgs_by_house_id($house_id);
-            $house_info->house_combos = $this->house_model->get_combos_by_house_id($house_id);
-            $house_info->free_facilities = $this->house_model->get_free_facilities_by_house_id($house_id);
-            $house_info->pay_facilities = $this->house_model->get_pay_facilities_by_house_id($house_id);
-            $result_house_time = $this->house_model->get_by_house_time($house_id);
+        if ($park_info) {
+            $park_info->park_imgs = $this->park_model->get_imgs_by_park_id($park_id);
+            $park_info->park_combos = $this->park_model->get_combos_by_park_id($park_id);
+            $park_info->free_facilities = $this->park_model->get_free_facilities_by_park_id($park_id);
+            $park_info->pay_facilities = $this->park_model->get_pay_facilities_by_park_id($park_id);
+            $result_park_time = $this->park_model->get_by_park_time($park_id);
             //计算禁止日期
             $dataArr = [];
-            foreach ($result_house_time as $order) {
+            foreach ($result_park_time as $order) {
                 $start = strtotime($order->start_time);
                 $end = strtotime($order->end_time);
                 while ($start <= $end) {
@@ -132,9 +127,9 @@ class House extends CI_Controller
                 }
             }
 
-            $rec_houses = $this->house_model->get_recommend_house(0, 3);
+            $rec_parks = $this->park_model->get_recommend_park(0, 3);
             $image = $this->captcha();
-            $this->load->view("house_detail", array('house' => $house_info, 'image' => $image, 'rec_houses' => $rec_houses, 'all_times' => json_encode($dataArr), 'is_collect' => $is_collect));
+            $this->load->view("park_detail", array('park' => $park_info, 'image' => $image, 'rec_parks' => $rec_parks, 'all_times' => json_encode($dataArr), 'is_collect' => $is_collect));
         } else {
             echo '未找到指定房源信息!';
         }
@@ -168,11 +163,11 @@ class House extends CI_Controller
     public function add_collect()
     {
         //需要先登录才能收藏
-        $houseId = $this->input->get("houseId");
+        $parkId = $this->input->get("parkId");
         $userinfo = $this->session->userdata('userinfo');
         if (isset($userinfo)) {
             $userId = $this->session->userdata('userinfo')->user_id;
-            $row = $this->house_model->add_collect($userId, $houseId);
+            $row = $this->park_model->add_collect($userId, $parkId);
 
             echo "success";
 
@@ -185,11 +180,11 @@ class House extends CI_Controller
     public function remove_collect()
     {
         //需要先登录才能收藏
-        $houseId = $this->input->get("houseId");
+        $parkId = $this->input->get("parkId");
         $userinfo = $this->session->userdata('userinfo');
         if (isset($userinfo)) {
             $userId = $this->session->userdata('userinfo')->user_id;
-            $row = $this->house_model->remove_collect($userId, $houseId);
+            $row = $this->park_model->remove_collect($userId, $parkId);
             echo "success";
 
         } else {
@@ -200,16 +195,16 @@ class House extends CI_Controller
     public function get_developer()
     {
         $id = $this->input->get('developerId');
-        $row = $this->house_model->get_developer($id);
+        $row = $this->park_model->get_developer($id);
         $image = $this->captcha();
 
         $this->load->view('developer_detail', array('row' => $row, 'image' => $image));
     }
 
 
-    public function is_free_house()
+    public function is_free_park()
     {
-        $houseId = $this->input->post("houseId");
+        $parkId = $this->input->post("parkId");
         $startTime = $this->input->post("startDate");
         $endTime = $this->input->post("endDate");
         $now = date('y-m-d');
@@ -217,7 +212,7 @@ class House extends CI_Controller
         if(strtotime($startTime)<strtotime($now) || strtotime($endTime)<strtotime($now)){
             echo "un-sale";
         }else{
-            $result = $this->house_model->is_free_house($houseId, $startTime, $endTime);
+            $result = $this->park_model->is_free_park($parkId, $startTime, $endTime);
             if (count($result) > 0) {
                 //不能订房
                 echo "un-sale";
@@ -230,18 +225,18 @@ class House extends CI_Controller
     public function get_plot()
     {
         $id = $this->input->get('plotId');
-        $row = $this->house_model->get_plot($id);
+        $row = $this->park_model->get_plot($id);
         $this->load->view('plot_detail', array('row' => $row));
     }
 
-    public function get_comments($house_id)
+    public function get_comments($park_id)
     {
 
-//        $total = $this->house_model->count_comments($house_id);
+//        $total = $this->park_model->count_comments($park_id);
 
-        $comments = $this->house_model->get_comments($house_id);
+        $comments = $this->park_model->get_comments($park_id);
 
-        $score = $this->house_model->get_comments_score($house_id);
+        $score = $this->park_model->get_comments_score($park_id);
 
         echo json_encode(array(
             'data' => $comments,
@@ -250,15 +245,15 @@ class House extends CI_Controller
         ));
     }
 
-    public function get_comment_houseId()
+    public function get_comment_parkId()
     {
-        $house_id = $this->input->get('house_id');
+        $park_id = $this->input->get('park_id');
 
-        $comments = $this->house_model->get_comments_houseId($house_id);
+        $comments = $this->park_model->get_comments_parkId($park_id);
 
-        $score = $this->house_model->get_comments_score($house_id);
+        $score = $this->park_model->get_comments_score($park_id);
 
-        $this->load->view('house_comment_all', array(
+        $this->load->view('park_comment_all', array(
             'data' => $comments,
             'score' => $score,
             'total' => count($comments)

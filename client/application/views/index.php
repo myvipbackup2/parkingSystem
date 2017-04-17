@@ -57,7 +57,7 @@
     </div>
     <div class="search">
         <div class="fl search-box">
-            <form action="house/index_search" method="post">
+            <form action="park/index_search" method="post">
                 <input class="fl search-box-ipt" placeholder="搜索停车场..." type="text" name="content" />
                 <input class="fl search-box-btn" type="submit" value=""/>
             </form>
@@ -71,17 +71,17 @@
         </div>
         <div class="c-item-box">
             <?php
-            foreach ($result as $index => $house) {
+            foreach ($result as $index => $park) {
             ?>
             <div class="c-item">
-                <a href="House/detail/<?php echo $house->house_id ?>">
+                <a href="park/detail/<?php echo $park->park_id ?>">
                     <div class="p-img">
-                        <img src="<?php echo ADMINPATH.$house->imgs[0]->img_thumb_src; ?>" alt=""/>
+                        <img src="<?php echo ADMINPATH.$park->imgs[0]->img_thumb_src; ?>" alt=""/>
                     </div>
                     <div class="p-info">
-                        <div class="fl p-title"><?php echo $house->title ?></div>
-                        <div class="fr p-address"><?php echo $house->region ?></div>
-                        <div class="p-detail"><?php echo $house->description ?></div>
+                        <div class="fl p-title"><?php echo $park->title ?></div>
+                        <div class="fr p-address"><?php echo $park->region ?></div>
+                        <div class="p-detail"><?php echo $park->description ?></div>
                     </div>
                 </a>
             </div>

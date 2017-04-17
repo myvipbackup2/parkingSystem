@@ -408,14 +408,14 @@
                 <form class='form-horizontal' role='form'>
                     <div class='form-group'>
                         <div class='col-lg-9' style='margin-left:10px'>
-                            <input type='text' class='form-control house-street' placeholder='街道'>
+                            <input type='text' class='form-control park-street' placeholder='街道'>
                         </div>
                         <div class='col-lg-2'>
-                            <input type='button' class='btn btn-default btn-search-house' value='搜索'>
+                            <input type='button' class='btn btn-default btn-search-park' value='搜索'>
                         </div>
                     </div>
                 </form>
-                <table style='margin-left:10px' class='house-table'>
+                <table style='margin-left:10px' class='park-table'>
                 </table>
             </div>
         </div>
@@ -628,7 +628,7 @@
                         $('.btn-end-confirm').on('click',function(){
                             var order_end_id = $('#order_end_id').val();
                             var name = $('#name').val();
-                            var house_exam = $('input[name=house_exam]:checked').val();
+                            var park_exam = $('input[name=park_exam]:checked').val();
                             var money = $(".money").val();
                             var return_way = $('input[name=return_way]:checked').val();
                             var checkout_mark = $('.checkout_mark').val();
@@ -640,7 +640,7 @@
                             $.get('order/order_end_info',{
                                 orderId:order_end_id,
                                 name:name,
-                                house_exam:house_exam,
+                                park_exam:park_exam,
                                 money:money,
                                 return_way:return_way,
                                 checkout_mark:checkout_mark,
@@ -1355,29 +1355,29 @@
                         }, "text");
                     });
                     //选择房源
-                    $(".btn-search-house").on("click", function () {
-                        $(".house-table tr").remove();
-                        var street = $(".house-street").val();
-                        $.get("house/order_search_house", {street: street}, function (data) {
+                    $(".btn-search-park").on("click", function () {
+                        $(".park-table tr").remove();
+                        var street = $(".park-street").val();
+                        $.get("park/order_search_park", {street: street}, function (data) {
                             if (data.length >0) {
                                 var str = "";
                                 for (var i = 0; i < data.length; i++) {
-                                    str += "<tr><td>" + data[i].title + "</td><td>" + data[i].street + "." + data[i].region + "</td><td>" + data[i].price + "</td><td><button class='btn btn-default choose-house' style='margin-left: 10px' data-id=" + data[i].house_id + " data-detail=" + data[i].title + "--" + data[i].street + '.' + data[i].region + '--' + data[i].price + ">选择</button></td></tr>"
+                                    str += "<tr><td>" + data[i].title + "</td><td>" + data[i].street + "." + data[i].region + "</td><td>" + data[i].price + "</td><td><button class='btn btn-default choose-park' style='margin-left: 10px' data-id=" + data[i].park_id + " data-detail=" + data[i].title + "--" + data[i].street + '.' + data[i].region + '--' + data[i].price + ">选择</button></td></tr>"
                                 }
-                                var house_table = $(str);
-                                $(".house-table").html("").append(house_table);
-                                $(".choose-house").on("click", function () {
-                                    $(".house-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
+                                var park_table = $(str);
+                                $(".park-table").html("").append(park_table);
+                                $(".choose-park").on("click", function () {
+                                    $(".park-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
                                 });
                             }else{
-                                var house_table = $('<p>未查到房源</p>');
-                                $(".house-table").html("").append(house_table);
+                                var park_table = $('<p>未查到房源</p>');
+                                $(".park-table").html("").append(park_table);
                             }
                         }, "json")
                     });
                     $('#add-order').on('click', function () {
-                        var house_id = $(".house-choose-end").attr('data-id'),
+                        var park_id = $(".park-choose-end").attr('data-id'),
                             user_id = $(".user-choose-end").attr('data-id'),
                             dpd1 = $('#dpd1').val(),
                             dpd2 = $('#dpd2').val(),
@@ -1385,7 +1385,7 @@
                             status = $('#status').val(),
                             pay = $('input:radio:checked').val();
                         $.get('order/add_order', {
-                            'house_id': house_id,
+                            'park_id': park_id,
                             'user_id': user_id,
                             'dpd1': dpd1,
                             'dpd2': dpd2,

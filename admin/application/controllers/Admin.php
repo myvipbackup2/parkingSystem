@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: xiaotingzhang
- * Date: 2017/2/10
- * Time: 15:54
- */
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
@@ -143,7 +138,7 @@ class Admin extends CI_Controller
         $recordsFiltered = $this->admin_model->get_filterd_count($search);
 
 
-        $datas = $this->admin_model->get_paginated_houses($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
+        $datas = $this->admin_model->get_paginated_parks($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
 
         foreach ($datas as $data) {
             $data->DT_RowData = array('id' => $data->admin_id);

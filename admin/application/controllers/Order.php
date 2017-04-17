@@ -187,7 +187,7 @@ class Order extends CI_Controller {
     //入住操作end
     // 添加订单
     public function add_order(){
-        $house_id = $this->input->get('house_id');
+        $park_id = $this->input->get('park_id');
         $user_id = $this->input->get('user_id');
         $dpd1 = $this->input->get('dpd1');
         $dpd2 = $this ->input->get('dpd2');
@@ -195,7 +195,7 @@ class Order extends CI_Controller {
         $price = $this->input->get('price');
         $pay = $this->input->get('pay');
         $order_no = date("YmdHis") . rand(10000, 99999);
-        $row = $this->order_model->add_order($order_no,$price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay);
+        $row = $this->order_model->add_order($order_no,$price,$status,$park_id,$user_id,$dpd1,$dpd2,$pay);
         if($row>0){
             echo 'success';
         }else{
@@ -218,7 +218,7 @@ class Order extends CI_Controller {
     public function order_end_info(){
         $orderId = $this -> input -> get('orderId');
         $name = $this -> input -> get('name');
-        $house_exam = $this -> input -> get('house_exam');
+        $park_exam = $this -> input -> get('park_exam');
         $money = $this -> input -> get('money');
         $return_way = $this -> input -> get('return_way');
         $checkout_mark = $this -> input -> get('checkout_mark');
@@ -228,7 +228,7 @@ class Order extends CI_Controller {
         $invoice_tel = $this -> input -> get('invoice_tel');
         $data = array(
             'checkout_charge'=>$name,
-            'checkout_has_problem'=>$house_exam,
+            'checkout_has_problem'=>$park_exam,
             'return_cash_pledge'=>$money,
             'return_way'=>$return_way,
             'checkout_mark'=>$checkout_mark,
@@ -272,10 +272,10 @@ class Order extends CI_Controller {
         $order_id = $this -> input -> get('orderId');
         $order = $this -> order_model ->get_order_by_id($order_id);
 
-        $result_houseTime = $this -> order_model -> get_date_by_house($order->house_id);
+        $result_parkTime = $this -> order_model -> get_date_by_park($order->park_id);
 
         $dataArr = "";
-        foreach ($result_houseTime as $o){
+        foreach ($result_parkTime as $o){
             $start = strtotime($o->start_time);
             $end = strtotime($o->end_time);
             while ($start<=$end){

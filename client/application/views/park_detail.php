@@ -16,7 +16,7 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/mint-ui.min.css">
-    <link rel="stylesheet" href="css/houseDetail.css">
+    <link rel="stylesheet" href="css/parkDetail.css">
 
     <!-- 引入组件库 -->
     <script src="js/vue.min.js"></script>
@@ -29,45 +29,45 @@
 <div id="app">
     <?php include "header.php" ?>
     <!--车库详情-->
-    <div class="house_detail">
+    <div class="park_detail">
         <!--焦点图-->
         <div class="swipe">
             <div class="favorite" @click="checkLogin('add_favorite')" :class="sel"></div>
             <mt-swipe :show-indicators="true" :auto="2500">
-                <?php foreach ($house->house_imgs as $img) { ?>
+                <?php foreach ($park->park_imgs as $img) { ?>
                     <mt-swipe-item><img src="<?php echo ADMINPATH . $img->img_src; ?>" alt=""></mt-swipe-item>
                 <?php } ?>
             </mt-swipe>
         </div>
         <!--标题-->
-        <ul class="house-title">
+        <ul class="park-title">
             <li class="base-info">
-                <h2><?php echo $house->title ?></h2>
-                <div class="price"><em id="spnDisplayPrice"><sub>¥</sub><?php echo $house->price ?></em></div>
+                <h2><?php echo $park->title ?></h2>
+                <div class="price"><em id="spnDisplayPrice"><sub>¥</sub><?php echo $park->price ?></em></div>
             </li>
         </ul>
         <div class="fd mod-support">
             <h3 class="title">
-                <?php echo $house->plot_name ?>
+                <?php echo $park->plot_name ?>
             </h3>
             <ul>
                 <li class="s-hx">
-<!--                    --><?php //echo $house->bedroom ?><!--室--><?php //echo $house->livingroom ?>
-<!--                    厅--><?php //echo $house->lavatory ?><!--卫-->
+<!--                    --><?php //echo $park->bedroom ?><!--室--><?php //echo $park->livingroom ?>
+<!--                    厅--><?php //echo $park->lavatory ?><!--卫-->
                     一字型停车位
                 </li>
 
-                <li class="s-mj"><?php echo $house->area ?>㎡</li>
+                <li class="s-mj"><?php echo $park->area ?>㎡</li>
             </ul>
         </div>
 
         <div class="fd mod-management">
             <div class="icon" data-name="hotel_avatar" data-url="/hotel/index/3054/">
-                <img src="<?php echo ADMINPATH . $house->logo ?>">
-                <span><?php echo $house->developer_name ?></span>
+                <img src="<?php echo ADMINPATH . $park->logo ?>">
+                <span><?php echo $park->developer_name ?></span>
             </div>
 
-            <h2 class="title">车位可售<span class="sale_price"><?php echo $house->sale_price ?></span>万</h2>
+            <h2 class="title">车位可售<span class="sale_price"><?php echo $park->sale_price ?></span>万</h2>
 
             <div class="hotline">
                 <em>400-606-1230</em><i>转</i><em>123456</em>
@@ -96,7 +96,7 @@
         </div>
     </div>
     <!--入住退房时间-->
-    <div class="sec-content mod-house DatePicker">
+    <div class="sec-content mod-park DatePicker">
         <!-- 修改入住时间 -->
         <div class="hd date">
             <div class="edi"><span>停车时间：</span><span>{{formatStart}}</span></div>
@@ -138,7 +138,7 @@
                 <div class="price">
 
                     <div class="price-member">
-                        <em>¥<?php echo $house->price ?></em>
+                        <em>¥<?php echo $park->price ?></em>
                     </div>
 
                     <button @click="checkLogin('checkDate')" class="aCreateOrder book button-orange">
@@ -147,8 +147,8 @@
                 </div>
             </div>
         </li>
-        <?php if (count($house->house_combos) > 0) {
-            foreach ($house->house_combos as $index => $combo) {
+        <?php if (count($park->park_combos) > 0) {
+            foreach ($park->park_combos as $index => $combo) {
                 echo '<li class="panel unitproduct">';
                 echo '<div class="panel-hd folder-title folder-title-fold">';
                 echo '<div class="info">';
@@ -166,12 +166,12 @@
         } ?>
     </ul>
     <!--地图-->
-    <div class="title"><?php echo $house->title ?></div>
+    <div class="title"><?php echo $park->title ?></div>
     <div id="bMap"></div>
     <!--房源信息-->
-    <section class="sec-content mod-house-info">
+    <section class="sec-content mod-park-info">
         <h3>车位信息</h3>
-        <div class="info" v-html="houseDetail"></div>
+        <div class="info" v-html="parkDetail"></div>
         <div class="button-orange-l">
             <span @click="show">详情</span>
         </div>
@@ -181,7 +181,7 @@
         <h3>车位设施</h3>
         <div class="service-icons">
             <?php
-            foreach ($house->free_facilities as $facility) {
+            foreach ($park->free_facilities as $facility) {
                 echo '<span class="icon-facility">' . $facility->name . '<img src= "' . ADMINPATH . $facility->icon . '" alt=""></span>';
             }
             ?>
@@ -193,11 +193,11 @@
             <h3>可付费设备</h3>
             <div class="able-list">
                 <?php
-                foreach ($house->pay_facilities as $facility) {
+                foreach ($park->pay_facilities as $facility) {
                     echo '<span>' . $facility->name . '</span>';
                 }
                 ?>
-                <span v-if="!<?php echo count($house->pay_facilities) ?>">暂时没有付费设施...</span>
+                <span v-if="!<?php echo count($park->pay_facilities) ?>">暂时没有付费设施...</span>
             </div>
         </li>
 
@@ -255,9 +255,9 @@
             startDate: "<?php echo date("Y-m-d"); ?>",
             endDate: "<?php echo date("Y-m-d", strtotime("+1 day")); ?>",
             showDetail: false,
-            houseDetail: '<?php echo $house->description ?>',
+            parkDetail: '<?php echo $park->description ?>',
             sel: '<?php echo $is_collect ? "sel" : "" ?>',
-            houseId: <?php echo $house->house_id?>,
+            parkId: <?php echo $park->park_id?>,
             totalScore: 5,
             totalComment: 0,
             popupVisible: true,
@@ -282,7 +282,7 @@
                     this.showMsg();
                     this.btnShow = false;
                     this.spinnerShow = true;
-                    window.location = 'house/get_comment_houseId?house_id=<?php echo $house->house_id?>';
+                    window.location = 'park/get_comment_parkId?park_id=<?php echo $park->park_id?>';
                 }
             },
             openStartPicker: function () {
@@ -293,7 +293,7 @@
             },
             show: function () {
                 this.errTitle = '车库详情';
-                this.errMsg = this.houseDetail;
+                this.errMsg = this.parkDetail;
                 this.showMsg();
             },
             closeMsg: function () {
@@ -340,9 +340,9 @@
             add_favorite: function () {  //收藏
                 var _this = this;
                 if (this.sel === '') {
-                    axios.get('House/add_collect', {
+                    axios.get('park/add_collect', {
                         params: {
-                            houseId: _this.houseId
+                            parkId: _this.parkId
                         }
                     }).then(function (res) {
                         if (res.data === 'success') {
@@ -355,9 +355,9 @@
                         }
                     });
                 } else {
-                    axios.get('House/remove_collect', {
+                    axios.get('park/remove_collect', {
                         params: {
-                            houseId: _this.houseId
+                            parkId: _this.parkId
                         }
                     }).then(function (res) {
                         if (res.data === 'success') {
@@ -409,17 +409,17 @@
                 var params = new URLSearchParams();
                 params.append('startDate', this.formatStart);
                 params.append('endDate', this.formatEnd);
-                params.append('houseId', <?php echo $house->house_id?>);
-                axios.post('house/is_free_house', params).then(function (response) {
+                params.append('parkId', <?php echo $park->park_id?>);
+                axios.post('park/is_free_park', params).then(function (response) {
                     if (response.data === 'un-sale') {
                         _this.errTitle = '预订失败';
                         _this.errMsg = '该租车库日期已被预订!';
                         _this.showMsg();
                     } else if (response.data === 'on-sale') {
-                        _this.post('order/house_order', {
+                        _this.post('order/park_order', {
                             'startDate': _this.formatStart,
                             'endDate': _this.formatEnd,
-                            'houseId': <?php echo $house->house_id?>
+                            'parkId': <?php echo $park->park_id?>
                         });
                     } else {
                         _this.errTitle = '网络错误';
@@ -437,7 +437,7 @@
         mounted: function () {  //页面加载完成获取评分
             var _this = this;
             this.$nextTick(function () {
-                axios.get('house/get_comments/' +<?php echo $this->uri->segment(3);?>, {
+                axios.get('park/get_comments/' +<?php echo $this->uri->segment(3);?>, {
                     params: {}
                 }).then(function (res) {
                     var result = res.data;
@@ -462,12 +462,12 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("bMap");    // 创建Map实例
-    var point = new BMap.Point(<?php echo $house->plot_pos?>); //默认定位的坐标
+    var point = new BMap.Point(<?php echo $park->plot_pos?>); //默认定位的坐标
     map.centerAndZoom(point, 20);//中心点和缩放级别
     // 创建地址解析器实例
     var myGeo = new BMap.Geocoder();
     // 将地址解析结果显示在地图上,并调整地图视野
-    myGeo.getPoint("<?php echo $house->title ?>", function (point) { //这里输入房源地址，百度地图自动定位坐标
+    myGeo.getPoint("<?php echo $park->title ?>", function (point) { //这里输入房源地址，百度地图自动定位坐标
         if (point) {
             map.centerAndZoom(point, 20);
             map.addOverlay(new BMap.Marker(point));

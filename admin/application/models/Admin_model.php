@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: xiaotingzhang
- * Date: 2017/2/10
- * Time: 16:11
- */
+
 class Admin_model extends CI_Model
 {
 

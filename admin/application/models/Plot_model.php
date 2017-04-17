@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Plot_model extends CI_Model{
-    public function insert_plot_from_house($plot_name,$deve,$plot_description,$plot_video){
+    public function insert_plot_from_park($plot_name,$deve,$plot_description,$plot_video){
         $arr=array(
             'plot_name'=>$plot_name,
             'developer_id'=>$deve,

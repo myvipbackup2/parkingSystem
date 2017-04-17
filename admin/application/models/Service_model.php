@@ -6,10 +6,10 @@ class Service_model extends CI_Model {
         parent::__construct();
         $this->load->model('Welcome_model');
     }
-    public function add($plot_name,$house_name,$facility_name,$question_dec,$service_time){
+    public function add($plot_name,$park_name,$facility_name,$question_dec,$service_time){
         $arr=array(
             'plot_name'=>$plot_name,
-            'house_name'=>$house_name,
+            'park_name'=>$park_name,
             'facility_name'=>$facility_name,
             'question_dec'=>$question_dec,
             'service_time'=>$service_time
@@ -79,12 +79,12 @@ class Service_model extends CI_Model {
     {
         return $this->db->query("select * from t_plot where plot_name like '%$street%'")->result();
     }
-    public function order_search_house($street,$plot_id){
-        $sql="select * from t_house where plot_id='$plot_id' and title like'%$street%'";
+    public function order_search_park($street,$plot_id){
+        $sql="select * from t_park where plot_id='$plot_id' and title like'%$street%'";
         return $this->db->query($sql)->result();
     }
-    public function order_search_facility($street,$house_id){
-        $sql="select * from t_facility,t_facility_type where t_facility.house_id='$house_id' and t_facility.type_id=t_facility_type.type_id and t_facility_type.name like '%$street%'";
+    public function order_search_facility($street,$park_id){
+        $sql="select * from t_facility,t_facility_type where t_facility.park_id='$park_id' and t_facility.type_id=t_facility_type.type_id and t_facility_type.name like '%$street%'";
         return $this->db->query($sql)->result();
     }
 }

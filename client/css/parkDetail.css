@@ -27,7 +27,7 @@ body {
     font: 400 14px/1.5 Arial, "Lucida Grande", Verdana, "Microsoft YaHei", hei;
 }
 
-.house_detail {
+.park_detail {
     background-color: #fff;
     border-bottom: 1px solid #ccc;
 }
@@ -50,7 +50,7 @@ body {
     position: absolute;
     width: 27px;
     height: 25px;
-    background: url("../images/house_detail/favorite.svg") no-repeat;
+    background: url("../images/park_detail/favorite.svg") no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
     right: 17px;
@@ -59,13 +59,13 @@ body {
 }
 
 .favorite.sel {
-    background: url("../images/house_detail/favorite-sel.svg") no-repeat;
+    background: url("../images/park_detail/favorite-sel.svg") no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
 }
 
 /*标题*/
-.house-title {
+.park-title {
     /*height: 40px;*/
     /*padding: .1rem;*/
     line-height: 60px;
@@ -152,7 +152,7 @@ body {
     margin-left: -10px;
     width: 20px;
     height: 20px;
-    background-image: url('../images/house_detail/management_support.png');
+    background-image: url('../images/park_detail/management_support.png');
     background-repeat: no-repeat;
     background-size: auto 20px;
 }
@@ -259,7 +259,7 @@ body {
     margin-left: -7px;
     width: 15px;
     height: 15px;
-    background: url('../images/house_detail/tel.png');
+    background: url('../images/park_detail/tel.png');
     background-size: auto 15px;
 }
 
@@ -336,7 +336,7 @@ body {
     position: absolute;
     width: 13px;
     height: 11px;
-    background: url('../images/house_detail/icon_quote.png') no-repeat 0 0;
+    background: url('../images/park_detail/icon_quote.png') no-repeat 0 0;
     background-size: auto 22px;
 }
 
@@ -385,7 +385,7 @@ body {
 }
 
 /*入住退房*/
-.mod-house.DatePicker {
+.mod-park.DatePicker {
     background-color: #fff;
     border-top: 1px solid #ccc;
 }
@@ -394,26 +394,26 @@ body {
     margin: 15px 0;
 }
 
-.mod-house {
+.mod-park {
     border-bottom: 0;
 }
 
-.mod-house .date {
+.mod-park .date {
     padding: 0 15px;
     border-bottom: 1px solid #ccc;
 }
 
-.mod-house .date .edi {
+.mod-park .date .edi {
     margin: 30px 0 20px;
     font-size: 16px;
     text-align: center;
 }
 
-.mod-house .date .edi span:first-child {
+.mod-park .date .edi span:first-child {
     margin-right: 20px;
 }
 
-.mod-house .product-list > .panel {
+.mod-park .product-list > .panel {
     position: relative;
     padding: 0 15px;
     border-bottom: 1px solid #cbcaca;
@@ -684,13 +684,13 @@ body {
 }
 
 /*房源信息*/
-.mod-house-info {
+.mod-park-info {
     background: #fff;
     border-top: 1px solid transparent;
     padding-bottom: 1px;
 }
 
-.mod-house-info h3 {
+.mod-park-info h3 {
     margin: 30px 0 20px;
     padding: 0 15px;
     line-height: 1;
@@ -698,7 +698,7 @@ body {
     text-align: center;
 }
 
-.mod-house-info .info {
+.mod-park-info .info {
     max-height: 54px;
     padding: 0 15px;
     line-height: 18px;
@@ -716,7 +716,7 @@ body {
     text-align: center;
 }
 
-.mod-house-info .mint-popup {
+.mod-park-info .mint-popup {
     width: 80%;
     height: 60%;
     overflow: scroll;
@@ -773,294 +773,294 @@ body {
 
 /*
 .icon-facility-none:after {
-    background-image: url(../images/house_detail/no_icon.png);
+    background-image: url(../images/park_detail/no_icon.png);
     background-size: 100%;
 }
 
 .icon-facility-wifi:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: 0 0;
 }
 
 .icon-facility-hotwater:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -26px 0;
 }
 
 .icon-facility-tv:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -52px 0;
 }
 
 .icon-facility-airconditioner:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -78px 0;
 }
 
 .icon-facility-icebox:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -104px 0;
 }
 
 .icon-facility-washingmachine:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -130px 0;
 }
 
 .icon-facility-heating:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -156px 0;
 }
 
 .icon-facility-kettle:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -182px 0;
 }
 
 .icon-facility-towel:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -208px 0;
 }
 
 .icon-facility-bathtowel:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -234px 0;
 }
 
 .icon-facility-toothbrush:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -260px 0;
 }
 
 .icon-facility-hairandbodylotion:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -286px 0;
 }
 
 .icon-facility-slipper:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -312px 0;
 }
 
 .icon-facility-tissues:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -338px 0;
 }
 
 .icon-facility-independentbathroom:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -364px 0;
 }
 
 .icon-facility-periodhotwater:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -390px 0;
 }
 
 .icon-facility-bathtub:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -416px 0;
 }
 
 .icon-facility-aircleaner:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -442px 0;
 }
 
 .icon-facility-humidifier:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -468px 0;
 }
 
 .icon-facility-electriciron:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -494px 0;
 }
 
 .icon-facility-gasstove:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -520px 0;
 }
 
 .icon-facility-inductioncooking:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -546px 0;
 }
 
 .icon-facility-ricecooker:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -572px 0;
 }
 
 .icon-facility-microwaveoven:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -598px 0;
 }
 
 .icon-facility-cookingpots:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -624px 0;
 }
 
 .icon-facility-tableware:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -650px 0;
 }
 
 .icon-facility-cuttingtool:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -676px 0;
 }
 
 .icon-facility-seasoning:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -702px 0;
 }
 
 .icon-facility-washer:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -728px 0;
 }
 
 .icon-facility-grill:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -754px 0;
 }
 
 .icon-facility-broadband:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -780px 0;
 }
 
 .icon-facility-detergent:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -806px 0;
 }
 
 .icon-facility-soap:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -832px 0;
 }
 
 .icon-facility-karaoke:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -858px 0;
 }
 
 .icon-facility-projector:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -884px 0;
 }
 
 .icon-facility-gameconsole:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -910px 0;
 }
 
 .icon-facility-mahjongmachine:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -936px 0;
 }
 
 .icon-facility-tablesoccer:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -962px 0;
 }
 
 .icon-facility-cleantool:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -988px 0;
 }
 
 .icon-facility-dryingrack:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1014px 0;
 }
 
 .icon-facility-fireextinguisher:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1040px 0;
 }
 
 .icon-facility-firealarm:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1066px 0;
 }
 
 .icon-facility-smartdoorlock:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1092px 0;
 }
 
 .icon-facility-window:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1118px 0;
 }
 
 .icon-facility-hairdryer:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1144px 0;
 }
 
 .icon-facility-accesscontrol:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1170px 0;
 }
 
 .icon-facility-elevator:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1196px 0;
 }
 
 .icon-facility-kitchen:after {
-    background-image: url(../images/house_detail/icons_detail_facility@2x.png);
+    background-image: url(../images/park_detail/icons_detail_facility@2x.png);
     background-size: 2494px 24px;
     background-position: -1222px 0;
 }

@@ -36,9 +36,9 @@
         $('#example').DataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "house/house_mgr",
+            "ajax": "park/park_mgr",
             "columns": [
-                { "data": "house_id" },
+                { "data": "park_id" },
                 { "data": "title" },
                 { "data": "street" },
                 { "data": "price" }

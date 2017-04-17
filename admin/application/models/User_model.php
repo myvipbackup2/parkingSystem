@@ -29,9 +29,9 @@ class User_model extends CI_Model
         $row = $this->db->get_where('t_user', array('user_id' => $user_id))->row();
         if (isset($options['inc_orders']) && $options['inc_orders']) {
             //$row->orders = $this->db->get_where('t_order', array('user_id' => $user_id))->result();
-            $this->db->select('order.*, house.title as house_title');
+            $this->db->select('order.*, park.title as park_title');
             $this->db->from('t_order order');
-            $this->db->join('t_house house', 'order.house_id=house.house_id');
+            $this->db->join('t_park park', 'order.park_id=park.park_id');
             $this->db->where('order.user_id', $user_id);
             $row->orders = $this->db->get()->result();
         }
@@ -125,7 +125,7 @@ class User_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('t_order order');
-        $this->db->join('t_user user', 'order.house_id=user.user_id');
+        $this->db->join('t_user user', 'order.park_id=user.user_id');
         $this->db->where('user.user_id', $user_id);
         return $this->db->count_all_results();
     }
@@ -141,7 +141,7 @@ class User_model extends CI_Model
 
     public function get_paginated_user_orders($user_id, $limit, $offset, $search, $order_col, $order_col_dir)
     {
-        $sql = "SELECT * FROM t_order ord, t_user user, t_house house WHERE ord.user_id=user.user_id and ord.is_delete=0 and ord.house_id=house.house_id and ord.user_id=$user_id";
+        $sql = "SELECT * FROM t_order ord, t_user user, t_park park WHERE ord.user_id=user.user_id and ord.is_delete=0 and ord.park_id=park.park_id and ord.user_id=$user_id";
         if (strlen($search) > 0) {
             $sql .= " and (ord.price LIKE '%" . $search . "%' or ord.status LIKE '%" . $search . "%')";
         }

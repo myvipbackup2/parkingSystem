@@ -23,7 +23,7 @@
 			return $this->db->get()->result();
 		}
 
-		public function save_house_facility($facilityArr){
+		public function save_park_facility($facilityArr){
 			$this -> db -> insert_batch('t_facility',$facilityArr);
 			return $this -> db -> affected_rows();
 		}
@@ -66,7 +66,7 @@
 			return $query;
 		}
 
-		public function insert_fac_from_house($facility_name,$fac_url_name,$facility_free,$facility_price,$facility_remark){
+		public function insert_fac_from_park($facility_name,$fac_url_name,$facility_free,$facility_price,$facility_remark){
 			$arr=array(
 				'name'=>$facility_name,
 				'icon'=>$fac_url_name,
@@ -78,11 +78,11 @@
 			return $this -> db -> insert_id();
 		}
 
-		public function get_facility_by_houseid($house_id){
+		public function get_facility_by_parkid($park_id){
 			$this -> db -> select('t_facility_type.*');
 			$this -> db -> from('t_facility');
 			$this -> db -> join('t_facility_type','t_facility_type.type_id = t_facility.type_id');
-			$this -> db -> where('t_facility.house_id',$house_id);
+			$this -> db -> where('t_facility.park_id',$park_id);
 			return $this->db->get()->result();
 		}
 
@@ -153,8 +153,8 @@
 			return $result;
 		}
 
-		public function update_house_for_facility($houseId,$facilityArr){
-			$this->db->delete('t_facility', array('house_id' => $houseId));
+		public function update_park_for_facility($parkId,$facilityArr){
+			$this->db->delete('t_facility', array('park_id' => $parkId));
 			$this -> db -> insert_batch('t_facility',$facilityArr);
 			return $this -> db -> affected_rows();
 		}

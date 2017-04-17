@@ -49,13 +49,13 @@ class User_model extends CI_Model
 
     public function get_by_page($user_id)
     {
-        $this->db->select('t_house.*,t_order.*,t_house_img.*,t_comment.*');
+        $this->db->select('t_park.*,t_order.*,t_park_img.*,t_comment.*');
         $this->db->from('t_comment');
-        $this->db->join('t_house', 't_house.house_id=t_comment.house_id');
+        $this->db->join('t_park', 't_park.park_id=t_comment.park_id');
         $this->db->join('t_user', 't_user.user_id=t_comment.user_id');
-        $this->db->join('t_order', 't_order.house_id=t_comment.house_id');
-        $this->db->join("t_house_img", "t_house_img.house_id=t_comment.house_id");
-        $this->db->where('t_house_img.is_main', 1);
+        $this->db->join('t_order', 't_order.park_id=t_comment.park_id');
+        $this->db->join("t_park_img", "t_park_img.park_id=t_comment.park_id");
+        $this->db->where('t_park_img.is_main', 1);
         $this->db->where('t_order.user_id', $user_id);
         $this->db->where('t_comment.user_id', $user_id);
         return $this->db->get()->result();
@@ -63,13 +63,13 @@ class User_model extends CI_Model
 
     public function get_all_count($user_id)
     {
-        $this->db->select('t_house.*,t_order.*,t_house_img.*,t_comment.*');
+        $this->db->select('t_park.*,t_order.*,t_park_img.*,t_comment.*');
         $this->db->from('t_comment');
-        $this->db->join('t_house', 't_house.house_id=t_comment.house_id');
+        $this->db->join('t_park', 't_park.park_id=t_comment.park_id');
         $this->db->join('t_user', 't_user.user_id=t_comment.user_id');
-        $this->db->join('t_order', 't_order.house_id=t_comment.house_id');
-        $this->db->join("t_house_img", "t_house_img.house_id=t_comment.house_id");
-//        $this->db->where('t_house_img.is_main','1');
+        $this->db->join('t_order', 't_order.park_id=t_comment.park_id');
+        $this->db->join("t_park_img", "t_park_img.park_id=t_comment.park_id");
+//        $this->db->where('t_park_img.is_main','1');
         $this->db->where('t_order.user_id', $user_id);
         $this->db->where('t_comment.user_id', $user_id);
         return $this->db->count_all_results();
@@ -119,10 +119,10 @@ class User_model extends CI_Model
         return $result;
     }
 
-    public function query_house_info($hid)
+    public function query_park_info($hid)
     {
-        $row = $this->db->get_where("t_house", array("house_id" => $hid))->row();
-        $row->imgs = $this->db->get_where("t_house_img", array("house_id" => $hid))->result();
+        $row = $this->db->get_where("t_park", array("park_id" => $hid))->row();
+        $row->imgs = $this->db->get_where("t_park_img", array("park_id" => $hid))->result();
         return $row;
     }
 
@@ -131,14 +131,14 @@ class User_model extends CI_Model
         return $this->db->delete("t_order", array("order_id" => $oid));
     }
 
-    public function query_house_collection($uid)
+    public function query_park_collection($uid)
     {
-        $this->db->select('t_collect.*,t_house.*,t_house_img.img_thumb_src');
+        $this->db->select('t_collect.*,t_park.*,t_park_img.img_thumb_src');
         $this->db->from('t_collect');
-        $this->db->join('t_house', 't_house.house_id=t_collect.house_id');
-        $this->db->join('t_house_img', 't_house.house_id=t_house_img.house_id');
+        $this->db->join('t_park', 't_park.park_id=t_collect.park_id');
+        $this->db->join('t_park_img', 't_park.park_id=t_park_img.park_id');
         $this->db->where('t_collect.user_id', $uid);
-        $this->db->where('t_house_img.is_main', 1);
+        $this->db->where('t_park_img.is_main', 1);
         return $this->db->get()->result();
     }
 

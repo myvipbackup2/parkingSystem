@@ -191,14 +191,14 @@
                 <form class='form-horizontal' role='form'>
                     <div class='form-group'>
                         <div class='col-lg-9' style='margin-left:10px'>
-                            <input type='text' class='form-control house-street' placeholder='房源'>
+                            <input type='text' class='form-control park-street' placeholder='房源'>
                         </div>
                         <div class='col-lg-2'>
-                            <input type='button' class='btn btn-default btn-search-house' value='搜索'>
+                            <input type='button' class='btn btn-default btn-search-park' value='搜索'>
                         </div>
                     </div>
                 </form>
-                <table style='margin-left:10px' class='house-table'>
+                <table style='margin-left:10px' class='park-table'>
                 </table>
             </div>
         </div>
@@ -348,7 +348,7 @@
                 },
                 {"data": "service_id", "width": "40px", "className": "text-center"},
                 {"data": "plot_name"},
-                {"data":"house_name"},
+                {"data":"park_name"},
                 {"data":"facility_name"},
                 {"data": "question_dec"},
                 {"data":"service_time"},
@@ -389,84 +389,84 @@
                             if (data.length >0) {
                                 var str = "";
                                 for (var i = 0; i < data.length; i++) {
-                                    str += "<tr><td>" + data[i].plot_name + "</td><td><button class='btn btn-default choose-house' style='margin-left: 10px' data-id=" + data[i].plot_id + " data-detail=" + data[i].plot_name +  ">选择</button></td></tr>"
+                                    str += "<tr><td>" + data[i].plot_name + "</td><td><button class='btn btn-default choose-park' style='margin-left: 10px' data-id=" + data[i].plot_id + " data-detail=" + data[i].plot_name +  ">选择</button></td></tr>"
                                 }
-                                var house_table = $(str);
-                                $(".plot-table").html("").append(house_table);
-                                $(".choose-house").on("click", function () {
+                                var park_table = $(str);
+                                $(".plot-table").html("").append(park_table);
+                                $(".choose-park").on("click", function () {
                                     $(".plot-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
                                     $("#plot_name_input").val($(this).attr("data-detail"));
                                     //console.log($(".plot-choose-end").attr("data-id"));
                                     $(".plot-table").empty();
-                                    $(".house-table").empty();
+                                    $(".park-table").empty();
                                     $(".facility-table").empty();
-                                    $("#house_name").text("");
-                                    $("#house_name_input").val("");
+                                    $("#park_name").text("");
+                                    $("#park_name_input").val("");
                                     $("#facility_name").text("");
                                     $("#facility_name_input").val("");
                                 });
 
                             }else{
-                                var house_table = $('<p>未查到小区</p>');
-                                $(".plot-table").html("").append(house_table);
+                                var park_table = $('<p>未查到小区</p>');
+                                $(".plot-table").html("").append(park_table);
                             }
                         }, "json");
                     });
 
-                    $(".btn-search-house").on("click", function () {
-                        $(".house-table tr").remove();
-                        var street = $(".house-street").val();
+                    $(".btn-search-park").on("click", function () {
+                        $(".park-table tr").remove();
+                        var street = $(".park-street").val();
                         var plot_id=$(".plot-choose-end").attr("data-id");
                         // console.log(plot_id);
-                        $.get("service/order_search_house",{street: street,plot_id:plot_id}, function (data) {
+                        $.get("service/order_search_park",{street: street,plot_id:plot_id}, function (data) {
                             if (data.length >0) {
                                 var str = "";
                                 for (var i = 0; i < data.length; i++) {
-                                    str += "<tr><td>" +data[i].title + "."+data[i].street + "." + data[i].region + "</td><td>" + data[i].price + "</td><td><button class='btn btn-default choose-house' style='margin-left: 10px' data-id=" + data[i].house_id + " data-detail=" + data[i].title + "--" + data[i].street + '.' + data[i].region + '--' + data[i].price + ">选择</button></td></tr>"
+                                    str += "<tr><td>" +data[i].title + "."+data[i].street + "." + data[i].region + "</td><td>" + data[i].price + "</td><td><button class='btn btn-default choose-park' style='margin-left: 10px' data-id=" + data[i].park_id + " data-detail=" + data[i].title + "--" + data[i].street + '.' + data[i].region + '--' + data[i].price + ">选择</button></td></tr>"
                                 }
-                                var house_table = $(str);
-                                $(".house-table").html("").append(house_table);
-                                $(".choose-house").on("click", function () {
-                                    $(".house-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
+                                var park_table = $(str);
+                                $(".park-table").html("").append(park_table);
+                                $(".choose-park").on("click", function () {
+                                    $(".park-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
-                                    $("#house_name_input").val($(this).attr("data-detail"));
+                                    $("#park_name_input").val($(this).attr("data-detail"));
                                     $(".plot-table").empty();
-                                    $(".house-table").empty();
+                                    $(".park-table").empty();
                                     $(".facility-table").empty();
                                     $("#facility_name").text("");
                                     $("#facility_name_input").val("");
                                 });
                             }else{
-                                var house_table = $('<p>未查到房源</p>');
-                                $(".house-table").html("").append(house_table);
+                                var park_table = $('<p>未查到房源</p>');
+                                $(".park-table").html("").append(park_table);
                             }
                         }, "json")
                     });
                     $(".btn-search-facility").on("click", function () {
-                        $(".house-table tr").remove();
+                        $(".park-table tr").remove();
                         var street = $(".facility-street").val();
-                        var house_id=$(".house-choose-end").attr("data-id");
+                        var park_id=$(".park-choose-end").attr("data-id");
                         // console.log(plot_id);
-                        $.get("service/order_search_facility",{street: street,house_id:house_id}, function (data) {
+                        $.get("service/order_search_facility",{street: street,park_id:park_id}, function (data) {
                             if (data.length >0) {
                                 var str = "";
                                 for (var i = 0; i < data.length; i++) {
-                                    str += "<tr><td>" + data[i].name + "</td><td><button class='btn btn-default choose-house' style='margin-left: 10px' data-id=" + data[i].house_id + " data-detail=" + data[i].name + ">选择</button></td></tr>"
+                                    str += "<tr><td>" + data[i].name + "</td><td><button class='btn btn-default choose-park' style='margin-left: 10px' data-id=" + data[i].park_id + " data-detail=" + data[i].name + ">选择</button></td></tr>"
                                 }
-                                var house_table = $(str);
-                                $(".facility-table").html("").append(house_table);
-                                $(".choose-house").on("click", function () {
+                                var park_table = $(str);
+                                $(".facility-table").html("").append(park_table);
+                                $(".choose-park").on("click", function () {
                                     $(".facility-choose-end").text($(this).attr("data-detail")).attr("data-id", $(this).attr("data-id"));
                                     $('.close-plot').trigger('click');
                                     $("#facility_name_input").val($(this).attr("data-detail"));
-                                    $(".house-table").empty();
+                                    $(".park-table").empty();
                                     $(".plot-table").empty();
                                     $(".facility-table").empty();
                                 });
                             }else{
-                                var house_table = $('<p>未查到设备</p>');
-                                $(".facility-table").html("").append(house_table);
+                                var park_table = $('<p>未查到设备</p>');
+                                $(".facility-table").html("").append(park_table);
                             }
                         }, "json")
                     });

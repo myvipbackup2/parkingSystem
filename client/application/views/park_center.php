@@ -8,7 +8,7 @@
     <base href="<?php echo site_url() ?>">
     <script src="js/rem.js"></script>
     <link rel="stylesheet" href="css/reset.css"/>
-    <link rel="stylesheet" href="css/house_center.css"/>
+    <link rel="stylesheet" href="css/park_center.css"/>
 
 </head>
 <body>
@@ -106,14 +106,14 @@
                 </ul>
             </li>
             <li>
-                <span v-html="houseStyle">车位</span>
+                <span v-html="parkStyle">车位</span>
                 <i class="t-icons"></i>
                 <ul class="search_list">
-                    <li @click="changeHouseStyle(null,'不限')">不限</li>
-                    <li @click="changeHouseStyle(1,'一字型停车位')">一字型停车位</li>
-                    <li @click="changeHouseStyle(2,'非字型停车位')">非字型停车位</li>
-                    <li @click="changeHouseStyle(3,'斜位停车入位')">斜位停车入位</li>
-<!--                    <li @click="changeHouseStyle(4,'四居以上')">四居以上</li>-->
+                    <li @click="changeparkStyle(null,'不限')">不限</li>
+                    <li @click="changeparkStyle(1,'一字型停车位')">一字型停车位</li>
+                    <li @click="changeparkStyle(2,'非字型停车位')">非字型停车位</li>
+                    <li @click="changeparkStyle(3,'斜位停车入位')">斜位停车入位</li>
+<!--                    <li @click="changeparkStyle(4,'四居以上')">四居以上</li>-->
                 </ul>
             </li>
         </ul>
@@ -124,15 +124,15 @@
     </div>
     <div class="content">
         <div class="c-item-box">
-            <div class="c-item" v-for="house in houses">
-                <a :href="'House/detail/'+house.house_id">
+            <div class="c-item" v-for="park in parks">
+                <a :href="'park/detail/'+park.park_id">
                     <div class="p-img">
-                        <img :src="'<?php echo ADMINPATH?>'+house.img_thumb_src" alt=""/>
+                        <img :src="'<?php echo ADMINPATH?>'+park.img_thumb_src" alt=""/>
                     </div>
                     <div class="p-info">
-                        <div class="fl p-title">{{house.title}}</div>
-                        <div class="fr p-address">￥{{house.price}}</div>
-                        <div class="p-detail">{{house.street}}</div>
+                        <div class="fl p-title">{{park.title}}</div>
+                        <div class="fr p-address">￥{{park.price}}</div>
+                        <div class="p-detail">{{park.street}}</div>
                     </div>
                 </a>
             </div>
@@ -148,19 +148,19 @@
 <script src="js/zepto.js"></script>
 <script src="js/header.js"></script>
 <script>
-    var houseData = <?php if(isset($data)){echo $data;}else{echo '[];';}?>;
-    var houseCenterVM = new Vue({
+    var parkData = <?php if(isset($data)){echo $data;}else{echo '[];';}?>;
+    var parkCenterVM = new Vue({
         el:".container",
         data:{
             isShow:true,
             plots:<?php if(isset($plots)){echo $plots;}else{echo '[]';}?>,
-            houses:[],
+            parks:[],
             content:'<?php if(isset($content)){echo "$content";}else{echo '';}?>',
             region:'区域',
             price:"价格",
             minPrice:null,
             maxPrice:null,
-            houseStyle:"车位类型",  //修改******
+            parkStyle:"车位类型",  //修改******
             isSale:"是否可售",
             plotId:null,
             plotName:"小区",
@@ -169,10 +169,10 @@
         mounted: function () {
             var _this = this;
             this.$nextTick(function () {
-                if(houseData.length > 0){
-                    _this.houses = houseData;
+                if(parkData.length > 0){
+                    _this.parks = parkData;
                 }else{
-                    houseCenterVM.loadData("hot");
+                    parkCenterVM.loadData("hot");
                 }
             });
         },
@@ -184,7 +184,7 @@
                     this.isShow = false;
                 }
                 var _this = this;
-                axios.get('house/get_houses', {
+                axios.get('park/get_parks', {
                     params: {
                         region:_this.region,
                         content:_this.content,
@@ -197,7 +197,7 @@
                     }
                 }).then(function (res) {
                     var result = res.data;
-                    _this.houses = result.data;
+                    _this.parks = result.data;
                 });
             },
             changePlot:function(plot_id,plot_name){
@@ -215,8 +215,8 @@
                 this.price = price;
                 this.loadData();
             },
-            changeHouseStyle:function(redroom,houseStyle){
-                this.houseStyle = houseStyle;
+            changeparkStyle:function(redroom,parkStyle){
+                this.parkStyle = parkStyle;
                 this.redroom = redroom;
                 this.loadData();
             }
@@ -251,7 +251,7 @@
         });
         $('.area_search_list li').on('click',function(){
             $('.search-area').html($(this).html());
-            houseCenterVM.region = $(this).html();
+            parkCenterVM.region = $(this).html();
             $('.area_search_list').hide();
         });
 

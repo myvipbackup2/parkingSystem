@@ -76,14 +76,14 @@
 <!--                            房源数据列表-->
                             <ul class="nav nav-tabs " id="my-tabs">
                                 <li class="active">
-                                    <a href="#all-houses" data-toggle="tab" class="all-orders">全部房源</a>
+                                    <a href="#all-parks" data-toggle="tab" class="all-orders">全部房源</a>
                                 </li>
 
                             </ul>
                         </header>
                         <div class="panel-body">
                             <div class="tab-content" id="my-tab-pane">
-                                <div class="tab-pane active" id="all-houses">
+                                <div class="tab-pane active" id="all-parks">
                                     <div class="btn-group">
                                         <button class="btn btn-primary btn-new" type="button">添加 <i
                                                     class="fa fa-plus"></i>
@@ -96,7 +96,7 @@
                                         </button>
                                     </div>
                                     <div class="adv-table">
-                                        <table id="example" class="table table-house table-striped table-bordered" cellspacing="0" width="100%">
+                                        <table id="example" class="table table-park table-striped table-bordered" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th><input type="checkbox" id="check-all"/></th>
@@ -119,7 +119,7 @@
                                                 class="fa fa-mail-reply-all"></i>
                                     </button>
                                     <div class="adv-table">
-                                        <table id="recycle-table" class="table table-house table-striped table-bordered"
+                                        <table id="recycle-table" class="table table-park table-striped table-bordered"
                                                cellspacing="0"
                                                width="100%">
                                             <thead>
@@ -192,8 +192,8 @@
                     <div class="form-group clearfix">
                         <label class="col-lg-3 col-sm-3 control-label">设备照片</label>
                         <div class="col-lg-8">
-                            <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail house-upload">
+                            <div class="fileupload fileupload-new park-upload-box" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail park-upload">
                                     <img src="images/photo-upload.jpg" alt="" id="facility-btn">
                                 </div>
                                 <ul id="facility-pics-box" class="ul_pics clearfix"></ul>
@@ -281,16 +281,16 @@
     </div>
 </div>
 <!-- templates -->
-<script id="house-tpl" type="text/html">
-    <?php include 'tpls/house_tpl.html'; ?>
+<script id="park-tpl" type="text/html">
+    <?php include 'tpls/park_tpl.html'; ?>
 </script>
 
-<script id="new-house-tpl" type="text/html">
-    <?php include 'tpls/new_house_tpl.html'; ?>
+<script id="new-park-tpl" type="text/html">
+    <?php include 'tpls/new_park_tpl.html'; ?>
 </script>
 
-<script id="edit-house-tpl" type="text/html">
-    <?php include 'tpls/edit_house_tpl.html'; ?>
+<script id="edit-park-tpl" type="text/html">
+    <?php include 'tpls/edit_park_tpl.html'; ?>
 </script>
 <script id="add-combo-tpl" type="text/html">
     <?php include 'tpls/add_combo_tpl.html'; ?>
@@ -337,10 +337,10 @@
 
 <script>
     $(function () {
-        $.get('house/get_plot',{},function(rs_plot){
+        $.get('park/get_plot',{},function(rs_plot){
             for(var i=0;i<rs_plot.length;i++){
                 $("#my-tabs").append('<li order-status="'+i+'" class="plot-page"><a href="#plot'+i+'" class="plot-btn" data-toggle="tab" plot-id="'+rs_plot[i].plot_id+'">'+rs_plot[i].plot_name+'</a></li>');
-                $("#my-tab-pane").append('<div class="tab-pane" id="plot'+i+'"><div class="btn-group"><button class="btn btn-primary btn-new" type="button">添加 <iclass="fa fa-plus"></i> </button> <button class="btn btn-primary btn-all-del" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <i class="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot'+i+'" class="table table-house table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
+                $("#my-tab-pane").append('<div class="tab-pane" id="plot'+i+'"><div class="btn-group"><button class="btn btn-primary btn-new" type="button">添加 <iclass="fa fa-plus"></i> </button> <button class="btn btn-primary btn-all-del" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <i class="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot'+i+'" class="table table-park table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
             }
             $("#my-tabs").append('<li class=""> <a href="#recycle" data-toggle="tab" class="recycle">回收站</a></li>');
         },'json');
@@ -350,14 +350,14 @@
             $.sidepanel({
                 width: 700,
                 title: '添加房源',
-                tpl: 'new-house-tpl',
-                dataSource: 'house/get_facility_plot',
+                tpl: 'new-park-tpl',
+                dataSource: 'park/get_facility_plot',
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
 
                     //处理可售多选框
                     $('#is-sale').on('change',function(){
                         var $checked = $(this).prop('checked');
-                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-house');
+                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
                         if($checked){
                             $formGroup.show();
                         }else{
@@ -406,18 +406,18 @@
                     cityInit('hometown', 'city', 'position', '黑龙江', '哈尔滨', '市辖区');
 
                     /*户型选择自动跳下一个*/
-                    $('.house-type input').on('keyup', function () {
-                        if ($('.house-type input').index($(this)) == 2) {
-                            $('#house-price').trigger('focus');
+                    $('.park-type input').on('keyup', function () {
+                        if ($('.park-type input').index($(this)) == 2) {
+                            $('#park-price').trigger('focus');
                         } else {
-                            $(this).parents('.house-type').next().find('input').trigger('focus');
+                            $(this).parents('.park-type').next().find('input').trigger('focus');
                         }
                     });
 
                     //验证组件开始
                     $.validator.setDefaults({
                         submitHandler: function() {
-                            $("#house-msg").val(ue.getContent());
+                            $("#park-msg").val(ue.getContent());
                             $("#notice").val(notice.getContent());
                             $("#traffic").val(traffic.getContent());
                             $('#commentForm').submit();
@@ -512,7 +512,7 @@
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics").append(li);
-                                    $('.house-upload-btn').before(li);
+                                    $('.park-upload-btn').before(li);
                                     uploader.start();
                                 }
                             },
@@ -577,7 +577,7 @@
                     text: '请选择要删除的记录!'
                 });
             }else{
-                $.get('house/del_all', {name: blogobj}, function (data) {
+                $.get('park/del_all', {name: blogobj}, function (data) {
                     if (data == 'success') {
                         table.ajax.reload(null, true);//重新加载数据
                         $.gritter.add({
@@ -595,17 +595,17 @@
         var table = $('#example').DataTable({
             "processing": true,
             "serverSide": true,
-            "ajax": "house/house_mgr",
+            "ajax": "park/park_mgr",
             "columns": [
                 {
                     "width": "16px",
                     "className": "text-center",
                     "data": null,
                     "render": function (data, type, row) {
-                        return '<input type="checkbox" name="del[]" value="' + row.house_id + '" class="cb-house-id select_check"/>'
+                        return '<input type="checkbox" name="del[]" value="' + row.park_id + '" class="cb-park-id select_check"/>'
                     }
                 },
-                {"width": "30px", "data": "house_id", "className": "text-center"},
+                {"width": "30px", "data": "park_id", "className": "text-center"},
                 {
                     "width": "30px",
                     "className": "text-center recommend-line",
@@ -619,7 +619,7 @@
                             str_rec='';
                         }
                         //console.log(str_rec);
-                        return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-toggle="modal" data-id="' + row.house_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                        return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-toggle="modal" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                     }
                 },
                 {"data": "title"},
@@ -631,7 +631,7 @@
                 {
                     "data": null,
                     "render": function (data, type, row) {
-                        return '<a href="javascript:;" class="btn-edit">编辑 <i class="fa fa-edit"></i></a> | <a href="javascript:;" class="btn-del" data-id="' + row.house_id + '">删除 <i class="fa fa-times"></i></a> | <a href="javascript:;" class="btn-add-combo">添加套餐</a>';
+                        return '<a href="javascript:;" class="btn-edit">编辑 <i class="fa fa-edit"></i></a> | <a href="javascript:;" class="btn-del" data-id="' + row.park_id + '">删除 <i class="fa fa-times"></i></a> | <a href="javascript:;" class="btn-add-combo">添加套餐</a>';
                     },
                 }
             ],
@@ -641,7 +641,7 @@
             ],
             "order": [[1, 'desc']]
         });
-        $('#my-tabs a.all-houses').click(function (e) {
+        $('#my-tabs a.all-parks').click(function (e) {
             table.ajax.reload();//切换标签时重新加载数据
         });
         $('#my-tabs a.recycle').click(function (e) {
@@ -649,17 +649,17 @@
                 "processing": true,
                 "serverSide": true,
                 "retrieve": true,
-                "ajax": "house/get_del_house",
+                "ajax": "park/get_del_park",
                 "columns": [
                     {
                         "width": "16px",
                         "className": "text-center",
                         "data": null,
                         "render": function (data, type, row) {
-                            return '<input type="checkbox" value="' + row.house_id + '" class="cb-recover-house-id"/>'
+                            return '<input type="checkbox" value="' + row.park_id + '" class="cb-recover-park-id"/>'
                         }
                     },
-                    {"width": "30px", "data": "house_id", "className": "text-center"},
+                    {"width": "30px", "data": "park_id", "className": "text-center"},
                     {
                         "width": "30px",
                         "className": "text-center recommend-line",
@@ -672,7 +672,7 @@
                             }else{
                                 str_rec='';
                             }
-                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success'+str_rec+'" data-id="' + row.house_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success'+str_rec+'" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                         }
                     },
                     {"data": "title"},
@@ -681,7 +681,7 @@
                     {
                         "data": null,
                         "render": function (data, type, row) {
-                            return '<a href="javascript:;" class="btn-recover" data-id="' + row.house_id + '">恢复 <i class="fa fa-mail-reply"></i></a>';
+                            return '<a href="javascript:;" class="btn-recover" data-id="' + row.park_id + '">恢复 <i class="fa fa-mail-reply"></i></a>';
                         },
                     }
                 ],
@@ -706,7 +706,7 @@
                 "serverSide": true,
                 "retrieve": true,
                 "ajax": {
-                    url:"house/plot_house",
+                    url:"park/plot_park",
                     data:{'plot_id':plot_id}
                 },
                 "columns": [
@@ -715,10 +715,10 @@
                         "className": "text-center",
                         "data": null,
                         "render": function (data, type, row) {
-                            return '<input type="checkbox" name="del[]" value="' + row.house_id + '" class="cb-recover-house-id select_check"/>'
+                            return '<input type="checkbox" name="del[]" value="' + row.park_id + '" class="cb-recover-park-id select_check"/>'
                         }
                     },
-                    {"width": "30px", "data": "house_id", "className": "text-center"},
+                    {"width": "30px", "data": "park_id", "className": "text-center"},
                     {
                         "width": "30px",
                         "className": "text-center recommend-line",
@@ -731,7 +731,7 @@
                             }else{
                                 str_rec='';
                             }
-                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-id="' + row.house_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                         }
                     },
                     {"data": "title"},
@@ -740,7 +740,7 @@
                     {
                         "data": null,
                         "render": function (data, type, row) {
-                            return '<a href="javascript:;" class="btn-edit">编辑 <i class="fa fa-edit"></i></a> | <a href="javascript:;" class="btn-del" data-id="' + row.house_id + '">删除 <i class="fa fa-times"></i></a>';
+                            return '<a href="javascript:;" class="btn-edit">编辑 <i class="fa fa-edit"></i></a> | <a href="javascript:;" class="btn-del" data-id="' + row.park_id + '">删除 <i class="fa fa-times"></i></a>';
                         },
                     }
                 ],
@@ -758,7 +758,7 @@
         $('#my-tab-pane').on('click', '.btn-del', function () {
             if (confirm('是否删除该记录，删除后可以在回收站恢复!')) {
                 var dataId = $(this).data('id');
-                $.get('house/house_del', {houseId: dataId}, function (data) {
+                $.get('park/park_del', {parkId: dataId}, function (data) {
                     if (data == 'success') {
                         table.ajax.reload(null, true);//重新加载数据
                         $.gritter.add({
@@ -782,21 +782,21 @@
             $.sidepanel({
                 width: 700,
                 title: '房源详情',
-                tpl: 'house-tpl',
-                dataSource: 'house/house_detail',
+                tpl: 'park-tpl',
+                dataSource: 'park/park_detail',
                 data: {
-                    houseId: dataId
+                    parkId: dataId
                 },
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
                     var $is_sale = $('#is_sale').attr('name');
                     if($is_sale == 1){
-                        $('div.sale-house').show();
+                        $('div.sale-park').show();
                     }
 
                     //处理可售多选框
                     $('#is-sale').on('change',function(){
                         var $checked = $(this).prop('checked');
-                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-house');
+                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
                         if($checked){
                             $formGroup.show();
                         }else{
@@ -808,7 +808,7 @@
                     $('#order-table').DataTable({
                         "processing": true,
                         "serverSide": true,
-                        "ajax": "house/house_orders?houseId=" + dataId,
+                        "ajax": "park/park_orders?parkId=" + dataId,
                         "columns": [
                             {"data": "order_id"},
                             {"data": "start_time"},
@@ -822,7 +822,7 @@
                     //验证组件开始
                     $.validator.setDefaults({
                         submitHandler: function() {
-                            $("#house-msg").val(ue.getContent());
+                            $("#park-msg").val(ue.getContent());
                             $('#editForm').submit();
                         }
                     });
@@ -898,23 +898,23 @@
 
                     ue.ready(function() {
                         //设置编辑器的内容
-                        ue.setContent($('#house-msg').val());
+                        ue.setContent($('#park-msg').val());
                     });
                     cityInit('hometown', 'city', 'position', $('input[name=hometown_hidden]').val(), $('input[name=city_hidden]').val(), $('input[name=position_hidden]').val());
 
-                    $('.house-to-edit').on('click',function(){
-                        $('.house-detail-box').hide();
-                        $('.house-edit-box').show();
+                    $('.park-to-edit').on('click',function(){
+                        $('.park-detail-box').hide();
+                        $('.park-edit-box').show();
                     });
-                    $('.house-to-detail').on('click',function(){
-                        $('.house-detail-box').show();
-                        $('.house-edit-box').hide();
+                    $('.park-to-detail').on('click',function(){
+                        $('.park-detail-box').show();
+                        $('.park-edit-box').hide();
                     });
 
                     //添加房源图片上传
                     var uploader = new plupload.Uploader({ //创建实例的构造方法
                         runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-                        browse_button: 'edit_house_img_btn', // 上传按钮
+                        browse_button: 'edit_park_img_btn', // 上传按钮
                         url: "img_upload", //远程上传地址
                         filters: {
                             max_file_size: '500kb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
@@ -937,7 +937,7 @@
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics_edit").append(li);
-                                    $('.house-upload-btn').before(li);
+                                    $('.park-upload-btn').before(li);
                                     uploader.start();
                                 }
                             },
@@ -968,7 +968,7 @@
                     //图片删除
                     $('#ul_pics_edit').on('click','.init-del-img',function () {
                         var $img_id = $(this).attr('img_id');
-                        $(this).parents('.house-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
+                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
                         $(this).parents('li').remove();
                     });
 
@@ -992,7 +992,7 @@
                 tpl: 'add-combo-tpl',
                 dataSource: 'combo/get_combo_type',
                 data: {
-                    houseId: dataId
+                    parkId: dataId
                 },
                 callback: function () {
                     $(".combo-time").datepicker({
@@ -1012,22 +1012,22 @@
             $.sidepanel({
                 width: 700,
                 title: '编辑房源',
-                tpl: 'edit-house-tpl',
-                dataSource: 'house/house_detail',
+                tpl: 'edit-park-tpl',
+                dataSource: 'park/park_detail',
                 data: {
-                    houseId: dataId
+                    parkId: dataId
                 },
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
 
                     var checked = $('#is-sale').prop('checked');
                     if(checked){
-                        $('div.sale-house').show();
+                        $('div.sale-park').show();
                     }
 
                     //处理可售多选框
                     $('#is-sale').on('change',function(){
                         var $checked = $(this).prop('checked');
-                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-house');
+                        var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
                         if($checked){
                             $formGroup.show();
                         }else{
@@ -1038,7 +1038,7 @@
                     //验证组件开始
                     $.validator.setDefaults({
                         submitHandler: function() {
-                            $("#house-msg").val(ue.getContent());
+                            $("#park-msg").val(ue.getContent());
                             $('#editForm').submit();
                         }
                     });
@@ -1113,7 +1113,7 @@
 
                     ue.ready(function() {
                         //设置编辑器的内容
-                        ue.setContent($('#house-msg').val());
+                        ue.setContent($('#park-msg').val());
                     });
 
                     cityInit('hometown', 'city', 'position', $('input[name=hometown_hidden]').val(), $('input[name=city_hidden]').val(), $('input[name=position_hidden]').val());
@@ -1122,7 +1122,7 @@
                     //添加房源图片上传
                     var uploader = new plupload.Uploader({ //创建实例的构造方法
                         runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
-                        browse_button: 'edit_house_img_btn', // 上传按钮
+                        browse_button: 'edit_park_img_btn', // 上传按钮
                         url: "img_upload", //远程上传地址
                         filters: {
                             max_file_size: '500kb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
@@ -1145,7 +1145,7 @@
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics_edit").append(li);
-                                    $('.house-upload-btn').before(li);
+                                    $('.park-upload-btn').before(li);
                                     uploader.start();
                                 }
                             },
@@ -1176,7 +1176,7 @@
                     //图片删除
                     $('#ul_pics_edit').on('click','.init-del-img',function () {
                         var $img_id = $(this).attr('img_id');
-                        $(this).parents('.house-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
+                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
                         $(this).parents('li').remove();
                     });
 
@@ -1203,7 +1203,7 @@
             $('body').append('<div class="modal-backdrop fade in"></div>');
             $('body').addClass('modal-open');
             $("#myModal-2").css({'display':'block'}).addClass('in');
-            $('.cb-house-id:checked', $('#example')).each(function (i) {
+            $('.cb-park-id:checked', $('#example')).each(function (i) {
                 rec_some[i]=this.value;
             });
             var rec_reason = '';
@@ -1213,8 +1213,8 @@
                 $(".modal-backdrop.fade.in").remove();
             });
             $(".rec-btn-reason").on('click',function(){
-                for(var j=0;j<$('.cb-house-id').length;j++){
-                    if($('#example tbody tr').eq(j).find('.cb-house-id').prop('checked')){
+                for(var j=0;j<$('.cb-park-id').length;j++){
+                    if($('#example tbody tr').eq(j).find('.cb-park-id').prop('checked')){
                         $('#example tbody tr').eq(j).find('.btn-recommend').addClass('recommend-red');
                     }
                 }
@@ -1223,7 +1223,7 @@
                 $(".modal.fade.in").removeClass('in');
                 $(".modal-backdrop.fade.in").remove();
                 var rec_some_str=rec_some.join('.');
-                $.get('House/recommend_add_some',{'rec_some':rec_some_str,'rec_reason':rec_reason},function(rec_rs){
+                $.get('park/recommend_add_some',{'rec_some':rec_some_str,'rec_reason':rec_reason},function(rec_rs){
 //                    console.log(rec_rs);
                 },'json');
             });
@@ -1232,11 +1232,11 @@
         var aCheckIndex = 0;
         $("#my-tab-pane").on('click','#check-all',function(){
                     if (aCheckIndex==0) {
-                        $('.cb-house-id').prop("checked",true);
+                        $('.cb-park-id').prop("checked",true);
                         aCheckIndex=1;
                     }
                     else if (aCheckIndex==1) {
-                        $('.cb-house-id').prop("checked",false);
+                        $('.cb-park-id').prop("checked",false);
                         aCheckIndex=0;
                     }
         });
@@ -1251,7 +1251,7 @@
                 var r=confirm("是否取消推荐")
                 if (r==true)
                 {
-                    $.get('House/recommend_del',{'rec_id':rec_id},function($rs){
+                    $.get('park/recommend_del',{'rec_id':rec_id},function($rs){
                         console.log($rs);
                     },'text');
                     $(this).removeClass('recommend-red');
@@ -1268,7 +1268,7 @@
                     $(".modal.fade.in").css({'display':'none'});
                     $(".modal.fade.in").removeClass('in');
                     $(".modal-backdrop.fade.in").remove();
-                    $.get('House/recommend_add',{'rec_id':rec_id,'rec_reason':rec_reason},function($rec_rs){
+                    $.get('park/recommend_add',{'rec_id':rec_id,'rec_reason':rec_reason},function($rec_rs){
                     },'text');
                 });
                 $("#exampleInputEmail5").val('');
@@ -1342,7 +1342,7 @@
             $free = $('#is-free').val();
             $price = $('#facility-price').val();
             $remark = facility_ue.getContent();
-            $.get('house/facility_add', {title: $name,facility_img:$img,free:$free,price:$price,remark:$remark}, function (data) {
+            $.get('park/facility_add', {title: $name,facility_img:$img,free:$free,price:$price,remark:$remark}, function (data) {
                 if(data == 'error'){
                     $.gritter.add({
                         title: '信息提示!',
@@ -1350,7 +1350,7 @@
                     });
                 }else{
                     var $str = '<div class="checkbox"><label><input type="checkbox" name="facility[]" value="'+ data +'">'+$name+' </label></div>';
-                    $('div.icheck').find('a.house-add-fac').before($str);
+                    $('div.icheck').find('a.park-add-fac').before($str);
                     $('.close-facility').trigger('click');
                     $('#facility-name').val('');
                     $('#facility-pics-box').html('');
@@ -1372,7 +1372,7 @@
             $developer = $('#deve option:selected').val();
             $video = $('#plot-video').val();
             $description = plot_ue.getContent();
-            $.get('house/plot_add', {plot_name: $name,plot_deve:$developer,video:$video,description:$description}, function (data) {
+            $.get('park/plot_add', {plot_name: $name,plot_deve:$developer,video:$video,description:$description}, function (data) {
                 if(data == 'error'){
                     $.gritter.add({
                         title: '信息提示!',
@@ -1384,7 +1384,7 @@
                     $('.close-plot').trigger('click');
                     $('#plot-name').val('');
                     $('.plot-page').remove();
-                    $.get('house/get_plot',{},function(rs_plot){
+                    $.get('park/get_plot',{},function(rs_plot){
                         //console.log(rs_plot[0]);
                         for(var i=0;i<rs_plot.length;i++){
                             $("#my-tabs").append('<li order-status="'+i+'" class="plot-page"><a href="#plot'+i+'" class="plot-btn" data-toggle="tab" plot-id="'+rs_plot[i].plot_id+'">'+rs_plot[i].plot_name+'</a></li>');

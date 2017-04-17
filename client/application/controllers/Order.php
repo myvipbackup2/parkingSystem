@@ -7,7 +7,7 @@ class Order extends CI_Controller
     {
         parent::__construct();
         $this->load->model('order_model');
-        $this->load->model('house_model');
+        $this->load->model('park_model');
     }
 
     public function get_fee_facilities()
@@ -16,28 +16,28 @@ class Order extends CI_Controller
         echo json_encode($facilities);
     }
 
-    public function house_order()
+    public function park_order()
     {
-        $house_id = $this->input->post('houseId');
+        $park_id = $this->input->post('parkId');
         $start_time = $this->input->post('startDate');
         $end_time = $this->input->post('endDate');
-        $house = $this->house_model->get_house_by_id($house_id);
+        $park = $this->park_model->get_park_by_id($park_id);
         $days = floor((strtotime($end_time) - strtotime($start_time)) / 86400);
-        $this->load->view('submitorder', array('house' => $house, 'title' => $house->title, 'price' => $house->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
+        $this->load->view('submitorder', array('park' => $park, 'title' => $park->title, 'price' => $park->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
     }
 
     public function confirm_order()
     {
-        $house_id = $this->input->post('houseId');
-        $house = $this->house_model->get_house_by_id($house_id);
-        $price = $house->price;
-        $houseInfo = $house->title;
+        $park_id = $this->input->post('parkId');
+        $park = $this->park_model->get_park_by_id($park_id);
+        $price = $park->price;
+        $parkInfo = $park->title;
         $startTime = $this->input->post('startDate');
         $endTime = $this->input->post('endDate');
         $days = floor((strtotime($endTime) - strtotime($startTime)) / 86400);
         $realName = $this->input->post('name');
         $phone = $this->input->post('tel');
-        $amount = $days * $price;//拿house_id 取price  day* price
+        $amount = $days * $price;//拿park_id 取price  day* price
         $user_id = $this->session->userdata('userinfo')->user_id;
 
 
@@ -50,11 +50,11 @@ class Order extends CI_Controller
                 $randNum .= rand(0, 9);
             }
             $order_num = date("YmdHis") . $randNum;
-            $this->order_model->add_order($order_num, $house_id, $user_id, $startTime, $endTime, $realName, $amount, $phone);
+            $this->order_model->add_order($order_num, $park_id, $user_id, $startTime, $endTime, $realName, $amount, $phone);
             $this->session->order_no = $order_num;
         }
         $this->load->view('confirm_order', array(
-            'houseInfo' => $houseInfo,
+            'parkInfo' => $parkInfo,
             'amount' => $amount,
             'realName' => $realName,
             'phone' => $phone,
@@ -72,16 +72,16 @@ class Order extends CI_Controller
         $combo_id = $this->input->get('comboId');
         $start_time = $this->input->get('startTime');
         $end_time = $this->input->get('endTime');
-        $result = $this->house_model->get_combo_by_id($combo_id);
+        $result = $this->park_model->get_combo_by_id($combo_id);
         $days = floor((strtotime($end_time) - strtotime($start_time)) / 86400);
-        $this->load->view('submitorder', array('house' => $result, 'title' => $result->com_title, 'price' => $result->com_price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
+        $this->load->view('submitorder', array('park' => $result, 'title' => $result->com_title, 'price' => $result->com_price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
     }
 
     public function add_comment()
     {
         $user_id = $this->session->userdata('userinfo')->user_id;
         $orderId = $this->input->get("orderId");
-        $houseId = $this->input->get("houseId");
+        $parkId = $this->input->get("parkId");
         $val = $this->input->get("val");
         $score = $this->input->get("score");
         $clean_score = $this->input->get("cleanScore");
@@ -89,7 +89,7 @@ class Order extends CI_Controller
         $manage_score = $this->input->get("manageScore");
         $facility_score = $this->input->get("facilityScore");
         $imgs = $this->input->get("imgs");
-        $row = $this->order_model->add_comment($orderId, $houseId, $val, $score, $user_id, $imgs, $clean_score, $traffic_score, $manage_score, $facility_score);
+        $row = $this->order_model->add_comment($orderId, $parkId, $val, $score, $user_id, $imgs, $clean_score, $traffic_score, $manage_score, $facility_score);
         if ($row > 0) {
             redirect("welcome/order");
         } else {

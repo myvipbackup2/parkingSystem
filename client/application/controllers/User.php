@@ -38,10 +38,10 @@ class User extends CI_Controller
         if (isset($userId) && $orderType == 'order') {
             $results = $this->user_model->query_done_order($userId);//获取该用户所有已完成订单
             foreach ($results as $row) {
-                $doneHouse = $this->user_model->query_house_info($row->house_id);
+                $donepark = $this->user_model->query_park_info($row->park_id);
                 $comment = $this->user_model->is_comment($userId, $row->order_id);
                 $row->comment = true;
-                $row->house = $doneHouse;
+                $row->park = $donepark;
                 if ($comment != null) {
                     $row->comment = false;
                 }
@@ -54,8 +54,8 @@ class User extends CI_Controller
         } else if (isset($userId) && $orderType == 'un_order') {
             $results2 = $this->user_model->query_undone_order($userId);//获取该用户所有未完成订单
             foreach ($results2 as $row) {
-                $undoneHouse = $this->user_model->query_house_info($row->house_id);
-                $row->house = $undoneHouse;
+                $undonepark = $this->user_model->query_park_info($row->park_id);
+                $row->park = $undonepark;
             };
             echo json_encode(array(
                 'data' => $results2,
@@ -114,7 +114,7 @@ class User extends CI_Controller
         if ($login_user) {
             echo "success";
         } else {
-            $this->input->set_cookie("prev_url",'http://www.hrbyueju.com/yuejum/House/detail/28',3600);
+            $this->input->set_cookie("prev_url",'http://www.hrbyueju.com/yuejum/park/detail/28',3600);
             echo "fail";
         }
     }

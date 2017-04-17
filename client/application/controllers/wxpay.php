@@ -87,7 +87,7 @@ class Wxpay extends CI_Controller {
 	//预订成功,发送短信
 	private function send_success_msg($orderno){
 		$order = $this->order_model->select_order($orderno);
-		$house = $this->order_model->get_manage($order->house_id);
+		$park = $this->order_model->get_manage($order->park_id);
 		//SMS_61350034  您于${time}在悦居网预订${address}住房，入住时间为${starttime}，联系电话：${tel},祝您生活愉快！
 		date_default_timezone_set('Asia/Shanghai');
 		require_once(APPPATH."libraries/alidayu/TopSdk.php");
@@ -97,7 +97,7 @@ class Wxpay extends CI_Controller {
 		$req = new AlibabaAliqinFcSmsNumSendRequest;
 		$req->setSmsType("normal");
 		$req->setSmsFreeSignName("哈尔滨悦居");
-		$req->setSmsParam("{'time':'".date("Y年m月d日")."','address':'".$house->city.$house->region.$house->street.$house->plot_name."','starttime':'".$order->start_time."','tel':'".$house->tel."'}");
+		$req->setSmsParam("{'time':'".date("Y年m月d日")."','address':'".$park->city.$park->region.$park->street.$park->plot_name."','starttime':'".$order->start_time."','tel':'".$park->tel."'}");
 		$req->setRecNum($order->invoice_person_tel);
 		$req->setSmsTemplateCode('SMS_61355153');
 		$resp = $c->execute($req);

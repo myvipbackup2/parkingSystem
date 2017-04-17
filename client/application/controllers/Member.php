@@ -2,13 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-/**
- * Created by PhpStorm.
- * User: apple
- * Date: 17/3/31
- * Time: 上午11:14
- */
 class Member extends  CI_Controller
 {
     public function __construct()

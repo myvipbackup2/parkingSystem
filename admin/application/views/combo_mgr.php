@@ -171,7 +171,7 @@
                 },
                 {"data": "combo_id"},
                 {"data": "title"},
-                {"data": "house_title"},
+                {"data": "park_title"},
                 {"data": "price"},
                 {"data": "days"},
                 {"data": "type_name"},

@@ -113,7 +113,7 @@ class Developer extends CI_Controller
     {
         admin_log("开发商详情查询");
         $developerId = $this->input->get('developerId');
-        $developer = $this->developer_model->get_by_id($developerId, array('inc_house'=>TRUE));
+        $developer = $this->developer_model->get_by_id($developerId, array('inc_park'=>TRUE));
         if ($developer) {
             echo json_encode($developer);
         } else {
@@ -121,7 +121,7 @@ class Developer extends CI_Controller
         }
     }
 
-    public function developer_house()
+    public function developer_park()
     {
         $developerId = $this->input->get('developerId');
 
@@ -137,11 +137,11 @@ class Developer extends CI_Controller
         //定义前台datatables中要显示和排序的列出数据库中字段的关系
         $order_col = array('0' => 'title', '1' => 'price','2' => 'area');
 
-        $recordsTotal = $this->developer_model->get_total_developer_house_count($developerId);//获取所有记录数，必须要用到
-        $recordsFiltered = $this->developer_model->get_filterd_developer_house_count($developerId, $search);//获取搜索过滤后的记录数，必须要用到
+        $recordsTotal = $this->developer_model->get_total_developer_park_count($developerId);//获取所有记录数，必须要用到
+        $recordsFiltered = $this->developer_model->get_filterd_developer_park_count($developerId, $search);//获取搜索过滤后的记录数，必须要用到
 
         //获取要分页的数据
-        $datas = $this->developer_model->get_paginated_developer_house($developerId, $length, $start, $search, $order_col[$order_col_no], $order_col_dir);
+        $datas = $this->developer_model->get_paginated_developer_park($developerId, $length, $start, $search, $order_col[$order_col_no], $order_col_dir);
 
         foreach ($datas as $data) {
             $data->DT_RowData = array('id' => $data->developer_id);//jquery.datatables插件要用DT_RowData属性来为每一个tr绑定自定义data-*属性

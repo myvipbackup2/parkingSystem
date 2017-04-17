@@ -28,7 +28,7 @@
             $order_col_no = $this->input->get('order[0][column]');//排序的列
             $order_col_dir = $this->input->get('order[0][dir]');//排序的方向(asc|desc)
 
-            $order_col = array('0' => 'combo_id', '1' => 'title', '2' => 'house_title','3'=>'price','4'=>'days','5'=>'type_name');
+            $order_col = array('0' => 'combo_id', '1' => 'title', '2' => 'park_title','3'=>'price','4'=>'days','5'=>'type_name');
             $recordsTotal = $this->combo_model->get_total_count();
             $recordsFiltered = $this->combo_model->get_filterd_count($search);
 
@@ -81,7 +81,7 @@
 
         public function add_combo(){
             admin_log("添加套餐");
-            $house_id = htmlspecialchars($this->input->post('house_id'));
+            $park_id = htmlspecialchars($this->input->post('park_id'));
             $title = htmlspecialchars($this->input->post('title'));
             $start_time = htmlspecialchars($this->input->post('start_time'));
             $end_time = htmlspecialchars($this->input->post('end_time'));
@@ -90,7 +90,7 @@
             $link = htmlspecialchars($this->input->post('link'));
             $combo_type_id = htmlspecialchars($this->input->post('combo_type_id'));
             $rows = $this->combo_model->add_combo(array(
-                'house_id'=>$house_id,
+                'park_id'=>$park_id,
                 'title'=>$title,
                 'start_time'=>$start_time,
                 'end_time'=>$end_time,
@@ -100,7 +100,7 @@
                 'combo_type_id'=>$combo_type_id
             ));
             if($rows>0){
-                redirect('house');
+                redirect('park');
             }else{
                 echo json_encode(array('err' => '添加套餐失败!'));
             }
@@ -150,10 +150,10 @@
         }
 
         public function get_combo_type(){
-            $houseId = $this->input->get('houseId');
+            $parkId = $this->input->get('parkId');
             $result = $this->combo_model->get_combo_type();
             echo json_encode(array(
-                "house_id" => intval($houseId),
+                "park_id" => intval($parkId),
                 "types" => $result
             ), JSON_UNESCAPED_UNICODE);
         }

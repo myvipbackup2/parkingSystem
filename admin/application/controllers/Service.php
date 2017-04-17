@@ -11,12 +11,12 @@ class Service extends CI_Controller {
     public function add_service(){
         admin_log('添加维修记录');
         $plot_name=$this->input->post("plot_name");
-        $house_name=$this->input->post("house_name");
+        $park_name=$this->input->post("park_name");
         $facility_name=$this->input->post("facility_name");
         $question_dec = htmlspecialchars($this->input->post('editorValue'));
         $service_time=$this->input->post("service_time");
         $this->load->model('Service_model');
-        $query=$this->Service_model->add($plot_name,$house_name,$facility_name,$question_dec,$service_time);
+        $query=$this->Service_model->add($plot_name,$park_name,$facility_name,$question_dec,$service_time);
         if($query){
             redirect('service');
         }
@@ -32,7 +32,7 @@ class Service extends CI_Controller {
         $search = htmlspecialchars($this->input->get('search[value]'));//搜索内容
         $order_col_no = $this->input->get('order[0][column]');//排序的列
         $order_col_dir = $this->input->get('order[0][dir]');//排序的方向(asc|desc)
-        $order_col = array('1'=>'service_id','2' => 'plot_name', '3' => 'house_name','4' => 'facility_name','5' => 'question_dec');
+        $order_col = array('1'=>'service_id','2' => 'plot_name', '3' => 'park_name','4' => 'facility_name','5' => 'question_dec');
         //$order_col=array('0'=>'name');
         $recordsTotal = $this->service_model->get_total_count();
         $recordsFiltered = $this->service_model->get_filterd_count($search);
@@ -88,18 +88,18 @@ class Service extends CI_Controller {
         $result = $this->service_model->order_search_plot($street);
         echo json_encode($result);
     }
-    public function order_search_house()
+    public function order_search_park()
     {
         $street = $this->input->get("street");
         $plot_id=$this->input->get("plot_id");
-        $result = $this->service_model->order_search_house($street,$plot_id);
+        $result = $this->service_model->order_search_park($street,$plot_id);
         echo json_encode($result);
     }
 
     public function order_search_facility(){
         $street = $this->input->get("street");
-        $house_id=$this->input->get("house_id");
-        $result = $this->service_model->order_search_facility($street,$house_id);
+        $park_id=$this->input->get("park_id");
+        $result = $this->service_model->order_search_facility($street,$park_id);
         echo json_encode($result);
     }
 }

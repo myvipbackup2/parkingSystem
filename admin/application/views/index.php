@@ -77,7 +77,7 @@
                                 <div class="panel <?php echo $color?>">
                                     <div class="state-value">
                                         <div class="value"><?php echo $value->num?>个车位</div>
-                                        <div class="title"><a href="house/house_list" style="color: #fff;"><?php echo $value->plot_name?></a></div>
+                                        <div class="title"><a href="park/park_list" style="color: #fff;"><?php echo $value->plot_name?></a></div>
                                     </div>
                                 </div>
                             </div>

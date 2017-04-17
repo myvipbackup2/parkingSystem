@@ -11,17 +11,17 @@ class Combo_model extends CI_Model {
 	}
 	public function get_total_count()
 	{
-		$this -> db -> select('t_combo.*,t_combo_type.type_name,t_house.title house_title');
+		$this -> db -> select('t_combo.*,t_combo_type.type_name,t_park.title park_title');
 		$this -> db -> from('t_combo');
 		$this -> db -> join('t_combo_type','t_combo_type.type_id = t_combo.combo_type_id');
-		$this -> db -> join('t_house','t_house.house_id = t_combo.house_id');
+		$this -> db -> join('t_park','t_park.park_id = t_combo.park_id');
 		return $this->db->count_all_results();
 	}
 	public function get_filterd_count($search)
 	{
-		$sql = "SELECT t_combo.*,t_combo_type.type_name,t_house.title house_title FROM t_combo JOIN t_combo_type on t_combo_type.type_id = t_combo.combo_type_id JOIN t_house on t_house.house_id = t_combo.house_id where 1";
+		$sql = "SELECT t_combo.*,t_combo_type.type_name,t_park.title park_title FROM t_combo JOIN t_combo_type on t_combo_type.type_id = t_combo.combo_type_id JOIN t_park on t_park.park_id = t_combo.park_id where 1";
 		if (strlen($search) > 0) {
-			$sql .= " and (t_combo.title LIKE '%" . $search . "%' or t_house.title LIKE '%" . $search . "% or t_combo.days LIKE '%" . $search . "% or t_combo.price LIKE '%" . $search . "%')";
+			$sql .= " and (t_combo.title LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "% or t_combo.days LIKE '%" . $search . "% or t_combo.price LIKE '%" . $search . "%')";
 		}
 		return $this->db->query($sql)->num_rows();
 	}
@@ -37,9 +37,9 @@ class Combo_model extends CI_Model {
 
 	public function get_paginated_combo($limit, $offset, $search, $order_col, $order_col_dir)
 	{
-		$sql = "SELECT t_combo.*,t_combo_type.type_name,t_house.title house_title FROM t_combo JOIN t_combo_type on t_combo_type.type_id = t_combo.combo_type_id JOIN t_house on t_house.house_id = t_combo.house_id where 1";
+		$sql = "SELECT t_combo.*,t_combo_type.type_name,t_park.title park_title FROM t_combo JOIN t_combo_type on t_combo_type.type_id = t_combo.combo_type_id JOIN t_park on t_park.park_id = t_combo.park_id where 1";
 		if (strlen($search) > 0) {
-			$sql .= " and (t_combo.title LIKE '%" . $search . "%' or t_house.title LIKE '%" . $search . "% or t_combo.days LIKE '%" . $search . "% or t_combo.price LIKE '%" . $search . "%')";
+			$sql .= " and (t_combo.title LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "% or t_combo.days LIKE '%" . $search . "% or t_combo.price LIKE '%" . $search . "%')";
 		}
 		$sql .= " order by $order_col $order_col_dir";
 		$sql .= " limit $offset, $limit";
@@ -91,10 +91,10 @@ class Combo_model extends CI_Model {
 
 	public function get_detail($combo_id){
 
-		$this -> db -> select('t_combo.*,t_combo_type.type_name,t_house.title house_title');
+		$this -> db -> select('t_combo.*,t_combo_type.type_name,t_park.title park_title');
 		$this -> db -> from('t_combo');
 		$this -> db -> join('t_combo_type','t_combo_type.type_id = t_combo.combo_type_id');
-		$this -> db -> join('t_house','t_house.house_id = t_combo.house_id');
+		$this -> db -> join('t_park','t_park.park_id = t_combo.park_id');
 		$this->db->where('t_combo.combo_id', $combo_id);
 		$row = $this->db->get()->row();
 		$types = $this->db->get('t_combo_type')->result();

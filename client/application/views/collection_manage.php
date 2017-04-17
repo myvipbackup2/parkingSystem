@@ -56,27 +56,27 @@
     </div>
 </div>
     <div class="pro-container" id="app">
-        <div class="pro-item" v-for='(house,index) in house_collection'>
-            <a class="pro-box clearfix" :href="'House/detail/'+ house.house_id">
+        <div class="pro-item" v-for='(park,index) in park_collection'>
+            <a class="pro-box clearfix" :href="'park/detail/'+ park.park_id">
                 <div class="fl p-img">
 <!--                    --><?php //echo ADMINPATH?>
-                    <img :src="'<?php echo ADMINPATH?>'+house.img_thumb_src" alt=""/>
+                    <img :src="'<?php echo ADMINPATH?>'+park.img_thumb_src" alt=""/>
                 </div>
                 <div class="fr p-info">
-                    <h2 class="p-title">{{house.title}}</h2>
-                    <div class="p-style p-address">地址：{{house.city}},{{house.region}},{{house.street}}</div>
+                    <h2 class="p-title">{{park.title}}</h2>
+                    <div class="p-style p-address">地址：{{park.city}},{{park.region}},{{park.street}}</div>
                     <div class="p-style p-type">
                         车位：
-<!--                        {{house.bedroom}}室{{house.livingroom}}厅{{house.lavatory}}卫-->
+<!--                        {{park.bedroom}}室{{park.livingroom}}厅{{park.lavatory}}卫-->
                         <span>一字型停车位</span>
                     </div>
                     <div class="p-btns-box">
-                        <span class="p-btns p-collect" @click="delCollect(house.collect_id,index)">取消收藏</span>
+                        <span class="p-btns p-collect" @click="delCollect(park.collect_id,index)">取消收藏</span>
                     </div>
                 </div>
             </a>
             <div class="pro-date">
-                收藏时间：{{house.collect_time}}
+                收藏时间：{{park.collect_time}}
             </div>
         </div>
         <!--confirm弹框-->
@@ -94,7 +94,7 @@
         var vm = new Vue({
             el: '#app',
             data: {
-                house_collection:<?php echo $house_collection?>,
+                park_collection:<?php echo $park_collection?>,
                 isShow:false,
                 collectId:'',
                 index:''
@@ -116,7 +116,7 @@
                         }).then(function (res) {
                             var result = res.data;
                             if(result == 'success'){
-                                _this.house_collection.splice(_this.index,1);
+                                _this.park_collection.splice(_this.index,1);
                                 _this.isShow = false;
                             }else{
                             }

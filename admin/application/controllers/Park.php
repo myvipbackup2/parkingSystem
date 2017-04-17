@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class House extends CI_Controller
+class Park extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('house_model');
+        $this->load->model('park_model');
         $this->load->model('facility_model');
         $this->load->model('recommend_model');
         $this->load->model('plot_model');
@@ -17,10 +17,10 @@ class House extends CI_Controller
 
     public function index()
     {
-            $this->load->view('house_mgr');
+            $this->load->view('park_mgr');
     }
 
-    public function house_mgr()
+    public function park_mgr()
     {
         $draw = $this->input->get('draw');
 
@@ -31,15 +31,15 @@ class House extends CI_Controller
         $order_col_no = $this->input->get('order[0][column]');//排序的列
         $order_col_dir = $this->input->get('order[0][dir]');//排序的方向(asc|desc)
 
-        $order_col = array('1' => 'house_id', '3' => 'title', '4' => 'region', '5' => 'price');
+        $order_col = array('1' => 'park_id', '3' => 'title', '4' => 'region', '5' => 'price');
 
-        $recordsTotal = $this->house_model->get_total_count();
-        $recordsFiltered = $this->house_model->get_filterd_count($search);
+        $recordsTotal = $this->park_model->get_total_count();
+        $recordsFiltered = $this->park_model->get_filterd_count($search);
 
-        $datas = $this->house_model->get_paginated_houses($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
+        $datas = $this->park_model->get_paginated_parks($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
 
         foreach ($datas as $data) {
-            $data->DT_RowData = array('id' => $data->house_id);
+            $data->DT_RowData = array('id' => $data->park_id);
         }
 
         echo json_encode(array(
@@ -51,18 +51,18 @@ class House extends CI_Controller
 
     }
 
-    public function house_detail()
+    public function park_detail()
     {
-        $house_id = $this->input->get('houseId');
-        $house = $this->house_model->get_house_by_id($house_id, array('inc_orders'=>FALSE, 'inc_comments'=>FALSE));
-        $facilitys = $this->facility_model->get_facility_by_houseid($house_id);
-        foreach ($house->plots_data as $plot){
-            if($plot->plot_id == $house->plot_id){
+        $park_id = $this->input->get('parkId');
+        $park = $this->park_model->get_park_by_id($park_id, array('inc_orders'=>FALSE, 'inc_comments'=>FALSE));
+        $facilitys = $this->facility_model->get_facility_by_parkid($park_id);
+        foreach ($park->plots_data as $plot){
+            if($plot->plot_id == $park->plot_id){
                 $plot->selected = 'selected';
             }
         }
-        foreach ($house->developers_data as $developer){
-            if($developer->developer_id == $house->developer_id){
+        foreach ($park->developers_data as $developer){
+            if($developer->developer_id == $park->developer_id){
                 $developer->selected = 'selected';
             }
         }
@@ -71,7 +71,7 @@ class House extends CI_Controller
         foreach ($facilitys as $fac){
             $facArr[] = $fac->type_id;
         }
-        foreach ($house->facilitys_data as $facility){
+        foreach ($park->facilitys_data as $facility){
             if(in_array($facility->type_id,$facArr)){
                 $facility->checked = 'checked';
             }else{
@@ -80,16 +80,16 @@ class House extends CI_Controller
         }
 
         if($facilitys){
-            $house->facilitys = $facilitys;
+            $park->facilitys = $facilitys;
         }
-        if ($house) {
-            echo json_encode($house);
+        if ($park) {
+            echo json_encode($park);
         } else {
             echo json_encode(array('err' => '未找到指定房源信息!'));
         }
     }
 
-    public function house_add(){
+    public function park_add(){
         $title = htmlspecialchars($this->input->post('title'));
         $name = htmlspecialchars($this->input->post('name'));
         $hometown = htmlspecialchars($this->input->post('hometown'));
@@ -100,7 +100,7 @@ class House extends CI_Controller
         $livingroom = htmlspecialchars($this->input->post('livingroom'));
         $toilet = htmlspecialchars($this->input->post('toilet'));
         $price = htmlspecialchars($this->input->post('price'));
-        $house_msg = $this->input->post('house-msg');
+        $park_msg = $this->input->post('park-msg');
         $notice = htmlspecialchars($this->input->post('notice'));
         $traffic = htmlspecialchars($this->input->post('traffic'));
         $isSale = htmlspecialchars($this->input->post('is-sale'));
@@ -116,7 +116,7 @@ class House extends CI_Controller
         $facilitys = $this->input->post('facility');
         $upload_imgs = $this->input->post('upload_img');
 
-        $id = $this -> house_model -> save_house(array(
+        $id = $this -> park_model -> save_park(array(
             "title" => $title,
             "plot_id" => $name,
             "province" => $hometown,
@@ -127,7 +127,7 @@ class House extends CI_Controller
             "livingroom" => $livingroom,
             "lavatory" => $toilet,
             "price" => $price,
-            "description" => $house_msg,
+            "description" => $park_msg,
             "notice"=>$notice,
             "traffic"=>$traffic,
             "is_sale"=>$isSale[0],
@@ -145,30 +145,30 @@ class House extends CI_Controller
             $facilityArr = [];
             if(isset($facilitys)){
                 foreach ($facilitys as $facility){
-                    $facilityArr[] = array('type_id'=>$facility,'house_id'=>$id);
+                    $facilityArr[] = array('type_id'=>$facility,'park_id'=>$id);
                 }
-                $this -> facility_model -> save_house_facility($facilityArr);
+                $this -> facility_model -> save_park_facility($facilityArr);
             }
 
             //添加照片
-            $houseArr = [];
+            $parkArr = [];
             if(isset($upload_imgs)){
                 for ($i=0; $i<count($upload_imgs); $i++){
                     $upload_img = $upload_imgs[$i];
                     $upload_img_big = substr_replace($upload_img,"Big",22,5);
-                    $houseArr[] = array('is_main'=>$i==0?1:0,'img_thumb_src'=>$upload_img,'img_src'=>$upload_img_big,'house_id'=>$id);
+                    $parkArr[] = array('is_main'=>$i==0?1:0,'img_thumb_src'=>$upload_img,'img_src'=>$upload_img_big,'park_id'=>$id);
                 }
-                $this -> house_model -> save_house_img($houseArr);
+                $this -> park_model -> save_park_img($parkArr);
             }
-            redirect('house');
+            redirect('park');
         }else{
             echo "添加房源失败";
         }
 
     }
 
-    public function house_edit(){
-        $house_id = htmlspecialchars($this->input->post('house_id'));
+    public function park_edit(){
+        $park_id = htmlspecialchars($this->input->post('park_id'));
         $title = htmlspecialchars($this->input->post('title'));
         $plot = htmlspecialchars($this->input->post('plot'));
         $hometown = htmlspecialchars($this->input->post('hometown'));
@@ -179,7 +179,7 @@ class House extends CI_Controller
         $livingroom = htmlspecialchars($this->input->post('livingroom'));
         $toilet = htmlspecialchars($this->input->post('toilet'));
         $price = htmlspecialchars($this->input->post('price'));
-        $house_msg = $this->input->post('house-msg');
+        $park_msg = $this->input->post('park-msg');
         $notice = htmlspecialchars($this->input->post('notice'));
         $traffic = htmlspecialchars($this->input->post('traffic'));
         $isSale = $this->input->post('is-sale');
@@ -194,7 +194,7 @@ class House extends CI_Controller
         $del_img_id = $this->input->post('del_img_id');
         $facilitys = $this->input->post('facility');
 
-        $row = $this -> house_model -> edit_house($house_id,array(
+        $row = $this -> park_model -> edit_park($park_id,array(
             "title" => $title,
             "plot_id" => $plot,
             "province" => $hometown,
@@ -205,7 +205,7 @@ class House extends CI_Controller
             "livingroom" => $livingroom,
             "lavatory" => $toilet,
             "price" => $price,
-            "description" => $house_msg,
+            "description" => $park_msg,
             "notice"=>$notice,
             "traffic"=>$traffic,
             "is_sale"=>$isSale[0]==1?1:0,
@@ -219,32 +219,32 @@ class House extends CI_Controller
 
         //添加照片
         if(isset($upload_imgs)){
-            $houseArr = [];
+            $parkArr = [];
             foreach ($upload_imgs as $key=>$upload_img){
                 $upload_img_big = substr_replace($upload_img,"Big",22,5);
                 if($key==0){
-                    $houseArr[] = array('img_thumb_src'=>$upload_img,'is_main'=>1,'img_src'=>$upload_img_big,'house_id'=>$house_id);
+                    $parkArr[] = array('img_thumb_src'=>$upload_img,'is_main'=>1,'img_src'=>$upload_img_big,'park_id'=>$park_id);
                 }else{
-                    $houseArr[] = array('img_thumb_src'=>$upload_img,'is_main'=>0,'img_src'=>$upload_img_big,'house_id'=>$house_id);
+                    $parkArr[] = array('img_thumb_src'=>$upload_img,'is_main'=>0,'img_src'=>$upload_img_big,'park_id'=>$park_id);
                 }
             }
-            $this -> house_model -> save_house_img($houseArr);
+            $this -> park_model -> save_park_img($parkArr);
         }
         //删除图片
         if(isset($del_img_id)){
-            $this -> house_model -> del_house_img($del_img_id);
+            $this -> park_model -> del_park_img($del_img_id);
         }
 
         if(count($facilitys)){
             $facilityArr = [];
             foreach ($facilitys as $facility){
-                $facilityArr[] = array('type_id'=>$facility,'house_id'=>$house_id);
+                $facilityArr[] = array('type_id'=>$facility,'park_id'=>$park_id);
             }
-            $this -> facility_model -> update_house_for_facility($house_id,$facilityArr);
+            $this -> facility_model -> update_park_for_facility($park_id,$facilityArr);
 
         }
 
-        redirect('house');
+        redirect('park');
 
 
 
@@ -256,7 +256,7 @@ class House extends CI_Controller
         $facility_free = htmlspecialchars($this->input->get('free'));
         $facility_price = htmlspecialchars($this->input->get('price'));
         $facility_remark = htmlspecialchars($this->input->get('remark'));
-        $row = $this -> facility_model -> insert_fac_from_house($title,$facility_img,$facility_free,$facility_price,$facility_remark);
+        $row = $this -> facility_model -> insert_fac_from_park($title,$facility_img,$facility_free,$facility_price,$facility_remark);
         if($row){
             echo $row;
         }else{
@@ -311,8 +311,8 @@ class House extends CI_Controller
         $typeArr = array("jpg", "png", "ico");
         //允许上传文件格式
         $path = "uploads/";//
-        $pathSmall = "uploads/houseImg/houseSmall/";
-        $pathBig = "uploads/houseImg/houseBig/";
+        $pathSmall = "uploads/parkImg/parkSmall/";
+        $pathBig = "uploads/parkImg/parkBig/";
         //上传路径
 
         //if (!file_exists($path)) {
@@ -356,21 +356,21 @@ class House extends CI_Controller
 
     public function upload_img_del(){
         $id = $this->input->get('id');
-        $houseImg = $this -> session -> userdata('houseImg');
-        foreach ($houseImg as $key=>$img){
+        $parkImg = $this -> session -> userdata('parkImg');
+        foreach ($parkImg as $key=>$img){
             if($img['id'] == $id){
-                unset($houseImg[$key]);
+                unset($parkImg[$key]);
             }
         }
-        $this -> session -> set_userdata('houseImg',$houseImg);
+        $this -> session -> set_userdata('parkImg',$parkImg);
         echo "success";
     }
 
 
 
-    public function house_orders()
+    public function park_orders()
     {
-        $house_id = $this->input->get('houseId');
+        $park_id = $this->input->get('parkId');
 
         $draw = $this->input->get('draw');//jquery.datatables用到的数据，类似一个计数器，必须要用到
 
@@ -384,11 +384,11 @@ class House extends CI_Controller
         //定义前台datatables中要显示和排序的列出数据库中字段的关系
         $order_col = array('0' => 'order_id', '1' => 'start_time', '2' => 'end_time', '3' => 'price', '4' => 'order_status');
 
-        $recordsTotal = $this->house_model->get_total_house_orders_count($house_id);//获取所有记录数，必须要用到
-        $recordsFiltered = $this->house_model->get_filterd_house_orders_count($house_id, $search);//获取搜索过滤后的记录数，必须要用到
+        $recordsTotal = $this->park_model->get_total_park_orders_count($park_id);//获取所有记录数，必须要用到
+        $recordsFiltered = $this->park_model->get_filterd_park_orders_count($park_id, $search);//获取搜索过滤后的记录数，必须要用到
 
         //获取要分页的数据
-        $datas = $this->house_model->get_paginated_house_orders($house_id, $length, $start, $search, $order_col[$order_col_no], $order_col_dir);
+        $datas = $this->park_model->get_paginated_park_orders($park_id, $length, $start, $search, $order_col[$order_col_no], $order_col_dir);
 
         foreach ($datas as $data) {
             $data->DT_RowData = array('id' => $data->order_id);//jquery.datatables插件要用DT_RowData属性来为每一个tr绑定自定义data-*属性
@@ -403,10 +403,10 @@ class House extends CI_Controller
 
     }
 
-    public function house_comments()
+    public function park_comments()
     {
-        $house_id = $this->input->get('houseId');
-        $comments = $this->house_model->get_comments_by_house_id($house_id);
+        $park_id = $this->input->get('parkId');
+        $comments = $this->park_model->get_comments_by_park_id($park_id);
         if ($comments) {
             echo json_encode($comments);
         } else {
@@ -414,11 +414,11 @@ class House extends CI_Controller
         }
     }
 
-    public function house_del()
+    public function park_del()
     {
-        $house_id = $this->input->get('houseId');
+        $park_id = $this->input->get('parkId');
 
-        $row =  $this->house_model->delete_house($house_id);
+        $row =  $this->park_model->delete_park($park_id);
         if($row > 0){
             echo 'success';
         }else{
@@ -426,36 +426,36 @@ class House extends CI_Controller
         }
     }
 
-    public function house_list()
+    public function park_list()
     {
-        $ordered = $this->house_model->get_ordered_house();
-        $unorder = $this->house_model->get_unorder_house();
-        $all_plot = $this->house_model->get_plot_by_house();
+        $ordered = $this->park_model->get_ordered_park();
+        $unorder = $this->park_model->get_unorder_park();
+        $all_plot = $this->park_model->get_plot_by_park();
         $arr['all_plot'] = $all_plot;
         $arr['ordered'] = $ordered;
         $arr['unorder'] = $unorder;
 
-        $this->load->view('house_grids',$arr);
+        $this->load->view('park_grids',$arr);
     }
-    public function house_list_plot(){
+    public function park_list_plot(){
         $plot = $this->input->get('plot');
-        $ordered = $this->house_model->get_ordered_house_by_plot($plot);
-        $unorder = $this->house_model->get_unorder_house_plot($plot);
+        $ordered = $this->park_model->get_ordered_park_by_plot($plot);
+        $unorder = $this->park_model->get_unorder_park_plot($plot);
         $arr['ordered'] = $ordered;
         $arr['unorder'] = $unorder;
         echo json_encode($arr);
     }
     //订单管理 房源选择
-    public function order_search_house()
+    public function order_search_park()
     {
         $street = $this->input->get("street");
-        $result = $this->house_model->order_search_house($street);
+        $result = $this->park_model->order_search_park($street);
         echo json_encode($result);
     }
     public function recommend_add(){
         $rec_id = $this->input->get('rec_id');
         $rec_reason = $this->input->get('rec_reason');
-        $row = $this -> recommend_model -> insert_rec_from_house($rec_id,$rec_reason);
+        $row = $this -> recommend_model -> insert_rec_from_park($rec_id,$rec_reason);
         if($row){
             echo $row;
         }else{
@@ -466,7 +466,7 @@ class House extends CI_Controller
     public function recommend_del(){
         $rec_id = $this->input->get('rec_id');
         $rec_reason = $this->input->get('rec_reason');
-        $row = $this -> recommend_model -> del_rec_from_house($rec_id,$rec_reason);
+        $row = $this -> recommend_model -> del_rec_from_park($rec_id,$rec_reason);
         if($row){
             echo $row;
         }else{
@@ -482,7 +482,7 @@ class House extends CI_Controller
 //        echo json_encode($rec_some_arr);
         $rec_reason = $this->input->get('rec_reason');
         for($i=0;$i<count($rec_some_arr);$i++){
-            $re=$this->recommend_model->insert_some_rec_from_house($rec_some_arr[$i],$rec_reason);
+            $re=$this->recommend_model->insert_some_rec_from_park($rec_some_arr[$i],$rec_reason);
         }
         if($re){
             echo 1;
@@ -493,14 +493,14 @@ class House extends CI_Controller
 
     public function get_plot()
     {
-        $this->load->model('house_model');
-        $rs_plot = $this->house_model->get_plot_by_house();
+        $this->load->model('park_model');
+        $rs_plot = $this->park_model->get_plot_by_park();
         $arr['rs_plot']=$rs_plot;
         if($rs_plot){
             echo json_encode($rs_plot);
         }
     }
-    public function plot_house()
+    public function plot_park()
     {
         $plot_id=$this->input->get('plot_id');
 
@@ -511,15 +511,15 @@ class House extends CI_Controller
         $order_col_no = $this->input->get('order[0][column]');//排序的列
         $order_col_dir = $this->input->get('order[0][dir]');//排序的方向(asc|desc)
 
-        $order_col = array('1' => 'house_id', '3' => 'title', '4' => 'street', '5' => 'price');
+        $order_col = array('1' => 'park_id', '3' => 'title', '4' => 'street', '5' => 'price');
 //
-        $recordsTotal = $this->house_model->get_total_plot_count($plot_id);
-        $recordsFiltered = $this->house_model->get_plot_filterd_count($search,$plot_id);
+        $recordsTotal = $this->park_model->get_total_plot_count($plot_id);
+        $recordsFiltered = $this->park_model->get_plot_filterd_count($search,$plot_id);
 
-        $datas = $this->house_model->get_paginated_plot_houses($length, $start, $search, $order_col[$order_col_no], $order_col_dir,$plot_id);
+        $datas = $this->park_model->get_paginated_plot_parks($length, $start, $search, $order_col[$order_col_no], $order_col_dir,$plot_id);
 
         foreach ($datas as $data) {
-            $data->DT_RowData = array('id' => $data->house_id);
+            $data->DT_RowData = array('id' => $data->park_id);
         }
         echo json_encode(array(
             "recordsTotal" => intval($recordsTotal),
@@ -529,7 +529,7 @@ class House extends CI_Controller
 
     }
 
-    public function get_del_house()
+    public function get_del_park()
     {
         $start = $this->input->get('start');//从多少开始
         $length = $this->input->get('length');//数据长度
@@ -537,13 +537,13 @@ class House extends CI_Controller
         $order_col_no = $this->input->get('order[0][column]');//排序的列
         $order_col_dir = $this->input->get('order[0][dir]');//排序的方向(asc|desc)
 
-        $order_col = array('1' => 'house_id', '3' => 'title', '4' => 'street', '5' => 'price');
+        $order_col = array('1' => 'park_id', '3' => 'title', '4' => 'street', '5' => 'price');
 
-        $recordsFiltered = $this->house_model->get_del_filterd_count($search);
-        $recordsTotal = $this->house_model->get_total_del_plot_count();
-        $datas=$this->house_model->get_del_house($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
+        $recordsFiltered = $this->park_model->get_del_filterd_count($search);
+        $recordsTotal = $this->park_model->get_total_del_plot_count();
+        $datas=$this->park_model->get_del_park($length, $start, $search, $order_col[$order_col_no], $order_col_dir);
         foreach ($datas as $data) {
-            $data->DT_RowData = array('id' => $data->house_id);
+            $data->DT_RowData = array('id' => $data->park_id);
         }
         echo json_encode(array(
             "recordsTotal" => intval($recordsTotal),
@@ -553,7 +553,7 @@ class House extends CI_Controller
     }
     public function get_facility_plot(){
         $datas = $this->facility_model->get_facility();
-        $plots = $this->house_model->get_plot_by_house();
+        $plots = $this->park_model->get_plot_by_park();
         $developer = $this->developer_model->get_developer();
         $manager = $this-> admin_model->query_admin_manager();
         echo json_encode(array(
@@ -568,7 +568,7 @@ class House extends CI_Controller
         $deve_id = $this->input->get('plot_deve');
         $plot_description = $this->input->get('description');
         $plot_video = $this->input->get('video');
-        $row = $this -> plot_model -> insert_plot_from_house($title,$deve_id,$plot_description,$plot_video);
+        $row = $this -> plot_model -> insert_plot_from_park($title,$deve_id,$plot_description,$plot_video);
         if($row){
             echo $row;
         }else{
@@ -580,7 +580,7 @@ class House extends CI_Controller
     public function del_all(){
         $namearr=$this->input->get('name');
         admin_log('管理员删除房源');
-        $result=$this->house_model->del_all_name($namearr);
+        $result=$this->park_model->del_all_name($namearr);
         if($result){
             echo "success";
         }else{

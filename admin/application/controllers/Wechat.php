@@ -11,7 +11,7 @@ class Wechat extends CI_Controller
 
     public function do_wechatpay(){
 
-        $houseInfo = $this->input->get('houseInfo');
+        $parkInfo = $this->input->get('parkInfo');
         $order_num = $this->input->get('order_num');
         $amount = $this->input->get('amount');
 
@@ -25,9 +25,9 @@ class Wechat extends CI_Controller
         $wxconfig['sslkeyPath']=$this->config->item('sslkeyPath');
         //由于此类库构造函数需要传参，我们初始化类库就传参数给他吧
         $this->load->library('wechatpay',$wxconfig);
-        $param['body']=$houseInfo;
+        $param['body']=$parkInfo;
         $param['attach']="";
-        $param['detail']=$houseInfo;
+        $param['detail']=$parkInfo;
         $param['out_trade_no']=$order_num;
         $param['total_fee']=0.01 * 100;//如$total_fee*100//$amount
         $param["spbill_create_ip"] ="";//客户端IP地址

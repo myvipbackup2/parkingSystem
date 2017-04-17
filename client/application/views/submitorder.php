@@ -161,7 +161,7 @@
                     this.post('order/confirm_order', {
                         'startDate': '<?php echo $startTime; ?>',
                         'endDate': '<?php echo $endTime; ?>',
-                        'houseId': <?php echo $house->house_id?>,
+                        'parkId': <?php echo $park->park_id?>,
                         'name': this.name,
                         'tel': this.telNum
                     })

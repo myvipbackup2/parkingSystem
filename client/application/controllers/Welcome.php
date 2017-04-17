@@ -7,7 +7,7 @@ class Welcome extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
-        $this->load->model('house_model');
+        $this->load->model('park_model');
     }
 
     //微信开发-首页
@@ -15,17 +15,17 @@ class Welcome extends CI_Controller
     {
         //查询推荐房源
 
-        $result = $this->house_model->get_recommend_house(6, 0);
+        $result = $this->park_model->get_recommend_park(6, 0);
         $ids = [];
-        foreach ($result as $house) {
-            $ids[] = $house->house_id;
+        foreach ($result as $park) {
+            $ids[] = $park->park_id;
         }
         if (count($ids) > 0) {
-            $result_house_img = $this->house_model->get_house_img($ids);
-            foreach ($result_house_img as $img) {
-                foreach ($result as $house) {
-                    if ($img->house_id == $house->house_id) {
-                        $house->imgs[] = $img;
+            $result_park_img = $this->park_model->get_park_img($ids);
+            foreach ($result_park_img as $img) {
+                foreach ($result as $park) {
+                    if ($img->park_id == $park->park_id) {
+                        $park->imgs[] = $img;
                     }
                 }
             }
@@ -127,9 +127,9 @@ class Welcome extends CI_Controller
         $this->load->view('order_details');
     }
 
-    public function housecenter()
+    public function parkcenter()
     {
-        $this->load->view('house_center');
+        $this->load->view('park_center');
     }
 
     //刘福静-----登录注册时弹出层里load的界面
@@ -160,13 +160,13 @@ class Welcome extends CI_Controller
         if (isset($userinfo)) {
             $user_id = $userinfo->user_id;
             $this->load->model("User_model");
-            $results = $this->User_model->query_house_collection($user_id);//获取该用户所有收藏
+            $results = $this->User_model->query_park_collection($user_id);//获取该用户所有收藏
 //            $array = [];
 //            foreach ($results as $row) {
-//                $row2 = $this->User_model->query_house_info($row->house_id);
+//                $row2 = $this->User_model->query_park_info($row->park_id);
 //                $array[] = $row2;
 //            };
-            $this->load->view("collection_manage", array("house_collection" => json_encode($results)));
+            $this->load->view("collection_manage", array("park_collection" => json_encode($results)));
         } else {
             redirect("welcome/loginView");
         }
@@ -192,9 +192,9 @@ class Welcome extends CI_Controller
     }
     //任东旭——订单详情页面结束
     //房源详情页面
-    public function house_detail()
+    public function park_detail()
     {
-        $this->load->view("house_details");
+        $this->load->view("park_details");
     }
 
     //微信开发- 个人资料开始
@@ -417,7 +417,7 @@ class Welcome extends CI_Controller
             $ids[] = $comment->comm_id;
         }
         if (count($ids) > 0) {
-            $result_comment_img = $this->house_model->get_comment_by_ids($ids);
+            $result_comment_img = $this->park_model->get_comment_by_ids($ids);
             foreach ($result_comment_img as $img) {
                 foreach ($page as $comment) {
                     if ($img->comm_id == $comment->comm_id) {
@@ -439,13 +439,13 @@ class Welcome extends CI_Controller
     {
 //        $image = $this->captcha();
         $this->load->model('order_model');
-        $this->load->model('house_model');
+        $this->load->model('park_model');
 
         $orderId = $this->input->get('orderId');
-        $houseId = $this->input->get('houseId');
+        $parkId = $this->input->get('parkId');
 
         $order = $this->order_model->get_order_by_id($orderId);
-//        $order->house_imgs = $this->house_model->get_imgs_by_house_id($houseId);
+//        $order->park_imgs = $this->park_model->get_imgs_by_park_id($parkId);
 
         $this->load->view('add_comment', array('order' => $order));
     }
@@ -523,10 +523,10 @@ class Welcome extends CI_Controller
         $rs = $this->Order_model->get_order_by_id($order_num);
         $price = $rs->price;
         $days = floor((strtotime($rs->end_time) - strtotime($rs->start_time)) / 86400);
-        $amount = $days * $price;//拿house_id 取price  day* price
+        $amount = $days * $price;//拿park_id 取price  day* price
 
         $this->load->view('confirm_order', array(
-            'houseInfo' => $rs->title,
+            'parkInfo' => $rs->title,
             'amount' => $amount,
             'realName' => $rs->invoice_person_name,
             'phone' => $rs->invoice_person_tel,

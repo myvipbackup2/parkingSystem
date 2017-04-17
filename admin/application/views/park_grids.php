@@ -66,7 +66,7 @@
                 <!--                            房源数据列表-->
                 <ul class="nav nav-tabs " id="my-tabs">
                     <li class="active">
-                        <a href="#all-houses" data-toggle="tab" class="all-orders">全部房源</a>
+                        <a href="#all-parks" data-toggle="tab" class="all-orders">全部房源</a>
                     </li>
                     <?php foreach ($all_plot as $rs){?>
                         <li>
@@ -115,7 +115,7 @@
                             <div class="panel">
                                 <header class="panel-heading">
                                     <?php echo $rs->title?>
-                                    <div style="margin-top: -6px;" class="btn-group pull-right" data-id="<?php echo $rs->house_id?>">
+                                    <div style="margin-top: -6px;" class="btn-group pull-right" data-id="<?php echo $rs->park_id?>">
                                         <button class="btn btn-success" type="button">续住</button>
                                         <button class="btn btn-info" type="button">结账</button>
                                     </div>
@@ -230,7 +230,7 @@
             var $panel = $('<div class="panel"></div>');
             var $panelHead = $('<header class="panel-heading">'+data[i].title+'</header>');
             if(flag){
-                var $btnGroup = $('<div style="margin-top:-6px;" class="btn-group pull-right" data-id="'+data[i].house_id+'"></div>');
+                var $btnGroup = $('<div style="margin-top:-6px;" class="btn-group pull-right" data-id="'+data[i].park_id+'"></div>');
                 $('<button class="btn btn-success" type="button">续住</button>').on('click',function () {
                     var orderId = $(this).parent().attr('data-id');
                     $.sidepanel({
@@ -335,7 +335,7 @@
             var plot = $(this).attr('data-value');
             var parent = $(this).parent();
             if(plot != undefined){
-                $.get('House/house_list_plot',{'plot':plot},function (data) {
+                $.get('park/park_list_plot',{'plot':plot},function (data) {
                     data = JSON.parse(data);
                     $('.directory-info-row .row').empty();
                     createElem(data.ordered,true);

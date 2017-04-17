@@ -53,20 +53,20 @@
 </div>
 <div id="order-container">
     <div class="tab-bar">
-        <a href="javascript:;" :class="{'item':show,'current':showSpan}" @click="getHouses('un_order')"><span>未完成</span></a>
-        <a href="javascript:;" :class="{'item':show,'current':!showSpan}"  @click="getHouses('order')"><span>已完成</span></a>
+        <a href="javascript:;" :class="{'item':show,'current':showSpan}" @click="getparks('un_order')"><span>未完成</span></a>
+        <a href="javascript:;" :class="{'item':show,'current':!showSpan}"  @click="getparks('order')"><span>已完成</span></a>
     </div>
     <div class="pro-container">
         <div class="pro-item" v-for='(order,index) in orderList'>
             <div class="clearfix">
                 <div class="fl p-img">
                     <a class="pro-box clearfix" href="#">
-                        <img :src="'<?php echo ADMINPATH ?>'+order.house.imgs[0].img_thumb_src" alt=""/>
+                        <img :src="'<?php echo ADMINPATH ?>'+order.park.imgs[0].img_thumb_src" alt=""/>
                     </a>
                 </div>
                 <div class="fr p-info">
-                    <h2 class="p-title">{{order.house.title}}</h2>
-                    <div class="p-style p-address">地址：{{order.house.city}}{{order.house.region}}{{order.house.street}}</div>
+                    <h2 class="p-title">{{order.park.title}}</h2>
+                    <div class="p-style p-address">地址：{{order.park.city}}{{order.park.region}}{{order.park.street}}</div>
                     <div class="p-style p-type">
 
                     </div>
@@ -78,7 +78,7 @@
                         <a class="p-btns p-update" v-show="isRefund(order.status)" style="background: #eee;color: #ccc;">正在进行</a>
                     </div>
                     <div class="p-btns-box" v-show="!showSpan">
-                        <a class="p-btns p-cancel" :href="'welcome/add_comment?orderId='+order.order_id+'&houseId='+order.house_id" v-show="order.comment">评论</a>
+                        <a class="p-btns p-cancel" :href="'welcome/add_comment?orderId='+order.order_id+'&parkId='+order.park_id" v-show="order.comment">评论</a>
                         <a class="p-btns p-cancel" href="javascript:;" v-show="!order.comment">已评论</a>
                         <a class="p-btns p-update" :href="'order/order_detail?orderId='+order.order_id">查看详情</a>
                     </div>
@@ -88,11 +88,11 @@
                 停车时间：{{order.start_time}} -离开时间：{{order.end_time}}
             </div>
         </div>
-       <!-- <div v-for='(house,index) in orderList' :class="{pic_group2:index%3==2,pic_group:index%3!=2}" >
-            <div class="pic_imgClass"><a class="pic_imgClass" :href="'house/detail/' + house.house_id" > <img :src="'<?php /*echo ADMINPATH */?>'+house.img_thumb_src" alt=""></a></div>
+       <!-- <div v-for='(park,index) in orderList' :class="{pic_group2:index%3==2,pic_group:index%3!=2}" >
+            <div class="pic_imgClass"><a class="pic_imgClass" :href="'park/detail/' + park.park_id" > <img :src="'<?php /*echo ADMINPATH */?>'+park.img_thumb_src" alt=""></a></div>
             <ul class="pic_dis">
-                <li ><span class="pic_name">{{house.title}}</span><span class="pic_name" style="float:right; color: #f00; margin-right: 10px;">￥{{house.price}}</span></li>
-                <li><span class="pic_name" style="font-size: 12px;">{{house.street}}</span></li>
+                <li ><span class="pic_name">{{park.title}}</span><span class="pic_name" style="float:right; color: #f00; margin-right: 10px;">￥{{park.price}}</span></li>
+                <li><span class="pic_name" style="font-size: 12px;">{{park.street}}</span></li>
             </ul>
         </div>-->
     </div>
@@ -139,7 +139,7 @@
                     _this.orderList = result.data;
                 });
             },
-            getHouses: function (isHot) {
+            getparks: function (isHot) {
                 if(isHot == 'order'){    //un_order    order
                     this.showSpan = false;
                 }else {
@@ -188,7 +188,7 @@
         }
     });
 
-    vm.getHouses('un_order');
+    vm.getparks('un_order');
 </script>
 </body>
 </html>

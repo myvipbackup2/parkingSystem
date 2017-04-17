@@ -78,8 +78,8 @@
         <div class="pro-comment">
             <form action="order/add_comment">
                 <input type="hidden" name="orderId" value="<?php echo $order->order_id?>">
-<!--                --><?php //echo $result->houseId ?>
-                <input type="hidden" name="houseId" value="<?php echo $order->house_id?>">
+<!--                --><?php //echo $result->parkId ?>
+                <input type="hidden" name="parkId" value="<?php echo $order->park_id?>">
                 <input type="hidden" name="score" value="" class="scoreHidden">
                 <input type="hidden" name="cleanScore" value="" class="cleanHidden">
                 <input type="hidden" name="trafficScore" value="" class="trafficHidden">

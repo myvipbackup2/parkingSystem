@@ -74,7 +74,7 @@ class Invoice_model extends CI_Model {
 		$this -> db -> from('t_user');
 		$this -> db -> join('t_order','t_order.user_id = t_user.user_id');
 
-		// $this -> db -> join('t_user','t_order.house_id = t_house.house_id');
+		// $this -> db -> join('t_user','t_order.park_id = t_park.park_id');
 		$this -> db -> where('t_order.is_delete',0);
 		$this -> db -> where('t_order.is_invoice',1);
 		$this -> db -> where('t_order.invoice_created',1);

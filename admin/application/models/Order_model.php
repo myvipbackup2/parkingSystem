@@ -25,20 +25,20 @@ class Order_model extends CI_Model
 
     public function get_filterd_checkin_count($search)
     {
-        $sql = "SELECT t_order.*,t_house.title FROM t_house join t_order on t_house.house_id = t_order.house_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
+        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
 
         if (strlen($search) > 0) {
-            $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_house.title LIKE '%" . $search . "%')";
+            $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "%')";
         }
         return $this->db->query($sql)->num_rows();
     }
 
     public function get_checkin_order($limit, $offset, $search, $order_col, $order_col_dir)
     {
-        $sql = "SELECT t_order.*,t_house.title FROM t_house join t_order on t_house.house_id = t_order.house_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
+        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
 
         if (strlen($search) > 0) {
-            $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_house.title LIKE '%" . $search . "%')";
+            $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "%')";
         }
         $sql .= " order by $order_col $order_col_dir";
         $sql .= " limit $offset, $limit";
@@ -47,10 +47,10 @@ class Order_model extends CI_Model
 
     public function get_filterd_count($search,$status,$date_search)
     {
-        $this->db->select('t_order.*,t_user.username,t_user.tel,t_house.title');
+        $this->db->select('t_order.*,t_user.username,t_user.tel,t_park.title');
         $this->db->from('t_user');
         $this->db->join('t_order', 't_order.user_id = t_user.user_id');
-        $this->db->join('t_house', 't_order.house_id = t_house.house_id');
+        $this->db->join('t_park', 't_order.park_id = t_park.park_id');
 
         if ($status && $status=='回收站') {
             $this->db->where('t_order.is_delete', 1);
@@ -64,7 +64,7 @@ class Order_model extends CI_Model
         if (strlen($search) > 0) {
             $this->db->like('t_user.username', $search);
             $this->db->or_like('t_order.price', $search);
-            $this->db->or_like('t_house.title', $search);
+            $this->db->or_like('t_park.title', $search);
             $this->db->or_like('t_order.order_id', $search);
         }
         $times = explode(",",$date_search);
@@ -75,10 +75,10 @@ class Order_model extends CI_Model
 
     public function get_order_by_id($id)
     {
-        $this->db->select('t_order.*,t_user.username,t_user.tel,t_house.house_id,t_house.title');
+        $this->db->select('t_order.*,t_user.username,t_user.tel,t_park.park_id,t_park.title');
         $this->db->from('t_user');
         $this->db->join('t_order', 't_order.user_id = t_user.user_id');
-        $this->db->join('t_house', 't_order.house_id = t_house.house_id');
+        $this->db->join('t_park', 't_order.park_id = t_park.park_id');
         $this->db->where('t_order.order_id', $id);
         $this->db->where('t_order.is_delete', 0);
         return $this->db->get()->row();
@@ -86,10 +86,10 @@ class Order_model extends CI_Model
 
     public function get_order($limit, $offset, $search, $order_col, $order_col_dir, $status,$date_search)
     {
-        $this->db->select('t_order.*,t_user.username,t_user.tel,t_house.title');
+        $this->db->select('t_order.*,t_user.username,t_user.tel,t_park.title');
         $this->db->from('t_user');
         $this->db->join('t_order', 't_order.user_id = t_user.user_id');
-        $this->db->join('t_house', 't_order.house_id = t_house.house_id');
+        $this->db->join('t_park', 't_order.park_id = t_park.park_id');
 
         if ($status && $status=='回收站') {
             $this->db->where('t_order.is_delete', 1);
@@ -102,7 +102,7 @@ class Order_model extends CI_Model
         if (strlen($search) > 0) {
             $this->db->like('t_user.username', $search);
             $this->db->or_like('t_order.price', $search);
-            $this->db->or_like('t_house.title', $search);
+            $this->db->or_like('t_park.title', $search);
             $this->db->or_like('t_order.order_id', $search);
             $this->db->or_like('t_order.status', $search);
         }
@@ -124,7 +124,7 @@ class Order_model extends CI_Model
     }
     public function delete_order($order_id)
     {
-//        $this->db->delete('t_house', array('house_id' => $house_id));
+//        $this->db->delete('t_park', array('park_id' => $park_id));
         $this->db->where('order_id', $order_id);
         $this->db->update('t_order', array('is_delete' => 1));
         return $this->db->affected_rows();
@@ -175,10 +175,10 @@ class Order_model extends CI_Model
     }
     //入住操作end
     //添加订单
-    public function add_order($order_no, $price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay){
+    public function add_order($order_no, $price,$status,$park_id,$user_id,$dpd1,$dpd2,$pay){
         $arr = array(
             'order_no'=>$order_no,
-            'house_id'=>$house_id,
+            'park_id'=>$park_id,
             'user_id'=>$user_id,
             'start_time'=>$dpd1,
             'end_time'=>$dpd2,
@@ -190,20 +190,20 @@ class Order_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function check_by_date($start_date,$end_date,$house_id)
+    public function check_by_date($start_date,$end_date,$park_id)
     {
         $this->db->select('*');
         $this->db->from('t_order');
-        $this->db->where('house_id',$house_id);
+        $this->db->where('park_id',$park_id);
         $this->db->where("add_time between '$start_date' and '$end_date' ");
         return $this->db->count_all_results();
     }
 
-    public function get_date_by_house($house_id)
+    public function get_date_by_park($park_id)
     {
         $this->db->select('*');
         $this->db->from('t_order');
-        $this->db->where('house_id',$house_id);
+        $this->db->where('park_id',$park_id);
         $this->db->where_in('status', ["进行中","已支付"]);
         return $this->db->get()->result();
     }
@@ -220,7 +220,7 @@ class Order_model extends CI_Model
     public function add_order_keep($order)
     {
         $arr = array(
-            'house_id'=>$order->house_id,
+            'park_id'=>$order->park_id,
             'user_id'=>$order->user_id,
             'order_no'=>$order->order_no,
             'start_time'=>$order->start_time,
@@ -248,8 +248,8 @@ class Order_model extends CI_Model
         //获取房屋负责人
         $this->db->select('t_admin.real_name,t_admin.tel');
         $this->db->from('t_admin');
-        $this->db->join('t_house','t_house.manager_id=t_admin.admin_id');
-        $this->db->where('t_house.house_id', $order->house_id);
+        $this->db->join('t_park','t_park.manager_id=t_admin.admin_id');
+        $this->db->where('t_park.park_id', $order->park_id);
         $order->manager = $this->db->get()->row();
         //获取入住人信息
 
