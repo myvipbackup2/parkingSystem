@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>我的悦居</title>
+    <title>我的随心停</title>
     <base href="<?php echo site_url(); ?>"/>
     <script src="js/rem.js"></script>
     <link rel="stylesheet" href="css/reset.css"/>
@@ -13,9 +13,9 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
-        我的悦居
+        我的随心停
     </div>
     <a href="javascript:;" class="menu-btn">
     </a>
@@ -29,8 +29,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user" data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user" data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>

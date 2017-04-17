@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         发表评价
     </div>
@@ -30,8 +30,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -68,7 +68,7 @@
                     <span><?php echo $order->lavatory; ?>卫</span>
                 </div>
                 <div class="p-date">
-                    <div class="p-in-date">入住时间：<?php echo $order->start_time?> </div>
+                    <div class="p-in-date">停车时间：<?php echo $order->start_time?> </div>
                     <div class="p-out-date">离开时间：<?php echo $order->end_time?></div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <input type="hidden" name="facilityScore" value="" class="facilityHidden">
 
                 <div class="pro-star clearfix" >
-                    <span class="fl com-stars-title">整洁卫生：</span>
+                    <span class="fl com-stars-title">停车效率：</span>
                     <ul class="com-stars cleanScore">
                         <li></li>
                         <li></li>
@@ -115,7 +115,7 @@
                     </ul>
                 </div>
                 <div class="pro-star clearfix" >
-                    <span class="fl com-stars-title">设施装修：</span>
+                    <span class="fl com-stars-title">停车价格：</span>
                     <ul class="com-stars facilityScore">
                         <li></li>
                         <li></li>

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         我的评论
     </div>
@@ -28,8 +28,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -63,7 +63,7 @@
                     <?php echo $comment->bedroom."居".$comment->livingroom."室".$comment->lavatory."卫"?>
                 </div>
                 <div class="p-date">
-                    <div class="p-in-date">入住时间：<?php echo date("Y年m月d日",strtotime("$comment->start_time"))?> </div>
+                    <div class="p-in-date">停车时间：<?php echo date("Y年m月d日",strtotime("$comment->start_time"))?> </div>
                     <div class="p-out-date">离开时间：<?php echo date("Y年m月d日",strtotime("$comment->end_time"))?></div>
                 </div>
             </div>

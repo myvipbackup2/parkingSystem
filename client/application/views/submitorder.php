@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="悦居租房"/>
-    <meta name="description" content="悦居租房"/>
+    <meta name="keywords" content="孟昊阳20134200"/>
+    <meta name="description" content="孟昊阳20134200"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -26,20 +26,20 @@
     <div class="container">
 
         <div class="check-in">
-            <h2 class="order-title">入住信息</h2>
+            <h2 class="order-title">停车信息</h2>
             <div class="line clearfix">
-                <span class="info-title fl">房源信息：</span>
+                <span class="info-title fl">车库信息：</span>
                 <span class="info-content fr"
                       style="width: 75%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;text-align: right;">
                     <?php echo $title; ?>
                 </span>
             </div>
             <div class="line clearfix">
-                <span class="info-title fl">入住时间：</span>
+                <span class="info-title fl">停车时间：</span>
                 <span class="info-content fr"><?php echo $startTime; ?></span>
             </div>
             <div class="line clearfix">
-                <span class="info-title fl">退房时间：</span>
+                <span class="info-title fl">离开时间：</span>
                 <span class="info-content fr"><?php echo $endTime; ?></span>
             </div>
         </div>

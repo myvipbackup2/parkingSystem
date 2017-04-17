@@ -29,10 +29,10 @@
                 <li class="item"><em><?php echo $total ?></em>点评</li>
 
                 <li class="score-rating">
-                    <span>位置：<?php echo $score->traffic_score ?></span>
-                    <span>清洁：<?php echo $score->clean_score ?></span>
-                    <span>设施：<?php echo $score->facility_score ?></span>
-                    <span>服务：<?php echo $score->manage_score ?></span>
+                    <span>效率：<?php echo $score->traffic_score ?></span>
+                    <span>位置：<?php echo $score->clean_score ?></span>
+                    <span>服务：<?php echo $score->facility_score ?></span>
+                    <span>价格：<?php echo $score->manage_score ?></span>
                 </li>
             </ul>
 

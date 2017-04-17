@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         个人中心
     </div>
@@ -40,8 +40,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user" data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user" data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>

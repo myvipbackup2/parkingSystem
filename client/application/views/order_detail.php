@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="悦居租房"/>
-    <meta name="description" content="悦居租房"/>
+    <meta name="keywords" content="孟昊阳20134200"/>
+    <meta name="description" content="孟昊阳20134200"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         订单详情
     </div>
@@ -35,8 +35,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -75,9 +75,9 @@
 
     <div class="hr"></div>
     <div class="check-in-info">
-        <h2 class="order-title">入住信息</h2>
+        <h2 class="order-title">停车信息</h2>
         <div class="line clearfix">
-            <span class="info-title fl">房源信息</span>
+            <span class="info-title fl">车库信息</span>
             <span class="info-content fr"><?php echo $order->city.$order->region.$order->street?></span>
         </div>
         <div class="line">
@@ -86,11 +86,11 @@
             <span class="info-content fr" style="margin-right: .48rem"><?php echo $order->lavatory?>卫</span>
         </div>
         <div class="line clearfix">
-            <span class="info-title fl">入住信息</span>
-            <span class="info-content fr"><?php echo $order->start_time?>-12:00入住</span>
+            <span class="info-title fl">停车信息</span>
+            <span class="info-content fr"><?php echo $order->start_time?>-12:00停车</span>
         </div>
         <div class="line clearfix">
-            <span class="info-content fr"><?php echo $order->end_time?>-12:00退房</span>
+            <span class="info-content fr"><?php echo $order->end_time?>-12:00离开</span>
         </div>
     </div>
     <div class="hr"></div>
