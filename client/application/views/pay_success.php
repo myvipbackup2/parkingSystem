@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <base href="<?php echo site_url() ?>">
-    <meta name="keywords" content="悦居租房"/>
-    <meta name="description" content="悦居租房"/>
+    <meta name="keywords" content="孟昊阳20134200"/>
+    <meta name="description" content="孟昊阳20134200"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -49,7 +49,7 @@
     <div class="cost-info">
         <h2 class="order-title">订单费用信息</h2>
         <div class="line clearfix  bold">
-            <span class="info-title fl">房租</span>
+            <span class="info-title fl">车库租价</span>
         </div>
         <div class="line clearfix">
             <span class="info-title fl">总价</span>
@@ -60,17 +60,17 @@
     <div class="hr"></div>
 
     <div class="check-in-info">
-        <h2 class="order-title">入住信息</h2>
+        <h2 class="order-title">停车信息</h2>
         <div class="line clearfix">
-            <span class="info-title fl">房源信息</span>
+            <span class="info-title fl">车库信息</span>
             <span class="info-content fr"><?php echo $order->city.$order->region.$order->street?></span>
         </div>
         <div class="line clearfix">
-            <span class="info-title fl">入住信息</span>
-            <span class="info-content fr"><?php echo $order->start_time?>入住</span>
+            <span class="info-title fl">停车信息</span>
+            <span class="info-content fr"><?php echo $order->start_time?>停车</span>
         </div>
         <div class="line clearfix">
-            <span class="info-content fr"><?php echo $order->end_time?>退房</span>
+            <span class="info-content fr"><?php echo $order->end_time?>离开</span>
         </div>
     </div>
 

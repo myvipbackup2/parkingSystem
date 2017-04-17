@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>房源中心</title>
+    <title>车库中心</title>
     <base href="<?php echo site_url() ?>">
     <script src="js/rem.js"></script>
     <link rel="stylesheet" href="css/reset.css"/>
@@ -13,9 +13,9 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
-        房源中心
+        车库中心
     </div>
     <a href="javascript:;" class="menu-btn">
     </a>
@@ -29,8 +29,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -67,7 +67,7 @@
             <li v-model='region'>江北区</li>
         </ul>
         <div class="fl search-box">
-            <input class="fl search-box-ipt" placeholder="搜索房源..." type="text" v-model="content"/>
+            <input class="fl search-box-ipt" placeholder="搜索车库..." type="text" v-model="content"/>
             <span class="fl search-box-btn" @click="loadData()"></span>
         </div>
     </div>
@@ -106,7 +106,7 @@
                 </ul>
             </li>
             <li>
-                <span v-html="houseStyle">户型</span>
+                <span v-html="houseStyle">车库</span>
                 <i class="t-icons"></i>
                 <ul class="search_list">
                     <li @click="changeHouseStyle(null,'不限')">不限</li>

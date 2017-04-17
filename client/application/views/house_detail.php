@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="悦居租房"/>
-    <meta name="description" content="悦居租房"/>
+    <meta name="keywords" content="孟昊阳20134200"/>
+    <meta name="description" content="孟昊阳20134200"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name='apple-touch-fullscreen' content='yes'>
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,7 +11,7 @@
     <meta name="format-detection" content="address=no">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>房屋详情</title>
+    <title>车库详情</title>
     <base href="<?php echo site_url(); ?>"/>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/reset.css">
@@ -28,7 +28,7 @@
 
 <div id="app">
     <?php include "header.php" ?>
-    <!--房屋详情-->
+    <!--车库详情-->
     <div class="house_detail">
         <!--焦点图-->
         <div class="swipe">
@@ -65,7 +65,7 @@
                 <span><?php echo $house->developer_name ?></span>
             </div>
 
-            <h2 class="title">房源可售<span class="sale_price"><?php echo $house->sale_price ?></span>万</h2>
+            <h2 class="title">车库可售<span class="sale_price"><?php echo $house->sale_price ?></span>万</h2>
 
             <div class="hotline">
                 <em>400-606-1230</em><i>转</i><em>12347</em>
@@ -97,7 +97,7 @@
     <div class="sec-content mod-house DatePicker">
         <!-- 修改入住时间 -->
         <div class="hd date">
-            <div class="edi"><span>入住时间：</span><span>{{formatStart}}</span></div>
+            <div class="edi"><span>停车时间：</span><span>{{formatStart}}</span></div>
             <div class="button-orange-l" @click="openStartPicker"><span>修改</span></div>
             <template>
                 <mt-datetime-picker
@@ -109,7 +109,7 @@
         </div>
         <!-- 修改退房时间 -->
         <div class="hd date">
-            <div class="edi"><span>退房时间：</span><span>{{formatEnd}}</span></div>
+            <div class="edi"><span>离开时间：</span><span>{{formatEnd}}</span></div>
             <div class="button-orange-l" @click="openEndPicker"><span>修改</span></div>
             <template>
                 <mt-datetime-picker
@@ -168,7 +168,7 @@
     <div id="bMap"></div>
     <!--房源信息-->
     <section class="sec-content mod-house-info">
-        <h3>房屋信息</h3>
+        <h3>车库信息</h3>
         <div class="info" v-html="houseDetail"></div>
         <div class="button-orange-l">
             <span @click="show">详情</span>
@@ -176,7 +176,7 @@
     </section>
     <!--房屋设施-->
     <section class="mod-facality">
-        <h3>房屋设施</h3>
+        <h3>车库设施</h3>
         <div class="service-icons">
             <?php
             foreach ($house->free_facilities as $facility) {
@@ -265,7 +265,7 @@
             spinnerShow: false,
             btnShow: false,
             errTitle: '预订失败',
-            errMsg: '该订房日期不可用!',
+            errMsg: '该车库日期不可用!',
             isShow: false
         },
         methods: {
@@ -290,7 +290,7 @@
                 this.$refs.pickerEnd.open();
             },
             show: function () {
-                this.errTitle = '房屋详情';
+                this.errTitle = '车库详情';
                 this.errMsg = this.houseDetail;
                 this.showMsg();
             },
@@ -411,7 +411,7 @@
                 axios.post('house/is_free_house', params).then(function (response) {
                     if (response.data === 'un-sale') {
                         _this.errTitle = '预订失败';
-                        _this.errMsg = '该订房日期已被预订!';
+                        _this.errMsg = '该租车库日期已被预订!';
                         _this.showMsg();
                     } else if (response.data === 'on-sale') {
                         _this.post('order/house_order', {

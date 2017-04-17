@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         收藏
     </div>
@@ -34,8 +34,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -66,7 +66,7 @@
                     <h2 class="p-title">{{house.title}}</h2>
                     <div class="p-style p-address">地址：{{house.city}},{{house.region}},{{house.street}}</div>
                     <div class="p-style p-type">
-                        户型：{{house.bedroom}}室{{house.livingroom}}厅{{house.lavatory}}卫
+                        车库：{{house.bedroom}}室{{house.livingroom}}厅{{house.lavatory}}卫
                     </div>
                     <div class="p-btns-box">
                         <span class="p-btns p-collect" @click="delCollect(house.collect_id,index)">取消收藏</span>

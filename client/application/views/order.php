@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="header">
-    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;悦居</a>
+    <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
         我的订单
     </div>
@@ -30,8 +30,8 @@
             </li>
             <li class="menu-user">
                 <i class="iconfont icon-about"></i>
-                <a href="user"  data-stat-label="我的悦居">
-                    我的悦居
+                <a href="user"  data-stat-label="我的随心停">
+                    我的随心停
                     <?php
                     $login_user = $this->session->userdata('userinfo');
                     if ($login_user) { ?>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="pro-date">
-                入住时间：{{order.start_time}} -离开时间：{{order.end_time}}
+                停车时间：{{order.start_time}} -离开时间：{{order.end_time}}
             </div>
         </div>
        <!-- <div v-for='(house,index) in orderList' :class="{pic_group2:index%3==2,pic_group:index%3!=2}" >
