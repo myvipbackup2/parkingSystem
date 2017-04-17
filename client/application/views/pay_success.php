@@ -49,7 +49,7 @@
     <div class="cost-info">
         <h2 class="order-title">订单费用信息</h2>
         <div class="line clearfix  bold">
-            <span class="info-title fl">车库租价</span>
+            <span class="info-title fl">车位租价</span>
         </div>
         <div class="line clearfix">
             <span class="info-title fl">总价</span>
@@ -62,7 +62,7 @@
     <div class="check-in-info">
         <h2 class="order-title">停车信息</h2>
         <div class="line clearfix">
-            <span class="info-title fl">车库信息</span>
+            <span class="info-title fl">车位信息</span>
             <span class="info-content fr"><?php echo $order->city.$order->region.$order->street?></span>
         </div>
         <div class="line clearfix">

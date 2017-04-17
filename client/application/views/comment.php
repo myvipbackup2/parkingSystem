@@ -60,7 +60,9 @@
                 <h2 class="p-title"><?php echo $comment->title?></h2>
                 <div class="p-style p-address">地址：<?php echo $comment->city.$comment->region.$comment->street?></div>
                 <div class="p-style p-type">
-                    <?php echo $comment->bedroom."居".$comment->livingroom."室".$comment->lavatory."卫"?>
+                    <!-- <?php echo $comment->bedroom."居".$comment->livingroom."室".$comment->lavatory."卫"?> -->
+                    车位：
+                    <span>一字型停车位</span>
                 </div>
                 <div class="p-date">
                     <div class="p-in-date">停车时间：<?php echo date("Y年m月d日",strtotime("$comment->start_time"))?> </div>

@@ -1,7 +1,7 @@
 <div id="header">
     <a class="back" id="leftTopBtn" href="javascript:goBack()">&lt;&nbsp;随心停</a>
     <div class="title">
-车库详情
+车位详情
     </div>
     <a href="javascript:;" class="menu-btn">
     </a>

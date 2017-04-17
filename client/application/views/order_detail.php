@@ -77,13 +77,14 @@
     <div class="check-in-info">
         <h2 class="order-title">停车信息</h2>
         <div class="line clearfix">
-            <span class="info-title fl">车库信息</span>
+            <span class="info-title fl">车位信息</span>
             <span class="info-content fr"><?php echo $order->city.$order->region.$order->street?></span>
         </div>
         <div class="line">
-            <span class="info-content fr"><?php echo $order->bedroom?>室</span>
-            <span class="info-content fr" style="margin-right: .48rem"><?php echo $order->livingroom?>厅</span>
-            <span class="info-content fr" style="margin-right: .48rem"><?php echo $order->lavatory?>卫</span>
+<!--            <span class="info-content fr">--><?php //echo $order->bedroom?><!--室</span>-->
+<!--            <span class="info-content fr" style="margin-right: .48rem">--><?php //echo $order->livingroom?><!--厅</span>-->
+<!--            <span class="info-content fr" style="margin-right: .48rem">--><?php //echo $order->lavatory?><!--卫</span>-->
+            <span>一字型停车位</span>
         </div>
         <div class="line clearfix">
             <span class="info-title fl">停车信息</span>

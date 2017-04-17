@@ -61,11 +61,13 @@
                 <h2 class="p-title"><?php echo $order->title; ?></h2>
                 <div class="p-style p-address">地址：<?php echo $order->city; ?>-<?php echo $order->region; ?>-<?php echo $order->street; ?></div>
                 <div class="p-style p-type">
-                    <span><?php echo $order->bedroom; ?>室</span>
-                    <span>-</span>
-                    <span><?php echo $order->livingroom; ?>厅</span>
-                    <span>-</span>
-                    <span><?php echo $order->lavatory; ?>卫</span>
+                    车位：
+                    <span>一字型停车位</span>
+<!--                    <span>--><?php //echo $order->bedroom; ?><!--室</span>-->
+<!--                    <span>-</span>-->
+<!--                    <span>--><?php //echo $order->livingroom; ?><!--厅</span>-->
+<!--                    <span>-</span>-->
+<!--                    <span>--><?php //echo $order->lavatory; ?><!--卫</span>-->
                 </div>
                 <div class="p-date">
                     <div class="p-in-date">停车时间：<?php echo $order->start_time?> </div>

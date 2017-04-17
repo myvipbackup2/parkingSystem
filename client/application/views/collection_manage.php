@@ -66,7 +66,9 @@
                     <h2 class="p-title">{{house.title}}</h2>
                     <div class="p-style p-address">地址：{{house.city}},{{house.region}},{{house.street}}</div>
                     <div class="p-style p-type">
-                        车库：{{house.bedroom}}室{{house.livingroom}}厅{{house.lavatory}}卫
+                        车位：
+<!--                        {{house.bedroom}}室{{house.livingroom}}厅{{house.lavatory}}卫-->
+                        <span>一字型停车位</span>
                     </div>
                     <div class="p-btns-box">
                         <span class="p-btns p-collect" @click="delCollect(house.collect_id,index)">取消收藏</span>

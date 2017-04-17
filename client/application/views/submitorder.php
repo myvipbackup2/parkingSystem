@@ -28,7 +28,7 @@
         <div class="check-in">
             <h2 class="order-title">停车信息</h2>
             <div class="line clearfix">
-                <span class="info-title fl">车库信息：</span>
+                <span class="info-title fl">车位信息：</span>
                 <span class="info-content fr"
                       style="width: 75%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;text-align: right;">
                     <?php echo $title; ?>
@@ -57,7 +57,7 @@
         <div class="cost-info">
             <h2 class="order-title">订单费用信息</h2>
             <div class="line clearfix  bold">
-                <span class="info-title fl">房租</span>
+                <span class="info-title fl">车位租金</span>
             </div>
             <div class="line clearfix">
                 <span class="info-title fl">日均价</span>

@@ -106,14 +106,14 @@
                 </ul>
             </li>
             <li>
-                <span v-html="houseStyle">车库</span>
+                <span v-html="houseStyle">车位</span>
                 <i class="t-icons"></i>
                 <ul class="search_list">
                     <li @click="changeHouseStyle(null,'不限')">不限</li>
-                    <li @click="changeHouseStyle(1,'一居室')">一居室</li>
-                    <li @click="changeHouseStyle(2,'两居室')">两居室</li>
-                    <li @click="changeHouseStyle(3,'三居室')">三居室</li>
-                    <li @click="changeHouseStyle(4,'四居以上')">四居以上</li>
+                    <li @click="changeHouseStyle(1,'一字型停车位')">一字型停车位</li>
+                    <li @click="changeHouseStyle(2,'非字型停车位')">非字型停车位</li>
+                    <li @click="changeHouseStyle(3,'斜位停车入位')">斜位停车入位</li>
+<!--                    <li @click="changeHouseStyle(4,'四居以上')">四居以上</li>-->
                 </ul>
             </li>
         </ul>
@@ -160,7 +160,7 @@
             price:"价格",
             minPrice:null,
             maxPrice:null,
-            houseStyle:"户型",
+            houseStyle:"车位类型",  //修改******
             isSale:"是否可售",
             plotId:null,
             plotName:"小区",

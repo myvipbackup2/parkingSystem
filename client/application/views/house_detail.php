@@ -11,7 +11,7 @@
     <meta name="format-detection" content="address=no">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>车库详情</title>
+    <title>车位详情</title>
     <base href="<?php echo site_url(); ?>"/>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/reset.css">
@@ -51,8 +51,10 @@
                 <?php echo $house->plot_name ?>
             </h3>
             <ul>
-                <li class="s-hx"><?php echo $house->bedroom ?>室<?php echo $house->livingroom ?>
-                    厅<?php echo $house->lavatory ?>卫
+                <li class="s-hx">
+<!--                    --><?php //echo $house->bedroom ?><!--室--><?php //echo $house->livingroom ?>
+<!--                    厅--><?php //echo $house->lavatory ?><!--卫-->
+                    一字型停车位
                 </li>
 
                 <li class="s-mj"><?php echo $house->area ?>㎡</li>
@@ -65,10 +67,10 @@
                 <span><?php echo $house->developer_name ?></span>
             </div>
 
-            <h2 class="title">车库可售<span class="sale_price"><?php echo $house->sale_price ?></span>万</h2>
+            <h2 class="title">车位可售<span class="sale_price"><?php echo $house->sale_price ?></span>万</h2>
 
             <div class="hotline">
-                <em>400-606-1230</em><i>转</i><em>12347</em>
+                <em>400-606-1230</em><i>转</i><em>123456</em>
             </div>
             <div class="link">
                 <a href="tel:4008123123">电话咨询</a>
@@ -168,7 +170,7 @@
     <div id="bMap"></div>
     <!--房源信息-->
     <section class="sec-content mod-house-info">
-        <h3>车库信息</h3>
+        <h3>车位信息</h3>
         <div class="info" v-html="houseDetail"></div>
         <div class="button-orange-l">
             <span @click="show">详情</span>
@@ -176,7 +178,7 @@
     </section>
     <!--房屋设施-->
     <section class="mod-facality">
-        <h3>车库设施</h3>
+        <h3>车位设施</h3>
         <div class="service-icons">
             <?php
             foreach ($house->free_facilities as $facility) {
