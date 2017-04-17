@@ -4,7 +4,7 @@
     <div class="logo">
         <a href="index.html">
             <img src="images/logo.png" alt="" width="50">
-            <span>随心停租赁管理系统</span>
+            <span>随心停管理系统</span>
         </a>
     </div>
 
