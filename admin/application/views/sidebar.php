@@ -1,14 +1,14 @@
 <div class="left-side sticky-left-side">
 
     <div class="logo">
-        <a href="admin">
+        <a href="welcome">
             <img src="images/logo.png" alt="" width="50">
             <span>随心停管理系统</span>
         </a>
     </div>
 
     <div class="logo-icon text-center">
-        <a href="admin"><img src="images/logo_icon.png" alt=""></a>
+        <a href="welcome"><img src="images/logo_icon.png" alt=""></a>
     </div>
 
 
@@ -18,8 +18,8 @@
             <div class="media logged-user">
                 <img alt="" src="images/photos/user-avatar.png" class="media-object">
                 <div class="media-body">
-                    <h4><a href="#">John Doe</a></h4>
-                    <span>"Hello There..."</span>
+                    <h4><a href="#">孟昊阳</a></h4>
+                    <span>"Hello 孟昊阳..."</span>
                 </div>
             </div>
 

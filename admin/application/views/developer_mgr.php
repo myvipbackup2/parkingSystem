@@ -3,7 +3,7 @@
 <head>
     <?php include 'meta.php'; ?>
 
-    <title>悦居后台管理系统 - 开发商管理</title>
+    <title>随心停后台管理系统 - 开发商管理</title>
 
     <base href="<?php echo site_url(); ?>">
 

@@ -3,7 +3,7 @@
 <head>
     <?php include 'meta.php'; ?>
 
-    <title>悦居后台管理系统 - 发票索取</title>
+    <title>随心停后台管理系统 - 发票索取</title>
 
     <base href="<?php echo site_url(); ?>">
 

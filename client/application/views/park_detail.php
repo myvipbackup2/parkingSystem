@@ -62,7 +62,7 @@
 
         <div class="fd mod-management">
             <div class="icon" data-name="hotel_avatar" data-url="/hotel/index/3054/">
-                <img src="<?php echo ADMINPATH . $park->logo ?>uploads/developer/header.png">
+                <img src="<?php echo ADMINPATH . $park->logo ?>">
                 <span><?php echo $park->developer_name ?></span>
             </div>
 
@@ -152,7 +152,7 @@
                 echo '<div class="panel-hd folder-title folder-title-fold">';
                 echo '<div class="info">';
                 echo '<h3>' . $combo->title . '</h3>';
-                echo '<p class="service"><span>预付全额</span><span>不可退</span></p>';
+                echo '<p class="service"><span>预付全额</span><span>可退</span></p>';
                 echo '</div>';
                 echo '<div class="price">';
                 echo '<div class="price-member"><em>¥' . $combo->price . '</em></div>';

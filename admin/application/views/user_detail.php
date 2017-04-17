@@ -10,7 +10,7 @@
             <div class="form-group">
                 <label for="realname" class="col-lg-2 col-sm-2 control-label">真实姓名</label>
                 <div class="col-lg-10">
-                    <p class="form-control-static">李四</p>
+                    <p class="form-control-static">孟昊阳</p>
                 </div>
             </div>
             <div class="form-group">
