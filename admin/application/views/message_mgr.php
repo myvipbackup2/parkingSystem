@@ -166,7 +166,7 @@
                     }
                     return row.content;
                 }},
-                {"data": "addtime", className: "clicked-cell"},
+                {"data": "add_time", className: "clicked-cell"},
                 null
             ],
             "columnDefs": [

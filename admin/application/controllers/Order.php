@@ -11,9 +11,12 @@ class Order extends CI_Controller {
 
     public function order_detail(){
         $id = $this -> input -> get('orderId');
+//        $admins=$this->admin_model->query_admin_manager();
+
         $order = $this -> order_model ->get_order_by_id($id);
-        
+
         if ($order) {
+//            $order->admins = $admins;
             echo json_encode($order);
         } else {
             echo json_encode(array('err' => '未找到指定信息!'));
@@ -191,7 +194,8 @@ class Order extends CI_Controller {
         $status = $this ->input->get('status');
         $price = $this->input->get('price');
         $pay = $this->input->get('pay');
-        $row = $this->order_model->add_order($price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay);
+        $order_no = date("YmdHis") . rand(10000, 99999);
+        $row = $this->order_model->add_order($order_no,$price,$status,$house_id,$user_id,$dpd1,$dpd2,$pay);
         if($row>0){
             echo 'success';
         }else{
@@ -305,6 +309,19 @@ class Order extends CI_Controller {
             echo 'fail';
         }
 
+    }
+
+    public function cancel_order()
+    {
+        $order_id = $this -> input -> get('orderId');
+        $pledge = $this -> input -> get('pledge');
+        $cancelMemo = $this -> input -> get('cancelMemo');
+        $row = $this->order_model->cancel_order($order_id, $pledge, $cancelMemo);
+        if($row>0){
+            echo 'success';
+        }else{
+            echo 'fail';
+        }
     }
 
 

@@ -210,27 +210,32 @@
             var blogs = $('.select_check');
             //console.log(123);
             //var arr=[];
-            var blogobj = {};
+            var blogobj = [];
             for (var i = 0; i < blogs.length; i++) {
                 //console.log(blogs[i].value);
                 if (blogs[i].checked == true) {
-                    blogobj[i] = blogs[i].value;
+                    blogobj.push(blogs[i].value);
                 }
             }
+            if(blogobj.length == 0){
+                $.gritter.add({
+                    title: '信息提示!',
+                    text: '请选择要删除的记录!'
+                });
+            }else{
+                $.post('facility/del_all', {'name': blogobj}, function (data) {
+                    if (data == 'success') {
+                        //location.href="facility/index";
+                        //console.log(123);
+                        table.ajax.reload(null, true);//重新加载数据
+                        $.gritter.add({
+                            title: '信息提示!',
+                            text: '记录删除成功!'
+                        });
+                    }
+                }, 'text');
 
-            $.post('facility/del_all', {'name': blogobj}, function (data) {
-                if (data == 'success') {
-                    //location.href="facility/index";
-                    //console.log(123);
-                    table.ajax.reload(null, true);//重新加载数据
-                    $.gritter.add({
-                        title: '信息提示!',
-                        text: '记录删除成功!'
-                    });
-                }
-            }, 'text');
-
-            //console.log(blogobj);
+            }
 
         });
 

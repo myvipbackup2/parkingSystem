@@ -80,9 +80,6 @@
                                 </li>
 
                             </ul>
-                            <span class="tools pull-right">
-                                <a href="javascript:;" class="fa fa-chevron-down"></a>
-                             </span>
                         </header>
                         <div class="panel-body">
                             <div class="tab-content" id="my-tab-pane">
@@ -499,7 +496,7 @@
                             mime_types: [ //允许文件上传类型
                                 {
                                     title: "files",
-                                    extensions: "jpg,png,gif,ico"
+                                    extensions: "jpg,png,gif,ico,jpeg"
                                 }
                             ]
                         },
@@ -574,17 +571,23 @@
             for (var i = 0; i < blogs.length; i++) {
                 blogobj.push(blogs[i].value);
             }
+            if(blogobj.length == 0){
+                $.gritter.add({
+                    title: '信息提示!',
+                    text: '请选择要删除的记录!'
+                });
+            }else{
+                $.get('house/del_all', {name: blogobj}, function (data) {
+                    if (data == 'success') {
+                        table.ajax.reload(null, true);//重新加载数据
+                        $.gritter.add({
+                            title: '信息提示!',
+                            text: '记录删除成功!'
+                        });
+                    }
+                }, 'text');
 
-            $.get('house/del_all', {name: blogobj}, function (data) {
-                if (data == 'success') {
-                    table.ajax.reload(null, true);//重新加载数据
-                    $.gritter.add({
-                        title: '信息提示!',
-                        text: '记录删除成功!'
-                    });
-                }
-            }, 'text');
-
+            }
 
         });
 
@@ -918,7 +921,7 @@
                             mime_types: [ //允许文件上传类型
                                 {
                                     title: "files",
-                                    extensions: "jpg,png,ico"
+                                    extensions: "jpg,png,ico,jpeg"
                                 }
                             ]
                         },
@@ -1126,7 +1129,7 @@
                             mime_types: [ //允许文件上传类型
                                 {
                                     title: "files",
-                                    extensions: "jpg,png,ico"
+                                    extensions: "jpg,png,ico,jpeg"
                                 }
                             ]
                         },
@@ -1281,7 +1284,7 @@
                 mime_types: [ //允许文件上传类型
                     {
                         title: "files",
-                        extensions: "jpg,png,ico"
+                        extensions: "jpg,png,ico,jpeg"
                     }
                 ]
             },

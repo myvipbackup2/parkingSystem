@@ -4,7 +4,7 @@
     <?php include 'meta.php'; ?>
 
 
-    <title>悦居后台管理系统 - 首页</title>
+    <title>随心停后台管理系统 - 首页</title>
 
     <base href="<?php echo site_url(); ?>">
 
@@ -52,7 +52,7 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                Dashboard
+                管理首页
             </h3>
             <ul class="breadcrumb">
                 <li>
@@ -69,74 +69,40 @@
                 <div class="col-md-6">
                     <!--statistics start-->
                     <div class="row state-overview">
-                        <div class="col-md-6 col-xs-12 col-sm-6">
-                            <div class="panel purple">
-                                <div class="symbol">
-                                    <i class="fa fa-gavel"></i>
-                                </div>
-                                <div class="state-value">
-                                    <div class="value">130房源</div>
-                                    <div class="title"><a href="house/house_list" style="color: #fff;">群立A区</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-6">
-                            <div class="panel red">
-                                <div class="symbol">
-                                    <i class="fa fa-tags"></i>
-                                </div>
-                                <div class="state-value">
-                                    <div class="value">80房源</div>
-                                    <div class="title"><a href="house/house_list" style="color: #fff;">群立B区</a></div>
+                        <?php $arr=["green","blue","red","purple"];
+                        foreach ($plot as $key=>$value){
+                            $color=$arr[rand(0,3)];
+                            ?>
+                            <div class="col-md-6 col-xs-12 col-sm-6">
+                                <div class="panel <?php echo $color?>">
+                                    <div class="state-value">
+                                        <div class="value"><?php echo $value->num?>个车位</div>
+                                        <div class="title"><a href="house/house_list" style="color: #fff;"><?php echo $value->plot_name?></a></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php }?>
                     </div>
-                    <div class="row state-overview">
-                        <div class="col-md-6 col-xs-12 col-sm-6">
-                            <div class="panel blue">
-                                <div class="symbol">
-                                    <i class="fa fa-money"></i>
-                                </div>
-                                <div class="state-value">
-                                    <div class="value">220房源</div>
-                                    <div class="title"><a href="house/house_list" style="color: #fff;">群立C区</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-6">
-                            <div class="panel green">
-                                <div class="symbol">
-                                    <i class="fa fa-eye"></i>
-                                </div>
-                                <div class="state-value">
-                                    <div class="value">90房源</div>
-                                    <div class="title"><a href="house/house_list" style="color: #fff;">群立D区</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--statistics end-->
                 </div>
                 <div class="col-md-6">
-                    <!--more statistics box start-->
-                    <div class="panel deep-purple-box">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-7 col-sm-7 col-xs-7">
-                                    <div id="graph-donut" class="revenue-graph"></div>
-                                </div>
-                                <div class="col-md-5 col-sm-5 col-xs-5">
-                                    <ul class="bar-legend">
-                                        <li><span class="blue"></span> 去哪网预付</li>
-                                        <li><span class="green"></span> 携程预付</li>
-                                        <li><span class="purple"></span> 网站自营</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--more statistics box end-->
+                    more statistics box start
+                                        <div class="panel deep-purple-box">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-7 col-sm-7 col-xs-7">
+                                                        <div id="graph-donut" class="revenue-graph"></div>
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-5 col-xs-5">
+                                                        <ul class="bar-legend">
+                                                            <li><span class="blue"></span> 去哪网预付</li>
+                                                            <li><span class="green"></span> 携程预付</li>
+                                                            <li><span class="purple"></span> 网站自营</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    more statistics box end
                 </div>
             </div>
             <div class="row">
@@ -200,71 +166,21 @@
                         </header>
                         <div class="panel-body">
                             <ul class="goal-progress">
-                                <li>
-                                    <div class="prog-avatar">
-                                        <img src="images/photos/user1.png" alt=""/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="title">
-                                            <a href="#">李四</a>
+                                <?php foreach ($message as $key=>$value){?>
+                                    <li>
+                                        <div class="prog-avatar">
+                                            <img src="<?php echo $value->portrait?>" alt=""/>
                                         </div>
-                                        <div>
-                                            祝贺网站开通
+                                        <div class="details">
+                                            <div class="title">
+                                                <a href="#"><?php echo $value->username?></a>
+                                            </div>
+                                            <div>
+                                                <?php echo $value->content?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="prog-avatar">
-                                        <img src="images/photos/user2.png" alt=""/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="title">
-                                            <a href="#">张三</a> - Sales
-                                        </div>
-                                        <div>
-                                            网站功能有待完善
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="prog-avatar">
-                                        <img src="images/photos/user3.png" alt=""/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="title">
-                                            <a href="#">小李子</a>
-                                        </div>
-                                        <div>
-                                            我的订单时间填错了，能改吗
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="prog-avatar">
-                                        <img src="images/photos/user4.png" alt=""/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="title">
-                                            <a href="#">王五</a>
-                                        </div>
-                                        <div>
-                                            给你们点建议吧
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="prog-avatar">
-                                        <img src="images/photos/user5.png" alt=""/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="title">
-                                            <a href="#">赵六</a>
-                                        </div>
-                                        <div>
-                                            网站开通啦 ，恭喜
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php }?>
                             </ul>
                             <div class="text-center"><a href="message">查看所有留言</a></div>
                         </div>
@@ -273,7 +189,7 @@
             </div>
 
 
-、        </div>
+            、        </div>
         <!--body wrapper end-->
 
         <!--footer section start-->

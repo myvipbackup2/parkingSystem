@@ -25,7 +25,6 @@
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -63,280 +62,122 @@
 
         <!--body wrapper start-->
         <div class="wrapper">
+            <header class="panel-heading custom-tab">
+                <!--                            房源数据列表-->
+                <ul class="nav nav-tabs " id="my-tabs">
+                    <li class="active">
+                        <a href="#all-houses" data-toggle="tab" class="all-orders">全部房源</a>
+                    </li>
+                    <?php foreach ($all_plot as $rs){?>
+                        <li>
+                            <a href="#" data-value="<?php echo $rs->plot_id?>" data-toggle="tab" class="plot-page"><?php echo $rs->plot_name?></a>
+                        </li>
+                    <?php }?>
+                </ul>
+                <!--                    <span class="tools pull-right">-->
+                <!--                        <a href="javascript:;" class="fa fa-chevron-down"></a>-->
+                <!--                    </span>-->
+            </header>
             <div class="directory-info-row">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <header class="panel-heading">
-                                A栋304，哈尔滨梧桐树公寓观景大床房
-                                <div style="margin-top: -6px;" class="btn-group pull-right">
-                                    <button class="btn btn-success" type="button">续住</button>
-                                    <button class="btn btn-info" type="button">结账</button>
-                                </div>
-                            </header>
-                            <div class="panel-body">
-                                <div class="media">
-                                    <a class="pull-left text-center" href="#">
-                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            入住状态：已入住<br>
-                                            入住时间：2017-2-12 至 2017-2-18<br>
-                                            用户：张三<br>
-                                            电话：13098763645
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>
-                                        </ul>
+<!--                    <div class="col-md-6 col-sm-6">-->
+<!--                        <div class="panel">-->
+<!--                            <header class="panel-heading">-->
+<!--                                A栋304，哈尔滨梧桐树公寓观景大床房-->
+<!--                                <div style="margin-top: -6px;" class="btn-group pull-right">-->
+<!--                                    <button class="btn btn-success" type="button">续住</button>-->
+<!--                                    <button class="btn btn-info" type="button">结账</button>-->
+<!--                                </div>-->
+<!--                            </header>-->
+<!--                            <div class="panel-body">-->
+<!--                                <div class="media">-->
+<!--                                    <a class="pull-left text-center" href="#">-->
+<!--                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">-->
+<!--                                    </a>-->
+<!--                                    <div class="media-body">-->
+<!--                                        <address>-->
+<!--                                            入住状态：已入住<br>-->
+<!--                                            入住时间：2017-2-12 至 2017-2-18<br>-->
+<!--                                            用户：张三<br>-->
+<!--                                            电话：13098763645-->
+<!--                                        </address>-->
+<!--                                        <ul class="social-links">-->
+<!--                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    查询出所有预定的-->
+                    <?php foreach ($ordered as $rs){?>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    <?php echo $rs->title?>
+                                    <div style="margin-top: -6px;" class="btn-group pull-right" data-id="<?php echo $rs->house_id?>">
+                                        <button class="btn btn-success" type="button">续住</button>
+                                        <button class="btn btn-info" type="button">结账</button>
+                                    </div>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="media">
+                                        <a class="pull-left text-center" href="#">
+                                            <img class="thumb media-object" src="<?php echo $rs->img_src?>" alt="" width="103" height="103">
+                                        </a>
+                                        <div class="media-body">
+                                            <address>
+                                                入住状态：<?php echo $rs->status?><br>
+                                                入住时间：<?php echo $rs->start_time?> 至 <?php echo $rs->end_time?><br>
+                                                用户：<?php echo $rs->rel_name?><br>
+                                                电话：<?php echo $rs->tel?>
+                                            </address>
+                                            <ul class="social-links">
+                                                <?php if($rs->plot_id != ''){?>
+                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>
+                                                <?php }?>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php }?>
+<!--                    查询出所有未被预定的-->
+                    <?php foreach ($unorder as $rs){?>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    <?php echo $rs->title?>
+<!--                                    <div style="margin-top: -6px;" class="btn-group pull-right">-->
+<!--                                        <button class="btn btn-success" type="button">续住</button>-->
+<!--                                        <button class="btn btn-info" type="button">结账</button>-->
+<!--                                    </div>-->
+                                </header>
+                                <div class="panel-body">
+                                    <div class="media">
+                                        <a class="pull-left text-center" href="#">
+                                            <img class="thumb media-object" src="<?php echo $rs->img_src?>" alt="" width="103" height="103">
+                                        </a>
+                                        <div class="media-body">
+                                            <address>
+                                                入住状态：未预定<br>
+                                                入住时间：--至 --<br>
+                                                用户：--<br>
+                                                电话：--
+                                            </address>
+                                            <ul class="social-links">
+                                                <?php if($rs->plot_id != ''){?>
+                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>
+                                                <?php }?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }?>
 
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>群力哈尔滨故事公寓一室一厅阳光套房</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716737586568.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>哈西万达禧龙公寓地中海大床房</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716738227309.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>中央大街荣耀宝宇时尚索菲亚双大床四人</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/201507100243521506_390_390.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>中央大街旁 索菲亚附近地中海风情大床房</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/201507100243529488_390_390.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>哈西万达大盛公寓欧式大床房</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/201612181552509886_390_390.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>中央大街82平复式《北北游子居》可做饭</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>乐松商圈凯旋广场温馨舒适的两居室</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>学府四道街 复式豪宅</h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h4>哈尔滨哈西万达豪华家庭房 </h4>
-                                <div class="media">
-                                    <a class="pull-left" href="#">
-                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">
-                                    </a>
-                                    <div class="media-body">
-                                        <address>
-                                            <strong>ABCDE, Inc.</strong><br>
-                                            ABC Ave, Suite 14<br>
-                                            BucketLand, Australia <br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                                        </address>
-                                        <ul class="social-links">
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -365,6 +206,221 @@
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
+<!--ajax-->
+<!--续租模板 -->
+<script id="order-end-tpl" type="text/html">
+    <?php include 'tpls/order_end_tpl.html'; ?>
+</script>
+<!--结账模板-->
+<script id="order-keep-tpl" type="text/html">
+    <?php include 'tpls/order_keep_tpl.html'; ?>
+</script>
+<!--gritter script-->
+<script src="js/gritter/js/jquery.gritter.js"></script>
 
+<script src="js/template.js"></script>
+<script src="js/jquery.sidepanel.js"></script>
+
+
+<script>
+//    创建AJAXDOM
+    function createElem(data,flag) {
+        for(var i=0;i<data.length;i++){
+            var $container = $('<div class="col-md-6 col-ms-6"></div>');
+            var $panel = $('<div class="panel"></div>');
+            var $panelHead = $('<header class="panel-heading">'+data[i].title+'</header>');
+            if(flag){
+                var $btnGroup = $('<div style="margin-top:-6px;" class="btn-group pull-right" data-id="'+data[i].house_id+'"></div>');
+                $('<button class="btn btn-success" type="button">续住</button>').on('click',function () {
+                    var orderId = $(this).parent().attr('data-id');
+                    $.sidepanel({
+                        width: 700,
+                        title: '续租',
+                        tpl: 'order-keep-tpl',
+                        dataSource: "order/order_detail_keep",
+                        data: {
+                            orderId: orderId
+                        },
+                        callback: function () {
+                            var data = $("input[name=datearr]").val();
+                            var dataArr = data.split(",");
+                            dataArr.length = dataArr.length - 1;
+                            $('#dpd1').on('click', function () {
+                                WdatePicker({minDate: '%y-%M-%d', disabledDates: dataArr});
+                            });
+                            //点击结束时间的时候判断开始时间
+                            $('#dpd2').on('click', function () {
+                                if ($('#dpd2').val() != '年-月-日') {
+                                    WdatePicker({minDate: $('#dpd1').val(), disabledDates: dataArr});
+                                } else {
+                                    WdatePicker({minDate: '%y-%M-%d', disabledDates: dataArr});
+                                }
+                            });
+
+                            $('#keep-order').on('click', function () {
+                                var order_id = $("input[name=order_id]").val(),
+                                    price = $("input[name=new-price]").val(),
+                                    return_way = $("input[name=return_way]").val(),
+                                    start_time = $('#dpd1').val(),
+                                    end_time = $('#dpd2').val();
+                                $.get('order/order_keep', {
+                                    'order_id': order_id,
+                                    'price': price,
+                                    'start_time': start_time,
+                                    'end_time': end_time
+                                }, function (data) {
+                                    if (data == 'success') {
+                                        table.ajax.reload(null, true);//重新加载数据
+                                        $.gritter.add({
+                                            title: '信息提示!',
+                                            text: '续租成功!'
+                                        });
+                                    }
+                                }, 'text');
+                                $('.fa-times').trigger('click');
+
+                            });
+                        }
+                    })
+                }).appendTo($btnGroup);
+                $('<button class="btn btn-info" type="button">结账</button>').on('click',function () {
+                    var orderId = $(this).parent().data('id');
+                    $.sidepanel({
+                        width: 700,
+                        title: '结账',
+                        tpl: 'order-end-tpl',
+                        dataSource: "order/order_detail",
+                        data: {
+                            orderId: orderId
+                        },
+                        callback: function () {
+
+                        }
+
+                    });
+                }).appendTo($btnGroup);
+                $btnGroup.appendTo($panelHead);
+            }
+            $panelHead.appendTo($panel);
+            var $panelBody = $('<div class="panel-body"><div class="media"></div></div>');
+            var $img = $('<a class="pull-left text-center" href="#" ><img class="thumb media-object" src="'+data[i].img_src+'" alt="" width="103" height="103"></a>')
+                .appendTo($panelBody);
+            var $meidiaBody = $('<div class="media-body"></div>');
+            if(flag){
+                var $msg = $('<address>入住状态:'+data[i].status+'<br> 入住时间：'+data[i].start_time+'至'+data[i].end_time+'<br> 用户：'+data[i].rel_name+'<br> 电话：'+data[i].tel+' </address>');
+            }else{
+                var $msg = $('<address>入住状态:未预定<br> 入住时间：--至 --<br> 用户：--<br> 电话：-- </address>');
+            }
+            $msg.appendTo($meidiaBody);
+            var $socialLinks = $('<ul class="social-links"><li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li></ul>');
+            $socialLinks.appendTo($meidiaBody);
+            $meidiaBody.appendTo($panelBody);
+            $panelBody.appendTo($panel);
+            $panel.appendTo($container);
+            $container.appendTo($('.directory-info-row .row'))
+        }
+
+    }
+    $(function () {
+//        设置panel的固定宽高
+        var panelHeight = 0;
+        $('.panel').each(function () {
+            if($(this).height()>panelHeight){
+                panelHeight = $(this).height()
+            }
+        });
+        $('.panel').css('height',panelHeight);
+//        标签点击AJAX
+        $('#my-tabs li a').on('click',function () {
+            var plot = $(this).attr('data-value');
+            var parent = $(this).parent();
+            if(plot != undefined){
+                $.get('House/house_list_plot',{'plot':plot},function (data) {
+                    data = JSON.parse(data);
+                    $('.directory-info-row .row').empty();
+                    createElem(data.ordered,true);
+                    createElem(data.unorder,false);
+                    parent.addClass('active').siblings().removeClass('active');
+                    console.log(parent);
+                });
+            }else{
+                window.location.reload();
+            }
+
+            return false;
+        });
+//        续租侧边框
+        $('.btn-group .btn-success').on('click', function () {
+            var orderId = $(this).parent().attr('data-id');
+            $.sidepanel({
+                width: 700,
+                title: '续租',
+                tpl: 'order-keep-tpl',
+                dataSource: "order/order_detail_keep",
+                data: {
+                    orderId: orderId
+                },
+                callback: function () {
+                    var data = $("input[name=datearr]").val();
+                    var dataArr = data.split(",");
+                    dataArr.length = dataArr.length - 1;
+                    $('#dpd1').on('click', function () {
+                        WdatePicker({minDate: '%y-%M-%d', disabledDates: dataArr});
+                    });
+                    //点击结束时间的时候判断开始时间
+                    $('#dpd2').on('click', function () {
+                        if ($('#dpd2').val() != '年-月-日') {
+                            WdatePicker({minDate: $('#dpd1').val(), disabledDates: dataArr});
+                        } else {
+                            WdatePicker({minDate: '%y-%M-%d', disabledDates: dataArr});
+                        }
+                    });
+
+                    $('#keep-order').on('click', function () {
+                        var order_id = $("input[name=order_id]").val(),
+                            price = $("input[name=new-price]").val(),
+                            return_way = $("input[name=return_way]").val(),
+                            start_time = $('#dpd1').val(),
+                            end_time = $('#dpd2').val();
+                        $.get('order/order_keep', {
+                            'order_id': order_id,
+                            'price': price,
+                            'start_time': start_time,
+                            'end_time': end_time
+                        }, function (data) {
+                            if (data == 'success') {
+                                table.ajax.reload(null, true);//重新加载数据
+                                $.gritter.add({
+                                    title: '信息提示!',
+                                    text: '续租成功!'
+                                });
+                            }
+                        }, 'text');
+                        $('.fa-times').trigger('click');
+
+                    });
+                }
+
+            });
+        });
+//        结账侧边框
+        $('.btn-group .btn-info').on('click', function () {
+            var orderId = $(this).parent().data('id');
+            $.sidepanel({
+                width: 700,
+                title: '结账',
+                tpl: 'order-end-tpl',
+                dataSource: "order/order_detail",
+                data: {
+                    orderId: orderId
+                },
+                callback: function () {
+
+                }
+
+            });
+        });
+    })
+</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <div class="logo">
         <a href="index.html">
             <img src="images/logo.png" alt="" width="50">
-            <span>悦居房屋租赁管理系统</span>
+            <span>随心停租赁管理系统</span>
         </a>
     </div>
 
@@ -46,10 +46,10 @@
 
                 </ul>-->
             </li>
-            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>房源管理</span></a>
+            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>车位管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="house/house_list"> 房态图</a></li>
-                    <li><a href="house"> 房源管理</a></li>
+                    <li><a href="house/house_list"> 车位图</a></li>
+                    <li><a href="house"> 车位管理</a></li>
                     <li><a href="comment"> 评论管理</a></li>
                     <li><a href="combo"> 套餐管理</a></li>
                     <li><a href="combo/combo_type"> 套餐类型管理</a></li>
@@ -62,14 +62,14 @@
             <li class="menu-list"><a href="javascript:;"><i class="fa fa-envelope"></i> <span>订单管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="order"> 订单管理</a></li>
-                    <li><a href="order/checkin"> 入住管理</a></li>
+                    <li><a href="order/checkin"> 停车管理</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>设备管理</span></a>
                 <ul class="sub-menu-list">
 <!--                    <li><a href="mail.html"> 设备管理</a></li>-->
                     <li><a href="facility"> 设备管理</a></li>
-                    <li><a href="mail_compose.html"> 维修记录</a></li>
+                    <li><a href="service"> 维修记录</a></li>
                 </ul>
             </li>
 
@@ -81,10 +81,10 @@
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>数据报表</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="flot_chart.html"> 商品报表汇总</a></li>
-                    <li><a href="flot_chart.html"> 营业日报</a></li>
-                    <li><a href="flot_chart.html"> 营业月报</a></li>
-                    <li><a href="flot_chart.html"> 营业年报</a></li>
+<!--                    <li><a href="flot_chart.html"> 商品报表汇总</a></li>-->
+                    <li><a href="statement/each_day_index"> 营业日报</a></li>
+                    <li><a href="statement/each_month_index"> 营业月报</a></li>
+                    <li><a href="statement/each_year_index"> 营业年报</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>财务管理</span></a>
@@ -106,11 +106,10 @@
             <li class="menu-list"><a href="javascript:;"><i class="fa fa-cogs"></i> <span>系统管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="admin"> 管理员管理</a></li>
-                    <li><a href="gallery.html"> 权限管理</a></li>
                     <li><a href="admin/log"> 操作日志管理</a></li>
                 </ul>
             </li>
-            <li><a href="Admin/loginOut"><i class="fa fa-sign-in"></i> <span>退出系统</span></a></li>
+            <li><a href="admin/logout"><i class="fa fa-sign-in"></i> <span>退出系统</span></a></li>
         </ul>
         <!--sidebar nav end-->
 

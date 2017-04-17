@@ -43,22 +43,6 @@
 
                                 </div>
                             </div>
-                            <div class="form-group sale-house">
-                                <label for="developer_id" class="col-lg-2 col-sm-2 control-label">开发商</label>
-                                <div class="col-lg-8">
-                                    <select class="form-control m-bot15" id="developer_id" name="developer_id">
-                                        {{each developers as developer}}
-                                        <option value="{{developer.developer_id}}">{{developer.developer_name}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group sale-house">
-                                <label for="video" class="col-lg-2 col-sm-2 control-label">视频</label>
-                                <div class="col-lg-8">
-                                    <input type="text" id="video" name="video" class="form-control" placeholder="上传视频">
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="title" class="col-lg-2 col-sm-2 control-label">标题</label>
                                 <div class="col-lg-8">
@@ -74,6 +58,22 @@
                                         {{/each}}
                                     </select>
                                     <a href="#myModal-plot" data-toggle="modal" class="btn btn-success btn-xs  house-add-plot" type="button">添加小区</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="developer_id" class="col-lg-2 col-sm-2 control-label">开发商</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control m-bot15" id="developer_id" name="developer_id">
+                                        {{each developers as developer}}
+                                        <option value="{{developer.developer_id}}">{{developer.developer_name}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="video" class="col-lg-2 col-sm-2 control-label">视频</label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="video" name="video" class="form-control" placeholder="上传视频">
                                 </div>
                             </div>
                             <div class="infolist form-group">
@@ -107,6 +107,13 @@
                                         </div>
                                     </div>
 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="house-area" class="col-lg-2 col-sm-2 control-label">面积</label>
+                                <div class="input-group col-lg-4 col-sm-4 add-pl">
+                                    <input type="text" class="form-control" id="house-area" name="area" required>
+                                    <span class="input-group-addon ">平方米</span>
                                 </div>
                             </div>
                             <div class="form-group">
