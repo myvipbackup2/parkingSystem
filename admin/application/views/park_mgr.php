@@ -3,7 +3,7 @@
 <head>
     <?php include 'meta.php'; ?>
 
-    <title>随心停后台管理系统 - 房源管理</title>
+    <title>随心停后台管理系统 - 车位管理</title>
 
     <base href="<?php echo site_url(); ?>">
 
@@ -53,16 +53,16 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                房源管理
+                车位管理
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
-                <li class="active"> 房源管理</li>
+                <li class="active"> 车位管理</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -73,10 +73,10 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading custom-tab">
-<!--                            房源数据列表-->
+<!--                            车位数据列表-->
                             <ul class="nav nav-tabs " id="my-tabs">
                                 <li class="active">
-                                    <a href="#all-parks" data-toggle="tab" class="all-orders">全部房源</a>
+                                    <a href="#all-parks" data-toggle="tab" class="all-orders">全部车位</a>
                                 </li>
 
                             </ul>
@@ -264,7 +264,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                <h4 class="modal-title">房屋推荐理由</h4>
+                <h4 class="modal-title">车位推荐理由</h4>
             </div>
             <div class="modal-body">
                 <div class="form-inline" role="form">
@@ -349,7 +349,7 @@
         $('.wrapper').on('click','.btn-new',function () {
             $.sidepanel({
                 width: 700,
-                title: '添加房源',
+                title: '添加车位',
                 tpl: 'new-park-tpl',
                 dataSource: 'park/get_facility_plot',
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
@@ -1083,18 +1083,6 @@
                                     rangelength: "小区名称长度要在2-20个字之间"
                                 },
                                 address: "忘记填写小区详细地址啦",
-                                bedroom:{
-                                    required: "忘记填写室啦",
-                                    number: "请填写数字"
-                                },
-                                livingroom:{
-                                    required: "忘记填写厅啦",
-                                    number: "请填写数字"
-                                },
-                                toilet:{
-                                    required: "忘记填写卫啦",
-                                    number: "请填写数字"
-                                },
                                 price:{
                                     required: "忘记填写价格啦",
                                     number: "填写有误，请填写数字"

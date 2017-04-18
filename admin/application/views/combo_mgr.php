@@ -64,7 +64,7 @@
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
                 <li class="active"> 套餐管理</li>
             </ul>
@@ -99,7 +99,7 @@
                                         <th><input type="checkbox" id="check-all"></th>
                                         <th>ID</th>
                                         <th>套餐名称</th>
-                                        <th>房源</th>
+                                        <th>车位</th>
                                         <th>单价</th>
                                         <th>起订天数</th>
                                         <th>套餐类型</th>

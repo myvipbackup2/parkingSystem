@@ -61,7 +61,7 @@
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
                 <li class="active"> 评论管理</li>
             </ul>
@@ -90,7 +90,7 @@
                                         <th>评论时间</th>
                                         <th>评论内容</th>
                                         <th>评论人</th>
-                                        <th>评论房源</th>
+                                        <th>评论车位</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>

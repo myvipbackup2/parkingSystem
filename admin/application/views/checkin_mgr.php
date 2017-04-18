@@ -3,7 +3,7 @@
 <head>
     <?php include 'meta.php'; ?>
 
-    <title>随心停后台管理系统 - 入住管理</title>
+    <title>随心停后台管理系统 - 停车管理</title>
 
     <base href="<?php echo site_url(); ?>">
 
@@ -63,7 +63,7 @@
                 <li>
                     <a href="#">订单管理</a>
                 </li>
-                <li class="active"> 入住管理</li>
+                <li class="active"> 停车管理</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -74,7 +74,7 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            入住数据列表
+                            停车数据列表
                             <span class="tools pull-right">
                                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                              </span>
@@ -88,8 +88,8 @@
                                     <tr>
                                         <th>编号</th>
                                         <th>预订方式</th>
-                                        <th>房源名称</th>
-                                        <th>入住时间</th>
+                                        <th>车位名称</th>
+                                        <th>停车时间</th>
                                         <th>离开时间</th>
                                         <th>订单状态</th>
                                         <th>操作</th>
@@ -183,7 +183,7 @@
             var orderId = $(this).data('id');
             $.sidepanel({
                 width: 700,
-                title: '入住详情',
+                title: '停车详情',
                 tpl: 'checkin-detail-tpl',
                 dataSource: 'order/checkin_detail',
                 data: {
@@ -202,7 +202,7 @@
             var orderId = $(this).parents('tr').data('id');
             $.sidepanel({
                 width: 700,
-                title: '入住详情',
+                title: '停车详情',
                 tpl: 'checkin-detail-tpl',
                 dataSource: 'order/checkin_detail',
                 data: {

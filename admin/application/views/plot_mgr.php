@@ -97,7 +97,7 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading custom-tab">
-                            <!--                            房源数据列表-->
+                            <!--                            车位数据列表-->
                             <ul class="nav nav-tabs " id="my-tabs">
                                 <li class="active">
                                     <a href="#all-plots" data-toggle="tab" class="all-plot">全部小区</a>

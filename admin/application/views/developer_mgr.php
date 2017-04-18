@@ -3,7 +3,7 @@
 <head>
     <?php include 'meta.php'; ?>
 
-    <title>随心停后台管理系统 - 开发商管理</title>
+    <title>随心停后台管理系统 - 物业管理</title>
 
     <base href="<?php echo site_url(); ?>">
 
@@ -64,9 +64,9 @@
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
-                <li class="active"> 开发商管理</li>
+                <li class="active"> 物业管理</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -77,7 +77,7 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            开发商数据列表
+                            物业数据列表
                             <span class="tools pull-right">
                                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                              </span>
@@ -99,8 +99,8 @@
                                     <tr>
                                         <th><input type="checkbox" id="check-all"></th>
                                         <th>ID</th>
-                                        <th>开发商logo</th>
-                                        <th>开发商名称</th>
+                                        <th>物业logo</th>
+                                        <th>物业名称</th>
                                         <th>地址</th>
                                         <th>电话</th>
                                         <th>操作</th>

@@ -169,7 +169,7 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
                                             <th>停车时间</th>
@@ -192,7 +192,7 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
                                             <th>停车时间</th>
@@ -216,7 +216,7 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
                                             <th>停车时间</th>
@@ -240,7 +240,7 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
                                             <th>停车时间</th>
@@ -265,7 +265,7 @@
                                             <th><input type="checkbox" class="check-all"/></th>
                                             <th>编号</th>
                                             <th>预订方式</th>
-                                            <th>房源名称</th>
+                                            <th>停车场名称</th>
                                             <th>用户</th>
                                             <th>手机号</th>
                                             <th>停车时间</th>
@@ -377,11 +377,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-hidden="true" data-dismiss="modal" class="close close-plot" type="button">×</button>
-                <h4 class="modal-title">选择房源</h4>
+                <h4 class="modal-title">选择停车场</h4>
             </div>
             <div class="modal-body">
                 <div style='background: #2e3644;text-align: center;margin-bottom: 10px;height: 40px;'><h3
-                            style='line-height: 40px;margin: 0 auto;color: white;'>房源搜索</h3></div>
+                            style='line-height: 40px;margin: 0 auto;color: white;'>停车场搜索</h3></div>
                 <form class='form-horizontal' role='form'>
                     <div class='form-group'>
                         <div class='col-lg-9' style='margin-left:10px'>
@@ -584,7 +584,7 @@
                 var orderId = $(this).data('id');
                 $.sidepanel({
                     width: 700,
-                    title: '退房',
+                    title: '退车位',
                     tpl: 'order-end-tpl',
                     dataSource: "order/order_end",
                     data: {
@@ -629,13 +629,13 @@
                                 if (data == 'success') {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '退房成功!'
+                                        text: '退车位成功!'
                                     });
                                     $('.panel-close').trigger('click');
                                 } else {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '退房失败!'
+                                        text: '退车位失败!'
                                     });
                                 }
                             }, 'text');
@@ -1347,7 +1347,7 @@
                                     $('.close-plot').trigger('click');
                                 });
                             } else {
-                                var park_table = $('<p>未查到房源</p>');
+                                var park_table = $('<p>未查到车位</p>');
                                 $(".park-table").html("").append(park_table);
                             }
                         }, "json")

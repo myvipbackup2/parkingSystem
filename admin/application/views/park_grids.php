@@ -49,13 +49,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                房态图
+                车库图
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
-                <li class="active">房态图</li>
+                <li class="active">车位图</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -63,10 +63,10 @@
         <!--body wrapper start-->
         <div class="wrapper">
             <header class="panel-heading custom-tab">
-                <!--                            房源数据列表-->
+                <!--                            车位数据列表-->
                 <ul class="nav nav-tabs " id="my-tabs">
                     <li class="active">
-                        <a href="#all-parks" data-toggle="tab" class="all-orders">全部房源</a>
+                        <a href="#all-parks" data-toggle="tab" class="all-orders">全部车位</a>
                     </li>
                     <?php foreach ($all_plot as $rs){?>
                         <li>
@@ -80,35 +80,7 @@
             </header>
             <div class="directory-info-row">
                 <div class="row">
-<!--                    <div class="col-md-6 col-sm-6">-->
-<!--                        <div class="panel">-->
-<!--                            <header class="panel-heading">-->
-<!--                                A栋304，哈尔滨梧桐树公寓观景大床房-->
-<!--                                <div style="margin-top: -6px;" class="btn-group pull-right">-->
-<!--                                    <button class="btn btn-success" type="button">续住</button>-->
-<!--                                    <button class="btn btn-info" type="button">结账</button>-->
-<!--                                </div>-->
-<!--                            </header>-->
-<!--                            <div class="panel-body">-->
-<!--                                <div class="media">-->
-<!--                                    <a class="pull-left text-center" href="#">-->
-<!--                                        <img class="thumb media-object" src="uploads/148716736855667.jpg" alt="" width="103" height="103">-->
-<!--                                    </a>-->
-<!--                                    <div class="media-body">-->
-<!--                                        <address>-->
-<!--                                            入住状态：已入住<br>-->
-<!--                                            入住时间：2017-2-12 至 2017-2-18<br>-->
-<!--                                            用户：张三<br>-->
-<!--                                            电话：13098763645-->
-<!--                                        </address>-->
-<!--                                        <ul class="social-links">-->
-<!--                                            <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+
 <!--                    查询出所有预定的-->
                     <?php foreach ($ordered as $rs){?>
                         <div class="col-md-6 col-sm-6">
@@ -149,10 +121,6 @@
                             <div class="panel">
                                 <header class="panel-heading">
                                     <?php echo $rs->title?>
-<!--                                    <div style="margin-top: -6px;" class="btn-group pull-right">-->
-<!--                                        <button class="btn btn-success" type="button">续住</button>-->
-<!--                                        <button class="btn btn-info" type="button">结账</button>-->
-<!--                                    </div>-->
                                 </header>
                                 <div class="panel-body">
                                     <div class="media">
@@ -161,8 +129,8 @@
                                         </a>
                                         <div class="media-body">
                                             <address>
-                                                入住状态：未预定<br>
-                                                入住时间：--至 --<br>
+                                                停车状态：未预定<br>
+                                                停车时间：--至 --<br>
                                                 用户：--<br>
                                                 电话：--
                                             </address>
@@ -231,7 +199,7 @@
             var $panelHead = $('<header class="panel-heading">'+data[i].title+'</header>');
             if(flag){
                 var $btnGroup = $('<div style="margin-top:-6px;" class="btn-group pull-right" data-id="'+data[i].park_id+'"></div>');
-                $('<button class="btn btn-success" type="button">续住</button>').on('click',function () {
+                $('<button class="btn btn-success" type="button">续租</button>').on('click',function () {
                     var orderId = $(this).parent().attr('data-id');
                     $.sidepanel({
                         width: 700,
@@ -307,9 +275,9 @@
                 .appendTo($panelBody);
             var $meidiaBody = $('<div class="media-body"></div>');
             if(flag){
-                var $msg = $('<address>入住状态:'+data[i].status+'<br> 入住时间：'+data[i].start_time+'至'+data[i].end_time+'<br> 用户：'+data[i].rel_name+'<br> 电话：'+data[i].tel+' </address>');
+                var $msg = $('<address>停车状态:'+data[i].status+'<br> 停车时间：'+data[i].start_time+'至'+data[i].end_time+'<br> 用户：'+data[i].rel_name+'<br> 电话：'+data[i].tel+' </address>');
             }else{
-                var $msg = $('<address>入住状态:未预定<br> 入住时间：--至 --<br> 用户：--<br> 电话：-- </address>');
+                var $msg = $('<address>停车状态:未预定<br> 停车时间：--至 --<br> 用户：--<br> 电话：-- </address>');
             }
             $msg.appendTo($meidiaBody);
             var $socialLinks = $('<ul class="social-links"><li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li></ul>');

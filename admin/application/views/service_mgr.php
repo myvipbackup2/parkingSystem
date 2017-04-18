@@ -121,7 +121,7 @@
                                         <th><input type="checkbox" class="check-all"/></th>
                                         <th>编号<t/h>
                                         <th>小区</th>
-                                        <th>房源</th>
+                                        <th>车位</th>
                                         <th>设备</th>
                                         <th>问题</th>
                                         <th>时间</th>
@@ -183,15 +183,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-hidden="true" data-dismiss="modal" class="close close-plot" type="button">×</button>
-                <h4 class="modal-title">选择房源</h4>
+                <h4 class="modal-title">选择车位</h4>
             </div>
             <div class="modal-body">
                 <div style='background: #2e3644;text-align: center;margin-bottom: 10px;height: 40px;'><h3
-                            style='line-height: 40px;margin: 0 auto;color: white;'>房源搜索</h3></div>
+                            style='line-height: 40px;margin: 0 auto;color: white;'>车位搜索</h3></div>
                 <form class='form-horizontal' role='form'>
                     <div class='form-group'>
                         <div class='col-lg-9' style='margin-left:10px'>
-                            <input type='text' class='form-control park-street' placeholder='房源'>
+                            <input type='text' class='form-control park-street' placeholder='车位'>
                         </div>
                         <div class='col-lg-2'>
                             <input type='button' class='btn btn-default btn-search-park' value='搜索'>
@@ -438,7 +438,7 @@
                                     $("#facility_name_input").val("");
                                 });
                             }else{
-                                var park_table = $('<p>未查到房源</p>');
+                                var park_table = $('<p>未查到车位</p>');
                                 $(".park-table").html("").append(park_table);
                             }
                         }, "json")

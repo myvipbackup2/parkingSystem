@@ -95,8 +95,8 @@
                                 </div>
                                 <div class="col-md-5 col-sm-5 col-xs-5">
                                     <ul class="bar-legend">
-                                        <li><span class="blue"></span> 去哪网预付</li>
-                                        <li><span class="green"></span> 携程预付</li>
+                                        <li><span class="blue"></span> 电话预付</li>
+                                        <li><span class="green"></span> 微信预付</li>
                                         <li><span class="purple"></span> 网站自营</li>
                                     </ul>
                                 </div>

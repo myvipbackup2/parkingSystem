@@ -61,7 +61,7 @@
                     <a href="#">首页</a>
                 </li>
                 <li>
-                    <a href="#">房源管理</a>
+                    <a href="#">车位管理</a>
                 </li>
                 <li class="active"> 套餐类型管理</li>
             </ul>
@@ -217,7 +217,7 @@
 
             $.sidepanel({
                 width: 800,
-                title: '编辑房源',
+                title: '编辑车位',
                 tpl: 'edit_combo-type-tpl',
                 dataSource: 'combo/combo_type_detail',
                 data: {
