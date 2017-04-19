@@ -25,19 +25,19 @@
                                 </div>
                             </div>
                             <div class="form-group sale-house">
-                                <label for="floor" class="col-lg-2 col-sm-2 control-label">楼层</label>
+                                <label for="floor" class="col-lg-2 col-sm-2 control-label">小区</label>
                                 <div class="col-lg-10">
                                     <div class="col-lg-3 floor-type">
                                         <div class="iconic-input right">
                                             <i class="fa lf">第</i>
-                                            <i class="fa">层</i>
+                                            <i class="fa">栋</i>
                                             <input type="text" id="floor" name="floor" class="form-control" value="{{floor}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 floor-type">
                                         <div class="iconic-input right">
                                             <i class="fa lf">共</i>
-                                            <i class="fa">层</i>
+                                            <i class="fa">栋</i>
                                             <input type="text" id="total-floors" name="total-floors" class="form-control" value="{{total_floors}}">
                                         </div>
                                     </div>
@@ -90,24 +90,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="bedroom" class="col-lg-2 col-sm-2 control-label">房屋户型</label>
+                                <label for="bedroom" class="col-lg-2 col-sm-2 control-label">车位类型</label>
                                 <div class="col-lg-10">
                                     <div class="col-lg-3 house-type">
                                         <div class="iconic-input right">
-                                            <i class="fa">室</i>
+                                            <i class="fa">一字型停车位</i>
                                             <input type="text" id="bedroom" name="bedroom" value="{{bedroom}}" class="form-control" required >
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 house-type">
-                                        <div class="iconic-input right">
-                                            <i class="fa">厅</i>
-                                            <input type="text" id="livingroom" name="livingroom" value="{{livingroom}}" class="form-control" >
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 house-type">
-                                        <div class="iconic-input right">
-                                            <i class="fa">卫</i>
-                                            <input type="text" id="toilet" name="toilet" value="{{lavatory}}" class="form-control">
                                         </div>
                                     </div>
 
@@ -122,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="form-group icheck">
-                                <label class="col-lg-2 col-sm-2 control-label">房屋配置</label>
+                                <label class="col-lg-2 col-sm-2 control-label">车位配置</label>
                                 <div class="col-lg-10">
                                     {{each facilitys_data as facility_data}}
                                     <div class="checkbox">
@@ -144,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="address" class="col-lg-2 col-sm-2 control-label">入注须知</label>
+                                <label for="address" class="col-lg-2 col-sm-2 control-label">停车须知</label>
                                 <div class="col-sm-8">
                                     <textarea id='notice' name="notice">{{notice}}</textarea>
                                 </div>
@@ -156,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 col-sm-2 control-label">房屋照片</label>
+                                <label class="col-lg-2 col-sm-2 control-label">车位照片</label>
                                 <div class="col-lg-9">
                                     <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
                                         <ul id="ul_pics_edit" class="ul_pics clearfix">

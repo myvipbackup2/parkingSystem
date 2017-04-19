@@ -364,7 +364,7 @@
             "columnDefs": [
                 {
                     "orderable": false,
-                    "targets": [0,2,3,6]
+                    "targets": [0,2,3,6,7]
                 },
 
             ],
