@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: 孟昊阳
+ * Date: 2017/2/16
+ * Time: 9:38
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller
@@ -10,11 +16,10 @@ class Welcome extends CI_Controller
         $this->load->model('park_model');
     }
 
-    //微信开发-首页
+    //首页
     public function index()
     {
-        //查询推荐房源
-
+        //查询推荐停车位置
         $result = $this->park_model->get_recommend_park(6, 0);
         $ids = [];
         foreach ($result as $park) {
@@ -37,73 +42,7 @@ class Welcome extends CI_Controller
         ));
     }
 
-    public function yueju_detail()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_detail', array('image' => $image));
-    }
-
-    public function yueju_team()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_team', array('image' => $image));
-    }
-
-    public function yueju_organize()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_organize', array('image' => $image));
-    }
-
-    public function yueju_target()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_target', array('image' => $image));
-    }
-
-    public function yueju_business()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_business', array('image' => $image));
-    }
-
-    public function yueju_rose()
-    {
-        $image = $this->captcha();
-        $this->load->view('business/yueju_rose', array('image' => $image));
-    }
-
-    public function yueju_shore()
-    {
-        $image = $this->captcha();
-        $this->load->view('business/yueju_shore', array('image' => $image));
-    }
-
-    public function yueju_bainian()
-    {
-        $image = $this->captcha();
-        $this->load->view('business/yueju_bainian', array('image' => $image));
-    }
-
-    public function yueju_connect()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_connect_us', array('image' => $image));
-    }
-
-    public function yueju_status()
-    {
-        $image = $this->captcha();
-        $this->load->view('yueju_status', array('image' => $image));
-    }
-
-    public function yueju_status1()
-    {
-        $image = $this->captcha();
-        $this->load->view('status/yueju_status1', array('image' => $image));
-    }
-
-//    微信开发-消息中心
+    //消息中心
     public function message()
     {
         //需要先登录才能进入消息中心
@@ -121,25 +60,19 @@ class Welcome extends CI_Controller
 
     }
 
-
+    //订单详情
     public function order_detail()
     {
         $this->load->view('order_details');
     }
 
+    //车库中心
     public function parkcenter()
     {
         $this->load->view('park_center');
     }
 
-    //刘福静-----登录注册时弹出层里load的界面
-    public function login7()
-    {
-        $image = $this->captcha();
-        $this->load->view("login7", array('image' => $image));
-    }
-
-
+    //ajax删除订单
     public function delete_order()
     {
         $this->load->model("user_model");
@@ -151,8 +84,8 @@ class Welcome extends CI_Controller
             echo 'fail';
         }
     }
-    //	任东旭——订单管理页面结束
-    //微信开发-收藏
+
+    //收藏
     public function collection_manage()
     {
         //需要先登录才能进入个人中心
@@ -161,18 +94,13 @@ class Welcome extends CI_Controller
             $user_id = $userinfo->user_id;
             $this->load->model("User_model");
             $results = $this->User_model->query_park_collection($user_id);//获取该用户所有收藏
-//            $array = [];
-//            foreach ($results as $row) {
-//                $row2 = $this->User_model->query_park_info($row->park_id);
-//                $array[] = $row2;
-//            };
             $this->load->view("collection_manage", array("park_collection" => json_encode($results)));
         } else {
             redirect("welcome/loginView");
         }
-
     }
 
+    //ajax取消收藏停车场
     public function delete_collection()
     {
         $this->load->model("User_model");
@@ -184,14 +112,8 @@ class Welcome extends CI_Controller
             echo 'fail';
         }
     }
-    //	任东旭——收藏管理页面结束
-    //	任东旭——订单详情页面结束
-    public function order_details()
-    {
 
-    }
-    //任东旭——订单详情页面结束
-    //房源详情页面
+    //停车场详情页面
     public function park_detail()
     {
         $this->load->view("park_details");
@@ -208,7 +130,6 @@ class Welcome extends CI_Controller
             'row' => $row
         ));
     }
-    //个人资料结束
 
     //密码管理开始
     public function pwdManage()
@@ -280,14 +201,14 @@ class Welcome extends CI_Controller
         }
     }
 
+    //支付成功页面
     public function pay_success()
     {
-
         $this->load->view('pay_success');
     }
 
 
-    //    微信开发 登录load->view
+    //微信开发 登录load->view
     public function loginView()
     {
         $image = $this->captcha();
@@ -316,7 +237,7 @@ class Welcome extends CI_Controller
         }
     }
 
-    //    微信开发 注册load->view
+    //微信开发 注册load->view
     public function registerView()
     {
         $image = $this->captcha();
@@ -324,7 +245,7 @@ class Welcome extends CI_Controller
     }
 
 
-    /*弹出层 注册   直接登录跳转到首页 */
+    /*注册 直接登录跳转到首页 */
     public function regist()
     {
         $number = $this->input->get('phoneNum');
@@ -355,10 +276,8 @@ class Welcome extends CI_Controller
         }
     }
 
-    /* header  退出  */
 
-
-    //注册 检查用户名是否存在
+    //注册检查用户名是否存在
     public function check_username()
     {
         $username = $this->input->get('username');
@@ -371,7 +290,7 @@ class Welcome extends CI_Controller
         }
     }
 
-    //刘福静  验证码
+    //验证码
     public function captcha()
     {
         $this->load->helper('captcha');
@@ -402,7 +321,7 @@ class Welcome extends CI_Controller
     }
 
 
-    //微信开发 - 评论页
+    //评论页
     public function comment()
     {
         $user_id = $this->session->userdata('userinfo')->user_id;
@@ -427,26 +346,20 @@ class Welcome extends CI_Controller
                 }
             }
         }
-
         $this->load->view('comment', array(
             "page" => $page,
             "total_rows" => $total_rows
         ));
     }
 
-    //    微信开发 添加评论->view
+    //添加评论->view
     public function add_comment()
     {
-//        $image = $this->captcha();
         $this->load->model('order_model');
         $this->load->model('park_model');
-
         $orderId = $this->input->get('orderId');
         $parkId = $this->input->get('parkId');
-
         $order = $this->order_model->get_order_by_id($orderId);
-//        $order->park_imgs = $this->park_model->get_imgs_by_park_id($parkId);
-
         $this->load->view('add_comment', array('order' => $order));
     }
 
@@ -464,7 +377,6 @@ class Welcome extends CI_Controller
     //用户给管理员留言
     public function leave_word()
     {
-//		$sender=$this->session->userdata('userInfo')->user_id;
         $userinfo = $this->session->userdata('userinfo');
         if ($userinfo) {
             $sender = $userinfo->user_id;
@@ -478,23 +390,15 @@ class Welcome extends CI_Controller
         } else {
             echo "login";
         }
-
-
     }
 
-    //评论时弹出层里load的界面
-    public function commentDialog()
-    {
-        $this->load->view('comment_dialog');
-    }
-
-    //微信开发-订单
+    //显示订单
     public function order()
     {
         $this->load->view('order');
     }
 
-    //发送手机登录验证码
+    //发送手机登录验证码（阿里短信套餐）
     public function send_phone_code()
     {
         $code = rand(1000, 9999);
@@ -507,17 +411,17 @@ class Welcome extends CI_Controller
         $c->secretKey = "8621bcd8b81313dd25c5b4fb7c034911";
         $req = new AlibabaAliqinFcSmsNumSendRequest;
         $req->setSmsType("normal");
-        $req->setSmsFreeSignName("哈尔滨悦居");
-        $req->setSmsParam("{'code':'" . $code . "','product':'哈尔滨悦居网'}");
+        $req->setSmsFreeSignName("随心停");
+        $req->setSmsParam("{'code':'" . $code . "','product':'孟昊阳毕业论文答辩'}");
         $req->setRecNum($phone);
         $req->setSmsTemplateCode($temp_id);
         $resp = $c->execute($req);
         echo 'success';
     }
 
+    //确认订单
     public function confirmorder()
     {
-//        if ($this->input->get('order_no')) {
         $order_num = $this->input->get('order_id');
         $this->load->model('Order_model');
         $rs = $this->Order_model->get_order_by_id($order_num);
@@ -536,13 +440,12 @@ class Welcome extends CI_Controller
             'startTime' => $rs->start_time,
             'endTime' => $rs->end_time
         ));
-//        }
     }
 
-    //关于我们
-    public function about_us()
+    //关于我的毕业设计
+    public function about()
     {
-        $this->load->view('about_yueju');
+        $this->load->view('about');
     }
 
 }
