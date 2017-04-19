@@ -131,7 +131,7 @@ class Park extends CI_Controller
             $image = $this->captcha();
             $this->load->view("park_detail", array('park' => $park_info, 'image' => $image, 'rec_parks' => $rec_parks, 'all_times' => json_encode($dataArr), 'is_collect' => $is_collect));
         } else {
-            echo '未找到指定房源信息!';
+            echo '未找到指定车位信息!';
         }
 
     }

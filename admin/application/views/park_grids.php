@@ -88,7 +88,7 @@
                                 <header class="panel-heading">
                                     <?php echo $rs->title?>
                                     <div style="margin-top: -6px;" class="btn-group pull-right" data-id="<?php echo $rs->park_id?>">
-                                        <button class="btn btn-success" type="button">续住</button>
+                                        <button class="btn btn-success" type="button">续租</button>
                                         <button class="btn btn-info" type="button">结账</button>
                                     </div>
                                 </header>
@@ -99,8 +99,8 @@
                                         </a>
                                         <div class="media-body">
                                             <address>
-                                                入住状态：<?php echo $rs->status?><br>
-                                                入住时间：<?php echo $rs->start_time?> 至 <?php echo $rs->end_time?><br>
+                                                停车状态：<?php echo $rs->status?><br>
+                                                停车时间：<?php echo $rs->start_time?> 至 <?php echo $rs->end_time?><br>
                                                 用户：<?php echo $rs->rel_name?><br>
                                                 电话：<?php echo $rs->tel?>
                                             </address>
