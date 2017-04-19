@@ -9,28 +9,11 @@ $(function(){
         }
         // e.preventDefault();
     });
-})
-
-/*
-var vm = new Vue({
-    el: '#header',
-    data: {
-        show:false
-    },
-    methods: {
-        slide:function () {
-            // console.log(1111);
-            this.show = !this.show;
-        }
-    },
-    mounted:function () {
-
-    }
 });
-*/
-function goBack(){ //暂时写死
+
+
+function goBack(){
     document.referrer === '' ?
-        window.location.href = 'http://127.0.0.1/yuejum/' :
-        window.history.go(-1);
+        window.location.href = 'http://127.0.0.1/parkingSystem/client/' : window.history.go(-1);
 }
 
