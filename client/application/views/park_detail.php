@@ -51,10 +51,10 @@
                 <?php echo $park->plot_name ?>停车场
             </h3>
             <ul>
-<!--                <li class="s-hx">-->
-<!--                    --><?php //echo $park->bedroom ?><!--m宽--><?php //echo $park->livingroom ?>
-<!--                    m长--><?php //echo $park->lavatory ?><!--个车锁-->
-<!--                </li>-->
+                <!--                <li class="s-hx">-->
+                <!--                    --><?php //echo $park->bedroom ?><!--m宽--><?php //echo $park->livingroom ?>
+                <!--                    m长--><?php //echo $park->lavatory ?><!--个车锁-->
+                <!--                </li>-->
 
                 <li class="s-mj"><?php echo $park->area ?>㎡</li>
             </ul>
@@ -103,7 +103,7 @@
             <template>
                 <mt-datetime-picker
                         ref="pickerStart"
-                        type="date"
+                        type="datetime"
                         v-model="startDate">
                 </mt-datetime-picker>
             </template>
@@ -115,7 +115,7 @@
             <template>
                 <mt-datetime-picker
                         ref="pickerEnd"
-                        type="date"
+                        type="datetime"
                         v-model="endDate">
                 </mt-datetime-picker>
             </template>
@@ -266,7 +266,7 @@
             spinnerShow: false,
             btnShow: false,
             errTitle: '预订失败',
-            errMsg: '该车库日期不可用!',
+            errMsg: '该时段车位不可用!',
             isShow: false
         },
         methods: {
@@ -330,7 +330,7 @@
                 var dateFormat = y + '-' + M + '-' + d;
                 return dateFormat;
             },
-            computeDays: function (s, e) {  //前端验证订房日期
+            computeDays: function (s, e) {  //前端验证预约车位日期
                 var sdate = new Date(s.replace(/-/g, "/"));
                 var edate = new Date(e.replace(/-/g, "/"));
                 var days = edate.getTime() - sdate.getTime();
@@ -392,7 +392,7 @@
                     _this.isShow = false;
                 }
             },
-            checkDate: function () {  //检测房源是否可定
+            checkDate: function () {  //检测车位是否可定
                 this.errTitle = '正在预订中';
                 this.errMsg = '';
                 this.showMsg();
@@ -400,7 +400,7 @@
                 this.spinnerShow = true;
                 if (this.computeDays(this.formatStart, this.formatEnd) < 1) {
                     this.errTitle = '预订失败';
-                    this.errMsg = '订房日期错误!';
+                    this.errMsg = '停车时间段错误!';
                     this.showMsg();
                     return;
                 }
@@ -412,7 +412,7 @@
                 axios.post('park/is_free_park', params).then(function (response) {
                     if (response.data === 'un-sale') {
                         _this.errTitle = '预订失败';
-                        _this.errMsg = '该租车库日期已被预订!';
+                        _this.errMsg = '该时段车位已被预订!';
                         _this.showMsg();
                     } else if (response.data === 'on-sale') {
                         _this.post('order/park_order', {

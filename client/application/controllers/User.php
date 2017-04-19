@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: 孟昊阳
+ * Date: 2017/2/16
+ * Time: 10:28
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
@@ -12,22 +18,22 @@ class User extends CI_Controller
     }
 
     /**
-     * 微信开发 - 个人中心
+     * 个人中心
      */
     public function index()
     {
         //需要先登录才能进入个人中心
         $userinfo = $this->session->userdata('userinfo');
         if (isset($userinfo)) {
-            $this->load->view("my_yueju", array('userinfo' => $userinfo));
+            $this->load->view("my_center", array('userinfo' => $userinfo));
         } else {
-            $this->input->set_cookie("prev_url",$_SERVER['HTTP_REFERER'],3600);
+            $this->input->set_cookie("prev_url", $_SERVER['HTTP_REFERER'], 3600);
             redirect("welcome/loginView");
         }
     }
 
     /**
-     * 微信开发 - 获得订单接口
+     * 获得订单接口
      */
     public function loadOrder()
     {
@@ -66,6 +72,7 @@ class User extends CI_Controller
         }
     }
 
+    //图片上传
     public function img_upload()
     {
 
@@ -97,7 +104,6 @@ class User extends CI_Controller
             //图片名称
             $pic_url = $path . $pic_name;
 
-
             //上传后图片路径+名称
             if (move_uploaded_file($name_tmp, $pic_url)) {//临时文件转移到目标文件夹
                 echo json_encode(array("error" => "0", "pic" => $pic_url, "name" => $pic_name));
@@ -108,17 +114,19 @@ class User extends CI_Controller
         }
     }
 
+    //检查登录,session过期
     public function check_login()
     {
         $login_user = $this->session->userdata('userinfo');
         if ($login_user) {
             echo "success";
         } else {
-            $this->input->set_cookie("prev_url",'http://www.hrbyueju.com/yuejum/park/detail/28',3600);
+            $this->input->set_cookie("prev_url", 'http://127.0.0.1/parkingSystem/client/park/detail/1', 3600);
             echo "fail";
         }
     }
 
+    //退出登录
     public function logout()
     {
         $this->session->unset_userdata('userinfo');
@@ -150,6 +158,7 @@ class User extends CI_Controller
         }
     }
 
+    //修改个人信息
     public function update_user_info()
     {
         $useremail = $this->input->post("useremail");
@@ -158,7 +167,7 @@ class User extends CI_Controller
         $idcard = $this->input->post("idcard");
         $head_img = $this->input->post("headImg");
         $user_id = $this->session->userdata('userinfo')->user_id;
-        $result = $this->user_model->update_user_info($useremail, $relname, $sex, $idcard, $user_id,$head_img);
+        $result = $this->user_model->update_user_info($useremail, $relname, $sex, $idcard, $user_id, $head_img);
         if (count($result) > 0) {
             echo "success";
         } else {

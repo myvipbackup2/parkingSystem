@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: 孟昊阳
+ * Date: 2017/2/16
+ * Time: 10:26
+ */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
@@ -19,6 +24,7 @@ class Park extends CI_Controller
         $this->load->view('park_center', array('plots' => $rs, 'image' => $image));
     }
 
+    //显示所有停车场
     public function get_all_park($region, $content, $min_price, $max_price, $plot_id, $redroom, $is_sale)
     {
         header('Access-Control-Allow-Origin:* ');
@@ -32,6 +38,7 @@ class Park extends CI_Controller
         ));
     }
 
+    //显示热门推荐停车场
     public function get_hot_park()
     {
         header('Access-Control-Allow-Origin:* ');
@@ -47,6 +54,7 @@ class Park extends CI_Controller
 
     }
 
+    //返回停车场的json数据
     public function get_parks()
     {
         $region = $this->input->get('region');
@@ -64,24 +72,7 @@ class Park extends CI_Controller
         }
     }
 
-//    public function get_search_park($page,$page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale){
-//        header('Access-Control-Allow-Origin:* ');
-//        header('Access-Control-Allow-Headers: X-Requested-With');
-//
-//        $total = $this->park_model->count_search_park($region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale);
-//
-//        $hot_park =$this -> park_model -> get_search_park(($page-1)*$page_size, $page_size,$region,$start_time,$end_time,$content,$min_price,$max_price,$plot,$park_style,$is_sale);
-//        $image = $this->captcha();
-//
-//        echo json_encode(array(
-//            'total' => $total,
-//            'data' => $hot_park,
-//            'region'=>$region,
-//            'image' => $image
-//        ));
-//
-//
-//    }
+    //停车位搜索
     public function index_search()
     {
         $content = $this->input->post('content');
@@ -95,15 +86,15 @@ class Park extends CI_Controller
         $image = $this->captcha();
 
         $this->load->view('park_center', array('data' => json_encode($rs), 'image' => $image, 'plots' => json_encode($plots), 'content' => $content));
-
     }
 
+    //停车场详情
     public function detail($park_id)
     {
         $park_info = $this->park_model->get_park_by_id($park_id);
         $is_collect = false;
         $userinfo = $this->session->userdata('userinfo');
-        //$this->session->unset_userdata('userinfo');清空session
+        //$this->session->unset_userdata('userinfo');//清空session 测试使用
         if (isset($userinfo)) {
             $row = $this->park_model->is_collect($userinfo->user_id, $park_id);
             if ($row != null) {
@@ -116,7 +107,7 @@ class Park extends CI_Controller
             $park_info->free_facilities = $this->park_model->get_free_facilities_by_park_id($park_id);
             $park_info->pay_facilities = $this->park_model->get_pay_facilities_by_park_id($park_id);
             $result_park_time = $this->park_model->get_by_park_time($park_id);
-            //计算禁止日期
+            //计算禁止停车日期
             $dataArr = [];
             foreach ($result_park_time as $order) {
                 $start = strtotime($order->start_time);
@@ -160,6 +151,7 @@ class Park extends CI_Controller
         return $cap['image'];
     }
 
+    //收藏
     public function add_collect()
     {
         //需要先登录才能收藏
@@ -168,15 +160,14 @@ class Park extends CI_Controller
         if (isset($userinfo)) {
             $userId = $this->session->userdata('userinfo')->user_id;
             $row = $this->park_model->add_collect($userId, $parkId);
-
             echo "success";
-
         } else {
             echo "login";
         }
 
     }
 
+    //删除收藏
     public function remove_collect()
     {
         //需要先登录才能收藏
@@ -186,22 +177,21 @@ class Park extends CI_Controller
             $userId = $this->session->userdata('userinfo')->user_id;
             $row = $this->park_model->remove_collect($userId, $parkId);
             echo "success";
-
         } else {
             echo "login";
         }
     }
 
+    //车位开发商信息
     public function get_developer()
     {
         $id = $this->input->get('developerId');
         $row = $this->park_model->get_developer($id);
         $image = $this->captcha();
-
         $this->load->view('developer_detail', array('row' => $row, 'image' => $image));
     }
 
-
+    //ajax查询此时段是否可以停车
     public function is_free_park()
     {
         $parkId = $this->input->post("parkId");
@@ -209,12 +199,12 @@ class Park extends CI_Controller
         $endTime = $this->input->post("endDate");
         $now = date('y-m-d');
 
-        if(strtotime($startTime)<strtotime($now) || strtotime($endTime)<strtotime($now)){
+        if (strtotime($startTime) < strtotime($now) || strtotime($endTime) < strtotime($now)) {
             echo "un-sale";
-        }else{
+        } else {
             $result = $this->park_model->is_free_park($parkId, $startTime, $endTime);
             if (count($result) > 0) {
-                //不能订房
+                //不能停车
                 echo "un-sale";
             } else {
                 echo "on-sale";
@@ -229,11 +219,9 @@ class Park extends CI_Controller
         $this->load->view('plot_detail', array('row' => $row));
     }
 
+    //获取评论和评分
     public function get_comments($park_id)
     {
-
-//        $total = $this->park_model->count_comments($park_id);
-
         $comments = $this->park_model->get_comments($park_id);
 
         $score = $this->park_model->get_comments_score($park_id);
@@ -245,6 +233,7 @@ class Park extends CI_Controller
         ));
     }
 
+    //评论详情页面
     public function get_comment_parkId()
     {
         $park_id = $this->input->get('park_id');
@@ -258,12 +247,6 @@ class Park extends CI_Controller
             'score' => $score,
             'total' => count($comments)
         ));
-//
-//        echo json_encode(array(
-//            'data' => $comments,
-//            'score' => $score,
-//            'total' => count($comments)
-//        ));
     }
 
 }

@@ -116,7 +116,6 @@
             isConfirm: false
         },
         methods: {
-
             logout: function () {
                 this.isConfirm = true;
             },
@@ -126,7 +125,6 @@
             sure: function () {
                 this.isAlert = true;
                 window.location = "user/logout";
-
             }
         }
     });

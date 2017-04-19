@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon-precomposed" href="">
     <link rel="Shortcut Icon" type="image/x-icon" href="">
     <link rel="stylesheet" href="css/mint-ui.min.css">
-    <link rel="stylesheet" href="css/about-yueju.css">
+    <link rel="stylesheet" href="css/about.css">
     <script src="js/vue.min.js"></script>
     <script src="js/mintUI.min.js"></script>
 </head>
