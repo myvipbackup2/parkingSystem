@@ -25,7 +25,7 @@ class User extends CI_Controller
         //需要先登录才能进入个人中心
         $userinfo = $this->session->userdata('userinfo');
         if (isset($userinfo)) {
-            $this->load->view("my_yueju", array('userinfo' => $userinfo));
+            $this->load->view("my_center", array('userinfo' => $userinfo));
         } else {
             $this->input->set_cookie("prev_url", $_SERVER['HTTP_REFERER'], 3600);
             redirect("welcome/loginView");
