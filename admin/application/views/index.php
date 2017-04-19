@@ -97,7 +97,7 @@
                                     <ul class="bar-legend">
                                         <li><span class="blue"></span> 电话预付</li>
                                         <li><span class="green"></span> 微信预付</li>
-                                        <li><span class="purple"></span> 网站自营</li>
+                                        <li><span class="purple"></span> 支付宝预付</li>
                                     </ul>
                                 </div>
                             </div>
@@ -132,24 +132,7 @@
                                         <div id="main-chart-container" class="main-chart">
                                         </div>
                                     </div>
-                                    <ul class="revenue-short-info">
-                                        <li>
-                                            <h1 class="red">15%</h1>
-                                            <p>Server Load</p>
-                                        </li>
-                                        <li>
-                                            <h1 class="purple">30%</h1>
-                                            <p>Disk Space</p>
-                                        </li>
-                                        <li>
-                                            <h1 class="green">84%</h1>
-                                            <p>Transferred</p>
-                                        </li>
-                                        <li>
-                                            <h1 class="blue">28%</h1>
-                                            <p>Temperature</p>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div>
                         </div>

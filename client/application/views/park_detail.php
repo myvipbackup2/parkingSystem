@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/mint-ui.min.css">
     <link rel="stylesheet" href="css/parkDetail.css">
-
+    <link rel="stylesheet" href="css/parkMap.css">
     <!-- 引入组件库 -->
     <script src="js/vue.min.js"></script>
     <script src="js/mintUI.min.js"></script>
@@ -120,6 +120,18 @@
                 </mt-datetime-picker>
             </template>
         </div>
+    </div>
+    <!--车位图-->
+    <div id="main">
+        <div class="demo">
+            <div id="seat-map">
+                <div class="front">车位状态图</div>
+            </div>
+
+            <div style="clear:both"></div>
+        </div>
+
+        <br/>
     </div>
     <!--订购-->
     <ul class="product-list">
@@ -241,7 +253,7 @@
     </div>
 
 </div>
-<script src="js/zepto.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/header.js"></script>
 <script>
     document.oncontextmenu = new Function("event.returnValue=false;");
@@ -253,6 +265,8 @@
         data: {
             startDate: "<?php echo date("Y-m-d"); ?>",
             endDate: "<?php echo date("Y-m-d", strtotime("+1 day")); ?>",
+            startHour:"<?php echo date("H")?>",
+            endHour:"<?php echo date("H", strtotime("+1 hour"))?>",
             showDetail: false,
             parkDetail: '<?php echo $park->description ?>',
             sel: '<?php echo $is_collect ? "sel" : "" ?>',
@@ -267,7 +281,8 @@
             btnShow: false,
             errTitle: '预订失败',
             errMsg: '该时段车位不可用!',
-            isShow: false
+            isShow: false,
+            isSale : <?php echo $park->is_sale?>
         },
         methods: {
             getComment: function () {
@@ -327,7 +342,8 @@
                 var y = oDate.getFullYear();
                 var M = oDate.getMonth() + 1;
                 var d = oDate.getDate();
-                var dateFormat = y + '-' + M + '-' + d;
+                var h = oDate.getHours();
+                var dateFormat = y + '-' + M + '-' + d + ' ' + h + '点';
                 return dateFormat;
             },
             computeDays: function (s, e) {  //前端验证预约车位日期
@@ -474,6 +490,87 @@
             console.log("百度地图地址没有解析到结果!");
         }
     }, "哈尔滨");
+</script>
+<script type="text/javascript" src="js/jquery.seat-charts.min.js"></script>
+<script type="text/javascript">
+    var price = 80; //票价
+    var hasSelect = false;
+    $(document).ready(function () {
+        var $cart = $('#selected-seats'), //座位区
+            $counter = $('#counter'), //票数
+            $total = $('#total'); //总计金额
+
+        var sc = $('#seat-map').seatCharts({
+            map: [  //座位图
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                '__________',
+                'aaaaaaaa__',
+                'aaa____aaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aa__aa__aa'
+            ],
+            naming: {
+                top: false,
+                getLabel: function (character, row, column) {
+                    return column;
+                }
+            },
+            legend: { //定义图例
+                node: $('#legend'),
+                items: [
+                    ['a', 'available sal', '可选座'],
+                    ['a', 'unavailable out', '已售出']
+                ]
+            },
+            click: function () { //点击事件
+                if (this.status() == 'available') { //可选座
+                    $('<li>' + (this.settings.row + 1) + '排' + this.settings.label + '号</li>')
+                        .attr('id', 'cart-item-' + this.settings.id)
+                        .data('seatId', this.settings.id)
+                        .appendTo($cart);
+
+                    $counter.text(sc.find('selected').length + 1);
+                    $total.text(recalculateTotal(sc) + price);
+                    return 'selected';
+                } else if (this.status() == 'selected') { //已选中
+                    //更新数量
+                    $counter.text(sc.find('selected').length - 1);
+                    //更新总计
+                    $total.text(recalculateTotal(sc) - price);
+
+                    //删除已预订座位
+                    $('#cart-item-' + this.settings.id).remove();
+                    //可选座
+                    return 'available';
+                } else if (this.status() == 'unavailable') { //已售出
+                    return 'unavailable';
+                } else {
+                    return this.style();
+                }
+            }
+        });
+        //已售出的座位
+        sc.get(['1_2', '4_4', '4_5', '6_6', '6_7', '8_5', '8_6', '8_7', '8_8', '10_1', '10_2']).status('unavailable');
+
+        var isSale = <?php echo $park->is_sale?>?false:true;
+        if(isSale){
+                $('.seatCharts-row .seatCharts-cell').removeClass('available').addClass('unavailable')
+            }
+
+    });
+    //计算总金额
+    function recalculateTotal(sc) {
+        var total = 0;
+        sc.find('selected').each(function () {
+            total += price;
+        });
+        return total;
+    }
+
 </script>
 </body>
 </html>
