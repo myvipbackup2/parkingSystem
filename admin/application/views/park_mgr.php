@@ -350,7 +350,6 @@
 
 
         $('.wrapper').on('click', '.btn-new', function () {
-            alert(1111);
             $.sidepanel({
                 width: 700,
                 title: '添加车位',
@@ -440,18 +439,18 @@
 //                                    rangelength:[2,20]
 //                                },
                                 address: 'required',
-                                bedroom: {
-                                    required: true,
-                                    number: true
-                                },
-                                livingroom: {
-                                    required: true,
-                                    number: true
-                                },
-                                toilet: {
-                                    required: true,
-                                    number: true
-                                },
+//                                bedroom: {
+//                                    required: true,
+//                                    number: true
+//                                },
+//                                livingroom: {
+//                                    required: true,
+//                                    number: true
+//                                },
+//                                toilet: {
+//                                    required: true,
+//                                    number: true
+//                                },
                                 price: {
                                     required: true,
                                     number: true
@@ -806,7 +805,7 @@
                             {"data": "start_time"},
                             {"data": "end_time"},
                             {"data": "price"},
-                            {"data": "order_status"}
+                            {"data": "status"}
                         ],
                         "pageLength": 2
                     });
