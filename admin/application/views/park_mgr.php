@@ -350,6 +350,7 @@
 
 
         $('.wrapper').on('click', '.btn-new', function () {
+            alert(1111);
             $.sidepanel({
                 width: 700,
                 title: '添加车位',

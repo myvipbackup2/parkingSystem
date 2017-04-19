@@ -3,7 +3,8 @@
 // 2011-11-30 by http://www.cnblogs.com/zjfree
 var cityInit = function(_cmbProvince, _cmbCity, _cmbArea, defaultProvince, defaultCity, defaultArea)
 {
-	var cmbProvince = document.getElementById(_cmbProvince);
+
+    var cmbProvince = document.getElementById(_cmbProvince);
 	var cmbCity = document.getElementById(_cmbCity);
 	var cmbArea = document.getElementById(_cmbArea);
 	
@@ -94,12 +95,12 @@ var provinceList = [
 {name:'内江市', areaList:['市辖区','市中区','东兴区','威远县','资中县','隆昌县']},		   
 {name:'乐山市', areaList:['市辖区','市中区','沙湾区','五通桥区','金口河区','犍为县','井研县','夹江县','沐川县','峨边彝族自治县','马边彝族自治县','峨眉山市']},		   
 {name:'南充市', areaList:['市辖区','顺庆区','高坪区','嘉陵区','南部县','营山县','蓬安县','仪陇县','西充县','阆中市']},		   
-{name:'眉山市', areaList:['市辖区','东坡区','仁寿县','彭山县','洪雅县','丹棱县','青神县']},		   
+{name:'眉山市', areaList:['市辖区','东坡区','仁寿县','彭山县','洪雅县','丹棱县','青神县']},
 {name:'宜宾市', areaList:['市辖区','翠屏区','宜宾县','南溪县','江安县','长宁县','高　县','珙　县','筠连县','兴文县','屏山县']},		   
 {name:'广安市', areaList:['市辖区','广安区','岳池县','武胜县','邻水县','华莹市']},		   
 {name:'达州市', areaList:['市辖区','通川区','达　县','宣汉县','开江县','大竹县','渠　县','万源市']},		   
-{name:'雅安市', areaList:['市辖区','雨城区','名山县','荥经县','汉源县','石棉县','天全县','芦山县','宝兴县']},		   
-{name:'巴中市', areaList:['市辖区','巴州区','通江县','南江县','平昌县']},		   
+{name:'雅安市', areaList:['市辖区','雨城区','名山县','荥经县','汉源县','石棉县','天全县','芦山县','宝兴县']},
+{name:'巴中市', areaList:['市辖区','巴州区','通江县','南江县','平昌县']},
 {name:'资阳市', areaList:['市辖区','雁江区','安岳县','乐至县','简阳市']},		   
 {name:'阿坝藏族羌族自治州', areaList:['汶川县','理　县','茂　县','松潘县','九寨沟县','金川县','小金县','黑水县','马尔康县','壤塘县','阿坝县','若尔盖县','红原县']},		   
 {name:'甘孜藏族自治州', areaList:['康定县','泸定县','丹巴县','九龙县','雅江县','道孚县','炉霍县','甘孜县','新龙县','德格县','白玉县','石渠县','色达县','理塘县','巴塘县','乡城县','稻城县','得荣县']},		   
