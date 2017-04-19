@@ -24,7 +24,7 @@
     <link href="js/gritter/css/jquery.gritter.css" rel="stylesheet"/>
 
     <!--pickers css-->
-    <link rel="stylesheet" type="text/css" href="js/bootstrap-datepicker/css/datepicker-custom.css" />
+    <link rel="stylesheet" type="text/css" href="js/bootstrap-datepicker/css/datepicker-custom.css"/>
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet">
@@ -73,7 +73,7 @@
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading custom-tab">
-<!--                            车位数据列表-->
+                            <!--                            车位数据列表-->
                             <ul class="nav nav-tabs " id="my-tabs">
                                 <li class="active">
                                     <a href="#all-parks" data-toggle="tab" class="all-orders">全部车位</a>
@@ -91,12 +91,13 @@
                                         <button class="btn btn-primary btn-all-del" type="button">删除 <i
                                                     class="fa fa-minus"></i>
                                         </button>
-                                        <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <i
+                                        <button id="btn-recommend" class="btn btn-primary" type="button">推荐 <i
                                                     class="fa fa-thumbs-up"></i>
                                         </button>
                                     </div>
                                     <div class="adv-table">
-                                        <table id="example" class="table table-park table-striped table-bordered" cellspacing="0" width="100%">
+                                        <table id="example" class="table table-park table-striped table-bordered"
+                                               cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th><input type="checkbox" id="check-all"/></th>
@@ -167,7 +168,8 @@
                     <div class="form-group clearfix">
                         <label for="facility-name" class="col-lg-3 col-sm-3 control-label">设备名称</label>
                         <div class="col-lg-8">
-                            <input type="text" id="facility-name" name="title" class="form-control" placeholder="请输入设备名称" required>
+                            <input type="text" id="facility-name" name="title" class="form-control"
+                                   placeholder="请输入设备名称" required>
                         </div>
                     </div>
                     <div class="form-group clearfix">
@@ -243,9 +245,9 @@
                         <label for="name" class="col-lg-3 col-sm-3 control-label">开发商</label>
                         <div class="col-lg-8">
                             <select class="form-control m-bot15" id="deve" name="deve">
-<!--                                {{each deve as deve}}-->
-<!--                                <option value="{{deve.developer_id}}">{{deve.developer_name}}</option>-->
-<!--                                {{/each}}-->
+                                <!--                                {{each deve as deve}}-->
+                                <!--                                <option value="{{deve.developer_id}}">{{deve.developer_name}}</option>-->
+                                <!--                                {{/each}}-->
                             </select>
                         </div>
                     </div>
@@ -270,7 +272,8 @@
                 <div class="form-inline" role="form">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputEmail2">推荐理由</label>
-                        <textarea type="text" class="form-control sm-input" id="exampleInputEmail5" placeholder="请输入推荐理由"></textarea>
+                        <textarea type="text" class="form-control sm-input" id="exampleInputEmail5"
+                                  placeholder="请输入推荐理由"></textarea>
                     </div>
                     <button type="submit" class="rec-btn-reason btn btn-primary">提交</button>
                 </div>
@@ -337,16 +340,16 @@
 
 <script>
     $(function () {
-        $.get('park/get_plot',{},function(rs_plot){
-            for(var i=0;i<rs_plot.length;i++){
-                $("#my-tabs").append('<li order-status="'+i+'" class="plot-page"><a href="#plot'+i+'" class="plot-btn" data-toggle="tab" plot-id="'+rs_plot[i].plot_id+'">'+rs_plot[i].plot_name+'</a></li>');
-                $("#my-tab-pane").append('<div class="tab-pane" id="plot'+i+'"><div class="btn-group"><button class="btn btn-primary btn-new" type="button">添加 <iclass="fa fa-plus"></i> </button> <button class="btn btn-primary btn-all-del" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <i class="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot'+i+'" class="table table-park table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
+        $.get('park/get_plot', {}, function (rs_plot) {
+            for (var i = 0; i < rs_plot.length; i++) {
+                $("#my-tabs").append('<li order-status="' + i + '" class="plot-page"><a href="#plot' + i + '" class="plot-btn" data-toggle="tab" plot-id="' + rs_plot[i].plot_id + '">' + rs_plot[i].plot_name + '</a></li>');
+                $("#my-tab-pane").append('<div class="tab-pane" id="plot' + i + '"><div class="btn-group"><button class="btn btn-primary btn-new" type="button">添加 <iclass="fa fa-plus"></i> </button> <button class="btn btn-primary btn-all-del" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <i class="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot' + i + '" class="table table-park table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
             }
             $("#my-tabs").append('<li class=""> <a href="#recycle" data-toggle="tab" class="recycle">回收站</a></li>');
-        },'json');
+        }, 'json');
 
 
-        $('.wrapper').on('click','.btn-new',function () {
+        $('.wrapper').on('click', '.btn-new', function () {
             $.sidepanel({
                 width: 700,
                 title: '添加车位',
@@ -355,50 +358,49 @@
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
 
                     //处理可售多选框
-                    $('#is-sale').on('change',function(){
+                    $('#is-sale').on('change', function () {
                         var $checked = $(this).prop('checked');
                         var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
-                        if($checked){
+                        if ($checked) {
                             $formGroup.show();
-                        }else{
+                        } else {
                             $formGroup.hide();
                         }
                     });
 
 
-
                     //处理付费多选框
-                    $('#is-free').on('change',function(){
+                    $('#is-free').on('change', function () {
                         var $checked = $(this).prop('checked');
                         var $formGroup = $(this).parents('div.form-group').next('div.form-group');
-                        if($checked){
+                        if ($checked) {
                             var str = '<label for="price" class="col-lg-3 col-sm-3 control-label">价格</label>' +
                                 '<div class="col-lg-8">' +
                                 '<input type="text" id="facility-price" name="price" class="form-control">' +
                                 '</div>';
                             $formGroup.html(str);
-                        }else{
+                        } else {
                             $formGroup.html("");
                         }
                     });
 
                     //实例化编辑器
                     UE.delEditor('new-container');
-                    var ue = UE.getEditor('new-container',{
-                        initialFrameWidth:470  //初始化编辑器宽度
-                        ,initialFrameHeight:200  //初始化编辑器高度
+                    var ue = UE.getEditor('new-container', {
+                        initialFrameWidth: 470  //初始化编辑器宽度
+                        , initialFrameHeight: 200  //初始化编辑器高度
                     });
 
                     //添加设备实例化编辑器
                     UE.delEditor('facility-remark');
-                    facility_ue = UE.getEditor('facility-remark',{
-                        initialFrameWidth:375  //初始化编辑器宽度
+                    facility_ue = UE.getEditor('facility-remark', {
+                        initialFrameWidth: 375  //初始化编辑器宽度
                     });
 
                     //添加小区实例化编辑器
                     UE.delEditor('plot-description');
-                    plot_ue = UE.getEditor('plot-description',{
-                        initialFrameWidth:375  //初始化编辑器宽度
+                    plot_ue = UE.getEditor('plot-description', {
+                        initialFrameWidth: 375  //初始化编辑器宽度
                     });
 
 
@@ -416,7 +418,7 @@
 
                     //验证组件开始
                     $.validator.setDefaults({
-                        submitHandler: function() {
+                        submitHandler: function () {
                             $("#park-msg").val(ue.getContent());
                             $("#notice").val(notice.getContent());
                             $("#traffic").val(traffic.getContent());
@@ -424,38 +426,38 @@
                         }
                     });
 
-                    $().ready(function() {
+                    $().ready(function () {
                         // validate the comment form when it is submitted
                         $("#commentForm").validate({
                             rules: {
-                                title:{
+                                title: {
                                     required: true,
-                                    rangelength:[6,30]
+                                    rangelength: [6, 30]
                                 },
 //                                name: {
 //                                    required: true,
 //                                    rangelength:[2,20]
 //                                },
-                                address:'required',
-                                bedroom:{
+                                address: 'required',
+                                bedroom: {
                                     required: true,
                                     number: true
                                 },
-                                livingroom:{
+                                livingroom: {
                                     required: true,
                                     number: true
                                 },
-                                toilet:{
+                                toilet: {
                                     required: true,
                                     number: true
                                 },
-                                price:{
+                                price: {
                                     required: true,
                                     number: true
                                 }
                             },
                             messages: {
-                                title:{
+                                title: {
                                     required: "忘记填写标题啦",
                                     rangelength: "标题长度要在6-30个字之间"
                                 },
@@ -464,19 +466,8 @@
 //                                    rangelength: "小区名称长度要在2-20个字之间"
 //                                },
                                 address: "忘记填写小区详细地址啦",
-                                bedroom:{
-                                    required: "忘记填写室啦",
-                                    number: "请填写数字"
-                                },
-                                livingroom:{
-                                    required: "忘记填写厅啦",
-                                    number: "请填写数字"
-                                },
-                                toilet:{
-                                    required: "忘记填写卫啦",
-                                    number: "请填写数字"
-                                },
-                                price:{
+
+                                price: {
                                     required: "忘记填写价格啦",
                                     number: "填写有误，请填写数字"
                                 }
@@ -502,13 +493,13 @@
                         },
                         multi_selection: true, //true:ctrl多文件上传, false 单文件上传
                         init: {
-                            FilesAdded: function(up, files) { //文件上传前
+                            FilesAdded: function (up, files) { //文件上传前
                                 if ($("#ul_pics").children("li").length > 30) {
                                     alert("您上传的图片太多了！");
                                     uploader.destroy();
                                 } else {
                                     var li = '';
-                                    plupload.each(files, function(file) { //遍历文件
+                                    plupload.each(files, function (file) { //遍历文件
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics").append(li);
@@ -516,32 +507,32 @@
                                     uploader.start();
                                 }
                             },
-                            UploadProgress: function(up, file) { //上传中，显示进度条
+                            UploadProgress: function (up, file) { //上传中，显示进度条
                                 var percent = file.percent;
                                 $("#" + file.id).find('.bar').css({
                                     "width": percent + "%"
                                 });
                                 $("#" + file.id).find(".percent").text(percent + "%");
                             },
-                            FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+                            FileUploaded: function (up, file, info) { //文件上传成功的时候触发
                                 var data = eval("(" + info.response + ")");
-                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='"+ data.pic +"'></p>");
+                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='" + data.pic + "'></p>");
                             },
-                            Error: function(up, err) { //上传出错的时候触发
+                            Error: function (up, err) { //上传出错的时候触发
                                 alert(err.message);
                             }
                         }
                     });
                     uploader.init();
                     //鼠标滑入div,显示删除按钮
-                    $('#ul_pics').on('mouseover','div.img',function () {
+                    $('#ul_pics').on('mouseover', 'div.img', function () {
                         var $delImg = $(this).children('.del-img').show();
-                    }).on('mouseout','div.img',function () {
+                    }).on('mouseout', 'div.img', function () {
                         var $delImg = $(this).children('.del-img').hide();
                     });
 
                     //图片删除
-                    $('#ul_pics').on('click','.del-img',function () {
+                    $('#ul_pics').on('click', '.del-img', function () {
                         $(this).parents('li').remove();
                     });
                     //图片上传代码结束
@@ -564,19 +555,19 @@
             }
         });
 
-        $('.wrapper').on('click','.btn-all-del',function () {
+        $('.wrapper').on('click', '.btn-all-del', function () {
 
             var blogs = $('.select_check:checked');
             var blogobj = [];
             for (var i = 0; i < blogs.length; i++) {
                 blogobj.push(blogs[i].value);
             }
-            if(blogobj.length == 0){
+            if (blogobj.length == 0) {
                 $.gritter.add({
                     title: '信息提示!',
                     text: '请选择要删除的记录!'
                 });
-            }else{
+            } else {
                 $.get('park/del_all', {name: blogobj}, function (data) {
                     if (data == 'success') {
                         table.ajax.reload(null, true);//重新加载数据
@@ -613,13 +604,13 @@
                     "render": function (data, type, row) {
                         var str_rec = '';
                         //console.log(row.is_rec);
-                        if(row.is_rec=='1'){
-                            str_rec='recommend-red';
-                        }else{
-                            str_rec='';
+                        if (row.is_rec == '1') {
+                            str_rec = 'recommend-red';
+                        } else {
+                            str_rec = '';
                         }
                         //console.log(str_rec);
-                        return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-toggle="modal" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                        return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success ' + str_rec + '" data-toggle="modal" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                     }
                 },
                 {"data": "title"},
@@ -666,13 +657,13 @@
                         "data": null,
                         "render": function (data, type, row) {
                             var str_rec = '';
-                           // console.log(row.is_rec);
-                            if(row.is_rec=='1'){
-                                str_rec='recommend-red';
-                            }else{
-                                str_rec='';
+                            // console.log(row.is_rec);
+                            if (row.is_rec == '1') {
+                                str_rec = 'recommend-red';
+                            } else {
+                                str_rec = '';
                             }
-                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success'+str_rec+'" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success' + str_rec + '" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                         }
                     },
                     {"data": "title"},
@@ -697,17 +688,17 @@
             e.preventDefault();
         });
 
-        $('#my-tabs').on('click','.plot-btn',function (e) {
+        $('#my-tabs').on('click', '.plot-btn', function (e) {
 
-            var plot_id=$(this).attr('plot-id');
+            var plot_id = $(this).attr('plot-id');
             var $idx = $(this).parent().index();
-            var table = $('.plot-table').eq($idx-1).DataTable({
+            var table = $('.plot-table').eq($idx - 1).DataTable({
                 "processing": true,
                 "serverSide": true,
                 "retrieve": true,
                 "ajax": {
-                    url:"park/plot_park",
-                    data:{'plot_id':plot_id}
+                    url: "park/plot_park",
+                    data: {'plot_id': plot_id}
                 },
                 "columns": [
                     {
@@ -725,13 +716,13 @@
                         "data": null,
                         "render": function (data, type, row) {
                             var str_rec = '';
-                           // console(row.is_rec)
-                            if(row.is_rec=='1'){
-                                str_rec='recommend-red';
-                            }else{
-                                str_rec='';
+                            // console(row.is_rec)
+                            if (row.is_rec == '1') {
+                                str_rec = 'recommend-red';
+                            } else {
+                                str_rec = '';
                             }
-                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success '+str_rec+'" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
+                            return '<a href="javascript:;" class="btn-recommend btn btn-xs btn-success ' + str_rec + '" data-id="' + row.park_id + '"><i class="fa  fa-thumbs-o-up"></i></a>'
                         }
                     },
                     {"data": "title"},
@@ -781,7 +772,7 @@
 
             $.sidepanel({
                 width: 700,
-                title: '房源详情',
+                title: '车位详情',
                 tpl: 'park-tpl',
                 dataSource: 'park/park_detail',
                 data: {
@@ -789,17 +780,17 @@
                 },
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
                     var $is_sale = $('#is_sale').attr('name');
-                    if($is_sale == 1){
+                    if ($is_sale == 1) {
                         $('div.sale-park').show();
                     }
 
                     //处理可售多选框
-                    $('#is-sale').on('change',function(){
+                    $('#is-sale').on('change', function () {
                         var $checked = $(this).prop('checked');
                         var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
-                        if($checked){
+                        if ($checked) {
                             $formGroup.show();
-                        }else{
+                        } else {
                             $formGroup.hide();
                         }
                     });
@@ -821,44 +812,44 @@
 
                     //验证组件开始
                     $.validator.setDefaults({
-                        submitHandler: function() {
+                        submitHandler: function () {
                             $("#park-msg").val(ue.getContent());
                             $('#editForm').submit();
                         }
                     });
 
-                    $().ready(function() {
+                    $().ready(function () {
                         // validate the comment form when it is submitted
                         $("#editForm").validate({
                             rules: {
-                                title:{
+                                title: {
                                     required: true,
-                                    rangelength:[6,30]
+                                    rangelength: [6, 30]
                                 },
                                 name: {
                                     required: true,
-                                    rangelength:[2,20]
+                                    rangelength: [2, 20]
                                 },
-                                address:'required',
-                                bedroom:{
+                                address: 'required',
+                                bedroom: {
                                     required: true,
                                     number: true
                                 },
-                                livingroom:{
+                                livingroom: {
                                     required: true,
                                     number: true
                                 },
-                                toilet:{
+                                toilet: {
                                     required: true,
                                     number: true
                                 },
-                                price:{
+                                price: {
                                     required: true,
                                     number: true
                                 }
                             },
                             messages: {
-                                title:{
+                                title: {
                                     required: "忘记填写标题啦",
                                     rangelength: "标题长度要在6-30个字之间"
                                 },
@@ -867,19 +858,8 @@
                                     rangelength: "小区名称长度要在2-20个字之间"
                                 },
                                 address: "忘记填写小区详细地址啦",
-                                bedroom:{
-                                    required: "忘记填写室啦",
-                                    number: "请填写数字"
-                                },
-                                livingroom:{
-                                    required: "忘记填写厅啦",
-                                    number: "请填写数字"
-                                },
-                                toilet:{
-                                    required: "忘记填写卫啦",
-                                    number: "请填写数字"
-                                },
-                                price:{
+
+                                price: {
                                     required: "忘记填写价格啦",
                                     number: "填写有误，请填写数字"
                                 }
@@ -891,22 +871,22 @@
 
                     //实例化编辑器
                     UE.delEditor('edit-container');
-                    var ue = UE.getEditor('edit-container',{
-                        initialFrameWidth:470  //初始化编辑器宽度
-                        ,initialFrameHeight:200  //初始化编辑器高度
+                    var ue = UE.getEditor('edit-container', {
+                        initialFrameWidth: 470  //初始化编辑器宽度
+                        , initialFrameHeight: 200  //初始化编辑器高度
                     });
 
-                    ue.ready(function() {
+                    ue.ready(function () {
                         //设置编辑器的内容
                         ue.setContent($('#park-msg').val());
                     });
                     cityInit('hometown', 'city', 'position', $('input[name=hometown_hidden]').val(), $('input[name=city_hidden]').val(), $('input[name=position_hidden]').val());
 
-                    $('.park-to-edit').on('click',function(){
+                    $('.park-to-edit').on('click', function () {
                         $('.park-detail-box').hide();
                         $('.park-edit-box').show();
                     });
-                    $('.park-to-detail').on('click',function(){
+                    $('.park-to-detail').on('click', function () {
                         $('.park-detail-box').show();
                         $('.park-edit-box').hide();
                     });
@@ -927,13 +907,13 @@
                         },
                         multi_selection: false, //true:ctrl多文件上传, false 单文件上传
                         init: {
-                            FilesAdded: function(up, files) { //文件上传前
+                            FilesAdded: function (up, files) { //文件上传前
                                 if ($("#ul_pics_edit").children("li").length > 30) {
                                     alert("您上传的图片太多了！");
                                     uploader.destroy();
                                 } else {
                                     var li = '';
-                                    plupload.each(files, function(file) { //遍历文件
+                                    plupload.each(files, function (file) { //遍历文件
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics_edit").append(li);
@@ -941,18 +921,18 @@
                                     uploader.start();
                                 }
                             },
-                            UploadProgress: function(up, file) { //上传中，显示进度条
+                            UploadProgress: function (up, file) { //上传中，显示进度条
                                 var percent = file.percent;
                                 $("#" + file.id).find('.bar').css({
                                     "width": percent + "%"
                                 });
                                 $("#" + file.id).find(".percent").text(percent + "%");
                             },
-                            FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+                            FileUploaded: function (up, file, info) { //文件上传成功的时候触发
                                 var data = eval("(" + info.response + ")");
-                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='"+ data.pic +"'></p>");
+                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='" + data.pic + "'></p>");
                             },
-                            Error: function(up, err) { //上传出错的时候触发
+                            Error: function (up, err) { //上传出错的时候触发
                                 alert(err.message);
                             }
                         }
@@ -960,20 +940,20 @@
                     uploader.init();
 
                     //鼠标滑入div,显示删除按钮
-                    $('#ul_pics_edit').on('mouseover','div.img',function () {
+                    $('#ul_pics_edit').on('mouseover', 'div.img', function () {
                         var $delImg = $(this).children('.upload-del-btn').show();
-                    }).on('mouseout','div.img',function () {
+                    }).on('mouseout', 'div.img', function () {
                         var $delImg = $(this).children('.upload-del-btn').hide();
                     });
                     //图片删除
-                    $('#ul_pics_edit').on('click','.init-del-img',function () {
+                    $('#ul_pics_edit').on('click', '.init-del-img', function () {
                         var $img_id = $(this).attr('img_id');
-                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
+                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='" + $img_id + "'>");
                         $(this).parents('li').remove();
                     });
 
                     //新添加图片删除
-                    $('#ul_pics_edit').on('click','.del-img',function () {
+                    $('#ul_pics_edit').on('click', '.del-img', function () {
                         $(this).parents('li').remove();
                     });
                     //图片上传代码结束
@@ -988,7 +968,7 @@
 
             $.sidepanel({
                 width: 700,
-                title: '添加房源套餐',
+                title: '添加车位套餐',
                 tpl: 'add-combo-tpl',
                 dataSource: 'combo/get_combo_type',
                 data: {
@@ -1011,7 +991,7 @@
 
             $.sidepanel({
                 width: 700,
-                title: '编辑房源',
+                title: '编辑车位',
                 tpl: 'edit-park-tpl',
                 dataSource: 'park/park_detail',
                 data: {
@@ -1020,61 +1000,61 @@
                 callback: function () {//sidepanel显示后的后续操作，主要是针对sidepanel中的元素的dom操作
 
                     var checked = $('#is-sale').prop('checked');
-                    if(checked){
+                    if (checked) {
                         $('div.sale-park').show();
                     }
 
                     //处理可售多选框
-                    $('#is-sale').on('change',function(){
+                    $('#is-sale').on('change', function () {
                         var $checked = $(this).prop('checked');
                         var $formGroup = $(this).parents('div.form-group').nextAll('div.sale-park');
-                        if($checked){
+                        if ($checked) {
                             $formGroup.show();
-                        }else{
+                        } else {
                             $formGroup.hide();
                         }
                     });
 
                     //验证组件开始
                     $.validator.setDefaults({
-                        submitHandler: function() {
+                        submitHandler: function () {
                             $("#park-msg").val(ue.getContent());
                             $('#editForm').submit();
                         }
                     });
 
-                    $().ready(function() {
+                    $().ready(function () {
                         // validate the comment form when it is submitted
                         $("#editForm").validate({
                             rules: {
-                                title:{
+                                title: {
                                     required: true,
-                                    rangelength:[6,30]
+                                    rangelength: [6, 30]
                                 },
                                 name: {
                                     required: true,
-                                    rangelength:[2,20]
+                                    rangelength: [2, 20]
                                 },
-                                address:'required',
-                                bedroom:{
+                                address: 'required',
+                                bedroom: {
                                     required: true,
                                     number: true
                                 },
-                                livingroom:{
+                                livingroom: {
                                     required: true,
                                     number: true
                                 },
-                                toilet:{
+                                toilet: {
                                     required: true,
                                     number: true
                                 },
-                                price:{
+                                price: {
                                     required: true,
                                     number: true
                                 }
                             },
                             messages: {
-                                title:{
+                                title: {
                                     required: "忘记填写标题啦",
                                     rangelength: "标题长度要在6-30个字之间"
                                 },
@@ -1083,7 +1063,7 @@
                                     rangelength: "小区名称长度要在2-20个字之间"
                                 },
                                 address: "忘记填写小区详细地址啦",
-                                price:{
+                                price: {
                                     required: "忘记填写价格啦",
                                     number: "填写有误，请填写数字"
                                 }
@@ -1094,12 +1074,12 @@
                     //验证组件结束
                     UE.delEditor('container');
                     //实例化编辑器
-                    var ue = UE.getEditor('container',{
-                        initialFrameWidth:470  //初始化编辑器宽度
-                        ,initialFrameHeight:200  //初始化编辑器高度
+                    var ue = UE.getEditor('container', {
+                        initialFrameWidth: 470  //初始化编辑器宽度
+                        , initialFrameHeight: 200  //初始化编辑器高度
                     });
 
-                    ue.ready(function() {
+                    ue.ready(function () {
                         //设置编辑器的内容
                         ue.setContent($('#park-msg').val());
                     });
@@ -1123,13 +1103,13 @@
                         },
                         multi_selection: false, //true:ctrl多文件上传, false 单文件上传
                         init: {
-                            FilesAdded: function(up, files) { //文件上传前
+                            FilesAdded: function (up, files) { //文件上传前
                                 if ($("#ul_pics_edit").children("li").length > 30) {
                                     alert("您上传的图片太多了！");
                                     uploader.destroy();
                                 } else {
                                     var li = '';
-                                    plupload.each(files, function(file) { //遍历文件
+                                    plupload.each(files, function (file) { //遍历文件
                                         li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                                     });
 //                                    $("#ul_pics_edit").append(li);
@@ -1137,18 +1117,18 @@
                                     uploader.start();
                                 }
                             },
-                            UploadProgress: function(up, file) { //上传中，显示进度条
+                            UploadProgress: function (up, file) { //上传中，显示进度条
                                 var percent = file.percent;
                                 $("#" + file.id).find('.bar').css({
                                     "width": percent + "%"
                                 });
                                 $("#" + file.id).find(".percent").text(percent + "%");
                             },
-                            FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+                            FileUploaded: function (up, file, info) { //文件上传成功的时候触发
                                 var data = eval("(" + info.response + ")");
-                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='"+ data.pic +"'></p>");
+                                $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' name='upload_img[]' value='" + data.pic + "'></p>");
                             },
-                            Error: function(up, err) { //上传出错的时候触发
+                            Error: function (up, err) { //上传出错的时候触发
                                 alert(err.message);
                             }
                         }
@@ -1156,20 +1136,20 @@
                     uploader.init();
 
                     //鼠标滑入div,显示删除按钮
-                    $('#ul_pics_edit').on('mouseover','div.img',function () {
+                    $('#ul_pics_edit').on('mouseover', 'div.img', function () {
                         var $delImg = $(this).children('.upload-del-btn').show();
-                    }).on('mouseout','div.img',function () {
+                    }).on('mouseout', 'div.img', function () {
                         var $delImg = $(this).children('.upload-del-btn').hide();
                     });
                     //图片删除
-                    $('#ul_pics_edit').on('click','.init-del-img',function () {
+                    $('#ul_pics_edit').on('click', '.init-del-img', function () {
                         var $img_id = $(this).attr('img_id');
-                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='"+$img_id+"'>");
+                        $(this).parents('.park-upload-box').append("<input type='hidden' name='del_img_id[]' value='" + $img_id + "'>");
                         $(this).parents('li').remove();
                     });
 
                     //新添加图片删除
-                    $('#ul_pics_edit').on('click','.del-img',function () {
+                    $('#ul_pics_edit').on('click', '.del-img', function () {
                         $(this).parents('li').remove();
                     });
                     //图片上传代码结束
@@ -1187,77 +1167,79 @@
         });
         /*****推荐房源*****/
         $('.btn-recommend').on('click', function () {
-            var rec_some=[];
+            var rec_some = [];
             $('body').append('<div class="modal-backdrop fade in"></div>');
             $('body').addClass('modal-open');
-            $("#myModal-2").css({'display':'block'}).addClass('in');
+            $("#myModal-2").css({'display': 'block'}).addClass('in');
             $('.cb-park-id:checked', $('#example')).each(function (i) {
-                rec_some[i]=this.value;
+                rec_some[i] = this.value;
             });
             var rec_reason = '';
             $("button.close").on('click', function () {
-                $(".modal.fade.in").css({'display':'none'});
+                $(".modal.fade.in").css({'display': 'none'});
                 $(".modal.fade.in").removeClass('in');
                 $(".modal-backdrop.fade.in").remove();
             });
-            $(".rec-btn-reason").on('click',function(){
-                for(var j=0;j<$('.cb-park-id').length;j++){
-                    if($('#example tbody tr').eq(j).find('.cb-park-id').prop('checked')){
+            $(".rec-btn-reason").on('click', function () {
+                for (var j = 0; j < $('.cb-park-id').length; j++) {
+                    if ($('#example tbody tr').eq(j).find('.cb-park-id').prop('checked')) {
                         $('#example tbody tr').eq(j).find('.btn-recommend').addClass('recommend-red');
                     }
                 }
                 rec_reason = $("#exampleInputEmail5").val();
-                $(".modal.fade.in").css({'display':'none'});
+                $(".modal.fade.in").css({'display': 'none'});
                 $(".modal.fade.in").removeClass('in');
                 $(".modal-backdrop.fade.in").remove();
-                var rec_some_str=rec_some.join('.');
-                $.get('park/recommend_add_some',{'rec_some':rec_some_str,'rec_reason':rec_reason},function(rec_rs){
+                var rec_some_str = rec_some.join('.');
+                $.get('park/recommend_add_some', {
+                    'rec_some': rec_some_str,
+                    'rec_reason': rec_reason
+                }, function (rec_rs) {
 //                    console.log(rec_rs);
-                },'json');
+                }, 'json');
             });
             $("#exampleInputEmail5").val('');
         });
         var aCheckIndex = 0;
-        $("#my-tab-pane").on('click','#check-all',function(){
-                    if (aCheckIndex==0) {
-                        $('.cb-park-id').prop("checked",true);
-                        aCheckIndex=1;
-                    }
-                    else if (aCheckIndex==1) {
-                        $('.cb-park-id').prop("checked",false);
-                        aCheckIndex=0;
-                    }
+        $("#my-tab-pane").on('click', '#check-all', function () {
+            if (aCheckIndex == 0) {
+                $('.cb-park-id').prop("checked", true);
+                aCheckIndex = 1;
+            }
+            else if (aCheckIndex == 1) {
+                $('.cb-park-id').prop("checked", false);
+                aCheckIndex = 0;
+            }
         });
         $('#my-tab-pane').on('click', '.btn-recommend', function () {
-            var recommend_index=$(this).parent().parent().index();
+            var recommend_index = $(this).parent().parent().index();
             console.log($(this));
             var rec_id = $(this).attr('data-id');
             console.log(rec_id);
-            var rec_reason='';
-            if($(this).hasClass('recommend-red')){
-                $(this).prop('href',"javascript:;");
-                var r=confirm("是否取消推荐")
-                if (r==true)
-                {
-                    $.get('park/recommend_del',{'rec_id':rec_id},function($rs){
+            var rec_reason = '';
+            if ($(this).hasClass('recommend-red')) {
+                $(this).prop('href', "javascript:;");
+                var r = confirm("是否取消推荐")
+                if (r == true) {
+                    $.get('park/recommend_del', {'rec_id': rec_id}, function ($rs) {
                         console.log($rs);
-                    },'text');
+                    }, 'text');
                     $(this).removeClass('recommend-red');
                 }
-                else{
+                else {
                 }
 
 
-            }else{
-                $(this).prop('href',"#myModal-2");
-                $(".rec-btn-reason").on('click',function(){
+            } else {
+                $(this).prop('href', "#myModal-2");
+                $(".rec-btn-reason").on('click', function () {
                     rec_reason = $("#exampleInputEmail5").val();
                     $('#example tbody tr').eq(recommend_index).find('.btn-recommend').addClass('recommend-red');
-                    $(".modal.fade.in").css({'display':'none'});
+                    $(".modal.fade.in").css({'display': 'none'});
                     $(".modal.fade.in").removeClass('in');
                     $(".modal-backdrop.fade.in").remove();
-                    $.get('park/recommend_add',{'rec_id':rec_id,'rec_reason':rec_reason},function($rec_rs){
-                    },'text');
+                    $.get('park/recommend_add', {'rec_id': rec_id, 'rec_reason': rec_reason}, function ($rec_rs) {
+                    }, 'text');
                 });
                 $("#exampleInputEmail5").val('');
             }
@@ -1278,31 +1260,31 @@
             },
             multi_selection: false, //true:ctrl多文件上传, false 单文件上传
             init: {
-                FilesAdded: function(up, files) { //文件上传前
+                FilesAdded: function (up, files) { //文件上传前
                     if ($("#facility-pics-box").children("li").length > 30) {
                         alert("您上传的图片太多了！");
                         uploader.destroy();
                     } else {
                         var li = '';
-                        plupload.each(files, function(file) { //遍历文件
+                        plupload.each(files, function (file) { //遍历文件
                             li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
                         });
                         $("#facility-pics-box").append(li);
                         uploader.start();
                     }
                 },
-                UploadProgress: function(up, file) { //上传中，显示进度条
+                UploadProgress: function (up, file) { //上传中，显示进度条
                     var percent = file.percent;
                     $("#" + file.id).find('.bar').css({
                         "width": percent + "%"
                     });
                     $("#" + file.id).find(".percent").text(percent + "%");
                 },
-                FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+                FileUploaded: function (up, file, info) { //文件上传成功的时候触发
                     var data = eval("(" + info.response + ")");
-                    $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' id='facility_img' name='facility_img' value='"+ data.pic +"'></p>");
+                    $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/><a class='del-img upload-del-btn'></a></div><p><input type='hidden' id='facility_img' name='facility_img' value='" + data.pic + "'></p>");
                 },
-                Error: function(up, err) { //上传出错的时候触发
+                Error: function (up, err) { //上传出错的时候触发
                     alert(err.message);
                 }
             }
@@ -1310,34 +1292,40 @@
         uploader.init();
 
         //鼠标滑入div,显示删除按钮
-        $('#facility-pics-box').on('mouseover','div.img',function () {
+        $('#facility-pics-box').on('mouseover', 'div.img', function () {
             var $delImg = $(this).children('.del-img').show();
-        }).on('mouseout','div.img',function () {
+        }).on('mouseout', 'div.img', function () {
             var $delImg = $(this).children('.del-img').hide();
         });
 
         //图片删除
-        $('#facility-pics-box').on('click','.del-img',function () {
+        $('#facility-pics-box').on('click', '.del-img', function () {
             $(this).parents('li').remove();
         });
         //图片上传代码结束
 
         /*添加房源->添加设备*/
-        $('#fac-submit').on('click',function(e){
+        $('#fac-submit').on('click', function (e) {
             e.preventDefault();
             $name = $('#facility-name').val();
             $img = $('#facility_img').val();
             $free = $('#is-free').val();
             $price = $('#facility-price').val();
             $remark = facility_ue.getContent();
-            $.get('park/facility_add', {title: $name,facility_img:$img,free:$free,price:$price,remark:$remark}, function (data) {
-                if(data == 'error'){
+            $.get('park/facility_add', {
+                title: $name,
+                facility_img: $img,
+                free: $free,
+                price: $price,
+                remark: $remark
+            }, function (data) {
+                if (data == 'error') {
                     $.gritter.add({
                         title: '信息提示!',
                         text: '添加设备失败!'
                     });
-                }else{
-                    var $str = '<div class="checkbox"><label><input type="checkbox" name="facility[]" value="'+ data +'">'+$name+' </label></div>';
+                } else {
+                    var $str = '<div class="checkbox"><label><input type="checkbox" name="facility[]" value="' + data + '">' + $name + ' </label></div>';
                     $('div.icheck').find('a.park-add-fac').before($str);
                     $('.close-facility').trigger('click');
                     $('#facility-name').val('');
@@ -1346,11 +1334,11 @@
             }, 'text');
         });
         /* 添加房源->添加小区*/
-        $.get('plot/get_developer',{},function(data){
-            var deve='';
+        $.get('plot/get_developer', {}, function (data) {
+            var deve = '';
             var developerArr = JSON.parse(data).data;
-            for (var i=0;i<developerArr.length;i++){
-                deve='<option value="'+developerArr[i].developer_id+'">'+developerArr[i].developer_name+'</option>';
+            for (var i = 0; i < developerArr.length; i++) {
+                deve = '<option value="' + developerArr[i].developer_id + '">' + developerArr[i].developer_name + '</option>';
                 $("#deve").append(deve);
             }
         });
@@ -1360,25 +1348,30 @@
             $developer = $('#deve option:selected').val();
             $video = $('#plot-video').val();
             $description = plot_ue.getContent();
-            $.get('park/plot_add', {plot_name: $name,plot_deve:$developer,video:$video,description:$description}, function (data) {
-                if(data == 'error'){
+            $.get('park/plot_add', {
+                plot_name: $name,
+                plot_deve: $developer,
+                video: $video,
+                description: $description
+            }, function (data) {
+                if (data == 'error') {
                     $.gritter.add({
                         title: '信息提示!',
                         text: '添加小区失败!'
                     });
-                }else{
-                    var $str = '<option value="'+data+'" selected>'+$name+'</option>';
+                } else {
+                    var $str = '<option value="' + data + '" selected>' + $name + '</option>';
                     $('#name').append($str);
                     $('.close-plot').trigger('click');
                     $('#plot-name').val('');
                     $('.plot-page').remove();
-                    $.get('park/get_plot',{},function(rs_plot){
+                    $.get('park/get_plot', {}, function (rs_plot) {
                         //console.log(rs_plot[0]);
-                        for(var i=0;i<rs_plot.length;i++){
-                            $("#my-tabs").append('<li order-status="'+i+'" class="plot-page"><a href="#plot'+i+'" class="plot-btn" data-toggle="tab" plot-id="'+rs_plot[i].plot_id+'">'+rs_plot[i].plot_name+'</a></li>');
-                            $("#my-tab-pane").append('<div class="tab-pane" id="plot'+i+'"><div class="btn-group"><button id="btn-new" class="btn btn-primary" type="button">添加 <iclass="fa fa-plus"></i> </button> <button id="btn-del" class="btn btn-primary" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <iclass="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot'+i+'" class="table table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
+                        for (var i = 0; i < rs_plot.length; i++) {
+                            $("#my-tabs").append('<li order-status="' + i + '" class="plot-page"><a href="#plot' + i + '" class="plot-btn" data-toggle="tab" plot-id="' + rs_plot[i].plot_id + '">' + rs_plot[i].plot_name + '</a></li>');
+                            $("#my-tab-pane").append('<div class="tab-pane" id="plot' + i + '"><div class="btn-group"><button id="btn-new" class="btn btn-primary" type="button">添加 <iclass="fa fa-plus"></i> </button> <button id="btn-del" class="btn btn-primary" type="button">删除 <iclass="fa fa-minus"></i> </button> <button id="btn-recommend"  class="btn btn-primary" type="button">推荐 <iclass="fa fa-thumbs-up"></i> </button> </div> <div class="adv-table"> <table id="plot' + i + '" class="table table-striped table-bordered plot-table" cellspacing="0" width="100%"> <thead> <tr> <th><input type="checkbox" id="check-all"/></th> <th>编号</th> <th>推荐</th> <th>名称</th> <th>位置</th> <th>价格</th> <th>操作</th> </tr> </thead> <tbody> </tbody> </table> </div> </div>');
                         }
-                    },'json');
+                    }, 'json');
                 }
 //                console.log(data);
             }, 'text');

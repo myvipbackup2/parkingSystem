@@ -500,7 +500,7 @@
                         "width": '80px',
                         "render": function (data, type, row) {
                             if (orderStatus == '停车中') {
-                                underway = '<a href="javascript:;" class="btn-keep" data-id="' + row.order_id + '">续租</a> | <a href="javascript:;" class="btn-end" data-id="' + row.order_id + '">退房</a> ';
+                                underway = '<a href="javascript:;" class="btn-keep" data-id="' + row.order_id + '">续租</a> | <a href="javascript:;" class="btn-end" data-id="' + row.order_id + '">离开</a> ';
                             }
                             if (orderStatus == '已完成') {
                                 done = '<a href="javascript:;" class="btn-keep" data-id="' + row.order_id + '">续租</a>';
@@ -528,7 +528,7 @@
                             return '<input type="checkbox" name="del[]" class="select_check" value="' + row.order_id + '">';
                         }
                     },
-                    {"orderable": false, "targets": [2, 3, 4, 5]},
+                    {"orderable": false, "targets": [2, 3, 4, 5,10]},
                     {"className": "show-order-detail", "targets": [1, 2, 3, 4, 5, 6, 7, 8, 9]}
 
                 ],
@@ -584,7 +584,7 @@
                 var orderId = $(this).data('id');
                 $.sidepanel({
                     width: 700,
-                    title: '退车位',
+                    title: '离开',
                     tpl: 'order-end-tpl',
                     dataSource: "order/order_end",
                     data: {
@@ -629,13 +629,13 @@
                                 if (data == 'success') {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '退车位成功!'
+                                        text: '离开成功!'
                                     });
                                     $('.panel-close').trigger('click');
                                 } else {
                                     $.gritter.add({
                                         title: '信息提示!',
-                                        text: '退车位失败!'
+                                        text: '离开失败!'
                                     });
                                 }
                             }, 'text');
@@ -1004,7 +1004,14 @@
                 {"data": "end_time"},
                 {"data": "price"},
                 {"data": "status"},
-                null
+                {
+                    "width": "40px",
+                    "targets": -1,
+                    "data": null,
+                    "render": function (data, type, row) {
+                        return '<a href="javascript:;" class="btn-del" data-id="' + row.order_id + '">删除</a>';
+                    }
+                }
             ],
             "columnDefs": [
                 {
@@ -1018,6 +1025,7 @@
                 {"orderable": false, "targets": 3},
                 {"orderable": false, "targets": 2},
                 {"orderable": false, "targets": 7},
+//                {"orderable": false, "targets": 10},
                 {
                     "orderable": false,
                     "targets": -1,

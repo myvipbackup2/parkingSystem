@@ -95,7 +95,7 @@ class Admin_model extends CI_Model
         return $this->db->query($sql)->num_rows();
     }
 
-    public function get_paginated_houses($limit, $offset, $search, $order_col, $order_col_dir)
+    public function get_paginated_parks($limit, $offset, $search, $order_col, $order_col_dir)
     {
         $sql = "SELECT * FROM t_admin";
         if (strlen($search) > 0) {

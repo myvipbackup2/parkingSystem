@@ -115,11 +115,11 @@
                             </div>
 
                             <div class="adv-table">
-                                <table id="example" class="display table table-bordered table-striped" id="data-table">
+                                <table id="example" class="display table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th><input type="checkbox" class="check-all"/></th>
-                                        <th>编号<t/h>
+                                        <th>编号</th>
                                         <th>小区</th>
                                         <th>车位</th>
                                         <th>设备</th>
