@@ -44,7 +44,7 @@
 
     <form class="form-signin" action="javascript:;" method="post">
         <div class="form-signin-heading text-center">
-            <h1 class="sign-title"> 登录</h1>
+            <h1 class="sign-title">小区停车场管理系统毕业设计</h1>
             <img src="images/logo.png" alt="" width="100"/>
         </div>
         <div class="login-wrap">
