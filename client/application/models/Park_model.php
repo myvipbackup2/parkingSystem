@@ -119,6 +119,16 @@ class Park_model extends CI_Model
         return $query = $this->db->get()->row();
     }
 
+    // 车位信息部分
+    public function get_park_by_plotid($plot_id)
+    {
+        $this->db->select("park.*");
+        $this->db->from("t_park park");
+        $this->db->where("park.plot_id", $plot_id);
+        $this->db->where("park.is_delete", 0);
+        return $query = $this->db->get()->result();
+    }
+
     // 小区信息
     public function get_plot()
     {

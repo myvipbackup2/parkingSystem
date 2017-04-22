@@ -28,8 +28,9 @@ class Order extends CI_Controller
         $start_time = $this->input->post('startDate');
         $end_time = $this->input->post('endDate');
         $park = $this->park_model->get_park_by_id($park_id);
+        $hour = floor((strtotime($end_time.':00:00') - strtotime($start_time.':00:00')) % 86400 / 3600);
         $days = floor((strtotime($end_time) - strtotime($start_time)) / 86400);
-        $this->load->view('submitorder', array('park' => $park, 'title' => $park->title, 'price' => $park->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
+        $this->load->view('submitorder', array('park' => $park, 'title' => $park->title, 'price' => $park->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $hour));
     }
 
     public function confirm_order()
@@ -114,7 +115,9 @@ class Order extends CI_Controller
         $this->load->view('order_detail', array('order' => $order, 'facility' => $facility));
 
     }
-    public function apply_refund(){
+
+    public function apply_refund()
+    {
         $order_no = $this->input->get('order_no');
         $this->order_model->apply_refund($order_no);
         redirect('welcome/order');

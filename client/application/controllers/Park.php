@@ -117,10 +117,27 @@ class Park extends CI_Controller
                     $start = strtotime('+1 day', $start);
                 }
             }
+            $parks = $this->park_model->get_park_by_plotid($park_id%4);
+            $arr = [];
+            $aa = '';
+            foreach ($parks as $index=>$park){
+                if($park->is_sale == 1){
+//                    $aa.="_";
+                    $aa.="a";
+                }else{
+//                    $aa.="a";
+                    $aa.="_";
+                }
+                if($index%10==9 || $index == count($parks) - 1 ){
+                    array_push($arr,$aa);
+                    $aa="";
+                }
+            }
+
 
             $rec_parks = $this->park_model->get_recommend_park(0, 3);
             $image = $this->captcha();
-            $this->load->view("park_detail", array('park' => $park_info, 'image' => $image, 'rec_parks' => $rec_parks, 'all_times' => json_encode($dataArr), 'is_collect' => $is_collect));
+            $this->load->view("park_detail", array('arr'=>json_encode($arr),'park' => $park_info, 'image' => $image, 'rec_parks' => $rec_parks, 'all_times' => json_encode($dataArr), 'is_collect' => $is_collect));
         } else {
             echo '未找到指定车位信息!';
         }
@@ -199,7 +216,7 @@ class Park extends CI_Controller
         $endTime = $this->input->post("endDate");
         $now = date('y-m-d');
 
-        if (strtotime($startTime) < strtotime($now) || strtotime($endTime) < strtotime($now)) {
+        if (strtotime($startTime.':00:00') < strtotime($now) || strtotime($endTime.':00:00') < strtotime($now)) {
             echo "un-sale";
         } else {
             $result = $this->park_model->is_free_park($parkId, $startTime, $endTime);
