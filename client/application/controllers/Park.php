@@ -117,7 +117,7 @@ class Park extends CI_Controller
                     $start = strtotime('+1 day', $start);
                 }
             }
-            $parks = $this->park_model->get_park_by_plotid($park_id%4);
+            $parks = $this->park_model->get_park_by_plotid(($park_id%4)+1);
             $arr = [];
             $aa = '';
             foreach ($parks as $index=>$park){

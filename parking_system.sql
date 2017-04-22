@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : host
+Source Server         : localhost
 Source Server Version : 50624
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : parking_system
 
 Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-04-19 11:01:11
+Date: 2017-04-22 21:00:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `t_admin`
+-- Table structure for t_admin
 -- ----------------------------
 DROP TABLE IF EXISTS `t_admin`;
 CREATE TABLE `t_admin` (
@@ -38,7 +38,7 @@ CREATE TABLE `t_admin` (
 INSERT INTO `t_admin` VALUES ('21', 'admin', '孟昊阳', 'admin', '13895752345', '1', 'uploads/portraits/header.png', '2017-02-15 22:53:20', null);
 
 -- ----------------------------
--- Table structure for `t_cancel`
+-- Table structure for t_cancel
 -- ----------------------------
 DROP TABLE IF EXISTS `t_cancel`;
 CREATE TABLE `t_cancel` (
@@ -57,7 +57,7 @@ CREATE TABLE `t_cancel` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_checkin`
+-- Table structure for t_checkin
 -- ----------------------------
 DROP TABLE IF EXISTS `t_checkin`;
 CREATE TABLE `t_checkin` (
@@ -86,7 +86,7 @@ INSERT INTO `t_checkin` VALUES ('10', '123', '123', '123', '2017-03-12 11:45:13'
 INSERT INTO `t_checkin` VALUES ('11', '456', '456', '456', '2017-03-12 11:45:13', '8');
 
 -- ----------------------------
--- Table structure for `t_collect`
+-- Table structure for t_collect
 -- ----------------------------
 DROP TABLE IF EXISTS `t_collect`;
 CREATE TABLE `t_collect` (
@@ -116,7 +116,7 @@ INSERT INTO `t_collect` VALUES ('21', '37', '25', '2017-04-14 21:38:40');
 INSERT INTO `t_collect` VALUES ('22', '37', '1', '2017-04-18 00:27:59');
 
 -- ----------------------------
--- Table structure for `t_combo`
+-- Table structure for t_combo
 -- ----------------------------
 DROP TABLE IF EXISTS `t_combo`;
 CREATE TABLE `t_combo` (
@@ -143,7 +143,7 @@ INSERT INTO `t_combo` VALUES ('8', '12小时套餐+汽车美容', '23', '2017-03
 INSERT INTO `t_combo` VALUES ('9', '半月套餐+免费充电', '26', '2017-03-01', '2017-03-08', '1500', '7', '1', '');
 
 -- ----------------------------
--- Table structure for `t_combo_type`
+-- Table structure for t_combo_type
 -- ----------------------------
 DROP TABLE IF EXISTS `t_combo_type`;
 CREATE TABLE `t_combo_type` (
@@ -161,7 +161,7 @@ INSERT INTO `t_combo_type` VALUES ('2', '套餐', '各种服务套餐');
 INSERT INTO `t_combo_type` VALUES ('3', '天数', '多订优惠');
 
 -- ----------------------------
--- Table structure for `t_comment`
+-- Table structure for t_comment
 -- ----------------------------
 DROP TABLE IF EXISTS `t_comment`;
 CREATE TABLE `t_comment` (
@@ -193,7 +193,7 @@ INSERT INTO `t_comment` VALUES ('4', '2017-03-20 09:29:59', '环境真好', '4.2
 INSERT INTO `t_comment` VALUES ('5', '2017-03-20 13:03:54', '真不错', '4.75', '5', '4', '5', '5', '39', '2', '14');
 
 -- ----------------------------
--- Table structure for `t_comment_img`
+-- Table structure for t_comment_img
 -- ----------------------------
 DROP TABLE IF EXISTS `t_comment_img`;
 CREATE TABLE `t_comment_img` (
@@ -222,7 +222,7 @@ INSERT INTO `t_comment_img` VALUES ('10', 'uploads/comment/148863622613242.png',
 INSERT INTO `t_comment_img` VALUES ('11', 'uploads/comment/148863675661762.png', null, '12');
 
 -- ----------------------------
--- Table structure for `t_conmment`
+-- Table structure for t_conmment
 -- ----------------------------
 DROP TABLE IF EXISTS `t_conmment`;
 CREATE TABLE `t_conmment` (
@@ -253,7 +253,7 @@ INSERT INTO `t_conmment` VALUES ('2', '2017-01-26 11:18:04', '这是一个完美
 INSERT INTO `t_conmment` VALUES ('3', '2017-01-31 23:09:33', '但是很突然', '', '', '', '30', '1', '1', '', '', '');
 
 -- ----------------------------
--- Table structure for `t_developer`
+-- Table structure for t_developer
 -- ----------------------------
 DROP TABLE IF EXISTS `t_developer`;
 CREATE TABLE `t_developer` (
@@ -286,7 +286,7 @@ INSERT INTO `t_developer` VALUES ('12', '哈尔滨市新阳开发建设指挥部
 INSERT INTO `t_developer` VALUES ('13', '哈尔滨市天昊房地产开发建设有限公司', '<p>哈尔滨市天昊房地产开发建设有限公司</p>', '', '', 'images/head-default.png', '0', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `t_enter`
+-- Table structure for t_enter
 -- ----------------------------
 DROP TABLE IF EXISTS `t_enter`;
 CREATE TABLE `t_enter` (
@@ -304,7 +304,7 @@ CREATE TABLE `t_enter` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_facility`
+-- Table structure for t_facility
 -- ----------------------------
 DROP TABLE IF EXISTS `t_facility`;
 CREATE TABLE `t_facility` (
@@ -363,7 +363,7 @@ INSERT INTO `t_facility` VALUES ('55', '8', '26');
 INSERT INTO `t_facility` VALUES ('56', '9', '26');
 
 -- ----------------------------
--- Table structure for `t_facility_type`
+-- Table structure for t_facility_type
 -- ----------------------------
 DROP TABLE IF EXISTS `t_facility_type`;
 CREATE TABLE `t_facility_type` (
@@ -390,7 +390,7 @@ INSERT INTO `t_facility_type` VALUES ('8', '汽车美容', 'uploads/facilities/n
 INSERT INTO `t_facility_type` VALUES ('9', '汽车检修', 'uploads/facilities/care.png', '1', '300.0', null);
 
 -- ----------------------------
--- Table structure for `t_log`
+-- Table structure for t_log
 -- ----------------------------
 DROP TABLE IF EXISTS `t_log`;
 CREATE TABLE `t_log` (
@@ -399,7 +399,7 @@ CREATE TABLE `t_log` (
   `log_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '操作时间',
   `log_content` varchar(255) DEFAULT NULL COMMENT '操作的功能',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=616 DEFAULT CHARSET=utf8 COMMENT='管理员操作日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=639 DEFAULT CHARSET=utf8 COMMENT='管理员操作日志表';
 
 -- ----------------------------
 -- Records of t_log
@@ -1019,9 +1019,32 @@ INSERT INTO `t_log` VALUES ('612', '21', '2017-04-19 10:44:06', '进行了 管�
 INSERT INTO `t_log` VALUES ('613', '21', '2017-04-19 10:46:09', '进行了 管理员管理的列表查询 操作');
 INSERT INTO `t_log` VALUES ('614', '21', '2017-04-19 10:53:49', '进行了 管理员管理的列表查询 操作');
 INSERT INTO `t_log` VALUES ('615', '21', '2017-04-19 10:56:54', '进行了 管理员管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('616', '21', '2017-04-19 14:38:24', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('617', '21', '2017-04-19 14:38:24', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('618', '21', '2017-04-19 14:38:56', '进行了 设备管理列表查询 操作');
+INSERT INTO `t_log` VALUES ('619', '21', '2017-04-19 14:39:05', '进行了 设备管理列表查询 操作');
+INSERT INTO `t_log` VALUES ('620', '21', '2017-04-19 14:39:19', '进行了 管理员管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('621', '21', '2017-04-19 14:39:34', '进行了 管理员管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('622', '21', '2017-04-19 14:39:51', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('623', '21', '2017-04-19 14:39:51', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('624', '21', '2017-04-19 14:40:02', '进行了 开发商管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('625', '21', '2017-04-19 14:40:02', '进行了 开发商管理 操作');
+INSERT INTO `t_log` VALUES ('626', '21', '2017-04-19 14:40:59', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('627', '21', '2017-04-19 14:40:59', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('628', '21', '2017-04-19 14:41:05', '进行了 查询评论列表 操作');
+INSERT INTO `t_log` VALUES ('629', '21', '2017-04-19 14:41:08', '进行了 查询套餐类型 操作');
+INSERT INTO `t_log` VALUES ('630', '21', '2017-04-19 14:41:54', '进行了 管理员管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('631', '21', '2017-04-19 14:41:58', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('632', '21', '2017-04-19 14:41:58', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('633', '21', '2017-04-19 14:42:14', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('634', '21', '2017-04-19 14:42:14', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('635', '21', '2017-04-19 14:42:16', '进行了 用户管理的列表查询 操作');
+INSERT INTO `t_log` VALUES ('636', '21', '2017-04-19 14:42:17', '进行了 用户管理 操作');
+INSERT INTO `t_log` VALUES ('637', '21', '2017-04-19 14:42:22', '进行了 设备管理列表查询 操作');
+INSERT INTO `t_log` VALUES ('638', '21', '2017-04-19 14:42:34', '进行了 设备管理列表查询 操作');
 
 -- ----------------------------
--- Table structure for `t_message`
+-- Table structure for t_message
 -- ----------------------------
 DROP TABLE IF EXISTS `t_message`;
 CREATE TABLE `t_message` (
@@ -1062,7 +1085,7 @@ INSERT INTO `t_message` VALUES ('47', null, '-1', '1', '2017-04-17 16:10:34', ''
 INSERT INTO `t_message` VALUES ('48', null, '-1', '37', '2017-04-17 22:31:56', '查啥市场', '0', '0');
 
 -- ----------------------------
--- Table structure for `t_order`
+-- Table structure for t_order
 -- ----------------------------
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
@@ -1159,7 +1182,7 @@ INSERT INTO `t_order` VALUES ('52', '2017041417214450164', '2017-05-14', '2017-0
 INSERT INTO `t_order` VALUES ('53', null, '0000-00-00', '0000-00-00', '1000', '2017-04-17 19:37:41', '停车中', '-1', '1', null, null, null, null, '0', '2017-04-19 08:47:20', '飞飞飞', null, null, null, null, null, null, '无问题', null, null, null, null, null, null, null, null, '0');
 
 -- ----------------------------
--- Table structure for `t_park`
+-- Table structure for t_park
 -- ----------------------------
 DROP TABLE IF EXISTS `t_park`;
 CREATE TABLE `t_park` (
@@ -1220,7 +1243,7 @@ INSERT INTO `t_park` VALUES ('25', '近冰雪大世界百纳度假别墅停车�
 INSERT INTO `t_park` VALUES ('26', '群力家园新停车位', '黑龙江', '哈尔滨市', '道里区', '机场路融江路', '22', '22.00', '2', '1', '1', '提供发票，押金¥400，银联标识，信用卡，外卡，信用卡，12:00之后入住，14:00之前退房，允许吸烟，允许带宠物，接待外宾', '17路：滇池路站，龙章路公交首末站 71路：新三中站 32路：新三中站 95路：新三中站 218路：新三中站 59路：穆斯林小区站 113路：新三中站 125路：龙章路公交首末站 65路：群力家园A区站 66路：群力家园A区站', '孟昊阳20134200小区停车管理系统毕业设计', '9', '0', '12', '0', '0', '7', '', '21', '0');
 
 -- ----------------------------
--- Table structure for `t_park_img`
+-- Table structure for t_park_img
 -- ----------------------------
 DROP TABLE IF EXISTS `t_park_img`;
 CREATE TABLE `t_park_img` (
@@ -1238,20 +1261,20 @@ CREATE TABLE `t_park_img` (
 -- ----------------------------
 -- Records of t_park_img
 -- ----------------------------
-INSERT INTO `t_park_img` VALUES ('1', '0', 'uploads\\houseImg\\houseSmall\\housePic6.jpg', 'uploads\\houseImg\\houseBig\\housePic6.jpg', null, '1');
-INSERT INTO `t_park_img` VALUES ('2', '0', 'uploads\\houseImg\\houseSmall\\housePic1.jpg', 'uploads\\houseImg\\houseBig\\housePic1.jpg', null, '1');
-INSERT INTO `t_park_img` VALUES ('3', '1', 'uploads\\houseImg\\houseSmall\\housePic2.jpg', 'uploads\\houseImg\\houseBig\\housePic2.jpg', null, '1');
-INSERT INTO `t_park_img` VALUES ('4', '0', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic3.jpg', null, '1');
-INSERT INTO `t_park_img` VALUES ('5', '0', 'uploads\\houseImg\\houseSmall\\housePic4.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '1');
-INSERT INTO `t_park_img` VALUES ('6', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '9');
-INSERT INTO `t_park_img` VALUES ('7', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '10');
-INSERT INTO `t_park_img` VALUES ('8', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '4');
-INSERT INTO `t_park_img` VALUES ('9', '1', 'uploads\\houseImg\\houseSmall\\housePic4.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '2');
-INSERT INTO `t_park_img` VALUES ('10', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '3');
-INSERT INTO `t_park_img` VALUES ('11', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic3.jpg', null, '16');
-INSERT INTO `t_park_img` VALUES ('12', '0', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic3.jpg', null, '16');
-INSERT INTO `t_park_img` VALUES ('13', '1', 'uploads\\houseImg\\houseSmall\\housePic3.jpg', 'uploads\\houseImg\\houseBig\\housePic3.jpg', null, '12');
-INSERT INTO `t_park_img` VALUES ('14', '0', 'uploads/houseImg/houseSmall/housePic4.jpg', 'uploads\\houseImg\\houseBig\\housePic4.jpg', null, '12');
+INSERT INTO `t_park_img` VALUES ('1', '0', 'uploads\\parkImg\\parkSmall\\parkPic6.jpg', 'uploads\\parkImg\\parkBig\\parkPic6.jpg', null, '1');
+INSERT INTO `t_park_img` VALUES ('2', '0', 'uploads\\parkImg\\parkSmall\\parkPic1.jpg', 'uploads\\parkImg\\parkBig\\parkPic1.jpg', null, '1');
+INSERT INTO `t_park_img` VALUES ('3', '1', 'uploads\\parkImg\\parkSmall\\parkPic2.jpg', 'uploads\\parkImg\\parkBig\\parkPic2.jpg', null, '1');
+INSERT INTO `t_park_img` VALUES ('4', '0', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '1');
+INSERT INTO `t_park_img` VALUES ('5', '0', 'uploads\\parkImg\\parkSmall\\parkPic4.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '1');
+INSERT INTO `t_park_img` VALUES ('6', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '9');
+INSERT INTO `t_park_img` VALUES ('7', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '10');
+INSERT INTO `t_park_img` VALUES ('8', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '4');
+INSERT INTO `t_park_img` VALUES ('9', '1', 'uploads\\parkImg\\parkSmall\\parkPic4.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '2');
+INSERT INTO `t_park_img` VALUES ('10', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '3');
+INSERT INTO `t_park_img` VALUES ('11', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '16');
+INSERT INTO `t_park_img` VALUES ('12', '0', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '16');
+INSERT INTO `t_park_img` VALUES ('13', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '12');
+INSERT INTO `t_park_img` VALUES ('14', '0', 'uploads/parkImg/parkSmall/parkPic4.jpg', 'uploads\\parkImg\\parkBigl\\parkPic4.jpg', null, '12');
 INSERT INTO `t_park_img` VALUES ('17', '1', 'uploads/houseImg/houseSmall/148855513929687.png', 'uploads/houseImg/houseBig/148855513929687.png', null, '21');
 INSERT INTO `t_park_img` VALUES ('18', '1', 'uploads/houseImg/houseSmall/148876674937239.png', 'uploads/houseImg/houseBig/148876674937239.png', null, '22');
 INSERT INTO `t_park_img` VALUES ('19', '0', 'uploads/houseImg/houseSmall/148876675389333.png', 'uploads/houseImg/houseBig/148876675389333.png', null, '22');
@@ -1268,7 +1291,7 @@ INSERT INTO `t_park_img` VALUES ('29', '0', 'uploads/houseImg/houseSmall/1489981
 INSERT INTO `t_park_img` VALUES ('30', '0', 'uploads/houseImg/houseSmall/148998172631871.jpg', 'uploads/houseImg/houseBig/148998172631871.jpg', null, '26');
 
 -- ----------------------------
--- Table structure for `t_park_rent_type`
+-- Table structure for t_park_rent_type
 -- ----------------------------
 DROP TABLE IF EXISTS `t_park_rent_type`;
 CREATE TABLE `t_park_rent_type` (
@@ -1282,7 +1305,7 @@ CREATE TABLE `t_park_rent_type` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_park_type`
+-- Table structure for t_park_type
 -- ----------------------------
 DROP TABLE IF EXISTS `t_park_type`;
 CREATE TABLE `t_park_type` (
@@ -1300,7 +1323,7 @@ INSERT INTO `t_park_type` VALUES ('3', '斜位停车');
 INSERT INTO `t_park_type` VALUES ('4', '豪华型');
 
 -- ----------------------------
--- Table structure for `t_plot`
+-- Table structure for t_plot
 -- ----------------------------
 DROP TABLE IF EXISTS `t_plot`;
 CREATE TABLE `t_plot` (
@@ -1325,7 +1348,7 @@ INSERT INTO `t_plot` VALUES ('5', '黑大D区', '0', '11', '&lt;p&gt;雨阳名�
 INSERT INTO `t_plot` VALUES ('6', '学府小区', '0', '7', '&lt;p&gt;群力家园&lt;/p&gt;', '', '126.639003,45.76703');
 
 -- ----------------------------
--- Table structure for `t_recommend`
+-- Table structure for t_recommend
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recommend`;
 CREATE TABLE `t_recommend` (
@@ -1355,7 +1378,7 @@ INSERT INTO `t_recommend` VALUES ('34', '2', '2017-03-14 11:51:28', 'aaaaaaaaa',
 INSERT INTO `t_recommend` VALUES ('35', '25', '2017-03-19 05:53:04', '环境超好', '未结束');
 
 -- ----------------------------
--- Table structure for `t_service`
+-- Table structure for t_service
 -- ----------------------------
 DROP TABLE IF EXISTS `t_service`;
 CREATE TABLE `t_service` (
@@ -1376,7 +1399,7 @@ INSERT INTO `t_service` VALUES ('6', '2', '啊啊啊', '事实上', '对对对�
 INSERT INTO `t_service` VALUES ('7', '2', '啊啊啊', '事实上', '对对对啊啊啊', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `t_user`
+-- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
