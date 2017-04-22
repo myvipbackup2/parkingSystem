@@ -52,12 +52,12 @@
             <span class="info-title fl">费用</span>
         </div>
         <div class="line clearfix">
-            <span class="info-title fl">日均价</span>
+            <span class="info-title fl">每小时均价</span>
             <span class="info-content fr"><?php echo $price; ?></span>
         </div>
         <div class="line clearfix">
-            <span class="info-title fl">天数</span>
-            <span class="info-content fr"><?php echo $days; ?>天</span>
+            <span class="info-title fl">小时</span>
+            <span class="info-content fr"><?php echo $days; ?>小时</span>
         </div>
         <div class="line clearfix">
             <span class="info-title fl">总价</span>
@@ -91,19 +91,21 @@
         </div>
         <div class="line clearfix">
             <span class="info-title fl">停车信息</span>
-            <span class="info-content fr"><?php echo $startTime; ?>停车</span>
+            <span class="info-content fr"><?php echo $startTime; ?>时停车</span>
         </div>
         <div class="line clearfix">
-            <span class="info-content fr"><?php echo $endTime; ?>离开</span>
+            <span class="info-content fr"><?php echo $endTime; ?>时离开</span>
         </div>
         <div class="line clearfix">
-            <span class="info-content fr">共<?php echo $days; ?>天</span>
+            <span class="info-content fr">共<?php echo $days; ?>小时</span>
         </div>
     </div>
 
     <div class="hr"></div>
 
     <a href="javascript:;" class="submit">确认支付</a>
+<!--    <a href="wxpay/pay_success" class="submit">确认支付</a>-->
+
 
     <a href="javascript:window.location.href='welcome/order';" class="back fl">返回</a>
 
@@ -118,7 +120,8 @@
     $(function () {
         var orderNo = '<?php echo $order_num; ?>';
         $('.submit').on('click', function () {
-            window.location = 'wxpay/do_pay?orderNo=' + orderNo;
+            window.location = 'wxpay/pay_success?orderNo=' + orderNo;
+//            window.location = 'wxpay.php;
         });
 
     });

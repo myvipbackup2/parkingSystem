@@ -271,19 +271,6 @@
 
         var sc = $('#seat-map').seatCharts({
             map: <?php echo $arr;?> ,
-//            map:
-//                [//座位图
-//                'aaaaaaaaaa',
-//                'aaaaaaaaaa',
-//                '__________',
-//                'aaaaaaaa__',
-//                'aaa____aaa',
-//                'aaaaaaaaaa',
-//                'aaaaaaaaaa',
-//                'aaaaaaaaaa',
-//                'aaaaaaaaaa',
-//                'aa__aa'
-//            ],
             naming: {
                 top: false,
                 getLabel: function (character, row, column) {
@@ -298,7 +285,7 @@
                 ]
             },
             click: function () { //点击事件
-                if (this.status() == 'available') { //可选座
+                if (this.status() == 'available' && clickCount < 1) { //可选座
                     $('<li>' + (this.settings.row + 1) + '排' + this.settings.label + '号</li>')
                         .attr('id', 'cart-item-' + this.settings.id)
                         .data('seatId', this.settings.id)
@@ -359,7 +346,7 @@
             errTitle: '预订失败',
             errMsg: '该时段车位不可用!',
             isShow: false,
-            isSale : <?php echo $park->is_sale?>
+            isSale: <?php echo $park->is_sale?>
         },
         methods: {
             getComment: function () {

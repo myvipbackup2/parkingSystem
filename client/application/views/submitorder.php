@@ -36,11 +36,11 @@
             </div>
             <div class="line clearfix">
                 <span class="info-title fl">停车时间：</span>
-                <span class="info-content fr"><?php echo $startTime; ?></span>
+                <span class="info-content fr"><?php echo $startTime; ?>点</span>
             </div>
             <div class="line clearfix">
                 <span class="info-title fl">离开时间：</span>
-                <span class="info-content fr"><?php echo $endTime; ?></span>
+                <span class="info-content fr"><?php echo $endTime; ?>点</span>
             </div>
         </div>
 

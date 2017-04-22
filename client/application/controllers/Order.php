@@ -41,7 +41,7 @@ class Order extends CI_Controller
         $parkInfo = $park->title;
         $startTime = $this->input->post('startDate');
         $endTime = $this->input->post('endDate');
-        $days = floor((strtotime($endTime) - strtotime($startTime)) / 86400);
+        $days = floor((strtotime($endTime.':00:00') - strtotime($startTime.':00:00')) % 86400 / 3600);
         $realName = $this->input->post('name');
         $phone = $this->input->post('tel');
         $amount = $days * $price;//拿park_id 取price  day* price

@@ -30,13 +30,13 @@ class Wxpay extends CI_Controller {
 		// echo $fee.":".$attach;die();
 		//②、统一下单
 		$input = new WxPayUnifiedOrder();
-		$input->SetBody('预订房屋');
-		$input->SetAttach('预订房屋');
+		$input->SetBody('预订车位');
+		$input->SetAttach('预订车位');
 		$input->SetOut_trade_no($order_no);
 		$input->SetTotal_fee(0.01*100);//$order->price
 		$input->SetTime_start(date("YmdHis"));
 		$input->SetTime_expire(date("YmdHis", time() + 600000));
-		$input->SetGoods_tag("悦居房屋");
+		$input->SetGoods_tag("随心停");
 		$input->SetNotify_url("http://www.hrbyueju.com/yuejum/wxpay/yueju_notify");
 		$input->SetTrade_type("JSAPI");
 		$input->SetOpenid($openId);
