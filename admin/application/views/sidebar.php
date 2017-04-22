@@ -16,19 +16,12 @@
 
         <div class="visible-xs hidden-sm hidden-md hidden-lg">
             <div class="media logged-user">
-                <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                <img alt="" src="uploads/developer/header.png" class="media-object">
                 <div class="media-body">
                     <h4><a href="#">孟昊阳</a></h4>
                     <span>"Hello 孟昊阳..."</span>
                 </div>
             </div>
-
-            <h5 class="left-nav-title">Account Information</h5>
-            <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-                <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
-            </ul>
         </div>
 
         <!--sidebar nav start-->
@@ -77,7 +70,7 @@
             </li>
             <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>财务管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="basic_table.html"> 提现管理</a></li>
+                    <li><a href="#"> 提现管理</a></li>
                 </ul>
             </li>
             <li class="menu-list"><a href="#"><i class="fa fa-comments"></i> <span>留言管理</span></a>
