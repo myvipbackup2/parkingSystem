@@ -28,7 +28,7 @@ class Order extends CI_Controller
         $start_time = $this->input->post('startDate');
         $end_time = $this->input->post('endDate');
         $park = $this->park_model->get_park_by_id($park_id);
-        $hour = floor((strtotime($end_time.':00:00') - strtotime($start_time.':00:00')) % 86400 / 3600);
+        $hour = floor((strtotime($end_time.':00:00') - strtotime($start_time.':00:00')) / 3600);
         $days = floor((strtotime($end_time) - strtotime($start_time)) / 86400);
         $this->load->view('submitorder', array('park' => $park, 'title' => $park->title, 'price' => $park->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $hour));
     }
@@ -41,7 +41,7 @@ class Order extends CI_Controller
         $parkInfo = $park->title;
         $startTime = $this->input->post('startDate');
         $endTime = $this->input->post('endDate');
-        $days = floor((strtotime($endTime.':00:00') - strtotime($startTime.':00:00')) % 86400 / 3600);
+        $days = floor((strtotime($endTime.':00:00') - strtotime($startTime.':00:00'))  / 3600);
         $realName = $this->input->post('name');
         $phone = $this->input->post('tel');
         $amount = $days * $price;//拿park_id 取price  day* price

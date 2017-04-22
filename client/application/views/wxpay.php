@@ -16,32 +16,37 @@
     <title>微信支付页面</title>
     <script type="text/javascript">
         //调用微信JS api 支付
-        function jsApiCall() {
-            WeixinJSBridge.invoke(
-                'getBrandWCPayRequest',
-                <?php echo $jsApiParameters; ?>,
-                function (res) {
-                    WeixinJSBridge.log(res.err_msg);
-                    if (res.err_msg == "get_brand_wcpay_request:ok") {
-                        window.location = 'wxpay/pay_success?orderNo=<?php echo $orderno; ?>';
-                    } else {
-                        alert('支付失败!');
-                    }
-                }
-            );
-        }
+//        function jsApiCall() {
+//            WeixinJSBridge.invoke(
+//                'getBrandWCPayRequest',
+//                <?php //echo $jsApiParameters; ?>//,
+//                function (res) {
+//                    WeixinJSBridge.log(res.err_msg);
+//                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+//                        window.location = 'wxpay/pay_success?orderNo=<?php //echo $orderno; ?>//';
+//                    } else {
+//                        alert('支付失败!');
+//                    }
+//                }
+//            );
+//        }
+//
+//        function callpay() {
+//            if (typeof WeixinJSBridge == "undefined") {
+//                if (document.addEventListener) {
+//                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+//                } else if (document.attachEvent) {
+//                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+//                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+//                }
+//            } else {
+//                jsApiCall();
+//            }
+//        }
+
 
         function callpay() {
-            if (typeof WeixinJSBridge == "undefined") {
-                if (document.addEventListener) {
-                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-                } else if (document.attachEvent) {
-                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-                }
-            } else {
-                jsApiCall();
-            }
+            window.location = 'wxpay/pay_success?orderNo=<?php echo $orderno; ?>';
         }
     </script>
 </head>
@@ -63,7 +68,7 @@
     <div class="wxzf_price">￥<?php echo $fee; ?></div>
 </div>
 <div class="skf_xinf">
-    <div class="all_w"><span class="bt">收款方</span> <span class="fr">哈尔滨随心停车</span></div>
+    <div class="all_w"><span class="bt">收款方</span> <span class="fr">孟昊阳毕设随心停</span></div>
 </div>
 <button onclick="callpay()" class="ljzf_but all_w">立即支付</button>
 </body>

@@ -104,8 +104,6 @@
     <div class="hr"></div>
 
     <a href="javascript:;" class="submit">确认支付</a>
-<!--    <a href="wxpay/pay_success" class="submit">确认支付</a>-->
-
 
     <a href="javascript:window.location.href='welcome/order';" class="back fl">返回</a>
 
@@ -120,8 +118,7 @@
     $(function () {
         var orderNo = '<?php echo $order_num; ?>';
         $('.submit').on('click', function () {
-            window.location = 'wxpay/pay_success?orderNo=' + orderNo;
-//            window.location = 'wxpay.php;
+            window.location = 'wxpay/do_pay?orderNo=' + orderNo;
         });
 
     });

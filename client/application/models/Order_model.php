@@ -53,10 +53,10 @@ class Order_model extends CI_Model
         return $this->db->affected_rows();
 
     }
-
-    public function add_wechat_pay_order($orderno,$tradeno){
+//     将微信成功支付的订单写入数据库
+    public function add_wechat_pay_order($orderno){
         $this->db->where('order_no', $orderno);
-        $this->db->update('t_order', array('status'=>'已支付','cash_pledge_pay_way'=>'微信','trade_no'=>$tradeno));
+        $this->db->update('t_order', array('status'=>'已支付','cash_pledge_pay_way'=>'微信'));
         return $this->db->affected_rows();
     }
     public function get_order_by_no($orderno){
