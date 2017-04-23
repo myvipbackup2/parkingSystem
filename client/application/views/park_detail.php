@@ -473,46 +473,53 @@
                 }
             },
             checkDate: function () {  //检测车位是否可定
-                this.errTitle = '正在预订中';
-                this.errMsg = '';
-                this.showMsg();
-                this.btnShow = false;
-                this.spinnerShow = true;
-                if (this.computeDays(this.formatStart, this.formatEnd) < 1) {
-                    this.errTitle = '预订失败';
-                    this.errMsg = '停车时间段错误!';
+                if(clickCount){
+                    this.errTitle = '正在预订中';
+                    this.errMsg = '';
                     this.showMsg();
-                    return;
-                }
-                var _this = this;
-                var params = new URLSearchParams();
-                params.append('startDate', this.formatStart);
-                params.append('endDate', this.formatEnd);
-                params.append('parkId', <?php echo $park->park_id?>);
-                axios.post('park/is_free_park', params).then(function (response) {
-                    if (response.data === 'un-sale') {
-                        _this.errTitle = '预订失败';
-                        _this.errMsg = '该时段车位已被预订!';
-                        _this.showMsg();
-                    } else if (response.data === 'on-sale') {
-                        _this.post('order/park_order', {
-                            'startDate': _this.formatStart,
-                            'endDate': _this.formatEnd,
-                            'parkId': <?php echo $park->park_id?>,
-                            'clickCount': _this.clickCount
-                        });
-                    } else {
-                        _this.errTitle = '网络错误';
+                    this.btnShow = false;
+                    this.spinnerShow = true;
+                    if (this.computeDays(this.formatStart, this.formatEnd) < 1) {
+                        this.errTitle = '预订失败';
+                        this.errMsg = '停车时间段错误!';
+                        this.showMsg();
+                        return;
+                    }
+                    var _this = this;
+                    var params = new URLSearchParams();
+                    params.append('startDate', this.formatStart);
+                    params.append('endDate', this.formatEnd);
+                    params.append('parkId', <?php echo $park->park_id?>);
+                    axios.post('park/is_free_park', params).then(function (response) {
+                        if (response.data === 'un-sale') {
+                            _this.errTitle = '预订失败';
+                            _this.errMsg = '该时段车位已被预订!';
+                            _this.showMsg();
+                        } else if (response.data === 'on-sale') {
+                            _this.post('order/park_order', {
+                                'startDate': _this.formatStart,
+                                'endDate': _this.formatEnd,
+                                'parkId': <?php echo $park->park_id?>,
+                                'clickCount': _this.clickCount
+                            });
+                        } else {
+                            _this.errTitle = '网络错误';
+                            _this.errMsg = '预订失败，请重新再试!';
+                            _this.showMsg();
+                        }
+                    }).catch(function (error) {
+                        _this.errTitle = '未知错误';
                         _this.errMsg = '预订失败，请重新再试!';
                         _this.showMsg();
-                    }
-                }).catch(function (error) {
-                    _this.errTitle = '未知错误';
-                    _this.errMsg = '预订失败，请重新再试!';
-                    _this.showMsg();
-                    console.log(error);
-                });
-            }
+                        console.log(error);
+                    });
+                }else {
+                    this.errTitle = '请选择车位';
+                    this.errMsg = '';
+                    this.showMsg();
+                }
+                }
+
         },
         mounted: function () {  //页面加载完成获取评分
             var _this = this;
