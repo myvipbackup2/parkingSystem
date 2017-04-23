@@ -82,12 +82,7 @@
             <span class="info-content fr"><?php echo $parkInfo; ?></span>
         </div>
         <div class="line">
-<!--            <span class="info-content fr">车位：</span>-->
-<!--            <span class="info-content fr" style="margin-right: .48rem">整租</span>-->
             <span class="info-content fr">一字型停车位</span>
-            <!--<span class="info-content fr"><?php /*echo $park ->bedroom */ ?>室</span>
-            <span class="info-content fr" style="margin-right: .48rem"><?php /*echo $park ->livingroom */ ?>厅</span>
-            <span class="info-content fr" style="margin-right: .48rem"><?php /*echo $park ->lavatory */ ?>卫</span>-->
         </div>
         <div class="line clearfix">
             <span class="info-title fl">停车信息</span>
@@ -131,18 +126,15 @@
     });
 </script>
 <script>
+
     function formatTen(num) {
         return num > 9 ? (num + "") : ("0" + num);
     }
 
     function GetRTime(){
-//        var EndTime = new Date(parseInt((<?php //echo $endTime; ?>//).replace(/-/g, "/"))); //截止时间 前端路上 http://www.51xuediannao.com/qd63/
-//        alert(EndTime);
 
         var orderDate = new Date('<?php echo $endTime.':00:00'; ?>'.replace(/-/g, "/")); //字符串转成时间戳
         var oDate = new Date();
-//        var gap = Math.abs(d1-d2)/1000/60/60;
-//        oDate = new Date(orderDate-oDate);
         var y = oDate.getFullYear();
         var M = oDate.getMonth() + 1;
         var p = oDate.getDate();
@@ -152,11 +144,6 @@
         var e = y + '-' + formatTen(M) + '-' + formatTen(p) + ' ' + formatTen(x) + ':' +formatTen(minute) + ':' + formatTen(second);
         var NowTime  = (e.replace(/-/g, "/"));
         NowTime = new Date(NowTime);
-//        var gap = Math.abs(orderDate-NowTime)/1000;
-        console.log(NowTime,orderDate);
-//        console.log(gap);
-//        var NowTime = new Date();
-//        console.log(e);
         var t =orderDate.getTime() - NowTime.getTime();
         var d=Math.floor(t/1000/60/60/24);
         var h=Math.floor(t/1000/60/60%24);
