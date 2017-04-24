@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-04-22 21:00:56
+Date: 2017-04-24 17:58:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1126,7 +1126,7 @@ CREATE TABLE `t_order` (
   KEY `house_id` (`park_id`),
   CONSTRAINT `fk_house_order` FOREIGN KEY (`park_id`) REFERENCES `t_park` (`park_id`),
   CONSTRAINT `fk_user_order` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COMMENT='订单信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=236 DEFAULT CHARSET=utf8 COMMENT='订单信息表';
 
 -- ----------------------------
 -- Records of t_order
@@ -1180,6 +1180,20 @@ INSERT INTO `t_order` VALUES ('50', '2017041315295355786', '2017-04-13', '2017-0
 INSERT INTO `t_order` VALUES ('51', '2017041318373321840', '2017-04-13', '2017-04-14', '1500', '2017-04-13 18:37:33', '未支付', '37', '1', null, null, null, null, '1', '2017-04-14 01:27:59', null, 'hyhh', '13817787787', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
 INSERT INTO `t_order` VALUES ('52', '2017041417214450164', '2017-05-14', '2017-05-15', '1500', '2017-04-14 17:21:44', '未支付', '37', '1', null, null, null, null, '0', null, null, 'wwa', '13812312312', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
 INSERT INTO `t_order` VALUES ('53', null, '0000-00-00', '0000-00-00', '1000', '2017-04-17 19:37:41', '停车中', '-1', '1', null, null, null, null, '0', '2017-04-19 08:47:20', '飞飞飞', null, null, null, null, null, null, '无问题', null, null, null, null, null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('54', '2017042222025526496', '2017-04-22', '2017-04-22', '0', '2017-04-22 22:02:55', '未支付', '37', '4', null, null, null, null, '0', null, null, 'kkk ', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('56', '2017042222142083759', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:14:20', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('57', '2017042222151493747', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:15:14', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('58', '2017042222153655585', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:15:36', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('59', '2017042222163039500', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:16:30', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('60', '2017042222210397243', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:21:03', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('61', '2017042222210620116', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:21:06', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('62', '2017042222215380910', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:21:53', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('63', '2017042222220235631', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:22:02', '未支付', '37', '4', null, null, null, null, '0', null, null, 'hh', '15545956712', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('64', '2017042222225922805', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:22:59', '未支付', '37', '4', null, null, null, null, '0', null, null, 'll ', '15554544123', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('65', '2017042222281392530', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:28:13', '未支付', '37', '4', null, null, null, null, '0', null, null, 'll ', '15554544123', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('66', '2017042222283762463', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:28:37', '未支付', '37', '4', null, null, null, null, '0', null, null, 'll ', '15554544123', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('67', '2017042222302511084', '2017-04-22', '2017-04-22', '18', '2017-04-22 22:30:25', '未支付', '37', '4', null, null, null, null, '0', null, null, 'll ', '15554544123', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
+INSERT INTO `t_order` VALUES ('235', '2017042417490125352', '2017-04-24', '2017-04-24', '12', '2017-04-24 17:49:01', '已支付', '37', '25', null, null, null, null, '0', '2017-04-24 17:49:06', null, '洗洗', '13100963618', null, null, null, null, '无问题', null, null, null, '微信', null, null, null, null, '0');
 
 -- ----------------------------
 -- Table structure for t_park
@@ -1274,15 +1288,15 @@ INSERT INTO `t_park_img` VALUES ('10', '1', 'uploads\\parkImg\\parkSmall\\parkPi
 INSERT INTO `t_park_img` VALUES ('11', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '16');
 INSERT INTO `t_park_img` VALUES ('12', '0', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '16');
 INSERT INTO `t_park_img` VALUES ('13', '1', 'uploads\\parkImg\\parkSmall\\parkPic3.jpg', 'uploads\\parkImg\\parkBig\\parkPic3.jpg', null, '12');
-INSERT INTO `t_park_img` VALUES ('14', '0', 'uploads/parkImg/parkSmall/parkPic4.jpg', 'uploads\\parkImg\\parkBigl\\parkPic4.jpg', null, '12');
-INSERT INTO `t_park_img` VALUES ('17', '1', 'uploads/houseImg/houseSmall/148855513929687.png', 'uploads/houseImg/houseBig/148855513929687.png', null, '21');
-INSERT INTO `t_park_img` VALUES ('18', '1', 'uploads/houseImg/houseSmall/148876674937239.png', 'uploads/houseImg/houseBig/148876674937239.png', null, '22');
-INSERT INTO `t_park_img` VALUES ('19', '0', 'uploads/houseImg/houseSmall/148876675389333.png', 'uploads/houseImg/houseBig/148876675389333.png', null, '22');
-INSERT INTO `t_park_img` VALUES ('20', '1', 'uploads/houseImg/houseSmall/148983832965751.jpg', 'uploads/houseImg/houseBig/148983832965751.jpg', null, '23');
-INSERT INTO `t_park_img` VALUES ('21', '1', 'uploads/houseImg/houseSmall/148993832988953.jpg', 'uploads/houseImg/houseBig/148993832988953.jpg', null, '24');
-INSERT INTO `t_park_img` VALUES ('22', '0', 'uploads/houseImg/houseSmall/148993833692026.jpg', 'uploads/houseImg/houseBig/148993833692026.jpg', null, '24');
-INSERT INTO `t_park_img` VALUES ('23', '1', 'uploads/houseImg/houseSmall/148994236536344.jpg', 'uploads/houseImg/houseBig/148994236536344.jpg', null, '25');
-INSERT INTO `t_park_img` VALUES ('24', '0', 'uploads/houseImg/houseSmall/148994237119614.jpg', 'uploads/houseImg/houseBig/148994237119614.jpg', null, '25');
+INSERT INTO `t_park_img` VALUES ('14', '0', 'uploads/parkImg/parkSmall/parkPic4.jpg', 'uploads\\parkImg\\parkBig\\parkPic4.jpg', null, '12');
+INSERT INTO `t_park_img` VALUES ('17', '1', 'uploads/parkImg/parkSmall/148855513929687.png', 'uploads/parkImg/parkBig/148855513929687.png', null, '21');
+INSERT INTO `t_park_img` VALUES ('18', '1', 'uploads/parkImg/parkSmall/148876674937239.png', 'uploads/parkImg/parkBig/148876674937239.png', null, '22');
+INSERT INTO `t_park_img` VALUES ('19', '0', 'uploads/parkImg/parkSmall/148876675389333.png', 'uploads/parkImg/parkBig/148876675389333.png', null, '22');
+INSERT INTO `t_park_img` VALUES ('20', '1', 'uploads/parkImg/parkSmall/148983832965751.jpg', 'uploads/parkImg/parkBig/148983832965751.jpg', null, '23');
+INSERT INTO `t_park_img` VALUES ('21', '1', 'uploads/parkImg/parkSmall/148993832988953.jpg', 'uploads/parkImg/parkBig/148993832988953.jpg', null, '24');
+INSERT INTO `t_park_img` VALUES ('22', '0', 'uploads/parkImg/parkSmall/148993833692026.jpg', 'uploads/parkImg/parkBig/148993833692026.jpg', null, '24');
+INSERT INTO `t_park_img` VALUES ('23', '1', 'uploads/parkImg/parkSmall/148994236536344.jpg', 'uploads/parkImg/parkBig/148994236536344.jpg', null, '25');
+INSERT INTO `t_park_img` VALUES ('24', '0', 'uploads/parkImg/parkSmall/148994237119614.jpg', 'uploads/parkImg/parkBig/148994237119614.jpg', null, '25');
 INSERT INTO `t_park_img` VALUES ('25', '1', 'uploads/houseImg/houseSmall/148998164017572.jpg', 'uploads/houseImg/houseBig/148998164017572.jpg', null, '26');
 INSERT INTO `t_park_img` VALUES ('26', '0', 'uploads/houseImg/houseSmall/148998166452610.jpg', 'uploads/houseImg/houseBig/148998166452610.jpg', null, '26');
 INSERT INTO `t_park_img` VALUES ('27', '0', 'uploads/houseImg/houseSmall/148998170229360.jpg', 'uploads/houseImg/houseBig/148998170229360.jpg', null, '26');
