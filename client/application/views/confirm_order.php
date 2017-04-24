@@ -116,6 +116,8 @@
 </script>
 <script src="js/zepto.js"></script>
 <script src="js/header.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/axios.min.js"></script>
 <script>
     $(function () {
         var orderNo = '<?php echo $order_num; ?>';
@@ -154,12 +156,24 @@
         document.getElementById("t_h").innerHTML = h + "时";
         document.getElementById("t_m").innerHTML = m + "分";
         document.getElementById("t_s").innerHTML = s + "秒";
+
+//        如果预定时间跟当前时间一直清除定时器
         if(NowTime==orderDate){
             clearInterval(timer);
-            $.get()
+            document.getElementById("t_d").innerHTML = 0 + "天";
+            document.getElementById("t_h").innerHTML = 0 + "时";
+            document.getElementById("t_m").innerHTML = 0 + "分";
+            document.getElementById("t_s").innerHTML = 0 + "秒";
+            var params = new URLSearchParams();
+            params.append('orderNo', <?php echo $order_num; ?>);
+            axios.post('wxpay/order_finished', params).catch(function (error) {
+                console.log(error);
+            });
         }
     }
     timer=setInterval(GetRTime,1000);
+
+
 </script>
 </body>
 </html>

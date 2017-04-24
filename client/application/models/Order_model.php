@@ -59,6 +59,14 @@ class Order_model extends CI_Model
         $this->db->update('t_order', array('status'=>'已支付','cash_pledge_pay_way'=>'微信'));
         return $this->db->affected_rows();
     }
+
+    //订单时间到期释放该停车位
+    public function empty_wechat_pay_order($orderno){
+        $this->db->where('order_no', $orderno);
+        $this->db->update('t_order', array('status'=>'已完成','cash_pledge_pay_way'=>'微信'));
+        return $this->db->affected_rows();
+    }
+
     public function get_order_by_no($orderno){
         return $this->db->get_where('t_order',array('order_no'=>$orderno))->row();
     }

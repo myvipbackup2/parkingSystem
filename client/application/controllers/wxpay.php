@@ -96,6 +96,11 @@ class Wxpay extends CI_Controller {
 		$this->order_model->add_wechat_pay_order($order_no);
 		$this->load->view('pay_success',array('order'=>$order));
 	}
+//     订单完成更新order表中的状态
+    public function order_finished(){
+        $order_no = $this->input->get('orderNo');
+        $rs=  $this->order_model->empty_wechat_pay_order($order_no);
+	}
 
 	//预订成功,发送短信
 	private function send_success_msg($orderno){
