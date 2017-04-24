@@ -65,13 +65,13 @@
             <span class="info-title fl">车位信息</span>
             <span class="info-content fr"><?php echo $order->city.$order->region.$order->street?></span>
         </div>
-        <div class="line clearfix">
-            <span class="info-title fl">停车信息</span>
-            <span class="info-content fr"><?php echo $order->start_time?>停车</span>
-        </div>
-        <div class="line clearfix">
-            <span class="info-content fr"><?php echo $order->end_time?>离开</span>
-        </div>
+<!--        <div class="line clearfix">-->
+<!--            <span class="info-title fl">停车信息</span>-->
+<!--            <span class="info-content fr">--><?php //echo $order->start_time?><!--停车</span>-->
+<!--        </div>-->
+<!--        <div class="line clearfix">-->
+<!--            <span class="info-content fr">--><?php //echo $order->end_time?><!--离开</span>-->
+<!--        </div>-->
     </div>
 
     <div class="hr"></div>
