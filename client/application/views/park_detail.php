@@ -260,6 +260,7 @@
     document.onselectstart = new Function("event.returnValue=false;");
 </script>
 <script type="text/javascript" src="js/jquery.seat-charts.min.js"></script>
+<!--座位预定-->
 <script type="text/javascript">
     var price = 80; //票价
     var clickCount = 0;
