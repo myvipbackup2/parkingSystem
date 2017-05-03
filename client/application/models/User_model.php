@@ -115,15 +115,22 @@ class User_model extends CI_Model
 
     public function query_undone_order($uid)
     {
-        $result = $this->db->query("select * from t_order WHERE user_id in($uid) and status!='已完成'")->result();
-        return $result;
+        $this->db->select('t_order.*,t_park.*');
+        $this->db->from('t_order');
+        $this->db->join('t_park','t_park.park_id=t_order.park_id');
+        $this->db->where('t_order.user_id', $uid);
+        $this->db->where('t_order.status !=', '已完成');
+        return $this->db->get()->result();
     }
 
     public function query_park_info($hid)
     {
         $row = $this->db->get_where("t_park", array("park_id" => $hid))->row();
-        $row->imgs = $this->db->get_where("t_park_img", array("park_id" => $hid))->result();
         return $row;
+    }
+    public function aa($hid){
+        $result = $this->db->get_where("t_park_img", array("park_id" => $hid))->result();
+        return $result;
     }
 
     public function delete_order($oid)

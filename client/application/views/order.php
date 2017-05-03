@@ -61,18 +61,18 @@
             <div class="clearfix">
                 <div class="fl p-img">
                     <a class="pro-box clearfix" href="#">
-                        <img :src="'<?php echo ADMINPATH ?>'+order.park.imgs[0].img_thumb_src" alt=""/>
+                        <img :src="'<?php echo ADMINPATH ?>'+order.imgs[0].img_thumb_src" alt=""/>
                     </a>
                 </div>
                 <div class="fr p-info">
-                    <h2 class="p-title">{{order.park.title}}</h2>
-                    <div class="p-style p-address">地址：{{order.park.city}}{{order.park.region}}{{order.park.street}}</div>
-                    <div class="p-style p-type">
-
-                    </div>
+<!--<!--                    <h2 class="p-title">{{order.park.title}}</h2>-->
+<!--<!--                    <div class="p-style p-address">地址：{{order.park.city}}{{order.park.region}}{{order.park.street}}</div>-->
+<!--<!--                    <div class="p-style p-type">-->
+<!---->
+<!--                    </div>-->
                     <div class="p-btns-box" v-show="showSpan">
 <!--                        <a class="p-btns p-cancel" href="#">取消订单</a>-->
-                        <a href="javascript:;" class="p-btns p-cancel cancel_order" @click="delOrder(order.order_id,index)" v-show="!isPay(order.status)&&!isRefund(order.status)">删除订单</a>
+                        <a href="javascript:;" class="p-btns p-cancel cancel_order" @click="delOrder(order.order_id,index)" v-show="!isPay(order.status)&&!isRefund(order.status)">取消订单</a>
                         <a class="p-btns p-update" :href="'welcome/confirmorder?order_id='+order.order_id" v-show="!isPay(order.status)&&!isRefund(order.status)">去支付</a>
                         <a class="p-btns p-update" v-show="isPay(order.status)&&!isRefund(order.status)" :href="'order/apply_refund?order_no='+order.order_no">申请退款</a>
                         <a class="p-btns p-update" v-show="isRefund(order.status)" style="background: #eee;color: #ccc;">正在进行</a>
@@ -98,7 +98,7 @@
     </div>
     <!--confirm弹框-->
     <div v-show="isShow">
-        <div class="mint-msgbox-wrapper" style="position: absolute; z-index: 1011;"><div class="mint-msgbox"><div class="mint-msgbox-header"><div class="mint-msgbox-title">提示</div></div> <div class="mint-msgbox-content"><div class="mint-msgbox-message">确定删除订单?</div> <div class="mint-msgbox-input" style="display: none;"><input placeholder="" type="text"> <div class="mint-msgbox-errormsg" style="visibility: hidden;"></div></div></div> <div class="mint-msgbox-btns"><button class="mint-msgbox-btn mint-msgbox-cancel " @click="isConfirm(false)">取消</button> <button class="mint-msgbox-btn mint-msgbox-confirm " @click="isConfirm(true)">确定</button></div></div></div>
+        <div class="mint-msgbox-wrapper" style="position: absolute; z-index: 1011;"><div class="mint-msgbox"><div class="mint-msgbox-header"><div class="mint-msgbox-title">提示</div></div> <div class="mint-msgbox-content"><div class="mint-msgbox-message">确定取消订单?</div> <div class="mint-msgbox-input" style="display: none;"><input placeholder="" type="text"> <div class="mint-msgbox-errormsg" style="visibility: hidden;"></div></div></div> <div class="mint-msgbox-btns"><button class="mint-msgbox-btn mint-msgbox-cancel " @click="isConfirm(false)">取消</button> <button class="mint-msgbox-btn mint-msgbox-confirm " @click="isConfirm(true)">确定</button></div></div></div>
         <div class="v-modal" style="z-index: 1010;"></div>
     </div>
 </div>
@@ -129,13 +129,6 @@
                     }
                 }).then(function (res) {
                     var result = res.data;
-
-                    /*for(var i = 0; i< result.data.length; i++){
-                        console.log(result.data[i].start_time);
-                        result.data[i].start_time = result.data[i].start_time.substr(0,10);
-                        result.data[i].end_time = result.data[i].end_time.substr(0,10);
-                    }*/
-
                     _this.orderList = result.data;
                 });
             },

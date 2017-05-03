@@ -60,11 +60,13 @@ class User extends CI_Controller
         } else if (isset($userId) && $orderType == 'un_order') {
             $results2 = $this->user_model->query_undone_order($userId);//获取该用户所有未完成订单
             foreach ($results2 as $row) {
-                $undonepark = $this->user_model->query_park_info($row->park_id);
-                $row->park = $undonepark;
+//                $undonepark = $this->user_model->query_park_info($row->park_id);
+                $result = $this->user_model->aa($row->park_id);
+                $row->imgs = $result;
+//                $row->park = $undonepark;
             };
             echo json_encode(array(
-                'data' => $results2,
+                'data' => $results2
             ));
 
         } else {
