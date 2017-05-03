@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Park_model extends CI_Model
 {
-    // 所有房源
+    // 所有停车位查询
     public function get_all_park($region,$content,$min_price,$max_price,$plot_id,$redroom,$is_sale)
     {
         $sql = "select park.park_id,park.title, park.price, park.street, img.img_thumb_src 
@@ -54,7 +54,7 @@ class Park_model extends CI_Model
         return count($res);
     }
 
-    // //微信开发-首页-热门房源
+    // //微信开发-首页-热门停车位
     public function get_recommend_park()
     {
         $sql = "select park.park_id,park.title, park.price, park.street,park.description,park.region, img.img_thumb_src 
@@ -106,7 +106,7 @@ class Park_model extends CI_Model
         return $query = $this->db->get()->result();
     }
 
-    // 房源信息部分
+    // 车位信息部分
     public function get_park_by_id($park_id)
     {
         $this->db->select("park.*,dev.developer_id,dev.developer_name,dev.logo,plot.plot_name,plot.plot_pos,comment.content");
@@ -159,7 +159,7 @@ class Park_model extends CI_Model
         return $query = $this->db->get()->result();
     }
 
-    // 房源评论
+    // 车位评论
     public function get_comments_by_park_id($park_id)
     {
         $this->db->select("t_comment.*,t_user.*");
@@ -170,7 +170,7 @@ class Park_model extends CI_Model
         return $query = $this->db->get()->result();
     }
 
-    //房源套餐
+    //车位套餐
     public function get_combos_by_park_id($park_id)
     {
         $this->db->select('t_combo.*,t_combo_type.type_name');
@@ -251,7 +251,7 @@ class Park_model extends CI_Model
         return $this->db->get()->row();
     }
 
-    //房源入住日期,退房日期
+    //车位入住日期,退房日期
     public function get_by_park_time($park_id)
     {
         $data = date("Y-m-d");

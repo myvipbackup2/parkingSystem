@@ -398,7 +398,7 @@ class Welcome extends CI_Controller
         $this->load->view('order');
     }
 
-    //发送手机登录验证码（阿里短信套餐）
+    //发送手机登录验证码（阿里短信套餐）本地无效，需要线上域名
     public function send_phone_code()
     {
         $code = rand(1000, 9999);
