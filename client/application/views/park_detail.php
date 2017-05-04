@@ -62,7 +62,7 @@
 
         <div class="fd mod-management">
             <div class="icon" data-name="hotel_avatar" data-url="/hotel/index/3054/">
-                <img src="<?php echo ADMINPATH . $park->logo ?>">
+                <img src="http://127.0.0.1/parkingSystem/admin/uploads/developer/logo.png">
                 <span><?php echo $park->developer_name ?></span>
             </div>
 
