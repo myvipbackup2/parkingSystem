@@ -94,8 +94,8 @@
         <div class="line clearfix">
             <span class="info-title fl">剩余停车时间</span>
             <span class="info-content fr" id="t_s">00秒</span>
-            <span class="info-content fr" id="t_h">00时</span>
             <span class="info-content fr" id="t_m">00分</span>
+            <span class="info-content fr" id="t_h">00时</span>
             <span class="info-content fr" id="t_d">00天</span>
         </div>
         <div class="line clearfix">
@@ -134,7 +134,8 @@
     }
 
     function GetRTime(){
-
+        var t;
+        var startDate = new Date('<?php echo $startTime.':00:00'; ?>'.replace(/-/g, "/"));
         var orderDate = new Date('<?php echo $endTime.':00:00'; ?>'.replace(/-/g, "/")); //字符串转成时间戳
         var oDate = new Date();
         var y = oDate.getFullYear();
@@ -154,6 +155,7 @@
         }else {
             t = orderDate.getTime() - startDate.getTime();
         }
+        console.log(t);
         var d = Math.floor(t / 1000 / 60 / 60 / 24);
         var h = Math.floor(t / 1000 / 60 / 60 % 24);
         var m = Math.floor(t / 1000 / 60 % 60);
@@ -165,7 +167,7 @@
         document.getElementById("t_s").innerHTML = s + "秒";
 
 //        如果预定时间跟当前时间一直清除定时器
-        if (NowTime == orderDate) {
+        if(NowTime==orderDate){
             clearInterval(timer);
             document.getElementById("t_d").innerHTML = 0 + "天";
             document.getElementById("t_h").innerHTML = 0 + "时";
@@ -178,7 +180,7 @@
             });
         }
     }
-    timer = setInterval(GetRTime, 1000);
+    timer=setInterval(GetRTime,1000);
 
 
 </script>
