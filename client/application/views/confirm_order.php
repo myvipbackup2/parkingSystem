@@ -94,8 +94,8 @@
         <div class="line clearfix">
             <span class="info-title fl">剩余停车时间</span>
             <span class="info-content fr" id="t_s">00秒</span>
-            <span class="info-content fr" id="t_m">00分</span>
             <span class="info-content fr" id="t_h">00时</span>
+            <span class="info-content fr" id="t_m">00分</span>
             <span class="info-content fr" id="t_d">00天</span>
         </div>
         <div class="line clearfix">
@@ -143,21 +143,29 @@
         var x = oDate.getHours();
         var minute = oDate.getMinutes();
         var second = oDate.getSeconds();
-        var e = y + '-' + formatTen(M) + '-' + formatTen(p) + ' ' + formatTen(x) + ':' +formatTen(minute) + ':' + formatTen(second);
-        var NowTime  = (e.replace(/-/g, "/"));
+        var e = y + '-' + formatTen(M) + '-' + formatTen(p) + ' ' + formatTen(x) + ':' + formatTen(minute) + ':' + formatTen(second);
+        var NowTime = (e.replace(/-/g, "/"));
         NowTime = new Date(NowTime);
-        var t =orderDate.getTime() - NowTime.getTime();
-        var d=Math.floor(t/1000/60/60/24);
-        var h=Math.floor(t/1000/60/60%24);
-        var m=Math.floor(t/1000/60%60);
-        var s=Math.floor(t/1000%60);
+//        console.log(orderDate.getTime(),NowTime.getTime());
+//        var t = orderDate.getTime() - NowTime.getTime();
+        //判断当前时间是否属于停车时间
+        if(startDate.getTime() <= NowTime.getTime()){
+            t =  orderDate.getTime() - NowTime.getTime();
+        }else {
+            t = orderDate.getTime() - startDate.getTime();
+        }
+        var d = Math.floor(t / 1000 / 60 / 60 / 24);
+        var h = Math.floor(t / 1000 / 60 / 60 % 24);
+        var m = Math.floor(t / 1000 / 60 % 60);
+        var s = Math.floor(t / 1000 % 60);
+
         document.getElementById("t_d").innerHTML = d + "天";
         document.getElementById("t_h").innerHTML = h + "时";
         document.getElementById("t_m").innerHTML = m + "分";
         document.getElementById("t_s").innerHTML = s + "秒";
 
 //        如果预定时间跟当前时间一直清除定时器
-        if(NowTime==orderDate){
+        if (NowTime == orderDate) {
             clearInterval(timer);
             document.getElementById("t_d").innerHTML = 0 + "天";
             document.getElementById("t_h").innerHTML = 0 + "时";
@@ -170,7 +178,7 @@
             });
         }
     }
-    timer=setInterval(GetRTime,1000);
+    timer = setInterval(GetRTime, 1000);
 
 
 </script>
