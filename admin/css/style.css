@@ -2356,7 +2356,7 @@ ul.user-states li {
 }
 
 .iconic-input {
-    position: relative;
+    position: absolute;
 }
 
 .iconic-input i {
@@ -2367,7 +2367,8 @@ ul.user-states li {
     margin: 8px 5px 8px 10px;
     position: absolute;
     text-align: center;
-    width: 16px;
+    /*float:right;*/
+    width: 100px;
 }
 
 .iconic-input input {

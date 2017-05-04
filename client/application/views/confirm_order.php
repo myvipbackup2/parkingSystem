@@ -94,8 +94,8 @@
         <div class="line clearfix">
             <span class="info-title fl">剩余停车时间</span>
             <span class="info-content fr" id="t_s">00秒</span>
-            <span class="info-content fr" id="t_h">00时</span>
             <span class="info-content fr" id="t_m">00分</span>
+            <span class="info-content fr" id="t_h">00时</span>
             <span class="info-content fr" id="t_d">00天</span>
         </div>
         <div class="line clearfix">
@@ -143,14 +143,24 @@
         var x = oDate.getHours();
         var minute = oDate.getMinutes();
         var second = oDate.getSeconds();
+        console.log(y,M,p,x,minute,second);
         var e = y + '-' + formatTen(M) + '-' + formatTen(p) + ' ' + formatTen(x) + ':' +formatTen(minute) + ':' + formatTen(second);
         var NowTime  = (e.replace(/-/g, "/"));
         NowTime = new Date(NowTime);
         var t =orderDate.getTime() - NowTime.getTime();
-        var d=Math.floor(t/1000/60/60/24);
-        var h=Math.floor(t/1000/60/60%24);
-        var m=Math.floor(t/1000/60%60);
-        var s=Math.floor(t/1000%60);
+        console.log(orderDate.getTime(),NowTime.getTime());
+//        var d=Math.floor(t/1000/60/60/24);
+//        var h=Math.floor(t/1000/60/60%24);
+//        var m=Math.floor(t/1000/60%60);
+//        var s=Math.floor(t/1000%60);
+
+        var leftsecond = parseInt(t/1000);
+        var d=Math.floor(leftsecond/(60*60*24));
+        var h=Math.floor((leftsecond-d*24*60*60)/3600);
+        var m=Math.floor((leftsecond-d*24*60*60-h*3600)/60);
+        var s=Math.floor(leftsecond-d*24*60*60-h*3600-m*60);
+        console.log(d,h,m,s);
+
 
         document.getElementById("t_d").innerHTML = d + "天";
         document.getElementById("t_h").innerHTML = h + "时";
