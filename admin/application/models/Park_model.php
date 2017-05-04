@@ -35,11 +35,11 @@ class Park_model extends CI_Model
     }
 
     /**
-     * 根据用户id获取房源基本信息，根据后面的$inc_xxx参数来判定是需同时包含关联的其它数据。
+     * 根据用户id获取车位基本信息，根据后面的$inc_xxx参数来判定是需同时包含关联的其它数据。
      *
-     * @param   boolean $inc_orders 是否在房源信息中包含关联的订单信息，默认值FALSE(不包含)
-     * @param   boolean $inc_messages 是否在房源信息中包含关联的评论信息，默认值FALSE(不包含)
-     * @return  object 房源信息
+     * @param   boolean $inc_orders 是否在车位信息中包含关联的订单信息，默认值FALSE(不包含)
+     * @param   boolean $inc_messages 是否在车位信息中包含关联的评论信息，默认值FALSE(不包含)
+     * @return  object 车位信息
      */
     public function get_park_by_id($park_id, $options = array('inc_orders' => FALSE, 'inc_comments' => FALSE))
     {
@@ -162,7 +162,7 @@ class Park_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-//订单管理 房源选择
+//订单管理 车位选择
     public function order_search_park($street)
     {
         return $this->db->query("select * from t_park where street like '%$street%' or region like '%$street%'")->result();

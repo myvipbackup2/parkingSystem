@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome_model extends CI_Model {
-    //获取小区分类和和每个小区的房源数量
+    //获取小区分类和和每个小区的车位数量
     public function get_plot(){
         $sql="select count(*)as num ,t_park.plot_id,t_plot.plot_name from t_park,t_plot  where t_park.plot_id=t_plot.plot_id GROUP BY  plot_id";
         $query=$this->db->query($sql);

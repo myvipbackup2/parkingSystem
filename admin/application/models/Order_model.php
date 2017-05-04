@@ -19,13 +19,13 @@ class Order_model extends CI_Model
         $this->db->select('*');
         $this->db->from('t_order');
         $this->db->where('is_delete', 0);
-        $this->db->where('status',"入住中");
+        $this->db->where('status',"停车中");
         return $this->db->count_all_results();
     }
 
     public function get_filterd_checkin_count($search)
     {
-        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
+        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '停车中'";
 
         if (strlen($search) > 0) {
             $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "%')";
@@ -35,7 +35,7 @@ class Order_model extends CI_Model
 
     public function get_checkin_order($limit, $offset, $search, $order_col, $order_col_dir)
     {
-        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '入住中'";
+        $sql = "SELECT t_order.*,t_park.title FROM t_park join t_order on t_park.park_id = t_order.park_id WHERE t_order.is_delete=0 and t_order.status = '停车中'";
 
         if (strlen($search) > 0) {
             $sql .= " and (t_order.start_time LIKE '%" . $search . "%' or t_order.end_time LIKE '%" . $search . "%' or t_order.order_type LIKE '%" . $search . "%' or t_park.title LIKE '%" . $search . "%')";
@@ -153,27 +153,27 @@ class Order_model extends CI_Model
         $this->db->update('t_order', array('is_delete' => 0));
         return $this->db->affected_rows();
     }
-    //入住操作start
+    //停车操作start
         //获取负责人姓名
     public function enter_manage($lev)
     {
         $sql = "select admin.* from t_admin admin where admin.level = ?";
         return $this->db->query($sql,array($lev))->result();
     }
-        //添加入住信息
+        //添加停车信息
     public function add_checkin($arr)
     {
         $this->db->insert_batch('t_checkin',$arr);
         return $this->db->affected_rows();
     }
-    //办理入住，更改order表信息
+    //办理停车，更改order表信息
     public function manage_enter($id,$pledge,$enter_mask,$pay)
     {
         $this->db->where('order_id', $id);
-        $this->db->update('t_order', array("cash_pledge"=>$pledge,"checkin_memo"=>$enter_mask,"return_way"=>$pay,"status"=>"入住中"));
+        $this->db->update('t_order', array("cash_pledge"=>$pledge,"checkin_memo"=>$enter_mask,"return_way"=>$pay,"status"=>"停车中"));
         return $this->db->affected_rows();
     }
-    //入住操作end
+    //停车操作end
     //添加订单
     public function add_order($order_no, $price,$status,$park_id,$user_id,$dpd1,$dpd2,$pay){
         $arr = array(
@@ -229,7 +229,7 @@ class Order_model extends CI_Model
             'invoice_no'=> $order->invoice_no,
             'invoice_address'=>$order->invoice_address,
             'invoice_person_tel'=>$order->tel,
-            'status'=>"入住中",
+            'status'=>"停车中",
             'price'=>$order->price,
             'order_type'=>$order->order_type
         );
@@ -245,13 +245,13 @@ class Order_model extends CI_Model
     public function checkin_detail($orderId){
         //获取订单信息
         $order = $this->db->get_where("t_order",array('order_id'=>$orderId))->row();
-        //获取房屋负责人
+        //获取车位负责人
         $this->db->select('t_admin.real_name,t_admin.tel');
         $this->db->from('t_admin');
         $this->db->join('t_park','t_park.manager_id=t_admin.admin_id');
         $this->db->where('t_park.park_id', $order->park_id);
         $order->manager = $this->db->get()->row();
-        //获取入住人信息
+        //获取停车人信息
 
         $sql = "select * from t_checkin where checkin_time = (select checkin_time from t_checkin where order_id=$orderId order by checkin_time desc limit 0,1)";
         $order->checkins = $this->db->query($sql)->result();

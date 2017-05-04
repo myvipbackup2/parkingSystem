@@ -85,7 +85,7 @@ class Park extends CI_Controller
         if ($park) {
             echo json_encode($park);
         } else {
-            echo json_encode(array('err' => '未找到指定房源信息!'));
+            echo json_encode(array('err' => '未找到指定车位信息!'));
         }
     }
 
@@ -112,7 +112,7 @@ class Park extends CI_Controller
         $manager = htmlspecialchars($this->input->post('manager'));
         $area = htmlspecialchars($this->input->post('area'));
 
-        //中间需要处理房间设备的表
+        //中间需要处理车库设备的表
         $facilitys = $this->input->post('facility');
         $upload_imgs = $this->input->post('upload_img');
 
@@ -141,7 +141,7 @@ class Park extends CI_Controller
         ));
 
         if($id){
-            //中间需要处理房间设备的表
+            //中间需要处理车库设备的表
             $facilityArr = [];
             if(isset($facilitys)){
                 foreach ($facilitys as $facility){
@@ -162,7 +162,7 @@ class Park extends CI_Controller
             }
             redirect('park');
         }else{
-            echo "添加房源失败";
+            echo "添加车库失败";
         }
 
     }
@@ -410,7 +410,7 @@ class Park extends CI_Controller
         if ($comments) {
             echo json_encode($comments);
         } else {
-            echo json_encode(array('err' => '未找到该房源的评论信息!'));
+            echo json_encode(array('err' => '未找到该车位的评论信息!'));
         }
     }
 
@@ -445,7 +445,7 @@ class Park extends CI_Controller
         $arr['unorder'] = $unorder;
         echo json_encode($arr);
     }
-    //订单管理 房源选择
+    //订单管理 车库选择
     public function order_search_park()
     {
         $street = $this->input->get("street");
@@ -579,7 +579,7 @@ class Park extends CI_Controller
 
     public function del_all(){
         $namearr=$this->input->get('name');
-        admin_log('管理员删除房源');
+        admin_log('管理员删除车库');
         $result=$this->park_model->del_all_name($namearr);
         if($result){
             echo "success";

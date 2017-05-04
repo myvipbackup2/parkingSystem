@@ -135,7 +135,7 @@ class Order extends CI_Controller {
             echo 'fail';
         }
     }
-    //入住操作start
+    //停车操作start
     //查询所有的负责人
     public function enter_manage()
     {
@@ -145,7 +145,7 @@ class Order extends CI_Controller {
             echo json_encode(array('data' => $manage));
         }
     }
-    //添加入住信息
+    //添加停车信息
     public function add_checkin()
     {
         $orderId = $this -> input -> post("order_id");
@@ -170,7 +170,7 @@ class Order extends CI_Controller {
             echo "fail";
         }
     }
-    //办理入住，更改order表信息
+    //办理停车，更改order表信息
     public function manage_enter()
     {
         $id = $this->input->get("id");
@@ -184,7 +184,7 @@ class Order extends CI_Controller {
             echo "fail";
         }
     }
-    //入住操作end
+    //停车操作end
     // 添加订单
     public function add_order(){
         $park_id = $this->input->get('park_id');

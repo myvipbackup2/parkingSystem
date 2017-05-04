@@ -155,7 +155,7 @@
     </div>
     <!-- main content end-->
 </section>
-<!--添加房源中添加设备模板-->
+<!--添加车库中添加设备模板-->
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -582,7 +582,7 @@
 
         });
 
-        //房源列表
+        //车库列表
         var table = $('#example').DataTable({
             "processing": true,
             "serverSide": true,
@@ -891,7 +891,7 @@
                         $('.park-edit-box').hide();
                     });
 
-                    //添加房源图片上传
+                    //添加车库图片上传
                     var uploader = new plupload.Uploader({ //创建实例的构造方法
                         runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
                         browse_button: 'edit_park_img_btn', // 上传按钮
@@ -1087,7 +1087,7 @@
                     cityInit('hometown', 'city', 'position', $('input[name=hometown_hidden]').val(), $('input[name=city_hidden]').val(), $('input[name=position_hidden]').val());
 
 
-                    //添加房源图片上传
+                    //添加车库图片上传
                     var uploader = new plupload.Uploader({ //创建实例的构造方法
                         runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
                         browse_button: 'edit_park_img_btn', // 上传按钮
@@ -1165,7 +1165,7 @@
                 text: 'xxxxxxxxxxxx!'
             });
         });
-        /*****推荐房源*****/
+        /*****推荐车库*****/
         $('.btn-recommend').on('click', function () {
             var rec_some = [];
             $('body').append('<div class="modal-backdrop fade in"></div>');
@@ -1304,7 +1304,7 @@
         });
         //图片上传代码结束
 
-        /*添加房源->添加设备*/
+        /*添加车库->添加设备*/
         $('#fac-submit').on('click', function (e) {
             e.preventDefault();
             $name = $('#facility-name').val();
@@ -1333,7 +1333,7 @@
                 }
             }, 'text');
         });
-        /* 添加房源->添加小区*/
+        /* 添加车库->添加小区*/
         $.get('plot/get_developer', {}, function (data) {
             var deve = '';
             var developerArr = JSON.parse(data).data;

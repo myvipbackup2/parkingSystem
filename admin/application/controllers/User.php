@@ -109,7 +109,7 @@ class User extends CI_Controller
             admin_log("用户添加");
         }
         $username = htmlspecialchars($this->input->post("uname"));
-        $password = htmlspecialchars($this->input->post("password"));
+        $password =md5(htmlspecialchars($this->input->post("password")));
         $relname = htmlspecialchars($this->input->post("relname"));
         $sex = $this->input->post("sex");
         $birthday = $this->input->post("birthday");
