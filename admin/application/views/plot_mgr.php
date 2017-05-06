@@ -29,28 +29,6 @@
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet">
-    <!-- /*<style>
-        .adv-table.editable-plot{
-            width:30%;
-            float:left;
-        }
-        .adv-table.search-plot{
-            width:60%;
-            float:right;
-        }
-        .pagelist{
-            width:40%;
-            float:right;
-        }
-        /*.page-ul-list{
-            width:300px;
-            list-style: none;
-            float:left;
-        }*/
-        /*.page-ul-list li{
-            float: left;
-        }*/
-    </style>*/ -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

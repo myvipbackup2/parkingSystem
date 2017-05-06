@@ -191,44 +191,6 @@
             "order": [[0, 'desc']]
         });
 
-        //全选or反选
-        /*$("#check-all").on("change",function(){
-         if($(this).prop("checked")==true){
-         $(".delete-admin").prop("checked",true);
-         }else{
-         $(".delete-admin").prop("checked",false);
-         }
-         });*/
-
-        //批量删除
-        /*$("#btn-del").on("click",function(){
-         if(confirm('是否删除该记录，删除后不可回复!')) {
-         var str = "";
-         $("tbody :checked").each(function () {
-         str += this.value + ",";
-         });
-         str = str.slice(0, -1);
-         console.log(str);
-         $.get("manage/delete_more_admin", {admin: str}, function (data) {
-         if (data == "success") {
-         table.ajax.reload(null, true);//重新加载数据
-         $.gritter.add({
-         title: '信息提示!',
-         text: '删除成功!'
-         });
-         } else {
-         $.gritter.add({
-         title: '信息提示!',
-         text: '删除失败，请刷新后重试!'
-         });
-         }
-         }, "text");
-         }else{
-         $("tbody :checked").prop("checked",false);
-         }
-         return false;
-         });*/
-
         //单个删除
         $('#example tbody').on('click', '.btn-del', function () {
             if (confirm('是否删除该记录，删除后不可回复!')) {

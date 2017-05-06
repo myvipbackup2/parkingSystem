@@ -14,41 +14,6 @@ class Wxpay extends CI_Controller {
 	        echo "<font color='#00ff55;'>$key</font> : $value <br/>";
 	    }
 	}
-//	function do_pay(){
-//		ini_set('date.timezone','Asia/Shanghai');
-//		$order_no = $this->input->get('orderNo');
-//		$yueju_order = $this->order_model->select_order($order_no);
-//
-//		$this->load->library('wxpay/WxPayApi');
-//		$this->load->library('wxpay/JsApiPay');
-//		$this->load->library('wxpay/WxPayNotify');
-//
-//		//①、获取用户openid
-//		$tools = new JsApiPay();
-//		$openId = $tools->GetOpenid();
-//
-//		// echo $fee.":".$attach;die();
-//		//②、统一下单
-//		$input = new WxPayUnifiedOrder();
-//		$input->SetBody('预订车位');
-//		$input->SetAttach('预订车位');
-//		$input->SetOut_trade_no($order_no);
-//		$input->SetTotal_fee(0.01*100);//$order->price
-//		$input->SetTime_start(date("YmdHis"));
-//		$input->SetTime_expire(date("YmdHis", time() + 600000));
-//		$input->SetGoods_tag("随心停");
-//		$input->SetNotify_url("http://www.hrbyueju.com/yuejum/wxpay/yueju_notify");
-//		$input->SetTrade_type("JSAPI");
-//		$input->SetOpenid($openId);
-//		$order = WxPayApi::unifiedOrder($input);
-//		$jsApiParameters = $tools->GetJsApiParameters($order);
-//		$arr = array(
-//		    'jsApiParameters' => $jsApiParameters,
-//		    'fee' => $yueju_order->price,
-//			'orderno'=>$order_no
-//		);
-//		$this->load->view('wxpay',$arr);
-//	}
 
     function do_pay(){
         ini_set('date.timezone','Asia/Shanghai');
@@ -106,7 +71,6 @@ class Wxpay extends CI_Controller {
 	private function send_success_msg($orderno){
 		$order = $this->order_model->select_order($orderno);
 		$park = $this->order_model->get_manage($order->park_id);
-		//SMS_61350034  您于${time}在悦居网预订${address}住房，入住时间为${starttime}，联系电话：${tel},祝您生活愉快！
 		date_default_timezone_set('Asia/Shanghai');
 		require_once(APPPATH."libraries/alidayu/TopSdk.php");
 		$c = new TopClient;

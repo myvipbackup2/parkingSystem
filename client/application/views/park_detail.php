@@ -51,11 +51,6 @@
                 <?php echo $park->plot_name ?>停车场
             </h3>
             <ul>
-                <!--                <li class="s-hx">-->
-                <!--                    --><?php //echo $park->bedroom ?><!--m宽--><?php //echo $park->livingroom ?>
-                <!--                    m长--><?php //echo $park->lavatory ?><!--个车锁-->
-                <!--                </li>-->
-
                 <li class="s-mj"><?php echo $park->area ?>㎡</li>
             </ul>
         </div>
@@ -474,7 +469,7 @@
                 }
             },
             checkDate: function () {  //检测车位是否可定
-                if(clickCount){
+                if (clickCount) {
                     this.errTitle = '正在预订中';
                     this.errMsg = '';
                     this.showMsg();
@@ -514,12 +509,12 @@
                         _this.showMsg();
                         console.log(error);
                     });
-                }else {
+                } else {
                     this.errTitle = '请选择车位';
                     this.errMsg = '';
                     this.showMsg();
                 }
-                }
+            }
 
         },
         mounted: function () {  //页面加载完成获取评分

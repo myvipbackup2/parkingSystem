@@ -16,22 +16,25 @@ class Order extends CI_Controller
         $this->load->model('park_model');
     }
 
+    //查询车位设施
     public function get_fee_facilities()
     {
         $facilities = $this->order_model->get_fee_facilities();
         echo json_encode($facilities);
     }
 
+    //停车订单
     public function park_order()
     {
         $park_id = $this->input->post('parkId');
         $start_time = $this->input->post('startDate');
         $end_time = $this->input->post('endDate');
         $park = $this->park_model->get_park_by_id($park_id);
-        $hour = floor((strtotime($end_time.':00:00') - strtotime($start_time.':00:00')) / 3600);
+        $hour = floor((strtotime($end_time . ':00:00') - strtotime($start_time . ':00:00')) / 3600);
         $this->load->view('submitorder', array('park' => $park, 'title' => $park->title, 'price' => $park->price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $hour));
     }
 
+    //确认订单
     public function confirm_order()
     {
         $park_id = $this->input->post('parkId');
@@ -40,7 +43,7 @@ class Order extends CI_Controller
         $parkInfo = $park->title;
         $startTime = $this->input->post('startDate');
         $endTime = $this->input->post('endDate');
-        $days = floor((strtotime($endTime.':00:00') - strtotime($startTime.':00:00'))  / 3600);
+        $days = floor((strtotime($endTime . ':00:00') - strtotime($startTime . ':00:00')) / 3600);
         $realName = $this->input->post('name');
         $phone = $this->input->post('tel');
         $amount = $days * $price;//拿park_id 取price  day* price
@@ -73,6 +76,7 @@ class Order extends CI_Controller
 
     }
 
+    //订单提交页面
     public function combo_order()
     {
         $combo_id = $this->input->get('comboId');
@@ -83,6 +87,7 @@ class Order extends CI_Controller
         $this->load->view('submitorder', array('park' => $result, 'title' => $result->com_title, 'price' => $result->com_price, 'startTime' => $start_time, 'endTime' => $end_time, 'days' => $days));
     }
 
+    //添加评论
     public function add_comment()
     {
         $user_id = $this->session->userdata('userinfo')->user_id;
@@ -103,6 +108,7 @@ class Order extends CI_Controller
         }
     }
 
+    //订单详情
     public function order_detail()
     {
         $orderId = $this->input->get('orderId');
@@ -115,6 +121,7 @@ class Order extends CI_Controller
 
     }
 
+    //退单
     public function apply_refund()
     {
         $order_no = $this->input->get('order_no');
