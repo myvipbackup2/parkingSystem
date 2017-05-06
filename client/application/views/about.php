@@ -28,16 +28,16 @@
     </mt-header>
     <div style="height: 150px;">
         <mt-swipe :show-indicators="true" :auto="2500">
-            <mt-swipe-item><imgWE6 src="http://img.redocn.com/sheying/20140915/xiaoqutingchechang_3073719.jpg" alt="">
+            <mt-swipe-item><img src="images/about/1.jpg" alt="">
             </mt-swipe-item>
-            <mt-swipe-item><img src="http://img.redocn.com/sheying/20160910/dixiatingchechang_7085119.jpg" alt="">
+            <mt-swipe-item><img src="images/about/2.jpg" alt="">
             </mt-swipe-item>
-            <mt-swipe-item><img src="http://img.redocn.com/sheying/20140903/jiudiantingchechang_2992187.jpg" alt="">
+            <mt-swipe-item><img src="images/about/3.jpg" alt="">
             </mt-swipe-item>
         </mt-swipe>
     </div>
     <article>
-        <div class="photo"><img src="http://img.redocn.com/sheying/20150309/xiaoqudixiatingchechangrukou_3983887.jpg"></div>
+        <div class="photo"><img src="images/about/4.jpg"></div>
         <div class="text">
             <h2>周边车位 一目了然</h2>
             <p>
@@ -49,7 +49,7 @@
     </article>
 
     <article>
-        <div class="photo"><img src="http://img.redocn.com/sheying/20161010/xiuxianjiudian_7239379.jpg"></div>
+        <div class="photo"><img src="images/about/5.jpg"></div>
         <div class="text">
             <h2>OK 就停不一样的</h2>
         </div>
@@ -58,7 +58,7 @@
     <article class="list">
         <h2 class="title"><span>随心停车  生活的艺术</span></h2>
         <div class="box">
-            <div class="img"><img src="https://staticfile.tujia.com/mobile/images/h5/promotion/yhjy/tujia1.jpg" alt="">
+            <div class="img"><img src="images/about/3.jpg" alt="">
             </div>
             <div class="txt">
                 <ol>
@@ -68,7 +68,7 @@
                     <li>您可以别样生活，小区原来温暖如家</li>
                 </ol>
                 <div class="comment">
-                    <img src="https://staticfile.tujia.com/mobile/images/h5/promotion/yhjy/user1.png">
+                    <img src="images/about/2.jpg">
                     <div class="">
                         <p><span>刘女士</span>2015-05-04</p>
                         <q>停车方便便宜，减少了许多不必要的麻烦，节省了很多时间。服务人员很热心，让我有家人的感觉，鼎力推荐给大家！</q>
@@ -127,7 +127,7 @@
     <article class="list">
         <h2 class="title"><span>平均花费便宜50%</span></h2>
         <div class="box">
-            <div class="img"><img src="https://staticfile.tujia.com/mobile/images/h5/promotion/yhjy/tujia4.jpg" alt="">
+            <div class="img"><img src="images/about/6.jpg" alt="">
             </div>
             <div class="txt">
                 <ol>
@@ -151,8 +151,8 @@
         <div class="info">
             <div class="logo"><img src="images/logo.png" alt="随心停-logo"></div>
             <div class="name">随心停在线信息技术(哈尔滨)有限公司</div>
-            <div class="hotphone">客服热线： <a href="tel:18904687570">18904687570</a></div>
-            <div class="link">联系我们：18904687570</div>
+            <div class="hotphone">客服热线： <a href="tel:20134200">20134200</a></div>
+            <div class="link">联系我们：20134200</div>
         </div>
     </footer>
 

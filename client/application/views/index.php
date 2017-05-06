@@ -44,18 +44,14 @@
                 <i class="iconfont icon-collect"></i><a href="welcome/collection_manage" data-stat-label="收藏">收藏</a>
             </li>
             <li class="menu-msg">
-                <i class="iconfont icon-message"></i><a href="Welcome/message" data-stat-label="消息">关于</a>
+                <i class="iconfont icon-message"></i><a href="Welcome/about" data-stat-label="关于设计">关于设计</a>
                 <span class="msg">&nbsp;</span>
             </li>
         </ul>
     </div>
 </div>
 <div class="container">
-    <!--    <div id="nav">-->
-    <!--        <a href="#">-->
-    <!--            <img src="images/index-banner.jpg" alt=""/>-->
-    <!--        </a>-->
-    <!--    </div>-->
+
     <div id="allmap" style="height: 230px;"></div>
     <div class="search">
         <div class="fl search-box">

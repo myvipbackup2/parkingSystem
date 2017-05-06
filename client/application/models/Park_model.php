@@ -231,17 +231,6 @@ class Park_model extends CI_Model
         return $this->db->query($sql)->result();
     }
 
-    /*public function get_recommend_parks($limit)
-    {
-        $this->db->select('t_recommend.*,t_park.*');
-        $this->db->from('t_recommend');
-        $this->db->join('t_park', 't_park.park_id=t_recommend.park_id');
-        $this->db->where('rec_status', '未结束');
-        $this->db->order_by('rec_id', 'DESC');
-        $this->db->limit($limit);
-        return $this->db->get()->result();
-    }*/
-
     public function get_recommend_detail_img($id)
     {
         $this->db->select('*');
@@ -251,7 +240,7 @@ class Park_model extends CI_Model
         return $this->db->get()->row();
     }
 
-    //车位入住日期,退房日期
+    //停车日期,离开日期
     public function get_by_park_time($park_id)
     {
         $data = date("Y-m-d");

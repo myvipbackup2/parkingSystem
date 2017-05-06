@@ -29,11 +29,9 @@ class User_model extends CI_Model
         ))->row();
     }
 
-//wangyue
+
     public function get_message_by_userId($user_id)
     {
-//        $sql="select * from t-message where user_id=?";
-//        return $this->db->query($sql)->result();
         return $this->db->get_where("t_message", array(
             "receiver" => $user_id
         ))->result();
