@@ -511,7 +511,7 @@
                     });
                 } else {
                     this.errTitle = '请选择车位';
-                    this.errMsg = '';
+                    this.errMsg = '预订失败!';
                     this.showMsg();
                 }
             }
