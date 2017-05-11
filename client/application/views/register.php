@@ -76,7 +76,7 @@
                 <h4>手机验证码:</h4>
                 <div class="register-box clearfix">
                     <input class="register-input register-phone-code-num fl" type="text" placeholder="请输入手机验证码..." v-model="telCaptcha">
-                    <input class="register-btn register-phone-code-btn fr" type="button" v-model="phoneMsg" @click="sendCode">
+                    <input class="register-btn register-phone-code-btn fr" type="button" v-model="phoneMsg">
                 </div>
             </div>
             <div class="register register-code">
@@ -201,40 +201,6 @@
             hideAlert:function(){
                 this.isAlert = false;
             },
-            sendCode:function(){
-                if(this.flag){
-                    if(this.telephone == '' || !(/^1[34578]\d{9}$/.test(this.telephone))){
-                        this.isAlert = true;
-                        this.data = "请输入有效电话号";
-                    }else{
-                        var time = 60;
-                        var _this = this;
-                        //发送验证码
-                        axios.get('welcome/send_phone_code', {
-                            params: {
-                                phone:_this.telephone,
-                                tempId:'SMS_60795165'
-                            }
-                        }).then(function (res) {
-                            var result = res.data;
-                            if(result == 'success'){
-                                _this.flag = false;
-                                _this.backColor = '#ccc';
-                            }
-                        });
-                        var timer = setInterval(function(){
-                            time--;
-                            _this.phoneMsg = "重发("+ time +")";
-                            if(time == 0){
-                                clearInterval(timer);
-                                _this.flag = true;
-                                _this.phoneMsg = "获取验证码";
-                                _this.backColor = '';
-                            }
-                        },1000);
-                    }
-                }
-            }
         }
     });
     /*点击验证码图片  换一张*/
