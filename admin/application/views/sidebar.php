@@ -45,20 +45,20 @@
             <li class="menu-list"><a href="javascript:;"><i class="fa fa-envelope"></i> <span>订单管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="order"> 订单管理</a></li>
-                    <li><a href="order/checkin"> 停车管理</a></li>
+<!--                    <li><a href="order/checkin"> 停车管理</a></li>-->
                 </ul>
             </li>
             <li class="menu-list"><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>设备管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="facility"> 设备管理</a></li>
-                    <li><a href="service"> 维修记录</a></li>
+<!--                    <li><a href="service"> 维修记录</a></li>-->
                 </ul>
             </li>
 
             <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>发票管理</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="invoice">发票管理</a></li>
-                    <li><a href="invoice/invoice_get">发票索取</a></li>
+<!--                    <li><a href="invoice/invoice_get">发票索取</a></li>-->
                 </ul>
             </li>
             <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>数据报表</span></a>
@@ -75,7 +75,7 @@
             </li>
             <li class="menu-list"><a href="#"><i class="fa fa-comments"></i> <span>留言管理</span></a>
                 <ul class="sub-menu-list">
-                    <li><a href="message"> 留言管理</a></li>
+                    <li><a href="message">用户留言管理</a></li>
                 </ul>
             </li>
 

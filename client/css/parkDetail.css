@@ -384,7 +384,7 @@ body {
     border: 1px solid #888;
 }
 
-/*入住退房*/
+/*停车*/
 .mod-park.DatePicker {
     background-color: #fff;
     border-top: 1px solid #ccc;
@@ -683,7 +683,7 @@ body {
     margin-bottom: 12px;
 }
 
-/*房源信息*/
+/*停车场信息*/
 .mod-park-info {
     background: #fff;
     border-top: 1px solid transparent;
@@ -723,7 +723,7 @@ body {
     border-radius: 10px;
 }
 
-/*房屋设施*/
+/*停车位设施*/
 .mod-facality {
     padding-bottom: 20px;
 }

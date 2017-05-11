@@ -174,7 +174,7 @@
     <!--地图-->
     <div class="title"><?php echo $park->title ?></div>
     <div id="bMap"></div>
-    <!--房源信息-->
+    <!--车位信息-->
     <section class="sec-content mod-park-info">
         <h3>车位信息</h3>
         <div class="info" v-html="parkDetail"></div>
@@ -182,7 +182,7 @@
             <span @click="show">详情</span>
         </div>
     </section>
-    <!--房屋设施-->
+    <!--车位设施与服务-->
     <section class="mod-facality">
         <h3>车位设施与服务</h3>
         <div class="service-icons">
@@ -550,7 +550,7 @@
     // 创建地址解析器实例
     var myGeo = new BMap.Geocoder();
     // 将地址解析结果显示在地图上,并调整地图视野
-    myGeo.getPoint("<?php echo $park->title ?>", function (point) { //这里输入房源地址，百度地图自动定位坐标
+    myGeo.getPoint("<?php echo $park->title ?>", function (point) { //这里输入车位地址，百度地图自动定位坐标
         if (point) {
             map.centerAndZoom(point, 20);
             map.addOverlay(new BMap.Marker(point));

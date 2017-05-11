@@ -214,7 +214,7 @@ class Order extends CI_Controller {
             echo json_encode(array('err' => '未找到指定信息!'));
         }
     }
-    //退房
+    //停车结束
     public function order_end_info(){
         $orderId = $this -> input -> get('orderId');
         $name = $this -> input -> get('name');

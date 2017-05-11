@@ -93,9 +93,6 @@
                                 <li order-status="3">
                                     <a href="#completed" data-toggle="tab">已完成</a>
                                 </li>
-                                <li order-status="4">
-                                    <a href="#cancelled" data-toggle="tab">用户取消</a>
-                                </li>
                                 <li order-status="5">
                                     <a href="#recycle" data-toggle="tab" class="recycle">未支付</a>
                                 </li>
@@ -1338,7 +1335,7 @@
                             }
                         }, "text");
                     });
-                    //选择房源
+                    //选择停车位
                     $(".btn-search-park").on("click", function () {
                         $(".park-table tr").remove();
                         var street = $(".park-street").val();

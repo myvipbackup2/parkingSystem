@@ -92,14 +92,14 @@ DROP TABLE IF EXISTS `t_collect`;
 CREATE TABLE `t_collect` (
   `collect_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL COMMENT '用户id',
-  `park_id` int(11) DEFAULT NULL COMMENT '房源id',
+  `park_id` int(11) DEFAULT NULL COMMENT '停车位id',
   `collect_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`collect_id`),
   KEY `user_id` (`user_id`),
   KEY `house_id` (`park_id`),
   CONSTRAINT `house_collect_fk` FOREIGN KEY (`park_id`) REFERENCES `t_park` (`park_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `user_collect_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='收藏房源记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='收藏车位记录表';
 
 -- ----------------------------
 -- Records of t_collect
@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS `t_combo`;
 CREATE TABLE `t_combo` (
   `combo_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL COMMENT '套餐名称',
-  `park_id` int(11) DEFAULT NULL COMMENT '房源id',
+  `park_id` int(11) DEFAULT NULL COMMENT '车位id',
   `start_time` date DEFAULT NULL COMMENT '套餐开始时间',
   `end_time` date DEFAULT NULL COMMENT '套餐结束时间',
   `price` float(6,0) DEFAULT NULL COMMENT '价格',
@@ -130,7 +130,7 @@ CREATE TABLE `t_combo` (
   `combo_type_id` int(11) DEFAULT NULL COMMENT '套餐类型id',
   `link` varchar(255) DEFAULT NULL COMMENT '链接',
   PRIMARY KEY (`combo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='房源套餐信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='车位套餐信息表';
 
 -- ----------------------------
 -- Records of t_combo
@@ -151,7 +151,7 @@ CREATE TABLE `t_combo_type` (
   `type_name` varchar(255) DEFAULT NULL COMMENT '套餐类型名称',
   `description` varchar(255) DEFAULT NULL COMMENT '套餐说明',
   PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='房源套餐类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='车位套餐类型表';
 
 -- ----------------------------
 -- Records of t_combo_type
@@ -174,14 +174,14 @@ CREATE TABLE `t_comment` (
   `manage_score` varchar(255) DEFAULT NULL,
   `facility_score` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL COMMENT '用户id',
-  `park_id` int(11) DEFAULT NULL COMMENT '房源id',
+  `park_id` int(11) DEFAULT NULL COMMENT '车位id',
   `order_id` int(11) DEFAULT NULL COMMENT '订单',
   PRIMARY KEY (`comm_id`),
   KEY `user_id` (`user_id`),
   KEY `house_id` (`park_id`),
   CONSTRAINT `house_comment_fk` FOREIGN KEY (`park_id`) REFERENCES `t_park` (`park_id`),
   CONSTRAINT `user_comment_fk` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='房源评论信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='车位评论信息表';
 
 -- ----------------------------
 -- Records of t_comment
