@@ -7,8 +7,6 @@
         }
 
         public function facility_upload(){
-            //echo 123;
-            //echo "<script>alert('123')</script>";
             
             $typeArr = array("jpg", "png", "ico");
             //允许上传文件格式

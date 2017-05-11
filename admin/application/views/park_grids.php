@@ -38,7 +38,7 @@
     <!-- left side start-->
     <?php include 'sidebar.php'; ?>
     <!-- left side end-->
-    
+
     <!-- main content start-->
     <div class="main-content" >
 
@@ -63,7 +63,7 @@
         <!--body wrapper start-->
         <div class="wrapper">
             <header class="panel-heading custom-tab">
-                <!--                            车位数据列表-->
+                <!--车位数据列表-->
                 <ul class="nav nav-tabs " id="my-tabs">
                     <li class="active">
                         <a href="#all-parks" data-toggle="tab" class="all-orders">全部车位</a>
@@ -104,11 +104,6 @@
                                                 用户：<?php echo $rs->rel_name?><br>
                                                 电话：<?php echo $rs->tel?>
                                             </address>
-                                            <ul class="social-links">
-                                                <?php if($rs->plot_id != ''){?>
-                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>
-                                                <?php }?>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -134,11 +129,6 @@
                                                 用户：--<br>
                                                 电话：--
                                             </address>
-                                            <ul class="social-links">
-                                                <?php if($rs->plot_id != ''){?>
-                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li>
-                                                <?php }?>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -280,8 +270,6 @@
                 var $msg = $('<address>停车状态:未预定<br> 停车时间：--至 --<br> 用户：--<br> 电话：-- </address>');
             }
             $msg.appendTo($meidiaBody);
-            var $socialLinks = $('<ul class="social-links"><li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-thumbs-up"></i></a></li></ul>');
-            $socialLinks.appendTo($meidiaBody);
             $meidiaBody.appendTo($panelBody);
             $panelBody.appendTo($panel);
             $panel.appendTo($container);
