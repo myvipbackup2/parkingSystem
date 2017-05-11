@@ -21,7 +21,7 @@
 
     <div class="pay-success">
         <h2 class="order-title">支付成功！</h2>
-        <a href="welcome/index" class="user-center">点此，跳转到首页</a>
+        <a href="welcome/order" class="user-center">点此处，跳转到我的订单</a>
     </div>
 
     <div class="hr"></div>
