@@ -32,9 +32,11 @@ class User_model extends CI_Model
 
     public function get_message_by_userId($user_id)
     {
-        return $this->db->get_where("t_message", array(
-            "receiver" => $user_id
-        ))->result();
+        $this->db->select("*");
+        $this->db->from("t_message");
+        $this->db->where("receiver", $user_id);
+        $this->db->order_by('message_id', 'DESC');  //留言降序desc
+        return $this->db->get()->result();
     }
 
     public function delete_comment_by_comment_id($commentId)
@@ -115,7 +117,7 @@ class User_model extends CI_Model
     {
         $this->db->select('t_order.*,t_park.*');
         $this->db->from('t_order');
-        $this->db->join('t_park','t_park.park_id=t_order.park_id');
+        $this->db->join('t_park', 't_park.park_id=t_order.park_id');
         $this->db->where('t_order.user_id', $uid);
         $this->db->where('t_order.status !=', '已完成');
         return $this->db->get()->result();
@@ -126,7 +128,9 @@ class User_model extends CI_Model
         $row = $this->db->get_where("t_park", array("park_id" => $hid))->row();
         return $row;
     }
-    public function aa($hid){
+
+    public function aa($hid)
+    {
         $result = $this->db->get_where("t_park_img", array("park_id" => $hid))->result();
         return $result;
     }
@@ -215,7 +219,7 @@ class User_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function update_user_info($useremail, $relname, $sex, $idcard, $user_id,$head_img)
+    public function update_user_info($useremail, $relname, $sex, $idcard, $user_id, $head_img)
     {
         $this->db->where('user_id', $user_id);
         $this->db->update('t_user', array(
@@ -223,7 +227,7 @@ class User_model extends CI_Model
             "rel_name" => $relname,
             "sex" => $sex,
             "id_card" => $idcard,
-            'portrait'=>$head_img
+            'portrait' => $head_img
         ));
         return $this->db->affected_rows();
     }
