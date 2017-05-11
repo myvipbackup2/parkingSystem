@@ -175,17 +175,12 @@ class Park extends CI_Controller
         $city = htmlspecialchars($this->input->post('city'));
         $position = htmlspecialchars($this->input->post('position'));
         $address = htmlspecialchars($this->input->post('address'));
-        $bedroom = htmlspecialchars($this->input->post('bedroom'));
-        $livingroom = htmlspecialchars($this->input->post('livingroom'));
-        $toilet = htmlspecialchars($this->input->post('toilet'));
         $price = htmlspecialchars($this->input->post('price'));
         $park_msg = $this->input->post('park-msg');
         $notice = htmlspecialchars($this->input->post('notice'));
         $traffic = htmlspecialchars($this->input->post('traffic'));
         $isSale = $this->input->post('is-sale');
         $salePrice = htmlspecialchars($this->input->post('sale-price'));
-        $floor = htmlspecialchars($this->input->post('floor'));
-        $totalFloors = htmlspecialchars($this->input->post('total-floors'));
         $developer_id = htmlspecialchars($this->input->post('developer_id'));
         $video = htmlspecialchars($this->input->post('video'));
 
@@ -201,17 +196,12 @@ class Park extends CI_Controller
             "city" => $city,
             "region" => $position,
             "street" => $address,
-            "bedroom" => $bedroom,
-            "livingroom" => $livingroom,
-            "lavatory" => $toilet,
             "price" => $price,
             "description" => $park_msg,
             "notice"=>$notice,
             "traffic"=>$traffic,
             "is_sale"=>$isSale[0]==1?1:0,
             "sale_price"=>$salePrice,
-            "floor"=>$floor,
-            "total_floors"=>$totalFloors,
             "developer_id"=>$developer_id,
             "video"=>$video
         ));
@@ -235,18 +225,16 @@ class Park extends CI_Controller
             $this -> park_model -> del_park_img($del_img_id);
         }
 
-        if(count($facilitys)){
-            $facilityArr = [];
-            foreach ($facilitys as $facility){
-                $facilityArr[] = array('type_id'=>$facility,'park_id'=>$park_id);
-            }
-            $this -> facility_model -> update_park_for_facility($park_id,$facilityArr);
-
-        }
+//        if(count($facilitys)){
+//            $facilityArr = [];
+//            foreach ($facilitys as $facility){
+//                $facilityArr[] = array('type_id'=>$facility,'park_id'=>$park_id);
+//            }
+//            $this -> facility_model -> update_park_for_facility($park_id,$facilityArr);
+//
+//        }
 
         redirect('park');
-
-
 
     }
 
