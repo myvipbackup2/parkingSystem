@@ -75,7 +75,7 @@
                         <a class="p-btns p-update" v-show="isPay(order.status)&&!isRefund(order.status)"
                            :href="'order/apply_refund?order_no='+order.order_no">申请退款</a>
                         <a class="p-btns p-update" v-show="isRefund(order.status)"
-                           style="background: #eee;color: #ccc;">正在进行</a>
+                           style="background: #eee;color: #ccc;">正在退款</a>
                     </div>
                     <div class="p-btns-box" v-show="!showSpan">
                         <a class="p-btns p-cancel"
@@ -90,13 +90,6 @@
                 停车时间：{{order.start_time}} -离开时间：{{order.end_time}}
             </div>
         </div>
-        <!-- <div v-for='(park,index) in orderList' :class="{pic_group2:index%3==2,pic_group:index%3!=2}" >
-            <div class="pic_imgClass"><a class="pic_imgClass" :href="'park/detail/' + park.park_id" > <img :src="'<?php /*echo ADMINPATH */ ?>'+park.img_thumb_src" alt=""></a></div>
-            <ul class="pic_dis">
-                <li ><span class="pic_name">{{park.title}}</span><span class="pic_name" style="float:right; color: #f00; margin-right: 10px;">￥{{park.price}}</span></li>
-                <li><span class="pic_name" style="font-size: 12px;">{{park.street}}</span></li>
-            </ul>
-        </div>-->
     </div>
     <!--confirm弹框-->
     <div v-show="isShow">
