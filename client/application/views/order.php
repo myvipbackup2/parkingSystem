@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="pro-date">
-                停车时间：{{order.start_time}} -离开时间：{{order.end_time}}
+                停车时间：{{order.start_time}} - {{order.end_time}}
             </div>
         </div>
     </div>
