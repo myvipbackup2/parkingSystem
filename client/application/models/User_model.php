@@ -109,8 +109,12 @@ class User_model extends CI_Model
 
     public function query_done_order($uid)
     {
-        $result = $this->db->get_where("t_order", array("user_id" => $uid, "status" => '已完成'))->result();
-        return $result;
+        $this->db->select('t_order.*,t_park.*');
+        $this->db->from('t_order');
+        $this->db->join('t_park', 't_park.park_id=t_order.park_id');
+        $this->db->where('t_order.user_id', $uid);
+        $this->db->where('t_order.status', '已完成');
+        return $this->db->get()->result();
     }
 
     public function query_undone_order($uid)

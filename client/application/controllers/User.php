@@ -37,27 +37,18 @@ class User extends CI_Controller
      */
     public function loadOrder()
     {
-
-        $orderType = $this->input->get("orderType");
-        //获取用户信息
-        $userId = $this->session->userdata('userinfo')->user_id;
-        if (isset($userId) && $orderType == 'order') {
+        $orderType = $this->input->get("orderType");//获取选择的状态（已完成/未完成）订单
+        $userId = $this->session->userdata('userinfo')->user_id;//获取用ID
+        if (isset($userId) && $orderType == 'order') {//用户ID 已完成订单
             $results = $this->user_model->query_done_order($userId);//获取该用户所有已完成订单
             foreach ($results as $row) {
-                $donepark = $this->user_model->query_park_info($row->park_id);
-                $comment = $this->user_model->is_comment($userId, $row->order_id);
-                $row->comment = true;
-                $row->park = $donepark;
-                if ($comment != null) {
-                    $row->comment = false;
-                }
+                $result = $this->user_model->aa($row->park_id);
+                $row->imgs = $result;
             };
             echo json_encode(array(
                 'data' => $results,
             ));
-//            echo "success";
-
-        } else if (isset($userId) && $orderType == 'un_order') {
+        } else if (isset($userId) && $orderType == 'un_order') {//用户ID 未完成订单
             $results2 = $this->user_model->query_undone_order($userId);//获取该用户所有未完成订单
             foreach ($results2 as $row) {
 //                $undonepark = $this->user_model->query_park_info($row->park_id);

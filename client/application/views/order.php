@@ -114,7 +114,7 @@
     </div>
 </div>
 <!-- 引入组件库 -->
-<script src="js/vue.min.js"></script>
+<script src="js/vue.js"></script>
 <script src="js/axios.min.js"></script>
 <script src="js/mintUI.min.js"></script>
 <script src="js/zepto.js"></script>
