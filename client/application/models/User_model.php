@@ -133,7 +133,7 @@ class User_model extends CI_Model
         return $row;
     }
 
-    public function aa($hid)
+    public function query_img($hid)
     {
         $result = $this->db->get_where("t_park_img", array("park_id" => $hid))->result();
         return $result;

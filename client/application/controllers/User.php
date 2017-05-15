@@ -42,8 +42,8 @@ class User extends CI_Controller
         if (isset($userId) && $orderType == 'order') {//用户ID 已完成订单
             $results = $this->user_model->query_done_order($userId);//获取该用户所有已完成订单
             foreach ($results as $row) {
-                $result = $this->user_model->aa($row->park_id);
-                $row->imgs = $result;
+                $row->imgs = $this->user_model->query_img($row->park_id);
+                $row->comment = $this->user_model->is_comment($userId, $row->order_id);
             };
             echo json_encode(array(
                 'data' => $results,
@@ -52,8 +52,7 @@ class User extends CI_Controller
             $results2 = $this->user_model->query_undone_order($userId);//获取该用户所有未完成订单
             foreach ($results2 as $row) {
 //                $undonepark = $this->user_model->query_park_info($row->park_id);
-                $result = $this->user_model->aa($row->park_id);
-                $row->imgs = $result;
+                $row->imgs = $this->user_model->query_img($row->park_id);
 //                $row->park = $undonepark;
             };
             echo json_encode(array(
