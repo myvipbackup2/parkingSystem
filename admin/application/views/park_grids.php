@@ -88,7 +88,7 @@
                                 <header class="panel-heading">
                                     <?php echo $rs->title?>
                                     <div style="margin-top: -6px;" class="btn-group pull-right" data-id="<?php echo $rs->park_id?>">
-                                        <button class="btn btn-success" type="button">续</button>
+                                        <button class="btn btn-success" type="button">续租</button>
                                         <button class="btn btn-info" type="button">结账</button>
                                     </div>
                                 </header>

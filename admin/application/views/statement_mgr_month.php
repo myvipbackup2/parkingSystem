@@ -130,6 +130,7 @@
 <script src="js/vue.js"></script>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/jquery.table2excel.js"></script>
+<script src="js/scripts.js"></script>
 <script>
     $(function () {
 
